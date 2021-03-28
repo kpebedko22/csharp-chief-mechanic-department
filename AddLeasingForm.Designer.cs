@@ -29,24 +29,34 @@ namespace OGM
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_LeasingNum = new System.Windows.Forms.Label();
+            this.textBox_LeasingNum = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            //
-            // label1
-            //
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(194, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            //
+            // 
+            // label_LeasingNum
+            // 
+            this.label_LeasingNum.AutoSize = true;
+            this.label_LeasingNum.Font = new System.Drawing.Font("Segoe WP", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label_LeasingNum.Location = new System.Drawing.Point(194, 28);
+            this.label_LeasingNum.Name = "label_LeasingNum";
+            this.label_LeasingNum.Size = new System.Drawing.Size(175, 26);
+            this.label_LeasingNum.TabIndex = 0;
+            this.label_LeasingNum.Text = "Номер договора:";
+            // 
+            // textBox_LeasingNum
+            // 
+            this.textBox_LeasingNum.Location = new System.Drawing.Point(396, 25);
+            this.textBox_LeasingNum.Name = "textBox_LeasingNum";
+            this.textBox_LeasingNum.Size = new System.Drawing.Size(212, 29);
+            this.textBox_LeasingNum.TabIndex = 1;
+            // 
             // AddLeasingForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 410);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox_LeasingNum);
+            this.Controls.Add(this.label_LeasingNum);
             this.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddLeasingForm";
@@ -58,6 +68,7 @@ namespace OGM
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_LeasingNum;
+        private System.Windows.Forms.TextBox textBox_LeasingNum;
     }
 }
