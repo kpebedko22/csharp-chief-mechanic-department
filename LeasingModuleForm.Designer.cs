@@ -41,7 +41,6 @@ namespace OGM
             this.организацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.причинаСписанияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox_Search = new System.Windows.Forms.GroupBox();
-            this.pictureBox_Info = new System.Windows.Forms.PictureBox();
             this.button_Search = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label_DateCreateContract = new System.Windows.Forms.Label();
@@ -56,10 +55,11 @@ namespace OGM
             this.Column_Leaser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_View = new System.Windows.Forms.DataGridViewLinkColumn();
             this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox_Info = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.groupBox_Search.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -85,14 +85,14 @@ namespace OGM
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // найтиToolStripMenuItem
             // 
             this.найтиToolStripMenuItem.Name = "найтиToolStripMenuItem";
-            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.найтиToolStripMenuItem.Text = "Найти";
             // 
             // справочникиToolStripMenuItem
@@ -133,6 +133,7 @@ namespace OGM
             this.организацияToolStripMenuItem.Name = "организацияToolStripMenuItem";
             this.организацияToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.организацияToolStripMenuItem.Text = "Организация";
+            this.организацияToolStripMenuItem.Click += new System.EventHandler(this.организацияToolStripMenuItem_Click);
             // 
             // причинаСписанияToolStripMenuItem
             // 
@@ -157,18 +158,6 @@ namespace OGM
             this.groupBox_Search.TabIndex = 1;
             this.groupBox_Search.TabStop = false;
             this.groupBox_Search.Text = "Параметры поиска договора (-ов)";
-            // 
-            // pictureBox_Info
-            // 
-            this.pictureBox_Info.Image = global::OGM.Properties.Resources.info;
-            this.pictureBox_Info.Location = new System.Drawing.Point(757, 17);
-            this.pictureBox_Info.Name = "pictureBox_Info";
-            this.pictureBox_Info.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox_Info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_Info.TabIndex = 6;
-            this.pictureBox_Info.TabStop = false;
-            this.toolTip_Info.SetToolTip(this.pictureBox_Info, "Поля необязательны к заполнению.\r\nВы можете выбрать только интересующие Вас парам" +
-        "етры.");
             // 
             // button_Search
             // 
@@ -279,6 +268,18 @@ namespace OGM
             this.Column_View.Name = "Column_View";
             this.Column_View.ReadOnly = true;
             // 
+            // pictureBox_Info
+            // 
+            this.pictureBox_Info.Image = global::OGM.Properties.Resources.info;
+            this.pictureBox_Info.Location = new System.Drawing.Point(757, 17);
+            this.pictureBox_Info.Name = "pictureBox_Info";
+            this.pictureBox_Info.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox_Info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Info.TabIndex = 6;
+            this.pictureBox_Info.TabStop = false;
+            this.toolTip_Info.SetToolTip(this.pictureBox_Info, "Поля необязательны к заполнению.\r\nВы можете выбрать только интересующие Вас парам" +
+        "етры.");
+            // 
             // LeasingModuleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -300,8 +301,8 @@ namespace OGM
             this.menuStrip.PerformLayout();
             this.groupBox_Search.ResumeLayout(false);
             this.groupBox_Search.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
