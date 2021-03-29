@@ -35,29 +35,6 @@ namespace OGM
             this.textBox_LeasingNum = new System.Windows.Forms.TextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage_MainInfo = new System.Windows.Forms.TabPage();
-            this.tabPage_Equipment = new System.Windows.Forms.TabPage();
-            this.label_Seller = new System.Windows.Forms.Label();
-            this.comboBox_Seller = new System.Windows.Forms.ComboBox();
-            this.comboBox_Leaser = new System.Windows.Forms.ComboBox();
-            this.label_Leaser = new System.Windows.Forms.Label();
-            this.label_LeaserFIO = new System.Windows.Forms.Label();
-            this.label_SellerFIO = new System.Windows.Forms.Label();
-            this.textBox_SellerFIO = new System.Windows.Forms.TextBox();
-            this.textBox_LeaserFIO = new System.Windows.Forms.TextBox();
-            this.groupBox_Seller = new System.Windows.Forms.GroupBox();
-            this.groupBox_Leaser = new System.Windows.Forms.GroupBox();
-            this.label_CustomerFIO = new System.Windows.Forms.Label();
-            this.textBox_CustomerFIO = new System.Windows.Forms.TextBox();
-            this.label_Date = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.groupBox_Deadlines = new System.Windows.Forms.GroupBox();
-            this.label_DaysForFirstPayment = new System.Windows.Forms.Label();
-            this.label_DaysForReport = new System.Windows.Forms.Label();
-            this.numericUpDown_DaysForFirstPayment = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown_DaysForReport = new System.Windows.Forms.NumericUpDown();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.numericUpDown_DaysForForceMajeure = new System.Windows.Forms.NumericUpDown();
-            this.label_DaysForForceMajeure = new System.Windows.Forms.Label();
             this.groupBox_Responsibility = new System.Windows.Forms.GroupBox();
             this.textBox_PenaltyFee = new System.Windows.Forms.TextBox();
             this.pictureBox_PenaltyFee = new System.Windows.Forms.PictureBox();
@@ -68,44 +45,78 @@ namespace OGM
             this.numericUpDown_Penalty = new System.Windows.Forms.NumericUpDown();
             this.label_MaxPenalty = new System.Windows.Forms.Label();
             this.label_Penalty = new System.Windows.Forms.Label();
-            this.dateTimePicker_DateDelivery = new System.Windows.Forms.DateTimePicker();
-            this.label_DateDelivery = new System.Windows.Forms.Label();
-            this.numericUpDown_PeriodOfUse = new System.Windows.Forms.NumericUpDown();
-            this.label_PeriodOfUse = new System.Windows.Forms.Label();
-            this.button_AddRowEquipment = new System.Windows.Forms.Button();
-            this.button_RemoveEquipment = new System.Windows.Forms.Button();
+            this.groupBox_Deadlines = new System.Windows.Forms.GroupBox();
+            this.numericUpDown_DaysForForceMajeure = new System.Windows.Forms.NumericUpDown();
+            this.label_DaysForForceMajeure = new System.Windows.Forms.Label();
+            this.numericUpDown_DaysForReport = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_DaysForFirstPayment = new System.Windows.Forms.NumericUpDown();
+            this.label_DaysForReport = new System.Windows.Forms.Label();
+            this.label_DaysForFirstPayment = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label_Date = new System.Windows.Forms.Label();
+            this.textBox_CustomerFIO = new System.Windows.Forms.TextBox();
+            this.label_CustomerFIO = new System.Windows.Forms.Label();
+            this.groupBox_Leaser = new System.Windows.Forms.GroupBox();
+            this.label_Leaser = new System.Windows.Forms.Label();
+            this.comboBox_Leaser = new System.Windows.Forms.ComboBox();
+            this.textBox_LeaserFIO = new System.Windows.Forms.TextBox();
+            this.label_LeaserFIO = new System.Windows.Forms.Label();
+            this.groupBox_Seller = new System.Windows.Forms.GroupBox();
+            this.label_Seller = new System.Windows.Forms.Label();
+            this.comboBox_Seller = new System.Windows.Forms.ComboBox();
+            this.textBox_SellerFIO = new System.Windows.Forms.TextBox();
+            this.label_SellerFIO = new System.Windows.Forms.Label();
+            this.tabPage_Equipment = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Mesure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_GroupEquipment = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.button_RemoveEquipment = new System.Windows.Forms.Button();
+            this.button_AddRowEquipment = new System.Windows.Forms.Button();
+            this.numericUpDown_PeriodOfUse = new System.Windows.Forms.NumericUpDown();
+            this.label_PeriodOfUse = new System.Windows.Forms.Label();
+            this.dateTimePicker_DateDelivery = new System.Windows.Forms.DateTimePicker();
+            this.label_DateDelivery = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.button_AddAndClose = new System.Windows.Forms.Button();
             this.button_Add = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.лизингToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.найтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оборудованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.группаОборудованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.цехToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.организацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.причинаСписанияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl.SuspendLayout();
             this.tabPage_MainInfo.SuspendLayout();
-            this.tabPage_Equipment.SuspendLayout();
-            this.groupBox_Seller.SuspendLayout();
-            this.groupBox_Leaser.SuspendLayout();
-            this.groupBox_Deadlines.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForFirstPayment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForForceMajeure)).BeginInit();
             this.groupBox_Responsibility.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PenaltyFee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MaxPenalty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Penalty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MaxPenalty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Penalty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).BeginInit();
+            this.groupBox_Deadlines.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForForceMajeure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForFirstPayment)).BeginInit();
+            this.groupBox_Leaser.SuspendLayout();
+            this.groupBox_Seller.SuspendLayout();
+            this.tabPage_Equipment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_LeasingNum
             // 
             this.label_LeasingNum.AutoSize = true;
             this.label_LeasingNum.Font = new System.Drawing.Font("Segoe WP", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label_LeasingNum.Location = new System.Drawing.Point(243, 24);
+            this.label_LeasingNum.Location = new System.Drawing.Point(243, 28);
             this.label_LeasingNum.Name = "label_LeasingNum";
             this.label_LeasingNum.Size = new System.Drawing.Size(126, 26);
             this.label_LeasingNum.TabIndex = 0;
@@ -113,7 +124,7 @@ namespace OGM
             // 
             // textBox_LeasingNum
             // 
-            this.textBox_LeasingNum.Location = new System.Drawing.Point(375, 25);
+            this.textBox_LeasingNum.Location = new System.Drawing.Point(375, 29);
             this.textBox_LeasingNum.Name = "textBox_LeasingNum";
             this.textBox_LeasingNum.Size = new System.Drawing.Size(212, 29);
             this.textBox_LeasingNum.TabIndex = 1;
@@ -145,225 +156,6 @@ namespace OGM
             this.tabPage_MainInfo.TabIndex = 0;
             this.tabPage_MainInfo.Text = "Основная информация";
             this.tabPage_MainInfo.UseVisualStyleBackColor = true;
-            // 
-            // tabPage_Equipment
-            // 
-            this.tabPage_Equipment.Controls.Add(this.dataGridView1);
-            this.tabPage_Equipment.Controls.Add(this.button_RemoveEquipment);
-            this.tabPage_Equipment.Controls.Add(this.button_AddRowEquipment);
-            this.tabPage_Equipment.Controls.Add(this.numericUpDown_PeriodOfUse);
-            this.tabPage_Equipment.Controls.Add(this.label_PeriodOfUse);
-            this.tabPage_Equipment.Controls.Add(this.dateTimePicker_DateDelivery);
-            this.tabPage_Equipment.Controls.Add(this.label_DateDelivery);
-            this.tabPage_Equipment.Location = new System.Drawing.Point(4, 30);
-            this.tabPage_Equipment.Name = "tabPage_Equipment";
-            this.tabPage_Equipment.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Equipment.Size = new System.Drawing.Size(794, 405);
-            this.tabPage_Equipment.TabIndex = 1;
-            this.tabPage_Equipment.Text = "Оборудование";
-            this.tabPage_Equipment.UseVisualStyleBackColor = true;
-            // 
-            // label_Seller
-            // 
-            this.label_Seller.AutoSize = true;
-            this.label_Seller.Location = new System.Drawing.Point(15, 41);
-            this.label_Seller.Name = "label_Seller";
-            this.label_Seller.Size = new System.Drawing.Size(112, 21);
-            this.label_Seller.TabIndex = 0;
-            this.label_Seller.Text = "Организация: ";
-            // 
-            // comboBox_Seller
-            // 
-            this.comboBox_Seller.FormattingEnabled = true;
-            this.comboBox_Seller.Location = new System.Drawing.Point(139, 38);
-            this.comboBox_Seller.Name = "comboBox_Seller";
-            this.comboBox_Seller.Size = new System.Drawing.Size(214, 29);
-            this.comboBox_Seller.TabIndex = 1;
-            // 
-            // comboBox_Leaser
-            // 
-            this.comboBox_Leaser.FormattingEnabled = true;
-            this.comboBox_Leaser.Location = new System.Drawing.Point(136, 38);
-            this.comboBox_Leaser.Name = "comboBox_Leaser";
-            this.comboBox_Leaser.Size = new System.Drawing.Size(214, 29);
-            this.comboBox_Leaser.TabIndex = 3;
-            // 
-            // label_Leaser
-            // 
-            this.label_Leaser.AutoSize = true;
-            this.label_Leaser.Location = new System.Drawing.Point(18, 41);
-            this.label_Leaser.Name = "label_Leaser";
-            this.label_Leaser.Size = new System.Drawing.Size(112, 21);
-            this.label_Leaser.TabIndex = 2;
-            this.label_Leaser.Text = "Организация: ";
-            // 
-            // label_LeaserFIO
-            // 
-            this.label_LeaserFIO.AutoSize = true;
-            this.label_LeaserFIO.Location = new System.Drawing.Point(18, 81);
-            this.label_LeaserFIO.Name = "label_LeaserFIO";
-            this.label_LeaserFIO.Size = new System.Drawing.Size(53, 21);
-            this.label_LeaserFIO.TabIndex = 5;
-            this.label_LeaserFIO.Text = "ФИО: ";
-            // 
-            // label_SellerFIO
-            // 
-            this.label_SellerFIO.AutoSize = true;
-            this.label_SellerFIO.Location = new System.Drawing.Point(16, 81);
-            this.label_SellerFIO.Name = "label_SellerFIO";
-            this.label_SellerFIO.Size = new System.Drawing.Size(53, 21);
-            this.label_SellerFIO.TabIndex = 4;
-            this.label_SellerFIO.Text = "ФИО: ";
-            // 
-            // textBox_SellerFIO
-            // 
-            this.textBox_SellerFIO.Location = new System.Drawing.Point(139, 81);
-            this.textBox_SellerFIO.Name = "textBox_SellerFIO";
-            this.textBox_SellerFIO.Size = new System.Drawing.Size(214, 29);
-            this.textBox_SellerFIO.TabIndex = 6;
-            // 
-            // textBox_LeaserFIO
-            // 
-            this.textBox_LeaserFIO.Location = new System.Drawing.Point(136, 81);
-            this.textBox_LeaserFIO.Name = "textBox_LeaserFIO";
-            this.textBox_LeaserFIO.Size = new System.Drawing.Size(214, 29);
-            this.textBox_LeaserFIO.TabIndex = 7;
-            // 
-            // groupBox_Seller
-            // 
-            this.groupBox_Seller.Controls.Add(this.label_Seller);
-            this.groupBox_Seller.Controls.Add(this.comboBox_Seller);
-            this.groupBox_Seller.Controls.Add(this.textBox_SellerFIO);
-            this.groupBox_Seller.Controls.Add(this.label_SellerFIO);
-            this.groupBox_Seller.Location = new System.Drawing.Point(18, 75);
-            this.groupBox_Seller.Name = "groupBox_Seller";
-            this.groupBox_Seller.Size = new System.Drawing.Size(372, 125);
-            this.groupBox_Seller.TabIndex = 8;
-            this.groupBox_Seller.TabStop = false;
-            this.groupBox_Seller.Text = "Продавец";
-            // 
-            // groupBox_Leaser
-            // 
-            this.groupBox_Leaser.Controls.Add(this.label_Leaser);
-            this.groupBox_Leaser.Controls.Add(this.comboBox_Leaser);
-            this.groupBox_Leaser.Controls.Add(this.textBox_LeaserFIO);
-            this.groupBox_Leaser.Controls.Add(this.label_LeaserFIO);
-            this.groupBox_Leaser.Location = new System.Drawing.Point(404, 75);
-            this.groupBox_Leaser.Name = "groupBox_Leaser";
-            this.groupBox_Leaser.Size = new System.Drawing.Size(372, 125);
-            this.groupBox_Leaser.TabIndex = 9;
-            this.groupBox_Leaser.TabStop = false;
-            this.groupBox_Leaser.Text = "Лизингодатель";
-            // 
-            // label_CustomerFIO
-            // 
-            this.label_CustomerFIO.AutoSize = true;
-            this.label_CustomerFIO.Location = new System.Drawing.Point(14, 26);
-            this.label_CustomerFIO.Name = "label_CustomerFIO";
-            this.label_CustomerFIO.Size = new System.Drawing.Size(125, 21);
-            this.label_CustomerFIO.TabIndex = 10;
-            this.label_CustomerFIO.Text = "ФИО заказчика:";
-            // 
-            // textBox_CustomerFIO
-            // 
-            this.textBox_CustomerFIO.Location = new System.Drawing.Point(157, 20);
-            this.textBox_CustomerFIO.Name = "textBox_CustomerFIO";
-            this.textBox_CustomerFIO.Size = new System.Drawing.Size(214, 29);
-            this.textBox_CustomerFIO.TabIndex = 11;
-            // 
-            // label_Date
-            // 
-            this.label_Date.AutoSize = true;
-            this.label_Date.Location = new System.Drawing.Point(411, 23);
-            this.label_Date.Name = "label_Date";
-            this.label_Date.Size = new System.Drawing.Size(138, 21);
-            this.label_Date.TabIndex = 12;
-            this.label_Date.Text = "Дата заключения:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(554, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
-            this.dateTimePicker1.TabIndex = 13;
-            // 
-            // groupBox_Deadlines
-            // 
-            this.groupBox_Deadlines.Controls.Add(this.numericUpDown_DaysForForceMajeure);
-            this.groupBox_Deadlines.Controls.Add(this.label_DaysForForceMajeure);
-            this.groupBox_Deadlines.Controls.Add(this.numericUpDown_DaysForReport);
-            this.groupBox_Deadlines.Controls.Add(this.numericUpDown_DaysForFirstPayment);
-            this.groupBox_Deadlines.Controls.Add(this.label_DaysForReport);
-            this.groupBox_Deadlines.Controls.Add(this.label_DaysForFirstPayment);
-            this.groupBox_Deadlines.Location = new System.Drawing.Point(18, 221);
-            this.groupBox_Deadlines.Name = "groupBox_Deadlines";
-            this.groupBox_Deadlines.Size = new System.Drawing.Size(372, 174);
-            this.groupBox_Deadlines.TabIndex = 14;
-            this.groupBox_Deadlines.TabStop = false;
-            this.groupBox_Deadlines.Text = "Сроки";
-            // 
-            // label_DaysForFirstPayment
-            // 
-            this.label_DaysForFirstPayment.AutoSize = true;
-            this.label_DaysForFirstPayment.Location = new System.Drawing.Point(16, 31);
-            this.label_DaysForFirstPayment.Name = "label_DaysForFirstPayment";
-            this.label_DaysForFirstPayment.Size = new System.Drawing.Size(178, 21);
-            this.label_DaysForFirstPayment.TabIndex = 7;
-            this.label_DaysForFirstPayment.Text = "Дней для 1-го платежа: ";
-            // 
-            // label_DaysForReport
-            // 
-            this.label_DaysForReport.AutoSize = true;
-            this.label_DaysForReport.Location = new System.Drawing.Point(16, 85);
-            this.label_DaysForReport.Name = "label_DaysForReport";
-            this.label_DaysForReport.Size = new System.Drawing.Size(234, 21);
-            this.label_DaysForReport.TabIndex = 8;
-            this.label_DaysForReport.Text = "Дней для принятия претензий: ";
-            // 
-            // numericUpDown_DaysForFirstPayment
-            // 
-            this.numericUpDown_DaysForFirstPayment.Location = new System.Drawing.Point(262, 31);
-            this.numericUpDown_DaysForFirstPayment.Name = "numericUpDown_DaysForFirstPayment";
-            this.numericUpDown_DaysForFirstPayment.Size = new System.Drawing.Size(91, 29);
-            this.numericUpDown_DaysForFirstPayment.TabIndex = 9;
-            this.numericUpDown_DaysForFirstPayment.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown_DaysForReport
-            // 
-            this.numericUpDown_DaysForReport.Location = new System.Drawing.Point(262, 83);
-            this.numericUpDown_DaysForReport.Name = "numericUpDown_DaysForReport";
-            this.numericUpDown_DaysForReport.Size = new System.Drawing.Size(91, 29);
-            this.numericUpDown_DaysForReport.TabIndex = 10;
-            this.numericUpDown_DaysForReport.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown_DaysForForceMajeure
-            // 
-            this.numericUpDown_DaysForForceMajeure.Location = new System.Drawing.Point(262, 136);
-            this.numericUpDown_DaysForForceMajeure.Name = "numericUpDown_DaysForForceMajeure";
-            this.numericUpDown_DaysForForceMajeure.Size = new System.Drawing.Size(91, 29);
-            this.numericUpDown_DaysForForceMajeure.TabIndex = 21;
-            this.numericUpDown_DaysForForceMajeure.Value = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-            // 
-            // label_DaysForForceMajeure
-            // 
-            this.label_DaysForForceMajeure.AutoSize = true;
-            this.label_DaysForForceMajeure.Location = new System.Drawing.Point(16, 138);
-            this.label_DaysForForceMajeure.Name = "label_DaysForForceMajeure";
-            this.label_DaysForForceMajeure.Size = new System.Drawing.Size(166, 21);
-            this.label_DaysForForceMajeure.TabIndex = 20;
-            this.label_DaysForForceMajeure.Text = "Дней на форс-мажор:";
             // 
             // groupBox_Responsibility
             // 
@@ -477,60 +269,224 @@ namespace OGM
             this.label_Penalty.TabIndex = 20;
             this.label_Penalty.Text = "Пеня, в %: ";
             // 
-            // dateTimePicker_DateDelivery
+            // groupBox_Deadlines
             // 
-            this.dateTimePicker_DateDelivery.Location = new System.Drawing.Point(554, 20);
-            this.dateTimePicker_DateDelivery.Name = "dateTimePicker_DateDelivery";
-            this.dateTimePicker_DateDelivery.Size = new System.Drawing.Size(200, 29);
-            this.dateTimePicker_DateDelivery.TabIndex = 15;
+            this.groupBox_Deadlines.Controls.Add(this.numericUpDown_DaysForForceMajeure);
+            this.groupBox_Deadlines.Controls.Add(this.label_DaysForForceMajeure);
+            this.groupBox_Deadlines.Controls.Add(this.numericUpDown_DaysForReport);
+            this.groupBox_Deadlines.Controls.Add(this.numericUpDown_DaysForFirstPayment);
+            this.groupBox_Deadlines.Controls.Add(this.label_DaysForReport);
+            this.groupBox_Deadlines.Controls.Add(this.label_DaysForFirstPayment);
+            this.groupBox_Deadlines.Location = new System.Drawing.Point(18, 221);
+            this.groupBox_Deadlines.Name = "groupBox_Deadlines";
+            this.groupBox_Deadlines.Size = new System.Drawing.Size(372, 174);
+            this.groupBox_Deadlines.TabIndex = 14;
+            this.groupBox_Deadlines.TabStop = false;
+            this.groupBox_Deadlines.Text = "Сроки";
             // 
-            // label_DateDelivery
+            // numericUpDown_DaysForForceMajeure
             // 
-            this.label_DateDelivery.AutoSize = true;
-            this.label_DateDelivery.Location = new System.Drawing.Point(411, 23);
-            this.label_DateDelivery.Name = "label_DateDelivery";
-            this.label_DateDelivery.Size = new System.Drawing.Size(116, 21);
-            this.label_DateDelivery.TabIndex = 14;
-            this.label_DateDelivery.Text = "Дата поставки:";
-            // 
-            // numericUpDown_PeriodOfUse
-            // 
-            this.numericUpDown_PeriodOfUse.Location = new System.Drawing.Point(262, 21);
-            this.numericUpDown_PeriodOfUse.Name = "numericUpDown_PeriodOfUse";
-            this.numericUpDown_PeriodOfUse.Size = new System.Drawing.Size(63, 29);
-            this.numericUpDown_PeriodOfUse.TabIndex = 17;
-            this.numericUpDown_PeriodOfUse.Value = new decimal(new int[] {
-            3,
+            this.numericUpDown_DaysForForceMajeure.Location = new System.Drawing.Point(262, 136);
+            this.numericUpDown_DaysForForceMajeure.Name = "numericUpDown_DaysForForceMajeure";
+            this.numericUpDown_DaysForForceMajeure.Size = new System.Drawing.Size(91, 29);
+            this.numericUpDown_DaysForForceMajeure.TabIndex = 21;
+            this.numericUpDown_DaysForForceMajeure.Value = new decimal(new int[] {
+            7,
             0,
             0,
             0});
             // 
-            // label_PeriodOfUse
+            // label_DaysForForceMajeure
             // 
-            this.label_PeriodOfUse.AutoSize = true;
-            this.label_PeriodOfUse.Location = new System.Drawing.Point(30, 23);
-            this.label_PeriodOfUse.Name = "label_PeriodOfUse";
-            this.label_PeriodOfUse.Size = new System.Drawing.Size(223, 21);
-            this.label_PeriodOfUse.TabIndex = 16;
-            this.label_PeriodOfUse.Text = "Срок использования, в годах: ";
+            this.label_DaysForForceMajeure.AutoSize = true;
+            this.label_DaysForForceMajeure.Location = new System.Drawing.Point(16, 138);
+            this.label_DaysForForceMajeure.Name = "label_DaysForForceMajeure";
+            this.label_DaysForForceMajeure.Size = new System.Drawing.Size(166, 21);
+            this.label_DaysForForceMajeure.TabIndex = 20;
+            this.label_DaysForForceMajeure.Text = "Дней на форс-мажор:";
             // 
-            // button_AddRowEquipment
+            // numericUpDown_DaysForReport
             // 
-            this.button_AddRowEquipment.Location = new System.Drawing.Point(34, 74);
-            this.button_AddRowEquipment.Name = "button_AddRowEquipment";
-            this.button_AddRowEquipment.Size = new System.Drawing.Size(101, 32);
-            this.button_AddRowEquipment.TabIndex = 18;
-            this.button_AddRowEquipment.Text = "Добавить";
-            this.button_AddRowEquipment.UseVisualStyleBackColor = true;
+            this.numericUpDown_DaysForReport.Location = new System.Drawing.Point(262, 83);
+            this.numericUpDown_DaysForReport.Name = "numericUpDown_DaysForReport";
+            this.numericUpDown_DaysForReport.Size = new System.Drawing.Size(91, 29);
+            this.numericUpDown_DaysForReport.TabIndex = 10;
+            this.numericUpDown_DaysForReport.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
-            // button_RemoveEquipment
+            // numericUpDown_DaysForFirstPayment
             // 
-            this.button_RemoveEquipment.Location = new System.Drawing.Point(152, 74);
-            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
-            this.button_RemoveEquipment.Size = new System.Drawing.Size(101, 32);
-            this.button_RemoveEquipment.TabIndex = 19;
-            this.button_RemoveEquipment.Text = "Удалить";
-            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
+            this.numericUpDown_DaysForFirstPayment.Location = new System.Drawing.Point(262, 31);
+            this.numericUpDown_DaysForFirstPayment.Name = "numericUpDown_DaysForFirstPayment";
+            this.numericUpDown_DaysForFirstPayment.Size = new System.Drawing.Size(91, 29);
+            this.numericUpDown_DaysForFirstPayment.TabIndex = 9;
+            this.numericUpDown_DaysForFirstPayment.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label_DaysForReport
+            // 
+            this.label_DaysForReport.AutoSize = true;
+            this.label_DaysForReport.Location = new System.Drawing.Point(16, 85);
+            this.label_DaysForReport.Name = "label_DaysForReport";
+            this.label_DaysForReport.Size = new System.Drawing.Size(234, 21);
+            this.label_DaysForReport.TabIndex = 8;
+            this.label_DaysForReport.Text = "Дней для принятия претензий: ";
+            // 
+            // label_DaysForFirstPayment
+            // 
+            this.label_DaysForFirstPayment.AutoSize = true;
+            this.label_DaysForFirstPayment.Location = new System.Drawing.Point(16, 31);
+            this.label_DaysForFirstPayment.Name = "label_DaysForFirstPayment";
+            this.label_DaysForFirstPayment.Size = new System.Drawing.Size(178, 21);
+            this.label_DaysForFirstPayment.TabIndex = 7;
+            this.label_DaysForFirstPayment.Text = "Дней для 1-го платежа: ";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(554, 20);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
+            this.dateTimePicker1.TabIndex = 13;
+            // 
+            // label_Date
+            // 
+            this.label_Date.AutoSize = true;
+            this.label_Date.Location = new System.Drawing.Point(411, 23);
+            this.label_Date.Name = "label_Date";
+            this.label_Date.Size = new System.Drawing.Size(138, 21);
+            this.label_Date.TabIndex = 12;
+            this.label_Date.Text = "Дата заключения:";
+            // 
+            // textBox_CustomerFIO
+            // 
+            this.textBox_CustomerFIO.Location = new System.Drawing.Point(157, 20);
+            this.textBox_CustomerFIO.Name = "textBox_CustomerFIO";
+            this.textBox_CustomerFIO.Size = new System.Drawing.Size(214, 29);
+            this.textBox_CustomerFIO.TabIndex = 11;
+            // 
+            // label_CustomerFIO
+            // 
+            this.label_CustomerFIO.AutoSize = true;
+            this.label_CustomerFIO.Location = new System.Drawing.Point(14, 26);
+            this.label_CustomerFIO.Name = "label_CustomerFIO";
+            this.label_CustomerFIO.Size = new System.Drawing.Size(125, 21);
+            this.label_CustomerFIO.TabIndex = 10;
+            this.label_CustomerFIO.Text = "ФИО заказчика:";
+            // 
+            // groupBox_Leaser
+            // 
+            this.groupBox_Leaser.Controls.Add(this.label_Leaser);
+            this.groupBox_Leaser.Controls.Add(this.comboBox_Leaser);
+            this.groupBox_Leaser.Controls.Add(this.textBox_LeaserFIO);
+            this.groupBox_Leaser.Controls.Add(this.label_LeaserFIO);
+            this.groupBox_Leaser.Location = new System.Drawing.Point(404, 75);
+            this.groupBox_Leaser.Name = "groupBox_Leaser";
+            this.groupBox_Leaser.Size = new System.Drawing.Size(372, 125);
+            this.groupBox_Leaser.TabIndex = 9;
+            this.groupBox_Leaser.TabStop = false;
+            this.groupBox_Leaser.Text = "Лизингодатель";
+            // 
+            // label_Leaser
+            // 
+            this.label_Leaser.AutoSize = true;
+            this.label_Leaser.Location = new System.Drawing.Point(18, 41);
+            this.label_Leaser.Name = "label_Leaser";
+            this.label_Leaser.Size = new System.Drawing.Size(112, 21);
+            this.label_Leaser.TabIndex = 2;
+            this.label_Leaser.Text = "Организация: ";
+            // 
+            // comboBox_Leaser
+            // 
+            this.comboBox_Leaser.FormattingEnabled = true;
+            this.comboBox_Leaser.Location = new System.Drawing.Point(136, 38);
+            this.comboBox_Leaser.Name = "comboBox_Leaser";
+            this.comboBox_Leaser.Size = new System.Drawing.Size(214, 29);
+            this.comboBox_Leaser.TabIndex = 3;
+            // 
+            // textBox_LeaserFIO
+            // 
+            this.textBox_LeaserFIO.Location = new System.Drawing.Point(136, 81);
+            this.textBox_LeaserFIO.Name = "textBox_LeaserFIO";
+            this.textBox_LeaserFIO.Size = new System.Drawing.Size(214, 29);
+            this.textBox_LeaserFIO.TabIndex = 7;
+            // 
+            // label_LeaserFIO
+            // 
+            this.label_LeaserFIO.AutoSize = true;
+            this.label_LeaserFIO.Location = new System.Drawing.Point(18, 81);
+            this.label_LeaserFIO.Name = "label_LeaserFIO";
+            this.label_LeaserFIO.Size = new System.Drawing.Size(53, 21);
+            this.label_LeaserFIO.TabIndex = 5;
+            this.label_LeaserFIO.Text = "ФИО: ";
+            // 
+            // groupBox_Seller
+            // 
+            this.groupBox_Seller.Controls.Add(this.label_Seller);
+            this.groupBox_Seller.Controls.Add(this.comboBox_Seller);
+            this.groupBox_Seller.Controls.Add(this.textBox_SellerFIO);
+            this.groupBox_Seller.Controls.Add(this.label_SellerFIO);
+            this.groupBox_Seller.Location = new System.Drawing.Point(18, 75);
+            this.groupBox_Seller.Name = "groupBox_Seller";
+            this.groupBox_Seller.Size = new System.Drawing.Size(372, 125);
+            this.groupBox_Seller.TabIndex = 8;
+            this.groupBox_Seller.TabStop = false;
+            this.groupBox_Seller.Text = "Продавец";
+            // 
+            // label_Seller
+            // 
+            this.label_Seller.AutoSize = true;
+            this.label_Seller.Location = new System.Drawing.Point(15, 41);
+            this.label_Seller.Name = "label_Seller";
+            this.label_Seller.Size = new System.Drawing.Size(112, 21);
+            this.label_Seller.TabIndex = 0;
+            this.label_Seller.Text = "Организация: ";
+            // 
+            // comboBox_Seller
+            // 
+            this.comboBox_Seller.FormattingEnabled = true;
+            this.comboBox_Seller.Location = new System.Drawing.Point(139, 38);
+            this.comboBox_Seller.Name = "comboBox_Seller";
+            this.comboBox_Seller.Size = new System.Drawing.Size(214, 29);
+            this.comboBox_Seller.TabIndex = 1;
+            // 
+            // textBox_SellerFIO
+            // 
+            this.textBox_SellerFIO.Location = new System.Drawing.Point(139, 81);
+            this.textBox_SellerFIO.Name = "textBox_SellerFIO";
+            this.textBox_SellerFIO.Size = new System.Drawing.Size(214, 29);
+            this.textBox_SellerFIO.TabIndex = 6;
+            // 
+            // label_SellerFIO
+            // 
+            this.label_SellerFIO.AutoSize = true;
+            this.label_SellerFIO.Location = new System.Drawing.Point(16, 81);
+            this.label_SellerFIO.Name = "label_SellerFIO";
+            this.label_SellerFIO.Size = new System.Drawing.Size(53, 21);
+            this.label_SellerFIO.TabIndex = 4;
+            this.label_SellerFIO.Text = "ФИО: ";
+            // 
+            // tabPage_Equipment
+            // 
+            this.tabPage_Equipment.Controls.Add(this.dataGridView1);
+            this.tabPage_Equipment.Controls.Add(this.button_RemoveEquipment);
+            this.tabPage_Equipment.Controls.Add(this.button_AddRowEquipment);
+            this.tabPage_Equipment.Controls.Add(this.numericUpDown_PeriodOfUse);
+            this.tabPage_Equipment.Controls.Add(this.label_PeriodOfUse);
+            this.tabPage_Equipment.Controls.Add(this.dateTimePicker_DateDelivery);
+            this.tabPage_Equipment.Controls.Add(this.label_DateDelivery);
+            this.tabPage_Equipment.Location = new System.Drawing.Point(4, 30);
+            this.tabPage_Equipment.Name = "tabPage_Equipment";
+            this.tabPage_Equipment.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Equipment.Size = new System.Drawing.Size(794, 405);
+            this.tabPage_Equipment.TabIndex = 1;
+            this.tabPage_Equipment.Text = "Оборудование";
+            this.tabPage_Equipment.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -579,6 +535,61 @@ namespace OGM
             this.Column_GroupEquipment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column_GroupEquipment.Width = 208;
             // 
+            // button_RemoveEquipment
+            // 
+            this.button_RemoveEquipment.Location = new System.Drawing.Point(152, 74);
+            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
+            this.button_RemoveEquipment.Size = new System.Drawing.Size(101, 32);
+            this.button_RemoveEquipment.TabIndex = 19;
+            this.button_RemoveEquipment.Text = "Удалить";
+            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
+            // 
+            // button_AddRowEquipment
+            // 
+            this.button_AddRowEquipment.Location = new System.Drawing.Point(34, 74);
+            this.button_AddRowEquipment.Name = "button_AddRowEquipment";
+            this.button_AddRowEquipment.Size = new System.Drawing.Size(101, 32);
+            this.button_AddRowEquipment.TabIndex = 18;
+            this.button_AddRowEquipment.Text = "Добавить";
+            this.button_AddRowEquipment.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown_PeriodOfUse
+            // 
+            this.numericUpDown_PeriodOfUse.Location = new System.Drawing.Point(262, 21);
+            this.numericUpDown_PeriodOfUse.Name = "numericUpDown_PeriodOfUse";
+            this.numericUpDown_PeriodOfUse.Size = new System.Drawing.Size(63, 29);
+            this.numericUpDown_PeriodOfUse.TabIndex = 17;
+            this.numericUpDown_PeriodOfUse.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label_PeriodOfUse
+            // 
+            this.label_PeriodOfUse.AutoSize = true;
+            this.label_PeriodOfUse.Location = new System.Drawing.Point(30, 23);
+            this.label_PeriodOfUse.Name = "label_PeriodOfUse";
+            this.label_PeriodOfUse.Size = new System.Drawing.Size(223, 21);
+            this.label_PeriodOfUse.TabIndex = 16;
+            this.label_PeriodOfUse.Text = "Срок использования, в годах: ";
+            // 
+            // dateTimePicker_DateDelivery
+            // 
+            this.dateTimePicker_DateDelivery.Location = new System.Drawing.Point(554, 20);
+            this.dateTimePicker_DateDelivery.Name = "dateTimePicker_DateDelivery";
+            this.dateTimePicker_DateDelivery.Size = new System.Drawing.Size(200, 29);
+            this.dateTimePicker_DateDelivery.TabIndex = 15;
+            // 
+            // label_DateDelivery
+            // 
+            this.label_DateDelivery.AutoSize = true;
+            this.label_DateDelivery.Location = new System.Drawing.Point(411, 23);
+            this.label_DateDelivery.Name = "label_DateDelivery";
+            this.label_DateDelivery.Size = new System.Drawing.Size(116, 21);
+            this.label_DateDelivery.TabIndex = 14;
+            this.label_DateDelivery.Text = "Дата поставки:";
+            // 
             // button_AddAndClose
             // 
             this.button_AddAndClose.Location = new System.Drawing.Point(200, 64);
@@ -610,11 +621,92 @@ namespace OGM
             this.button1.Text = "Отменить";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.лизингToolStripMenuItem,
+            this.справочникиToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(826, 24);
+            this.menuStrip.TabIndex = 24;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // лизингToolStripMenuItem
+            // 
+            this.лизингToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьToolStripMenuItem,
+            this.найтиToolStripMenuItem});
+            this.лизингToolStripMenuItem.Name = "лизингToolStripMenuItem";
+            this.лизингToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.лизингToolStripMenuItem.Text = "Лизинг";
+            // 
+            // добавитьToolStripMenuItem
+            // 
+            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.добавитьToolStripMenuItem.Text = "Добавить";
+            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
+            // 
+            // найтиToolStripMenuItem
+            // 
+            this.найтиToolStripMenuItem.Name = "найтиToolStripMenuItem";
+            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.найтиToolStripMenuItem.Text = "Найти";
+            this.найтиToolStripMenuItem.Click += new System.EventHandler(this.найтиToolStripMenuItem_Click);
+            // 
+            // справочникиToolStripMenuItem
+            // 
+            this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.оборудованиеToolStripMenuItem,
+            this.группаОборудованияToolStripMenuItem,
+            this.цехToolStripMenuItem,
+            this.организацияToolStripMenuItem,
+            this.причинаСписанияToolStripMenuItem});
+            this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
+            this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.справочникиToolStripMenuItem.Text = "Справочники";
+            // 
+            // оборудованиеToolStripMenuItem
+            // 
+            this.оборудованиеToolStripMenuItem.Name = "оборудованиеToolStripMenuItem";
+            this.оборудованиеToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.оборудованиеToolStripMenuItem.Text = "Оборудование";
+            this.оборудованиеToolStripMenuItem.Click += new System.EventHandler(this.оборудованиеToolStripMenuItem_Click);
+            // 
+            // группаОборудованияToolStripMenuItem
+            // 
+            this.группаОборудованияToolStripMenuItem.Name = "группаОборудованияToolStripMenuItem";
+            this.группаОборудованияToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.группаОборудованияToolStripMenuItem.Text = "Группа оборудования";
+            this.группаОборудованияToolStripMenuItem.Click += new System.EventHandler(this.группаОборудованияToolStripMenuItem_Click);
+            // 
+            // цехToolStripMenuItem
+            // 
+            this.цехToolStripMenuItem.Name = "цехToolStripMenuItem";
+            this.цехToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.цехToolStripMenuItem.Text = "Цех";
+            this.цехToolStripMenuItem.Click += new System.EventHandler(this.цехToolStripMenuItem_Click);
+            // 
+            // организацияToolStripMenuItem
+            // 
+            this.организацияToolStripMenuItem.Name = "организацияToolStripMenuItem";
+            this.организацияToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.организацияToolStripMenuItem.Text = "Организация";
+            // 
+            // причинаСписанияToolStripMenuItem
+            // 
+            this.причинаСписанияToolStripMenuItem.Name = "причинаСписанияToolStripMenuItem";
+            this.причинаСписанияToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.причинаСписанияToolStripMenuItem.Text = "Причина списания";
+            this.причинаСписанияToolStripMenuItem.Click += new System.EventHandler(this.причинаСписанияToolStripMenuItem_Click);
+            // 
             // AddLeasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 575);
+            this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_Add);
             this.Controls.Add(this.button_AddAndClose);
@@ -625,20 +717,10 @@ namespace OGM
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddLeasingForm";
             this.Text = "Добавить новый договор лизинга";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddLeasingForm_FormClosed);
             this.tabControl.ResumeLayout(false);
             this.tabPage_MainInfo.ResumeLayout(false);
             this.tabPage_MainInfo.PerformLayout();
-            this.tabPage_Equipment.ResumeLayout(false);
-            this.tabPage_Equipment.PerformLayout();
-            this.groupBox_Seller.ResumeLayout(false);
-            this.groupBox_Seller.PerformLayout();
-            this.groupBox_Leaser.ResumeLayout(false);
-            this.groupBox_Leaser.PerformLayout();
-            this.groupBox_Deadlines.ResumeLayout(false);
-            this.groupBox_Deadlines.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForFirstPayment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForForceMajeure)).EndInit();
             this.groupBox_Responsibility.ResumeLayout(false);
             this.groupBox_Responsibility.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PenaltyFee)).EndInit();
@@ -646,8 +728,21 @@ namespace OGM
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Penalty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MaxPenalty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Penalty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).EndInit();
+            this.groupBox_Deadlines.ResumeLayout(false);
+            this.groupBox_Deadlines.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForForceMajeure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_DaysForFirstPayment)).EndInit();
+            this.groupBox_Leaser.ResumeLayout(false);
+            this.groupBox_Leaser.PerformLayout();
+            this.groupBox_Seller.ResumeLayout(false);
+            this.groupBox_Seller.PerformLayout();
+            this.tabPage_Equipment.ResumeLayout(false);
+            this.tabPage_Equipment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -706,5 +801,15 @@ namespace OGM
         private System.Windows.Forms.Button button_AddAndClose;
         private System.Windows.Forms.Button button_Add;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem лизингToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem найтиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оборудованиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem группаОборудованияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem цехToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem организацияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem причинаСписанияToolStripMenuItem;
     }
 }

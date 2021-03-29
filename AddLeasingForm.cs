@@ -12,9 +12,49 @@ namespace OGM
 {
     public partial class AddLeasingForm : Form
     {
-        public AddLeasingForm()
+
+        private Form Owner;
+        public AddLeasingForm(Form owner)
         {
             InitializeComponent();
+
+            Owner = owner;
+        }
+
+
+        private void AddLeasingForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Visible = true;
+        }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void найтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void оборудованиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Equipment().ShowDialog();
+        }
+
+        private void причинаСписанияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ReasonDebitForm().ShowDialog();
+        }
+
+        private void группаОборудованияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new GroupEquipmentForm().ShowDialog();
+        }
+
+        private void цехToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new WorkshopForm().ShowDialog();
         }
     }
 }
