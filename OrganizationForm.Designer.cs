@@ -319,6 +319,7 @@ namespace OGM
             this.button_AddOrganization.TabIndex = 11;
             this.button_AddOrganization.Text = "Добавить";
             this.button_AddOrganization.UseVisualStyleBackColor = true;
+            this.button_AddOrganization.Click += new System.EventHandler(this.button_AddOrganization_Click);
             // 
             // Column_NameOrganization
             // 

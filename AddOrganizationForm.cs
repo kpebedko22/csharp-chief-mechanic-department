@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace OGM
 {
-    public partial class OrganizationForm : Form
+    public partial class AddOrganizationForm : Form
     {
-        public OrganizationForm()
+        public AddOrganizationForm()
         {
             InitializeComponent();
-        }
-
-        private void button_AddOrganization_Click(object sender, EventArgs e)
-        {
-            new AddOrganizationForm().ShowDialog();
         }
     }
 }

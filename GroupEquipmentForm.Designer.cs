@@ -33,17 +33,17 @@ namespace OGM
             this.button_EditGroupEquipment = new System.Windows.Forms.Button();
             this.button_AddGroupEquipment = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Сipher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Workshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Search = new System.Windows.Forms.GroupBox();
+            this.comboBox_Workshop = new System.Windows.Forms.ComboBox();
+            this.label_Workshop = new System.Windows.Forms.Label();
             this.textBox_Сipher = new System.Windows.Forms.TextBox();
             this.button_Search = new System.Windows.Forms.Button();
             this.textBox_NameEquipment = new System.Windows.Forms.TextBox();
             this.label_Сipher = new System.Windows.Forms.Label();
             this.label_NameEquipment = new System.Windows.Forms.Label();
-            this.label_Workshop = new System.Windows.Forms.Label();
-            this.comboBox_Workshop = new System.Windows.Forms.ComboBox();
-            this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Сipher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Workshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox_Search.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +93,27 @@ namespace OGM
             this.dataGridView.Size = new System.Drawing.Size(544, 291);
             this.dataGridView.TabIndex = 13;
             // 
+            // Column_NameEquipment
+            // 
+            this.Column_NameEquipment.HeaderText = "Наименование";
+            this.Column_NameEquipment.Name = "Column_NameEquipment";
+            this.Column_NameEquipment.ReadOnly = true;
+            this.Column_NameEquipment.Width = 300;
+            // 
+            // Column_Сipher
+            // 
+            this.Column_Сipher.HeaderText = "Шифр";
+            this.Column_Сipher.Name = "Column_Сipher";
+            this.Column_Сipher.ReadOnly = true;
+            this.Column_Сipher.Width = 70;
+            // 
+            // Column_Workshop
+            // 
+            this.Column_Workshop.HeaderText = "Цех";
+            this.Column_Workshop.Name = "Column_Workshop";
+            this.Column_Workshop.ReadOnly = true;
+            this.Column_Workshop.Width = 130;
+            // 
             // groupBox_Search
             // 
             this.groupBox_Search.Controls.Add(this.comboBox_Workshop);
@@ -110,6 +131,24 @@ namespace OGM
             this.groupBox_Search.TabIndex = 12;
             this.groupBox_Search.TabStop = false;
             this.groupBox_Search.Text = "Параметры поиска";
+            // 
+            // comboBox_Workshop
+            // 
+            this.comboBox_Workshop.FormattingEnabled = true;
+            this.comboBox_Workshop.Location = new System.Drawing.Point(172, 133);
+            this.comboBox_Workshop.Name = "comboBox_Workshop";
+            this.comboBox_Workshop.Size = new System.Drawing.Size(307, 29);
+            this.comboBox_Workshop.TabIndex = 11;
+            // 
+            // label_Workshop
+            // 
+            this.label_Workshop.AutoSize = true;
+            this.label_Workshop.Location = new System.Drawing.Point(32, 136);
+            this.label_Workshop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Workshop.Name = "label_Workshop";
+            this.label_Workshop.Size = new System.Drawing.Size(40, 21);
+            this.label_Workshop.TabIndex = 10;
+            this.label_Workshop.Text = "Цех:";
             // 
             // textBox_Сipher
             // 
@@ -157,45 +196,6 @@ namespace OGM
             this.label_NameEquipment.TabIndex = 0;
             this.label_NameEquipment.Text = "Наименование:";
             // 
-            // label_Workshop
-            // 
-            this.label_Workshop.AutoSize = true;
-            this.label_Workshop.Location = new System.Drawing.Point(32, 136);
-            this.label_Workshop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_Workshop.Name = "label_Workshop";
-            this.label_Workshop.Size = new System.Drawing.Size(40, 21);
-            this.label_Workshop.TabIndex = 10;
-            this.label_Workshop.Text = "Цех:";
-            // 
-            // comboBox_Workshop
-            // 
-            this.comboBox_Workshop.FormattingEnabled = true;
-            this.comboBox_Workshop.Location = new System.Drawing.Point(172, 133);
-            this.comboBox_Workshop.Name = "comboBox_Workshop";
-            this.comboBox_Workshop.Size = new System.Drawing.Size(307, 29);
-            this.comboBox_Workshop.TabIndex = 11;
-            // 
-            // Column_NameEquipment
-            // 
-            this.Column_NameEquipment.HeaderText = "Наименование";
-            this.Column_NameEquipment.Name = "Column_NameEquipment";
-            this.Column_NameEquipment.ReadOnly = true;
-            this.Column_NameEquipment.Width = 300;
-            // 
-            // Column_Сipher
-            // 
-            this.Column_Сipher.HeaderText = "Шифр";
-            this.Column_Сipher.Name = "Column_Сipher";
-            this.Column_Сipher.ReadOnly = true;
-            this.Column_Сipher.Width = 70;
-            // 
-            // Column_Workshop
-            // 
-            this.Column_Workshop.HeaderText = "Цех";
-            this.Column_Workshop.Name = "Column_Workshop";
-            this.Column_Workshop.ReadOnly = true;
-            this.Column_Workshop.Width = 130;
-            // 
             // GroupEquipmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -209,7 +209,7 @@ namespace OGM
             this.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "GroupEquipmentForm";
-            this.Text = "Справочник - Группа оборудований";
+            this.Text = "г";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.groupBox_Search.ResumeLayout(false);
             this.groupBox_Search.PerformLayout();

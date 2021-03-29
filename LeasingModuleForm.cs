@@ -54,5 +54,10 @@ namespace OGM
             this.Visible = false;
             new AddLeasingForm(this).Show();
         }
+
+        private void организацияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new OrganizationForm().ShowDialog();
+        }
     }
 }
