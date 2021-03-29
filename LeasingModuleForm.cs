@@ -43,5 +43,10 @@ namespace OGM
         {
             new WorkshopForm().ShowDialog();
         }
+
+        private void причинаСписанияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ReasonDebitForm().ShowDialog();
+        }
     }
 }
