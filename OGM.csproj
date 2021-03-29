@@ -46,17 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEquipment.Designer.cs">
+      <DependentUpon>AddEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGroupEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroupEquipment.Designer.cs">
+      <DependentUpon>AddGroupEquipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddLeasingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddLeasingForm.Designer.cs">
       <DependentUpon>AddLeasingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Equipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipment.Designer.cs">
+      <DependentUpon>Equipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="EquipmentModuleForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EquipmentModuleForm.Designer.cs">
       <DependentUpon>EquipmentModuleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupEquipmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupEquipmentForm.Designer.cs">
+      <DependentUpon>GroupEquipmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
@@ -72,11 +96,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddEquipment.resx">
+      <DependentUpon>AddEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGroupEquipment.resx">
+      <DependentUpon>AddGroupEquipment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddLeasingForm.resx">
       <DependentUpon>AddLeasingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Equipment.resx">
+      <DependentUpon>Equipment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EquipmentModuleForm.resx">
       <DependentUpon>EquipmentModuleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupEquipmentForm.resx">
+      <DependentUpon>GroupEquipmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>

@@ -28,5 +28,15 @@ namespace OGM
 		private void LeasingModuleForm_FormClosed(object sender, FormClosedEventArgs e) {
             Owner.Visible = true;
         }
-	}
+
+        private void оборудованиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Equipment().ShowDialog();
+        }
+
+        private void группаОборудованияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new GroupEquipmentForm().ShowDialog();
+        }
+    }
 }
