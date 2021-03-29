@@ -38,5 +38,10 @@ namespace OGM
         {
             new GroupEquipmentForm().ShowDialog();
         }
+
+        private void цехToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new WorkshopForm().ShowDialog();
+        }
     }
 }
