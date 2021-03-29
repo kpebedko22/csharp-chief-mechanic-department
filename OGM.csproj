@@ -64,6 +64,12 @@
     <Compile Include="AddLeasingForm.Designer.cs">
       <DependentUpon>AddLeasingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddWorkshopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWorkshopForm.Designer.cs">
+      <DependentUpon>AddWorkshopForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Equipment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkshopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkshopForm.Designer.cs">
+      <DependentUpon>WorkshopForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddEquipment.resx">
       <DependentUpon>AddEquipment.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddLeasingForm.resx">
       <DependentUpon>AddLeasingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddWorkshopForm.resx">
+      <DependentUpon>AddWorkshopForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Equipment.resx">
       <DependentUpon>Equipment.cs</DependentUpon>
@@ -130,6 +145,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WorkshopForm.resx">
+      <DependentUpon>WorkshopForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -157,7 +157,7 @@ namespace OGM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 312);
+            this.ClientSize = new System.Drawing.Size(552, 305);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_AddEquipmentAndClose);
             this.Controls.Add(this.comboBox_Workshop);

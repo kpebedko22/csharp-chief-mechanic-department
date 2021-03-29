@@ -36,6 +36,7 @@ namespace OGM
             this.найтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оборудованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.группаОборудованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.цехToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.организацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.причинаСписанияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,6 @@ namespace OGM
             this.Column_View = new System.Windows.Forms.DataGridViewLinkColumn();
             this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox_Info = new System.Windows.Forms.PictureBox();
-            this.группаОборудованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.groupBox_Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -113,11 +113,19 @@ namespace OGM
             this.оборудованиеToolStripMenuItem.Text = "Оборудование";
             this.оборудованиеToolStripMenuItem.Click += new System.EventHandler(this.оборудованиеToolStripMenuItem_Click);
             // 
+            // группаОборудованияToolStripMenuItem
+            // 
+            this.группаОборудованияToolStripMenuItem.Name = "группаОборудованияToolStripMenuItem";
+            this.группаОборудованияToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.группаОборудованияToolStripMenuItem.Text = "Группа оборудования";
+            this.группаОборудованияToolStripMenuItem.Click += new System.EventHandler(this.группаОборудованияToolStripMenuItem_Click);
+            // 
             // цехToolStripMenuItem
             // 
             this.цехToolStripMenuItem.Name = "цехToolStripMenuItem";
             this.цехToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.цехToolStripMenuItem.Text = "Цех";
+            this.цехToolStripMenuItem.Click += new System.EventHandler(this.цехToolStripMenuItem_Click);
             // 
             // организацияToolStripMenuItem
             // 
@@ -268,13 +276,6 @@ namespace OGM
             this.pictureBox_Info.TabStop = false;
             this.toolTip_Info.SetToolTip(this.pictureBox_Info, "Поля необязательны к заполнению.\r\nВы можете выбрать только интересующие Вас парам" +
         "етры.");
-            // 
-            // группаОборудованияToolStripMenuItem
-            // 
-            this.группаОборудованияToolStripMenuItem.Name = "группаОборудованияToolStripMenuItem";
-            this.группаОборудованияToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.группаОборудованияToolStripMenuItem.Text = "Группа оборудования";
-            this.группаОборудованияToolStripMenuItem.Click += new System.EventHandler(this.группаОборудованияToolStripMenuItem_Click);
             // 
             // LeasingModuleForm
             // 
