@@ -36,11 +36,13 @@ namespace OGM
             this.textBox_NameEquipment = new System.Windows.Forms.TextBox();
             this.label_Cipher = new System.Windows.Forms.Label();
             this.label_NameEquipment = new System.Windows.Forms.Label();
+            this.label_Workshop = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(13, 113);
+            this.button_Cancel.Location = new System.Drawing.Point(13, 145);
             this.button_Cancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(128, 29);
@@ -50,7 +52,7 @@ namespace OGM
             // 
             // button_AddGroupEquipmentAndClose
             // 
-            this.button_AddGroupEquipmentAndClose.Location = new System.Drawing.Point(149, 113);
+            this.button_AddGroupEquipmentAndClose.Location = new System.Drawing.Point(149, 145);
             this.button_AddGroupEquipmentAndClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_AddGroupEquipmentAndClose.Name = "button_AddGroupEquipmentAndClose";
             this.button_AddGroupEquipmentAndClose.Size = new System.Drawing.Size(166, 29);
@@ -60,7 +62,7 @@ namespace OGM
             // 
             // button_AddGroupEquipment
             // 
-            this.button_AddGroupEquipment.Location = new System.Drawing.Point(323, 113);
+            this.button_AddGroupEquipment.Location = new System.Drawing.Point(323, 145);
             this.button_AddGroupEquipment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_AddGroupEquipment.Name = "button_AddGroupEquipment";
             this.button_AddGroupEquipment.Size = new System.Drawing.Size(164, 29);
@@ -104,11 +106,31 @@ namespace OGM
             this.label_NameEquipment.TabIndex = 24;
             this.label_NameEquipment.Text = "Наименование:";
             // 
+            // label_Workshop
+            // 
+            this.label_Workshop.AutoSize = true;
+            this.label_Workshop.Location = new System.Drawing.Point(9, 107);
+            this.label_Workshop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Workshop.Name = "label_Workshop";
+            this.label_Workshop.Size = new System.Drawing.Size(40, 21);
+            this.label_Workshop.TabIndex = 31;
+            this.label_Workshop.Text = "Цех:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(155, 104);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(332, 29);
+            this.comboBox1.TabIndex = 32;
+            // 
             // AddGroupEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 154);
+            this.ClientSize = new System.Drawing.Size(501, 188);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label_Workshop);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_AddGroupEquipmentAndClose);
             this.Controls.Add(this.button_AddGroupEquipment);
@@ -134,5 +156,7 @@ namespace OGM
         private System.Windows.Forms.TextBox textBox_NameEquipment;
         private System.Windows.Forms.Label label_Cipher;
         private System.Windows.Forms.Label label_NameEquipment;
+        private System.Windows.Forms.Label label_Workshop;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
