@@ -52,6 +52,12 @@
     <Compile Include="AddEquipment.Designer.cs">
       <DependentUpon>AddEquipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEquipmentDebitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEquipmentDebitForm.Designer.cs">
+      <DependentUpon>AddEquipmentDebitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddGroupEquipment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </Compile>
     <EmbeddedResource Include="AddEquipment.resx">
       <DependentUpon>AddEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEquipmentDebitForm.resx">
+      <DependentUpon>AddEquipmentDebitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddGroupEquipment.resx">
       <DependentUpon>AddGroupEquipment.cs</DependentUpon>

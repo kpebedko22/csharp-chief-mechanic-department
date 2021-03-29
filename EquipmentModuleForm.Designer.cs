@@ -27,32 +27,32 @@ namespace OGM {
 			this.components = new System.ComponentModel.Container();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.ToolStripMenuItem_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
-			this.ToolStripMenuItem_Handbooks = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Add_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Find_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripMenuItem_Handbooks = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Equipment_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_GroupEquipment_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Workshop_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Organization_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_ReasonDebit_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox_Search = new System.Windows.Forms.GroupBox();
-			this.label_DateDebit = new System.Windows.Forms.Label();
-			this.dateTimePicker_DateDebit = new System.Windows.Forms.DateTimePicker();
-			this.label_ActNumber = new System.Windows.Forms.Label();
-			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
 			this.button_Search = new System.Windows.Forms.Button();
+			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
+			this.label_ActNumber = new System.Windows.Forms.Label();
+			this.dateTimePicker_DateDebit = new System.Windows.Forms.DateTimePicker();
+			this.label_DateDebit = new System.Windows.Forms.Label();
 			this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
-			this.pictureBox_Info = new System.Windows.Forms.PictureBox();
 			this.dataGridView_Data = new System.Windows.Forms.DataGridView();
-			this.button_ResetSearch = new System.Windows.Forms.Button();
 			this.ColumnNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnActNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnView = new System.Windows.Forms.DataGridViewLinkColumn();
+			this.button_ResetSearch = new System.Windows.Forms.Button();
+			this.pictureBox_Info = new System.Windows.Forms.PictureBox();
 			this.menuStrip.SuspendLayout();
 			this.groupBox_Search.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// menuStrip
@@ -75,6 +75,19 @@ namespace OGM {
 			this.ToolStripMenuItem_EquipmentDebit.Size = new System.Drawing.Size(155, 20);
 			this.ToolStripMenuItem_EquipmentDebit.Text = "Списание оборудования";
 			// 
+			// ToolStripMenuItem_Add_EquipmentDebit
+			// 
+			this.ToolStripMenuItem_Add_EquipmentDebit.Name = "ToolStripMenuItem_Add_EquipmentDebit";
+			this.ToolStripMenuItem_Add_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Add_EquipmentDebit.Text = "Добавить";
+			this.ToolStripMenuItem_Add_EquipmentDebit.Click += new System.EventHandler(this.ToolStripMenuItem_Add_EquipmentDebit_Click);
+			// 
+			// ToolStripMenuItem_Find_EquipmentDebit
+			// 
+			this.ToolStripMenuItem_Find_EquipmentDebit.Name = "ToolStripMenuItem_Find_EquipmentDebit";
+			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Find_EquipmentDebit.Text = "Найти";
+			// 
 			// ToolStripMenuItem_Handbooks
 			// 
 			this.ToolStripMenuItem_Handbooks.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -86,18 +99,6 @@ namespace OGM {
 			this.ToolStripMenuItem_Handbooks.Name = "ToolStripMenuItem_Handbooks";
 			this.ToolStripMenuItem_Handbooks.Size = new System.Drawing.Size(94, 20);
 			this.ToolStripMenuItem_Handbooks.Text = "Справочники";
-			// 
-			// ToolStripMenuItem_Add_EquipmentDebit
-			// 
-			this.ToolStripMenuItem_Add_EquipmentDebit.Name = "ToolStripMenuItem_Add_EquipmentDebit";
-			this.ToolStripMenuItem_Add_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
-			this.ToolStripMenuItem_Add_EquipmentDebit.Text = "Добавить";
-			// 
-			// ToolStripMenuItem_Find_EquipmentDebit
-			// 
-			this.ToolStripMenuItem_Find_EquipmentDebit.Name = "ToolStripMenuItem_Find_EquipmentDebit";
-			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
-			this.ToolStripMenuItem_Find_EquipmentDebit.Text = "Найти";
 			// 
 			// ToolStripMenuItem_Equipment_Handbook
 			// 
@@ -149,21 +150,21 @@ namespace OGM {
 			this.groupBox_Search.TabStop = false;
 			this.groupBox_Search.Text = "Параметры поиска акта (-ов)";
 			// 
-			// label_DateDebit
+			// button_Search
 			// 
-			this.label_DateDebit.AutoSize = true;
-			this.label_DateDebit.Location = new System.Drawing.Point(473, 32);
-			this.label_DateDebit.Name = "label_DateDebit";
-			this.label_DateDebit.Size = new System.Drawing.Size(117, 21);
-			this.label_DateDebit.TabIndex = 0;
-			this.label_DateDebit.Text = "Дата списания:";
+			this.button_Search.Location = new System.Drawing.Point(477, 78);
+			this.button_Search.Name = "button_Search";
+			this.button_Search.Size = new System.Drawing.Size(319, 29);
+			this.button_Search.TabIndex = 4;
+			this.button_Search.Text = "Найти";
+			this.button_Search.UseVisualStyleBackColor = true;
 			// 
-			// dateTimePicker_DateDebit
+			// textBox_ActNumber
 			// 
-			this.dateTimePicker_DateDebit.Location = new System.Drawing.Point(596, 28);
-			this.dateTimePicker_DateDebit.Name = "dateTimePicker_DateDebit";
-			this.dateTimePicker_DateDebit.Size = new System.Drawing.Size(200, 29);
-			this.dateTimePicker_DateDebit.TabIndex = 1;
+			this.textBox_ActNumber.Location = new System.Drawing.Point(149, 28);
+			this.textBox_ActNumber.Name = "textBox_ActNumber";
+			this.textBox_ActNumber.Size = new System.Drawing.Size(200, 29);
+			this.textBox_ActNumber.TabIndex = 3;
 			// 
 			// label_ActNumber
 			// 
@@ -174,33 +175,21 @@ namespace OGM {
 			this.label_ActNumber.TabIndex = 2;
 			this.label_ActNumber.Text = "Номер акта:";
 			// 
-			// textBox_ActNumber
+			// dateTimePicker_DateDebit
 			// 
-			this.textBox_ActNumber.Location = new System.Drawing.Point(149, 28);
-			this.textBox_ActNumber.Name = "textBox_ActNumber";
-			this.textBox_ActNumber.Size = new System.Drawing.Size(200, 29);
-			this.textBox_ActNumber.TabIndex = 3;
+			this.dateTimePicker_DateDebit.Location = new System.Drawing.Point(596, 28);
+			this.dateTimePicker_DateDebit.Name = "dateTimePicker_DateDebit";
+			this.dateTimePicker_DateDebit.Size = new System.Drawing.Size(200, 29);
+			this.dateTimePicker_DateDebit.TabIndex = 1;
 			// 
-			// button_Search
+			// label_DateDebit
 			// 
-			this.button_Search.Location = new System.Drawing.Point(477, 78);
-			this.button_Search.Name = "button_Search";
-			this.button_Search.Size = new System.Drawing.Size(319, 29);
-			this.button_Search.TabIndex = 4;
-			this.button_Search.Text = "Найти";
-			this.button_Search.UseVisualStyleBackColor = true;
-			// 
-			// pictureBox_Info
-			// 
-			this.pictureBox_Info.Image = global::OGM.Properties.Resources.info;
-			this.pictureBox_Info.Location = new System.Drawing.Point(838, 16);
-			this.pictureBox_Info.Name = "pictureBox_Info";
-			this.pictureBox_Info.Size = new System.Drawing.Size(16, 16);
-			this.pictureBox_Info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox_Info.TabIndex = 5;
-			this.pictureBox_Info.TabStop = false;
-			this.toolTip_Info.SetToolTip(this.pictureBox_Info, "Поля необязательны к заполнению.\r\nВы можете выбрать только интересующие Вас парам" +
-        "етры.");
+			this.label_DateDebit.AutoSize = true;
+			this.label_DateDebit.Location = new System.Drawing.Point(473, 32);
+			this.label_DateDebit.Name = "label_DateDebit";
+			this.label_DateDebit.Size = new System.Drawing.Size(117, 21);
+			this.label_DateDebit.TabIndex = 0;
+			this.label_DateDebit.Text = "Дата списания:";
 			// 
 			// dataGridView_Data
 			// 
@@ -216,15 +205,6 @@ namespace OGM {
 			this.dataGridView_Data.ReadOnly = true;
 			this.dataGridView_Data.Size = new System.Drawing.Size(860, 355);
 			this.dataGridView_Data.TabIndex = 2;
-			// 
-			// button_ResetSearch
-			// 
-			this.button_ResetSearch.Location = new System.Drawing.Point(522, 520);
-			this.button_ResetSearch.Name = "button_ResetSearch";
-			this.button_ResetSearch.Size = new System.Drawing.Size(350, 29);
-			this.button_ResetSearch.TabIndex = 3;
-			this.button_ResetSearch.Text = "Сбросить параметры поиска";
-			this.button_ResetSearch.UseVisualStyleBackColor = true;
 			// 
 			// ColumnNum
 			// 
@@ -255,6 +235,27 @@ namespace OGM {
 			this.ColumnView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.ColumnView.Width = 200;
 			// 
+			// button_ResetSearch
+			// 
+			this.button_ResetSearch.Location = new System.Drawing.Point(522, 520);
+			this.button_ResetSearch.Name = "button_ResetSearch";
+			this.button_ResetSearch.Size = new System.Drawing.Size(350, 29);
+			this.button_ResetSearch.TabIndex = 3;
+			this.button_ResetSearch.Text = "Сбросить параметры поиска";
+			this.button_ResetSearch.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox_Info
+			// 
+			this.pictureBox_Info.Image = global::OGM.Properties.Resources.info;
+			this.pictureBox_Info.Location = new System.Drawing.Point(838, 16);
+			this.pictureBox_Info.Name = "pictureBox_Info";
+			this.pictureBox_Info.Size = new System.Drawing.Size(16, 16);
+			this.pictureBox_Info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox_Info.TabIndex = 5;
+			this.pictureBox_Info.TabStop = false;
+			this.toolTip_Info.SetToolTip(this.pictureBox_Info, "Поля необязательны к заполнению.\r\nВы можете выбрать только интересующие Вас парам" +
+        "етры.");
+			// 
 			// EquipmentModuleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -277,8 +278,8 @@ namespace OGM {
 			this.menuStrip.PerformLayout();
 			this.groupBox_Search.ResumeLayout(false);
 			this.groupBox_Search.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

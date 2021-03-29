@@ -9,25 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OGM {
-	public partial class EquipmentModuleForm : Form {
+	public partial class AddEquipmentDebitForm : Form {
 
 		private Form Owner;
 
-		public EquipmentModuleForm(Form owner) {
+		public AddEquipmentDebitForm(Form owner) {
 			InitializeComponent();
 
 			Owner = owner;
-
-			dataGridView_Data[3, 0].Value = "Просмотреть";
 		}
 
-		private void EquipmentModuleForm_FormClosed(object sender, FormClosedEventArgs e) {
+		private void AddEquipmentDebitForm_FormClosed(object sender, FormClosedEventArgs e) {
 			Owner.Visible = true;
-		}
-
-		private void ToolStripMenuItem_Add_EquipmentDebit_Click(object sender, EventArgs e) {
-			this.Visible = false;
-			new AddEquipmentDebitForm(this).Show();
 		}
 
 		private void ToolStripMenuItem_Equipment_Handbook_Click(object sender, EventArgs e) {
@@ -49,6 +42,5 @@ namespace OGM {
 		private void ToolStripMenuItem_ReasonDebit_Handbook_Click(object sender, EventArgs e) {
 			new ReasonDebitForm().ShowDialog();
 		}
-
 	}
 }
