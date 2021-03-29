@@ -17,10 +17,32 @@ namespace OGM {
 			InitializeComponent();
 
 			Owner = owner;
+
+			dataGridView_Data[3, 0].Value = "Просмотреть";
 		}
 
 		private void EquipmentModuleForm_FormClosed(object sender, FormClosedEventArgs e) {
 			Owner.Visible = true;
+		}
+
+		private void ToolStripMenuItem_Equipment_Handbook_Click(object sender, EventArgs e) {
+			new Equipment().ShowDialog();
+		}
+
+		private void ToolStripMenuItem_GroupEquipment_Handbook_Click(object sender, EventArgs e) {
+			new GroupEquipmentForm().ShowDialog();
+		}
+
+		private void ToolStripMenuItem_Workshop_Handbook_Click(object sender, EventArgs e) {
+			new WorkshopForm().ShowDialog();
+		}
+
+		private void ToolStripMenuItem_Organization_Handbook_Click(object sender, EventArgs e) {
+
+		}
+
+		private void ToolStripMenuItem_ReasonDebit_Handbook_Click(object sender, EventArgs e) {
+			new ReasonDebitForm().ShowDialog();
 		}
 	}
 }
