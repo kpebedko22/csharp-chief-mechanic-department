@@ -90,9 +90,9 @@ namespace OGM
             this.label_CipherReasonDebit.Location = new System.Drawing.Point(13, 66);
             this.label_CipherReasonDebit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_CipherReasonDebit.Name = "label_CipherReasonDebit";
-            this.label_CipherReasonDebit.Size = new System.Drawing.Size(137, 21);
+            this.label_CipherReasonDebit.Size = new System.Drawing.Size(57, 21);
             this.label_CipherReasonDebit.TabIndex = 32;
-            this.label_CipherReasonDebit.Text = "Серийный номер:";
+            this.label_CipherReasonDebit.Text = "Шифр:";
             // 
             // label_NameReasonDebit
             // 

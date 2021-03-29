@@ -48,5 +48,11 @@ namespace OGM
         {
             new ReasonDebitForm().ShowDialog();
         }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            new AddLeasingForm(this).Show();
+        }
     }
 }
