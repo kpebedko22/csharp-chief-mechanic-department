@@ -70,7 +70,7 @@ namespace OGM
             // 
             // textBox_Cipher
             // 
-            this.textBox_Cipher.Location = new System.Drawing.Point(155, 65);
+            this.textBox_Cipher.Location = new System.Drawing.Point(155, 60);
             this.textBox_Cipher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Cipher.Name = "textBox_Cipher";
             this.textBox_Cipher.Size = new System.Drawing.Size(332, 29);
@@ -90,9 +90,9 @@ namespace OGM
             this.label_Cipher.Location = new System.Drawing.Point(9, 63);
             this.label_Cipher.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Cipher.Name = "label_Cipher";
-            this.label_Cipher.Size = new System.Drawing.Size(137, 21);
+            this.label_Cipher.Size = new System.Drawing.Size(57, 21);
             this.label_Cipher.TabIndex = 25;
-            this.label_Cipher.Text = "Серийный номер:";
+            this.label_Cipher.Text = "Шифр:";
             // 
             // label_NameEquipment
             // 

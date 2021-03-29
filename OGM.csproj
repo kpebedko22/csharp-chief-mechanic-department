@@ -64,6 +64,12 @@
     <Compile Include="AddLeasingForm.Designer.cs">
       <DependentUpon>AddLeasingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddReasonDebitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddReasonDebitForm.Designer.cs">
+      <DependentUpon>AddReasonDebitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddWorkshopForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReasonDebitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReasonDebitForm.Designer.cs">
+      <DependentUpon>ReasonDebitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkshopForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddLeasingForm.resx">
       <DependentUpon>AddLeasingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddReasonDebitForm.resx">
+      <DependentUpon>AddReasonDebitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddWorkshopForm.resx">
       <DependentUpon>AddWorkshopForm.cs</DependentUpon>
@@ -145,6 +160,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReasonDebitForm.resx">
+      <DependentUpon>ReasonDebitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkshopForm.resx">
       <DependentUpon>WorkshopForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace OGM
 {
-    public partial class ReasonDebitForm : Form
+    public partial class AddReasonDebitForm : Form
     {
-        public ReasonDebitForm()
+        public AddReasonDebitForm()
         {
             InitializeComponent();
-        }
-
-        private void button_AddEquipment_Click(object sender, EventArgs e)
-        {
-            new AddReasonDebitForm().ShowDialog();
         }
     }
 }
