@@ -106,6 +106,12 @@
     <Compile Include="GroupEquipmentForm.Designer.cs">
       <DependentUpon>GroupEquipmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LeasingViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LeasingViewForm.Designer.cs">
+      <DependentUpon>LeasingViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GroupEquipmentForm.resx">
       <DependentUpon>GroupEquipmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeasingViewForm.resx">
+      <DependentUpon>LeasingViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>

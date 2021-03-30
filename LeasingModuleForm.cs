@@ -21,7 +21,7 @@ namespace OGM
 
             Owner = owner;
 
-            dataGridView1[4, 0].Value = "Просмотреть";
+            dataGridView_DataSearch[4, 0].Value = "Просмотреть";
 
         }
 
@@ -59,5 +59,14 @@ namespace OGM
         {
             new OrganizationForm().ShowDialog();
         }
-    }
+
+		private void dataGridView_DataSearch_CellClick(object sender, DataGridViewCellEventArgs e) {
+
+            if(e.ColumnIndex == 4) {
+                // по сути выбрать строку и открыть форму LeasingViewForm передав что-то чтоб загрузить объект из БД
+
+                new LeasingViewForm().ShowDialog();
+			}
+		}
+	}
 }
