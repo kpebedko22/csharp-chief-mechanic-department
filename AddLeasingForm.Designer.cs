@@ -63,9 +63,9 @@ namespace OGM
             this.tabPage_Equipment = new System.Windows.Forms.TabPage();
             this.groupBox_RowOfTable = new System.Windows.Forms.GroupBox();
             this.label_Amount = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label_Equipment = new System.Windows.Forms.Label();
+            this.textBox_Amount = new System.Windows.Forms.TextBox();
+            this.comboBox_Equipment = new System.Windows.Forms.ComboBox();
             this.button_RemoveEquipment = new System.Windows.Forms.Button();
             this.button_Edit = new System.Windows.Forms.Button();
             this.button_AddRowEquipment = new System.Windows.Forms.Button();
@@ -90,8 +90,8 @@ namespace OGM
             this.button_AddAndClose = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button_Add = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label_Cost = new System.Windows.Forms.Label();
+            this.textBox_Cost = new System.Windows.Forms.TextBox();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Mesure = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -442,12 +442,12 @@ namespace OGM
             // 
             // groupBox_RowOfTable
             // 
-            this.groupBox_RowOfTable.Controls.Add(this.label3);
-            this.groupBox_RowOfTable.Controls.Add(this.textBox2);
+            this.groupBox_RowOfTable.Controls.Add(this.label_Cost);
+            this.groupBox_RowOfTable.Controls.Add(this.textBox_Cost);
             this.groupBox_RowOfTable.Controls.Add(this.label_Amount);
-            this.groupBox_RowOfTable.Controls.Add(this.label1);
-            this.groupBox_RowOfTable.Controls.Add(this.textBox1);
-            this.groupBox_RowOfTable.Controls.Add(this.comboBox1);
+            this.groupBox_RowOfTable.Controls.Add(this.label_Equipment);
+            this.groupBox_RowOfTable.Controls.Add(this.textBox_Amount);
+            this.groupBox_RowOfTable.Controls.Add(this.comboBox_Equipment);
             this.groupBox_RowOfTable.Controls.Add(this.button_RemoveEquipment);
             this.groupBox_RowOfTable.Controls.Add(this.button_Edit);
             this.groupBox_RowOfTable.Controls.Add(this.button_AddRowEquipment);
@@ -468,29 +468,29 @@ namespace OGM
             this.label_Amount.TabIndex = 24;
             this.label_Amount.Text = "Количество";
             // 
-            // label1
+            // label_Equipment
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 21);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Оборудование";
+            this.label_Equipment.AutoSize = true;
+            this.label_Equipment.Location = new System.Drawing.Point(90, 41);
+            this.label_Equipment.Name = "label_Equipment";
+            this.label_Equipment.Size = new System.Drawing.Size(117, 21);
+            this.label_Equipment.TabIndex = 24;
+            this.label_Equipment.Text = "Оборудование";
             // 
-            // textBox1
+            // textBox_Amount
             // 
-            this.textBox1.Location = new System.Drawing.Point(228, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 29);
-            this.textBox1.TabIndex = 15;
+            this.textBox_Amount.Location = new System.Drawing.Point(228, 73);
+            this.textBox_Amount.Name = "textBox_Amount";
+            this.textBox_Amount.Size = new System.Drawing.Size(236, 29);
+            this.textBox_Amount.TabIndex = 15;
             // 
-            // comboBox1
+            // comboBox_Equipment
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(228, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(236, 29);
-            this.comboBox1.TabIndex = 14;
+            this.comboBox_Equipment.FormattingEnabled = true;
+            this.comboBox_Equipment.Location = new System.Drawing.Point(228, 38);
+            this.comboBox_Equipment.Name = "comboBox_Equipment";
+            this.comboBox_Equipment.Size = new System.Drawing.Size(236, 29);
+            this.comboBox_Equipment.TabIndex = 14;
             // 
             // button_RemoveEquipment
             // 
@@ -610,14 +610,14 @@ namespace OGM
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // найтиToolStripMenuItem
             // 
             this.найтиToolStripMenuItem.Name = "найтиToolStripMenuItem";
-            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.найтиToolStripMenuItem.Text = "Найти";
             this.найтиToolStripMenuItem.Click += new System.EventHandler(this.найтиToolStripMenuItem_Click);
             // 
@@ -699,21 +699,21 @@ namespace OGM
             this.button_Add.Text = "Добавить договор";
             this.button_Add.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // label_Cost
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 21);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Стоимость за единицу";
+            this.label_Cost.AutoSize = true;
+            this.label_Cost.Location = new System.Drawing.Point(35, 113);
+            this.label_Cost.Name = "label_Cost";
+            this.label_Cost.Size = new System.Drawing.Size(172, 21);
+            this.label_Cost.TabIndex = 26;
+            this.label_Cost.Text = "Стоимость за единицу";
             // 
-            // textBox2
+            // textBox_Cost
             // 
-            this.textBox2.Location = new System.Drawing.Point(228, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(236, 29);
-            this.textBox2.TabIndex = 16;
+            this.textBox_Cost.Location = new System.Drawing.Point(228, 110);
+            this.textBox_Cost.Name = "textBox_Cost";
+            this.textBox_Cost.Size = new System.Drawing.Size(236, 29);
+            this.textBox_Cost.TabIndex = 16;
             // 
             // Column_NameEquipment
             // 
@@ -853,13 +853,13 @@ namespace OGM
         private System.Windows.Forms.Button button_Add;
         private System.Windows.Forms.Button button_AddAndClose;
         private System.Windows.Forms.Label label_Amount;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label_Equipment;
+        private System.Windows.Forms.TextBox textBox_Amount;
+        private System.Windows.Forms.ComboBox comboBox_Equipment;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label_Cost;
+        private System.Windows.Forms.TextBox textBox_Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Mesure;
