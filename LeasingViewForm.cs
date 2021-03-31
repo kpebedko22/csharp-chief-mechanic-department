@@ -21,7 +21,8 @@ namespace OGM {
 
 			try {
 				Word.Application app = new Word.Application();
-				Object fileName = Application.StartupPath + "\\..\\..\\dogovor-lizinga-oborudovaniya.doc";
+				Object fileName = Application.StartupPath + "\\..\\..\\resources\\docs\\dogovor-lizinga-oborudovaniya.doc";
+				Console.WriteLine(fileName);
 				Object missing = Type.Missing;
 				app.Documents.Open(ref fileName);
 
