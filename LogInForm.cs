@@ -28,6 +28,7 @@ namespace OGM {
 		private void button_Leasing_Click(object sender, EventArgs e) {
 			// открытие формы LeasingModuleForm
 			LeasingModuleForm form = new LeasingModuleForm(this);
+			//AddLeasingForm form = new AddLeasingForm(this);
 			this.Hide();
 			form.Visible = true;
 		}
@@ -35,6 +36,7 @@ namespace OGM {
 		private void button_Equipment_Click(object sender, EventArgs e) {
 			// открытие формы EquipmentModuleForm
 			EquipmentModuleForm form = new EquipmentModuleForm(this);
+			//AddEquipmentDebitForm form = new AddEquipmentDebitForm(this);
 			this.Hide();
 			form.Visible = true;
 		}

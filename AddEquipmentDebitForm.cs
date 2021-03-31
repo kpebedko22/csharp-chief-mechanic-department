@@ -42,5 +42,13 @@ namespace OGM {
 		private void ToolStripMenuItem_ReasonDebit_Handbook_Click(object sender, EventArgs e) {
 			new ReasonDebitForm().ShowDialog();
 		}
-	}
+
+        private void checkBox_AllGroupDebit_CheckedChanged(object sender, EventArgs e)
+        {
+			comboBox_Equipment.Enabled = !checkBox_AllGroupDebit.Checked;
+
+			button_Debit.Text = checkBox_AllGroupDebit.Checked ? "Списать всю группу" : "Списать";
+
+		}
+    }
 }
