@@ -61,5 +61,25 @@ namespace OGM
         {
             new OrganizationForm().ShowDialog();
         }
+
+        private void button_RemoveEquipment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddLeasingForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox_RowOfTable_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

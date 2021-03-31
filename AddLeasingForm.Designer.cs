@@ -54,24 +54,14 @@ namespace OGM
             this.label_DaysForFirstPayment = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label_Date = new System.Windows.Forms.Label();
-            this.textBox_CustomerFIO = new System.Windows.Forms.TextBox();
-            this.label_CustomerFIO = new System.Windows.Forms.Label();
             this.groupBox_Leaser = new System.Windows.Forms.GroupBox();
             this.label_Leaser = new System.Windows.Forms.Label();
             this.comboBox_Leaser = new System.Windows.Forms.ComboBox();
-            this.textBox_LeaserFIO = new System.Windows.Forms.TextBox();
-            this.label_LeaserFIO = new System.Windows.Forms.Label();
             this.groupBox_Seller = new System.Windows.Forms.GroupBox();
             this.label_Seller = new System.Windows.Forms.Label();
             this.comboBox_Seller = new System.Windows.Forms.ComboBox();
-            this.textBox_SellerFIO = new System.Windows.Forms.TextBox();
-            this.label_SellerFIO = new System.Windows.Forms.Label();
             this.tabPage_Equipment = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column_NameEquipment = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Mesure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_GroupEquipment = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.button_RemoveEquipment = new System.Windows.Forms.Button();
             this.button_AddRowEquipment = new System.Windows.Forms.Button();
             this.numericUpDown_PeriodOfUse = new System.Windows.Forms.NumericUpDown();
@@ -79,9 +69,6 @@ namespace OGM
             this.dateTimePicker_DateDelivery = new System.Windows.Forms.DateTimePicker();
             this.label_DateDelivery = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.button_AddAndClose = new System.Windows.Forms.Button();
-            this.button_Add = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.лизингToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,6 +79,22 @@ namespace OGM
             this.цехToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.организацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.причинаСписанияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button_Edit = new System.Windows.Forms.Button();
+            this.groupBox_RowOfTable = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button_Add = new System.Windows.Forms.Button();
+            this.button_AddAndClose = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Mesure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_GroupEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabPage_MainInfo.SuspendLayout();
             this.groupBox_Responsibility.SuspendLayout();
@@ -110,13 +113,14 @@ namespace OGM
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).BeginInit();
             this.menuStrip.SuspendLayout();
+            this.groupBox_RowOfTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_LeasingNum
             // 
             this.label_LeasingNum.AutoSize = true;
             this.label_LeasingNum.Font = new System.Drawing.Font("Segoe WP", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label_LeasingNum.Location = new System.Drawing.Point(243, 28);
+            this.label_LeasingNum.Location = new System.Drawing.Point(12, 29);
             this.label_LeasingNum.Name = "label_LeasingNum";
             this.label_LeasingNum.Size = new System.Drawing.Size(126, 26);
             this.label_LeasingNum.TabIndex = 0;
@@ -124,7 +128,7 @@ namespace OGM
             // 
             // textBox_LeasingNum
             // 
-            this.textBox_LeasingNum.Location = new System.Drawing.Point(375, 29);
+            this.textBox_LeasingNum.Location = new System.Drawing.Point(144, 30);
             this.textBox_LeasingNum.Name = "textBox_LeasingNum";
             this.textBox_LeasingNum.Size = new System.Drawing.Size(212, 29);
             this.textBox_LeasingNum.TabIndex = 1;
@@ -133,26 +137,22 @@ namespace OGM
             // 
             this.tabControl.Controls.Add(this.tabPage_MainInfo);
             this.tabControl.Controls.Add(this.tabPage_Equipment);
-            this.tabControl.Location = new System.Drawing.Point(12, 124);
+            this.tabControl.Location = new System.Drawing.Point(12, 80);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(802, 439);
+            this.tabControl.Size = new System.Drawing.Size(802, 537);
             this.tabControl.TabIndex = 2;
             // 
             // tabPage_MainInfo
             // 
             this.tabPage_MainInfo.Controls.Add(this.groupBox_Responsibility);
             this.tabPage_MainInfo.Controls.Add(this.groupBox_Deadlines);
-            this.tabPage_MainInfo.Controls.Add(this.dateTimePicker1);
-            this.tabPage_MainInfo.Controls.Add(this.label_Date);
-            this.tabPage_MainInfo.Controls.Add(this.textBox_CustomerFIO);
-            this.tabPage_MainInfo.Controls.Add(this.label_CustomerFIO);
             this.tabPage_MainInfo.Controls.Add(this.groupBox_Leaser);
             this.tabPage_MainInfo.Controls.Add(this.groupBox_Seller);
             this.tabPage_MainInfo.Location = new System.Drawing.Point(4, 30);
             this.tabPage_MainInfo.Name = "tabPage_MainInfo";
             this.tabPage_MainInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_MainInfo.Size = new System.Drawing.Size(794, 405);
+            this.tabPage_MainInfo.Size = new System.Drawing.Size(794, 503);
             this.tabPage_MainInfo.TabIndex = 0;
             this.tabPage_MainInfo.Text = "Основная информация";
             this.tabPage_MainInfo.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@ namespace OGM
             this.groupBox_Responsibility.Controls.Add(this.numericUpDown_Penalty);
             this.groupBox_Responsibility.Controls.Add(this.label_MaxPenalty);
             this.groupBox_Responsibility.Controls.Add(this.label_Penalty);
-            this.groupBox_Responsibility.Location = new System.Drawing.Point(404, 221);
+            this.groupBox_Responsibility.Location = new System.Drawing.Point(404, 114);
             this.groupBox_Responsibility.Name = "groupBox_Responsibility";
             this.groupBox_Responsibility.Size = new System.Drawing.Size(372, 174);
             this.groupBox_Responsibility.TabIndex = 15;
@@ -277,7 +277,7 @@ namespace OGM
             this.groupBox_Deadlines.Controls.Add(this.numericUpDown_DaysForFirstPayment);
             this.groupBox_Deadlines.Controls.Add(this.label_DaysForReport);
             this.groupBox_Deadlines.Controls.Add(this.label_DaysForFirstPayment);
-            this.groupBox_Deadlines.Location = new System.Drawing.Point(18, 221);
+            this.groupBox_Deadlines.Location = new System.Drawing.Point(18, 114);
             this.groupBox_Deadlines.Name = "groupBox_Deadlines";
             this.groupBox_Deadlines.Size = new System.Drawing.Size(372, 174);
             this.groupBox_Deadlines.TabIndex = 14;
@@ -349,7 +349,7 @@ namespace OGM
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(554, 20);
+            this.dateTimePicker1.Location = new System.Drawing.Point(608, 27);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
             this.dateTimePicker1.TabIndex = 13;
@@ -357,37 +357,19 @@ namespace OGM
             // label_Date
             // 
             this.label_Date.AutoSize = true;
-            this.label_Date.Location = new System.Drawing.Point(411, 23);
+            this.label_Date.Location = new System.Drawing.Point(465, 30);
             this.label_Date.Name = "label_Date";
             this.label_Date.Size = new System.Drawing.Size(138, 21);
             this.label_Date.TabIndex = 12;
             this.label_Date.Text = "Дата заключения:";
             // 
-            // textBox_CustomerFIO
-            // 
-            this.textBox_CustomerFIO.Location = new System.Drawing.Point(157, 20);
-            this.textBox_CustomerFIO.Name = "textBox_CustomerFIO";
-            this.textBox_CustomerFIO.Size = new System.Drawing.Size(214, 29);
-            this.textBox_CustomerFIO.TabIndex = 11;
-            // 
-            // label_CustomerFIO
-            // 
-            this.label_CustomerFIO.AutoSize = true;
-            this.label_CustomerFIO.Location = new System.Drawing.Point(14, 26);
-            this.label_CustomerFIO.Name = "label_CustomerFIO";
-            this.label_CustomerFIO.Size = new System.Drawing.Size(125, 21);
-            this.label_CustomerFIO.TabIndex = 10;
-            this.label_CustomerFIO.Text = "ФИО заказчика:";
-            // 
             // groupBox_Leaser
             // 
             this.groupBox_Leaser.Controls.Add(this.label_Leaser);
             this.groupBox_Leaser.Controls.Add(this.comboBox_Leaser);
-            this.groupBox_Leaser.Controls.Add(this.textBox_LeaserFIO);
-            this.groupBox_Leaser.Controls.Add(this.label_LeaserFIO);
-            this.groupBox_Leaser.Location = new System.Drawing.Point(404, 75);
+            this.groupBox_Leaser.Location = new System.Drawing.Point(404, 17);
             this.groupBox_Leaser.Name = "groupBox_Leaser";
-            this.groupBox_Leaser.Size = new System.Drawing.Size(372, 125);
+            this.groupBox_Leaser.Size = new System.Drawing.Size(372, 91);
             this.groupBox_Leaser.TabIndex = 9;
             this.groupBox_Leaser.TabStop = false;
             this.groupBox_Leaser.Text = "Лизингодатель";
@@ -409,31 +391,13 @@ namespace OGM
             this.comboBox_Leaser.Size = new System.Drawing.Size(214, 29);
             this.comboBox_Leaser.TabIndex = 3;
             // 
-            // textBox_LeaserFIO
-            // 
-            this.textBox_LeaserFIO.Location = new System.Drawing.Point(136, 81);
-            this.textBox_LeaserFIO.Name = "textBox_LeaserFIO";
-            this.textBox_LeaserFIO.Size = new System.Drawing.Size(214, 29);
-            this.textBox_LeaserFIO.TabIndex = 7;
-            // 
-            // label_LeaserFIO
-            // 
-            this.label_LeaserFIO.AutoSize = true;
-            this.label_LeaserFIO.Location = new System.Drawing.Point(18, 81);
-            this.label_LeaserFIO.Name = "label_LeaserFIO";
-            this.label_LeaserFIO.Size = new System.Drawing.Size(53, 21);
-            this.label_LeaserFIO.TabIndex = 5;
-            this.label_LeaserFIO.Text = "ФИО: ";
-            // 
             // groupBox_Seller
             // 
             this.groupBox_Seller.Controls.Add(this.label_Seller);
             this.groupBox_Seller.Controls.Add(this.comboBox_Seller);
-            this.groupBox_Seller.Controls.Add(this.textBox_SellerFIO);
-            this.groupBox_Seller.Controls.Add(this.label_SellerFIO);
-            this.groupBox_Seller.Location = new System.Drawing.Point(18, 75);
+            this.groupBox_Seller.Location = new System.Drawing.Point(18, 17);
             this.groupBox_Seller.Name = "groupBox_Seller";
-            this.groupBox_Seller.Size = new System.Drawing.Size(372, 125);
+            this.groupBox_Seller.Size = new System.Drawing.Size(372, 91);
             this.groupBox_Seller.TabIndex = 8;
             this.groupBox_Seller.TabStop = false;
             this.groupBox_Seller.Text = "Продавец";
@@ -455,27 +419,10 @@ namespace OGM
             this.comboBox_Seller.Size = new System.Drawing.Size(214, 29);
             this.comboBox_Seller.TabIndex = 1;
             // 
-            // textBox_SellerFIO
-            // 
-            this.textBox_SellerFIO.Location = new System.Drawing.Point(139, 81);
-            this.textBox_SellerFIO.Name = "textBox_SellerFIO";
-            this.textBox_SellerFIO.Size = new System.Drawing.Size(214, 29);
-            this.textBox_SellerFIO.TabIndex = 6;
-            // 
-            // label_SellerFIO
-            // 
-            this.label_SellerFIO.AutoSize = true;
-            this.label_SellerFIO.Location = new System.Drawing.Point(16, 81);
-            this.label_SellerFIO.Name = "label_SellerFIO";
-            this.label_SellerFIO.Size = new System.Drawing.Size(53, 21);
-            this.label_SellerFIO.TabIndex = 4;
-            this.label_SellerFIO.Text = "ФИО: ";
-            // 
             // tabPage_Equipment
             // 
+            this.tabPage_Equipment.Controls.Add(this.groupBox_RowOfTable);
             this.tabPage_Equipment.Controls.Add(this.dataGridView1);
-            this.tabPage_Equipment.Controls.Add(this.button_RemoveEquipment);
-            this.tabPage_Equipment.Controls.Add(this.button_AddRowEquipment);
             this.tabPage_Equipment.Controls.Add(this.numericUpDown_PeriodOfUse);
             this.tabPage_Equipment.Controls.Add(this.label_PeriodOfUse);
             this.tabPage_Equipment.Controls.Add(this.dateTimePicker_DateDelivery);
@@ -483,7 +430,7 @@ namespace OGM
             this.tabPage_Equipment.Location = new System.Drawing.Point(4, 30);
             this.tabPage_Equipment.Name = "tabPage_Equipment";
             this.tabPage_Equipment.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Equipment.Size = new System.Drawing.Size(794, 405);
+            this.tabPage_Equipment.Size = new System.Drawing.Size(794, 503);
             this.tabPage_Equipment.TabIndex = 1;
             this.tabPage_Equipment.Text = "Оборудование";
             this.tabPage_Equipment.UseVisualStyleBackColor = true;
@@ -496,59 +443,28 @@ namespace OGM
             this.Column_NameEquipment,
             this.Column_Amount,
             this.Column_Mesure,
+            this.Column_Cost,
             this.Column_GroupEquipment});
-            this.dataGridView1.Location = new System.Drawing.Point(34, 127);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 256);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(720, 263);
+            this.dataGridView1.Size = new System.Drawing.Size(720, 226);
             this.dataGridView1.TabIndex = 20;
-            // 
-            // Column_NameEquipment
-            // 
-            this.Column_NameEquipment.HeaderText = "Наименование";
-            this.Column_NameEquipment.MaxDropDownItems = 50;
-            this.Column_NameEquipment.Name = "Column_NameEquipment";
-            this.Column_NameEquipment.Width = 270;
-            // 
-            // Column_Amount
-            // 
-            this.Column_Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column_Amount.HeaderText = "Количество";
-            this.Column_Amount.Name = "Column_Amount";
-            this.Column_Amount.ReadOnly = true;
-            this.Column_Amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column_Amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column_Amount.Width = 99;
-            // 
-            // Column_Mesure
-            // 
-            this.Column_Mesure.HeaderText = "Ед. измерения";
-            this.Column_Mesure.Name = "Column_Mesure";
-            this.Column_Mesure.ReadOnly = true;
-            // 
-            // Column_GroupEquipment
-            // 
-            this.Column_GroupEquipment.HeaderText = "Группа оборудования";
-            this.Column_GroupEquipment.MaxDropDownItems = 50;
-            this.Column_GroupEquipment.Name = "Column_GroupEquipment";
-            this.Column_GroupEquipment.ReadOnly = true;
-            this.Column_GroupEquipment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column_GroupEquipment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column_GroupEquipment.Width = 208;
             // 
             // button_RemoveEquipment
             // 
-            this.button_RemoveEquipment.Location = new System.Drawing.Point(152, 74);
+            this.button_RemoveEquipment.Location = new System.Drawing.Point(282, 152);
             this.button_RemoveEquipment.Name = "button_RemoveEquipment";
-            this.button_RemoveEquipment.Size = new System.Drawing.Size(101, 32);
+            this.button_RemoveEquipment.Size = new System.Drawing.Size(131, 32);
             this.button_RemoveEquipment.TabIndex = 19;
             this.button_RemoveEquipment.Text = "Удалить";
             this.button_RemoveEquipment.UseVisualStyleBackColor = true;
+            this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
             // 
             // button_AddRowEquipment
             // 
-            this.button_AddRowEquipment.Location = new System.Drawing.Point(34, 74);
+            this.button_AddRowEquipment.Location = new System.Drawing.Point(8, 152);
             this.button_AddRowEquipment.Name = "button_AddRowEquipment";
-            this.button_AddRowEquipment.Size = new System.Drawing.Size(101, 32);
+            this.button_AddRowEquipment.Size = new System.Drawing.Size(131, 32);
             this.button_AddRowEquipment.TabIndex = 18;
             this.button_AddRowEquipment.Text = "Добавить";
             this.button_AddRowEquipment.UseVisualStyleBackColor = true;
@@ -590,37 +506,6 @@ namespace OGM
             this.label_DateDelivery.TabIndex = 14;
             this.label_DateDelivery.Text = "Дата поставки:";
             // 
-            // button_AddAndClose
-            // 
-            this.button_AddAndClose.Location = new System.Drawing.Point(200, 64);
-            this.button_AddAndClose.Name = "button_AddAndClose";
-            this.button_AddAndClose.Size = new System.Drawing.Size(178, 39);
-            this.button_AddAndClose.TabIndex = 21;
-            this.button_AddAndClose.Text = "Добавить и закрыть";
-            this.button_AddAndClose.UseVisualStyleBackColor = true;
-            // 
-            // button_Add
-            // 
-            this.button_Add.Image = ((System.Drawing.Image)(resources.GetObject("button_Add.Image")));
-            this.button_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Add.Location = new System.Drawing.Point(16, 64);
-            this.button_Add.Name = "button_Add";
-            this.button_Add.Size = new System.Drawing.Size(178, 39);
-            this.button_Add.TabIndex = 22;
-            this.button_Add.Text = "Добавить";
-            this.button_Add.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(384, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 39);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Отменить";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -644,14 +529,14 @@ namespace OGM
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // найтиToolStripMenuItem
             // 
             this.найтиToolStripMenuItem.Name = "найтиToolStripMenuItem";
-            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.найтиToolStripMenuItem.Text = "Найти";
             this.найтиToolStripMenuItem.Click += new System.EventHandler(this.найтиToolStripMenuItem_Click);
             // 
@@ -702,15 +587,163 @@ namespace OGM
             this.причинаСписанияToolStripMenuItem.Text = "Причина списания";
             this.причинаСписанияToolStripMenuItem.Click += new System.EventHandler(this.причинаСписанияToolStripMenuItem_Click);
             // 
+            // button_Edit
+            // 
+            this.button_Edit.Location = new System.Drawing.Point(145, 152);
+            this.button_Edit.Name = "button_Edit";
+            this.button_Edit.Size = new System.Drawing.Size(131, 32);
+            this.button_Edit.TabIndex = 21;
+            this.button_Edit.Text = "Редактировать";
+            this.button_Edit.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_RowOfTable
+            // 
+            this.groupBox_RowOfTable.Controls.Add(this.label3);
+            this.groupBox_RowOfTable.Controls.Add(this.label2);
+            this.groupBox_RowOfTable.Controls.Add(this.label1);
+            this.groupBox_RowOfTable.Controls.Add(this.textBox1);
+            this.groupBox_RowOfTable.Controls.Add(this.comboBox2);
+            this.groupBox_RowOfTable.Controls.Add(this.comboBox1);
+            this.groupBox_RowOfTable.Controls.Add(this.button_RemoveEquipment);
+            this.groupBox_RowOfTable.Controls.Add(this.button_Edit);
+            this.groupBox_RowOfTable.Controls.Add(this.button_AddRowEquipment);
+            this.groupBox_RowOfTable.Location = new System.Drawing.Point(34, 55);
+            this.groupBox_RowOfTable.Name = "groupBox_RowOfTable";
+            this.groupBox_RowOfTable.Size = new System.Drawing.Size(720, 195);
+            this.groupBox_RowOfTable.TabIndex = 22;
+            this.groupBox_RowOfTable.TabStop = false;
+            this.groupBox_RowOfTable.Text = "Строка таблицы";
+            this.groupBox_RowOfTable.Enter += new System.EventHandler(this.groupBox_RowOfTable_Enter);
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(630, 623);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(178, 39);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Отменить";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button_Add
+            // 
+            this.button_Add.Image = ((System.Drawing.Image)(resources.GetObject("button_Add.Image")));
+            this.button_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Add.Location = new System.Drawing.Point(164, 623);
+            this.button_Add.Name = "button_Add";
+            this.button_Add.Size = new System.Drawing.Size(216, 39);
+            this.button_Add.TabIndex = 26;
+            this.button_Add.Text = "Добавить договор";
+            this.button_Add.UseVisualStyleBackColor = true;
+            // 
+            // button_AddAndClose
+            // 
+            this.button_AddAndClose.Location = new System.Drawing.Point(386, 623);
+            this.button_AddAndClose.Name = "button_AddAndClose";
+            this.button_AddAndClose.Size = new System.Drawing.Size(238, 39);
+            this.button_AddAndClose.TabIndex = 25;
+            this.button_AddAndClose.Text = "Добавить договор и закрыть";
+            this.button_AddAndClose.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(228, 38);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(236, 29);
+            this.comboBox1.TabIndex = 22;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(228, 73);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(236, 29);
+            this.textBox1.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(90, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 21);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Оборудование";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(228, 108);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(236, 29);
+            this.comboBox2.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(120, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 21);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Стоимость";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 21);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Группа оборудования";
+            // 
+            // Column_NameEquipment
+            // 
+            this.Column_NameEquipment.HeaderText = "Наименование";
+            this.Column_NameEquipment.Name = "Column_NameEquipment";
+            this.Column_NameEquipment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_NameEquipment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_NameEquipment.Width = 270;
+            // 
+            // Column_Amount
+            // 
+            this.Column_Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column_Amount.HeaderText = "Количество";
+            this.Column_Amount.Name = "Column_Amount";
+            this.Column_Amount.ReadOnly = true;
+            this.Column_Amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_Amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_Amount.Width = 99;
+            // 
+            // Column_Mesure
+            // 
+            this.Column_Mesure.HeaderText = "Ед. измерения";
+            this.Column_Mesure.Name = "Column_Mesure";
+            this.Column_Mesure.ReadOnly = true;
+            // 
+            // Column_Cost
+            // 
+            this.Column_Cost.HeaderText = "Стоимость";
+            this.Column_Cost.Name = "Column_Cost";
+            this.Column_Cost.ReadOnly = true;
+            // 
+            // Column_GroupEquipment
+            // 
+            this.Column_GroupEquipment.HeaderText = "Группа оборудования";
+            this.Column_GroupEquipment.Name = "Column_GroupEquipment";
+            this.Column_GroupEquipment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_GroupEquipment.Width = 208;
+            // 
             // AddLeasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 575);
-            this.Controls.Add(this.menuStrip);
+            this.ClientSize = new System.Drawing.Size(826, 674);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_Add);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button_AddAndClose);
+            this.Controls.Add(this.label_Date);
+            this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.textBox_LeasingNum);
             this.Controls.Add(this.label_LeasingNum);
@@ -719,9 +752,9 @@ namespace OGM
             this.Name = "AddLeasingForm";
             this.Text = "Добавить новый договор лизинга";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddLeasingForm_FormClosed);
+            this.Load += new System.EventHandler(this.AddLeasingForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage_MainInfo.ResumeLayout(false);
-            this.tabPage_MainInfo.PerformLayout();
             this.groupBox_Responsibility.ResumeLayout(false);
             this.groupBox_Responsibility.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PenaltyFee)).EndInit();
@@ -744,6 +777,8 @@ namespace OGM
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.groupBox_RowOfTable.ResumeLayout(false);
+            this.groupBox_RowOfTable.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -759,15 +794,9 @@ namespace OGM
         private System.Windows.Forms.GroupBox groupBox_Seller;
         private System.Windows.Forms.Label label_Seller;
         private System.Windows.Forms.ComboBox comboBox_Seller;
-        private System.Windows.Forms.TextBox textBox_SellerFIO;
-        private System.Windows.Forms.Label label_SellerFIO;
-        private System.Windows.Forms.TextBox textBox_LeaserFIO;
-        private System.Windows.Forms.Label label_LeaserFIO;
         private System.Windows.Forms.ComboBox comboBox_Leaser;
         private System.Windows.Forms.Label label_Leaser;
         private System.Windows.Forms.TabPage tabPage_Equipment;
-        private System.Windows.Forms.TextBox textBox_CustomerFIO;
-        private System.Windows.Forms.Label label_CustomerFIO;
         private System.Windows.Forms.GroupBox groupBox_Deadlines;
         private System.Windows.Forms.NumericUpDown numericUpDown_DaysForReport;
         private System.Windows.Forms.NumericUpDown numericUpDown_DaysForFirstPayment;
@@ -789,19 +818,12 @@ namespace OGM
         private System.Windows.Forms.NumericUpDown numericUpDown_DaysForForceMajeure;
         private System.Windows.Forms.Label label_DaysForForceMajeure;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column_NameEquipment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Mesure;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column_GroupEquipment;
         private System.Windows.Forms.Button button_RemoveEquipment;
         private System.Windows.Forms.Button button_AddRowEquipment;
         private System.Windows.Forms.NumericUpDown numericUpDown_PeriodOfUse;
         private System.Windows.Forms.Label label_PeriodOfUse;
         private System.Windows.Forms.DateTimePicker dateTimePicker_DateDelivery;
         private System.Windows.Forms.Label label_DateDelivery;
-        private System.Windows.Forms.Button button_AddAndClose;
-        private System.Windows.Forms.Button button_Add;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem лизингToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
@@ -812,5 +834,21 @@ namespace OGM
         private System.Windows.Forms.ToolStripMenuItem цехToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem организацияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem причинаСписанияToolStripMenuItem;
+        private System.Windows.Forms.Button button_Edit;
+        private System.Windows.Forms.GroupBox groupBox_RowOfTable;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Add;
+        private System.Windows.Forms.Button button_AddAndClose;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameEquipment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Mesure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_GroupEquipment;
     }
 }
