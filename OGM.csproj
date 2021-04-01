@@ -100,6 +100,12 @@
     <Compile Include="EquipmentModuleForm.Designer.cs">
       <DependentUpon>EquipmentModuleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExportLeasingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportLeasingForm.Designer.cs">
+      <DependentUpon>ExportLeasingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GroupEquipmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     <EmbeddedResource Include="EquipmentModuleForm.resx">
       <DependentUpon>EquipmentModuleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExportLeasingForm.resx">
+      <DependentUpon>ExportLeasingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GroupEquipmentForm.resx">
       <DependentUpon>GroupEquipmentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +228,7 @@
     <Content Include="resources\cancel.ico" />
     <Content Include="resources\file_add.ico" />
     <Content Include="resources\info.ico" />
+    <None Include="resources\save_doc.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

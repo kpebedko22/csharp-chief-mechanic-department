@@ -44,5 +44,10 @@ namespace OGM {
 
 			
 		}
-	}
+
+        private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e)
+        {
+			new ExportLeasingForm().ShowDialog();
+        }
+    }
 }
