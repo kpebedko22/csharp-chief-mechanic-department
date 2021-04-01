@@ -50,5 +50,9 @@ namespace OGM {
 			button_Debit.Text = checkBox_AllGroupDebit.Checked ? "Списать всю группу" : "Списать";
 
 		}
-    }
+
+		private void ToolStripMenuItem_Find_EquipmentDebit_Click(object sender, EventArgs e) {
+			this.Close();
+		}
+	}
 }

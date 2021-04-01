@@ -18,7 +18,7 @@ namespace OGM {
 
 			Owner = owner;
 
-			dataGridView_Data[3, 0].Value = "Просмотреть";
+			dataGridView_DataSearch[3, 0].Value = "Просмотреть";
 		}
 
 		private void EquipmentModuleForm_FormClosed(object sender, FormClosedEventArgs e) {
