@@ -51,9 +51,13 @@ namespace OGM
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_Export = new System.Windows.Forms.Button();
             this.label_Title = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox_City = new System.Windows.Forms.TextBox();
+            this.label_City = new System.Windows.Forms.Label();
             this.groupBox_Leaser.SuspendLayout();
             this.groupBox_Seller.SuspendLayout();
             this.groupBox_Customer.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_Leaser
@@ -109,7 +113,7 @@ namespace OGM
             this.groupBox_Seller.Controls.Add(this.comboBox_Seller);
             this.groupBox_Seller.Controls.Add(this.textBox_SellerFIO);
             this.groupBox_Seller.Controls.Add(this.label_SellerFIO);
-            this.groupBox_Seller.Location = new System.Drawing.Point(26, 271);
+            this.groupBox_Seller.Location = new System.Drawing.Point(26, 253);
             this.groupBox_Seller.Name = "groupBox_Seller";
             this.groupBox_Seller.Size = new System.Drawing.Size(372, 125);
             this.groupBox_Seller.TabIndex = 12;
@@ -210,7 +214,7 @@ namespace OGM
             // label_Date
             // 
             this.label_Date.AutoSize = true;
-            this.label_Date.Location = new System.Drawing.Point(450, 70);
+            this.label_Date.Location = new System.Drawing.Point(450, 67);
             this.label_Date.Name = "label_Date";
             this.label_Date.Size = new System.Drawing.Size(138, 21);
             this.label_Date.TabIndex = 17;
@@ -228,7 +232,7 @@ namespace OGM
             // 
             this.label_LeasingNum.AutoSize = true;
             this.label_LeasingNum.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Bold);
-            this.label_LeasingNum.Location = new System.Drawing.Point(22, 70);
+            this.label_LeasingNum.Location = new System.Drawing.Point(22, 67);
             this.label_LeasingNum.Name = "label_LeasingNum";
             this.label_LeasingNum.Size = new System.Drawing.Size(106, 21);
             this.label_LeasingNum.TabIndex = 14;
@@ -238,10 +242,10 @@ namespace OGM
             // 
             this.button_cancel.Image = global::OGM.Properties.Resources.cancel;
             this.button_cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_cancel.Location = new System.Drawing.Point(654, 352);
+            this.button_cancel.Location = new System.Drawing.Point(654, 334);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(172, 44);
-            this.button_cancel.TabIndex = 5;
+            this.button_cancel.TabIndex = 6;
             this.button_cancel.Text = "Отменить";
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
@@ -250,10 +254,10 @@ namespace OGM
             // 
             this.button_Export.Image = global::OGM.Properties.Resources.save_doc;
             this.button_Export.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Export.Location = new System.Drawing.Point(454, 352);
+            this.button_Export.Location = new System.Drawing.Point(454, 334);
             this.button_Export.Name = "button_Export";
             this.button_Export.Size = new System.Drawing.Size(172, 44);
-            this.button_Export.TabIndex = 4;
+            this.button_Export.TabIndex = 5;
             this.button_Export.Text = "Экспорт";
             this.button_Export.UseVisualStyleBackColor = true;
             // 
@@ -263,15 +267,43 @@ namespace OGM
             this.label_Title.Font = new System.Drawing.Font("Segoe WP", 14.25F, System.Drawing.FontStyle.Bold);
             this.label_Title.Location = new System.Drawing.Point(282, 9);
             this.label_Title.Name = "label_Title";
-            this.label_Title.Size = new System.Drawing.Size(302, 26);
+            this.label_Title.Size = new System.Drawing.Size(321, 26);
             this.label_Title.TabIndex = 20;
-            this.label_Title.Text = "Заполните данные для печати";
+            this.label_Title.Text = "Заполните данные для экспорта";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox_City);
+            this.groupBox1.Controls.Add(this.label_City);
+            this.groupBox1.Location = new System.Drawing.Point(454, 253);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(372, 67);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            // 
+            // textBox_City
+            // 
+            this.textBox_City.Enabled = false;
+            this.textBox_City.Location = new System.Drawing.Point(136, 25);
+            this.textBox_City.Name = "textBox_City";
+            this.textBox_City.Size = new System.Drawing.Size(214, 29);
+            this.textBox_City.TabIndex = 4;
+            // 
+            // label_City
+            // 
+            this.label_City.AutoSize = true;
+            this.label_City.Location = new System.Drawing.Point(18, 25);
+            this.label_City.Name = "label_City";
+            this.label_City.Size = new System.Drawing.Size(57, 21);
+            this.label_City.TabIndex = 25;
+            this.label_City.Text = "Город:";
             // 
             // ExportLeasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 412);
+            this.ClientSize = new System.Drawing.Size(844, 392);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label_Title);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_Export);
@@ -294,6 +326,8 @@ namespace OGM
             this.groupBox_Seller.PerformLayout();
             this.groupBox_Customer.ResumeLayout(false);
             this.groupBox_Customer.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +356,8 @@ namespace OGM
         private System.Windows.Forms.Button button_Export;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.Label label_Title;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox_City;
+        private System.Windows.Forms.Label label_City;
     }
 }
