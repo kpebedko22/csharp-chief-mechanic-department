@@ -86,6 +86,7 @@ namespace OGM
             this.Column_Name});
             this.dataGridView_DataSearch.Location = new System.Drawing.Point(12, 239);
             this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
+            this.dataGridView_DataSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView_DataSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_DataSearch.Size = new System.Drawing.Size(860, 310);
             this.dataGridView_DataSearch.TabIndex = 8;
@@ -127,22 +128,22 @@ namespace OGM
             // 
             // textBox_CipherReasonDebit
             // 
-            this.textBox_CipherReasonDebit.Location = new System.Drawing.Point(179, 76);
+            this.textBox_CipherReasonDebit.Location = new System.Drawing.Point(179, 37);
             this.textBox_CipherReasonDebit.Name = "textBox_CipherReasonDebit";
             this.textBox_CipherReasonDebit.Size = new System.Drawing.Size(200, 29);
-            this.textBox_CipherReasonDebit.TabIndex = 2;
+            this.textBox_CipherReasonDebit.TabIndex = 1;
             // 
             // textBox_NameReasonDebit
             // 
-            this.textBox_NameReasonDebit.Location = new System.Drawing.Point(179, 36);
+            this.textBox_NameReasonDebit.Location = new System.Drawing.Point(179, 77);
             this.textBox_NameReasonDebit.Name = "textBox_NameReasonDebit";
             this.textBox_NameReasonDebit.Size = new System.Drawing.Size(200, 29);
-            this.textBox_NameReasonDebit.TabIndex = 1;
+            this.textBox_NameReasonDebit.TabIndex = 2;
             // 
             // label_Cipher
             // 
             this.label_Cipher.AutoSize = true;
-            this.label_Cipher.Location = new System.Drawing.Point(116, 80);
+            this.label_Cipher.Location = new System.Drawing.Point(116, 41);
             this.label_Cipher.Name = "label_Cipher";
             this.label_Cipher.Size = new System.Drawing.Size(57, 21);
             this.label_Cipher.TabIndex = 2;
@@ -151,7 +152,7 @@ namespace OGM
             // label_Name
             // 
             this.label_Name.AutoSize = true;
-            this.label_Name.Location = new System.Drawing.Point(53, 40);
+            this.label_Name.Location = new System.Drawing.Point(53, 81);
             this.label_Name.Name = "label_Name";
             this.label_Name.Size = new System.Drawing.Size(120, 21);
             this.label_Name.TabIndex = 0;

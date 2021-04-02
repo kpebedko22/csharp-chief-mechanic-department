@@ -60,7 +60,8 @@ namespace OGM
 
         private void ReasonDebitForm_Activated(object sender, EventArgs e)
         {
-            updateReasonsTable();
+            //updateReasonsTable();
+            button_Search.PerformClick();
         }
 
         private void button_ResetSearch_Click(object sender, EventArgs e)
@@ -68,6 +69,7 @@ namespace OGM
             this.textBox_CipherReasonDebit.Text = "";
             this.textBox_NameReasonDebit.Text = "";
             updateReasonsTable();
+            this.textBox_CipherReasonDebit.Focus();
         }
 
         private void button_Search_Click(object sender, EventArgs e)
@@ -82,6 +84,7 @@ namespace OGM
 
 
             dataGridView_DataSearch.DataSource = reasonDebitsResult;
+            this.textBox_CipherReasonDebit.Focus();
         }
     }
 }
