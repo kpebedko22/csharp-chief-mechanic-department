@@ -217,6 +217,7 @@
     <Compile Include="LeasingModuleForm.Designer.cs">
       <DependentUpon>LeasingModuleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\OGMContext.cs" />
     <Compile Include="OrganizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
