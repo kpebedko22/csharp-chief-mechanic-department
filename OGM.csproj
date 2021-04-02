@@ -217,6 +217,8 @@
     <Compile Include="LeasingModuleForm.Designer.cs">
       <DependentUpon>LeasingModuleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Equipment.cs" />
+    <Compile Include="Models\EquipmentGroup.cs" />
     <Compile Include="Models\OGMContext.cs" />
     <Compile Include="Models\ReasonDebit.cs" />
     <Compile Include="Models\Workshop.cs" />

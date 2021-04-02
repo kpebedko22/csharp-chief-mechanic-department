@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using OGM.Models;
+
 namespace OGM
 {
     public partial class Equipment : Form
@@ -15,13 +17,22 @@ namespace OGM
         public Equipment()
         {
             InitializeComponent();
-
-            dataGridView[5, 0].Value = "Просмотреть??";
         }
 
         private void button_AddEquipment_Click(object sender, EventArgs e)
         {
             new AddEquipment().ShowDialog();
+        }
+
+        private void Equipment_Activated(object sender, EventArgs e)
+        {
+            List<Workshop> workshops = Program.db.Workshops.ToList();
+            //List<Workshop> groups = Program.db.GroupsEquipment.ToList();
+            //List<Workshop> equipments = Program.db.Equipments.ToList();
+
+
+            //dataGridView.DataSource = workshops;
+            this.comboBox_Workshop.DataSource = workshops;
         }
     }
 }
