@@ -86,5 +86,50 @@ namespace OGM
             dataGridView_DataSearch.DataSource = reasonDebitsResult;
             this.textBox_CipherReasonDebit.Focus();
         }
+
+        private void button_RemoveReasonDebit_Click(object sender, EventArgs e)
+        {
+
+            // сформируем список для удаления 
+            // заранее - потому что messagebox, который отвечает за подтверждение удаления (ниже)
+            // вызывает событие Activated, что обновляет таблицу
+            // из-за этого selectedrows сбрасывается...
+
+            List<ReasonDebit> reasonDebitsForRemove = new List<ReasonDebit>();
+
+            int PK_Reason_Debit = -1;
+            try
+            {
+                foreach (DataGridViewRow row in dataGridView_DataSearch.SelectedRows)
+                {
+                    PK_Reason_Debit = Convert.ToInt32(row.Cells[0].Value);
+                    ReasonDebit curReasonDebit = Program.db.ReasonDebits.Find(PK_Reason_Debit);
+
+                    if (curReasonDebit != null)
+                        reasonDebitsForRemove.Add(curReasonDebit);
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+
+
+            // запрос подтверждения
+            if (MessageBox.Show("Вы действительно хотите удалить выбранные причны списания? Данное действие нельзя будет отменить!", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                return;
+                        
+
+            // применим удаление
+            foreach (var reason in reasonDebitsForRemove)
+                Program.db.Remove(reason);
+
+            Program.db.SaveChanges();
+
+
+            this.button_Search.PerformClick();
+
+        }
     }
 }

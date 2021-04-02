@@ -33,6 +33,9 @@ namespace OGM
             this.button_EditReasonDebit = new System.Windows.Forms.Button();
             this.button_AddReasonDebit = new System.Windows.Forms.Button();
             this.dataGridView_DataSearch = new System.Windows.Forms.DataGridView();
+            this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Search = new System.Windows.Forms.GroupBox();
             this.button_ResetSearch = new System.Windows.Forms.Button();
             this.button_Search = new System.Windows.Forms.Button();
@@ -40,9 +43,6 @@ namespace OGM
             this.textBox_NameReasonDebit = new System.Windows.Forms.TextBox();
             this.label_Cipher = new System.Windows.Forms.Label();
             this.label_Name = new System.Windows.Forms.Label();
-            this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).BeginInit();
             this.groupBox_Search.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,7 @@ namespace OGM
             this.button_RemoveReasonDebit.TabIndex = 7;
             this.button_RemoveReasonDebit.Text = "Удалить";
             this.button_RemoveReasonDebit.UseVisualStyleBackColor = true;
+            this.button_RemoveReasonDebit.Click += new System.EventHandler(this.button_RemoveReasonDebit_Click);
             // 
             // button_EditReasonDebit
             // 
@@ -90,6 +91,26 @@ namespace OGM
             this.dataGridView_DataSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_DataSearch.Size = new System.Drawing.Size(860, 310);
             this.dataGridView_DataSearch.TabIndex = 8;
+            // 
+            // Column_PK
+            // 
+            this.Column_PK.HeaderText = "Первичный ключ";
+            this.Column_PK.Name = "Column_PK";
+            this.Column_PK.Visible = false;
+            // 
+            // Column_Code
+            // 
+            this.Column_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column_Code.HeaderText = "Шифр";
+            this.Column_Code.Name = "Column_Code";
+            this.Column_Code.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_Code.Width = 150;
+            // 
+            // Column_Name
+            // 
+            this.Column_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_Name.HeaderText = "Наименование";
+            this.Column_Name.Name = "Column_Name";
             // 
             // groupBox_Search
             // 
@@ -157,26 +178,6 @@ namespace OGM
             this.label_Name.Size = new System.Drawing.Size(120, 21);
             this.label_Name.TabIndex = 0;
             this.label_Name.Text = "Наименование:";
-            // 
-            // Column_PK
-            // 
-            this.Column_PK.HeaderText = "Первичный ключ";
-            this.Column_PK.Name = "Column_PK";
-            this.Column_PK.Visible = false;
-            // 
-            // Column_Code
-            // 
-            this.Column_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column_Code.HeaderText = "Шифр";
-            this.Column_Code.Name = "Column_Code";
-            this.Column_Code.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column_Code.Width = 150;
-            // 
-            // Column_Name
-            // 
-            this.Column_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column_Name.HeaderText = "Наименование";
-            this.Column_Name.Name = "Column_Name";
             // 
             // ReasonDebitForm
             // 
