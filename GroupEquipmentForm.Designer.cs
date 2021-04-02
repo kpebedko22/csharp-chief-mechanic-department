@@ -59,6 +59,7 @@ namespace OGM
             this.button_RemoveGroupEquipment.TabIndex = 7;
             this.button_RemoveGroupEquipment.Text = "Удалить";
             this.button_RemoveGroupEquipment.UseVisualStyleBackColor = true;
+            this.button_RemoveGroupEquipment.Click += new System.EventHandler(this.button_RemoveGroupEquipment_Click);
             // 
             // button_EditGroupEquipment
             // 
@@ -68,6 +69,7 @@ namespace OGM
             this.button_EditGroupEquipment.TabIndex = 6;
             this.button_EditGroupEquipment.Text = "Редактировать";
             this.button_EditGroupEquipment.UseVisualStyleBackColor = true;
+            this.button_EditGroupEquipment.Click += new System.EventHandler(this.button_EditGroupEquipment_Click);
             // 
             // button_AddGroupEquipment
             // 
@@ -122,6 +124,7 @@ namespace OGM
             this.button_ResetSearch.TabIndex = 4;
             this.button_ResetSearch.Text = "Сбросить параметры поиска";
             this.button_ResetSearch.UseVisualStyleBackColor = true;
+            this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
             // 
             // comboBox_Workshop
             // 
@@ -157,6 +160,7 @@ namespace OGM
             this.button_Search.TabIndex = 3;
             this.button_Search.Text = "Найти";
             this.button_Search.UseVisualStyleBackColor = true;
+            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
             // 
             // textBox_NameEquipment
             // 
