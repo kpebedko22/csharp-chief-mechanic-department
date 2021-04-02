@@ -36,7 +36,7 @@ namespace OGM
             }
             catch (Exception exception)
             {
-
+                MessageBox.Show(exception.Message);
             }
 
             ReasonDebit reasonDebit = Program.db.ReasonDebits.Find(PK_Reason_Debit);
@@ -62,6 +62,7 @@ namespace OGM
         {
             //updateReasonsTable();
             button_Search.PerformClick();
+            dataGridView_DataSearch.ClearSelection();
         }
 
         private void button_ResetSearch_Click(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace OGM
             this.textBox_CipherReasonDebit.Text = "";
             this.textBox_NameReasonDebit.Text = "";
             updateReasonsTable();
+            dataGridView_DataSearch.ClearSelection();
             this.textBox_CipherReasonDebit.Focus();
         }
 
@@ -84,6 +86,7 @@ namespace OGM
 
 
             dataGridView_DataSearch.DataSource = reasonDebitsResult;
+            dataGridView_DataSearch.ClearSelection();
             this.textBox_CipherReasonDebit.Focus();
         }
 
@@ -117,7 +120,7 @@ namespace OGM
 
 
             // запрос подтверждения
-            if (MessageBox.Show("Вы действительно хотите удалить выбранные причны списания? Данное действие нельзя будет отменить!", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+            if (MessageBox.Show("Вы действительно хотите удалить выбранные причны списания? Данное действие нельзя будет отменить!", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
                         
 

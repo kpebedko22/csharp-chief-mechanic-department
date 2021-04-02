@@ -29,7 +29,6 @@ namespace OGM
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.button_Close = new System.Windows.Forms.Button();
             this.button_AddAndClose = new System.Windows.Forms.Button();
             this.button_Add = new System.Windows.Forms.Button();
@@ -37,8 +36,6 @@ namespace OGM
             this.textBox_NameReasonDebit = new System.Windows.Forms.TextBox();
             this.label_CipherReasonDebit = new System.Windows.Forms.Label();
             this.label_NameReasonDebit = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label_msg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_Close
@@ -110,25 +107,11 @@ namespace OGM
             this.label_NameReasonDebit.TabIndex = 31;
             this.label_NameReasonDebit.Text = "Наименование:";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 2000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label_msg
-            // 
-            this.label_msg.AutoSize = true;
-            this.label_msg.Location = new System.Drawing.Point(13, 13);
-            this.label_msg.Name = "label_msg";
-            this.label_msg.Size = new System.Drawing.Size(0, 21);
-            this.label_msg.TabIndex = 33;
-            // 
             // AddReasonDebitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 161);
-            this.Controls.Add(this.label_msg);
             this.Controls.Add(this.button_Close);
             this.Controls.Add(this.button_AddAndClose);
             this.Controls.Add(this.button_Add);
@@ -157,7 +140,5 @@ namespace OGM
         private System.Windows.Forms.TextBox textBox_NameReasonDebit;
         private System.Windows.Forms.Label label_CipherReasonDebit;
         private System.Windows.Forms.Label label_NameReasonDebit;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label_msg;
     }
 }

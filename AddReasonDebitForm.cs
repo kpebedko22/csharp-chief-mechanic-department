@@ -37,30 +37,38 @@ namespace OGM
         private void add_edit_reason_debit()
         {
 
+            if (String.IsNullOrWhiteSpace(this.textBox_CipherReasonDebit.Text) || String.IsNullOrWhiteSpace(this.textBox_NameReasonDebit.Text))
+            {
+                MessageBox.Show("Чтобы добавить или изменить запись заполните все поля!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+               
+
             // если добавляем
             if (this.EditReasonDebit == null)
-            {
+            {          
                 ReasonDebit newReasonDebit = new ReasonDebit();
 
                 newReasonDebit.code = this.textBox_CipherReasonDebit.Text;
                 newReasonDebit.name = this.textBox_NameReasonDebit.Text;
 
                 Program.db.ReasonDebits.Add(newReasonDebit);
-                this.label_msg.Text = "Добавлено!";
+                MessageBox.Show("Успешно добавлено!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
 
             // редактируем
             else
             {
+
                 this.EditReasonDebit.code = this.textBox_CipherReasonDebit.Text;
                 this.EditReasonDebit.name = this.textBox_NameReasonDebit.Text;
 
                 Program.db.ReasonDebits.Update(this.EditReasonDebit);
-                this.label_msg.Text = "Изменено!";
+                MessageBox.Show("Успешно изменено!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Program.db.SaveChanges();
-            timer1.Start();
 
         }
 
@@ -82,11 +90,5 @@ namespace OGM
             this.Close();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            this.label_msg.Text = "";
-            timer1.Stop();
-
-        }
     }
 }
