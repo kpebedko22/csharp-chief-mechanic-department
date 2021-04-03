@@ -43,9 +43,6 @@ namespace OGM
             this.label_SerialNum = new System.Windows.Forms.Label();
             this.label_NameEquipment = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.button_AddEquipment = new System.Windows.Forms.Button();
-            this.button_EditEquipment = new System.Windows.Forms.Button();
-            this.button_RemoveEquipment = new System.Windows.Forms.Button();
             this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_InventoryNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +52,9 @@ namespace OGM
             this.Column_GroupEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_SerialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_AddEquipment = new System.Windows.Forms.Button();
+            this.button_EditEquipment = new System.Windows.Forms.Button();
+            this.button_RemoveEquipment = new System.Windows.Forms.Button();
             this.groupBox_Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -207,34 +207,6 @@ namespace OGM
             this.dataGridView.Size = new System.Drawing.Size(860, 310);
             this.dataGridView.TabIndex = 11;
             // 
-            // button_AddEquipment
-            // 
-            this.button_AddEquipment.Location = new System.Drawing.Point(12, 290);
-            this.button_AddEquipment.Name = "button_AddEquipment";
-            this.button_AddEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_AddEquipment.TabIndex = 8;
-            this.button_AddEquipment.Text = "Добавить";
-            this.button_AddEquipment.UseVisualStyleBackColor = true;
-            this.button_AddEquipment.Click += new System.EventHandler(this.button_AddEquipment_Click);
-            // 
-            // button_EditEquipment
-            // 
-            this.button_EditEquipment.Location = new System.Drawing.Point(218, 290);
-            this.button_EditEquipment.Name = "button_EditEquipment";
-            this.button_EditEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_EditEquipment.TabIndex = 9;
-            this.button_EditEquipment.Text = "Редактировать";
-            this.button_EditEquipment.UseVisualStyleBackColor = true;
-            // 
-            // button_RemoveEquipment
-            // 
-            this.button_RemoveEquipment.Location = new System.Drawing.Point(424, 290);
-            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
-            this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_RemoveEquipment.TabIndex = 10;
-            this.button_RemoveEquipment.Text = "Удалить";
-            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
-            // 
             // Column_PK
             // 
             this.Column_PK.HeaderText = "Первичный ключ";
@@ -298,6 +270,35 @@ namespace OGM
             this.Column_Cost.Name = "Column_Cost";
             this.Column_Cost.ReadOnly = true;
             this.Column_Cost.Visible = false;
+            // 
+            // button_AddEquipment
+            // 
+            this.button_AddEquipment.Location = new System.Drawing.Point(12, 290);
+            this.button_AddEquipment.Name = "button_AddEquipment";
+            this.button_AddEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_AddEquipment.TabIndex = 8;
+            this.button_AddEquipment.Text = "Добавить";
+            this.button_AddEquipment.UseVisualStyleBackColor = true;
+            this.button_AddEquipment.Click += new System.EventHandler(this.button_AddEquipment_Click);
+            // 
+            // button_EditEquipment
+            // 
+            this.button_EditEquipment.Location = new System.Drawing.Point(218, 290);
+            this.button_EditEquipment.Name = "button_EditEquipment";
+            this.button_EditEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_EditEquipment.TabIndex = 9;
+            this.button_EditEquipment.Text = "Редактировать";
+            this.button_EditEquipment.UseVisualStyleBackColor = true;
+            this.button_EditEquipment.Click += new System.EventHandler(this.button_EditEquipment_Click);
+            // 
+            // button_RemoveEquipment
+            // 
+            this.button_RemoveEquipment.Location = new System.Drawing.Point(424, 290);
+            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
+            this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_RemoveEquipment.TabIndex = 10;
+            this.button_RemoveEquipment.Text = "Удалить";
+            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
             // 
             // EquipmentForm
             // 

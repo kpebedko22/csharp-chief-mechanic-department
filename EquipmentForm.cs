@@ -138,5 +138,23 @@ namespace OGM
             this.comboBox_Workshop.Focus();
 
         }
+
+        private void button_EditEquipment_Click(object sender, EventArgs e)
+        {
+            int PK_Equipment = -1;
+            try
+            {
+                PK_Equipment = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Выберите запись, которую нужно изменить", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            Equipment equipment = Program.db.Equipments.Find(PK_Equipment);
+
+            if (equipment != null)
+                new AddEquipment(equipment).ShowDialog();
+        }
     }
 }
