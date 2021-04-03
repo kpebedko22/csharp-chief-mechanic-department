@@ -8,29 +8,23 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OGM.Models
-{
+namespace OGM.Models {
 
 
-    public partial class OGMContext : DbContext
-    {
+    public partial class OGMContext : DbContext {
         public DbSet<ReasonDebit> ReasonDebits { get; set; }
     }
 
     [Table("reason_debit")]
-    public class ReasonDebit
-    {
+    public class ReasonDebit {
         [Key]
         public int PK_Reason_Debit { get; set; }
 
-
         public string code { get; set; }
-
 
         public string name { get; set; }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return name;
         }
     }
