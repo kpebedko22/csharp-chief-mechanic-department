@@ -25,6 +25,8 @@ namespace OGM.Models
         public string сipher { get; set; }
         public int PK_Workshop { get; set; }
 
+        public Workshop workshop { get { return Program.db.Workshops.Find(PK_Workshop); } }
+
         public override string ToString()
         {
             return name;

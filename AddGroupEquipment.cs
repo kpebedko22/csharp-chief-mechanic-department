@@ -53,7 +53,7 @@ namespace OGM
 
             if (String.IsNullOrWhiteSpace(this.textBox_NameEquipment.Text) 
                 || String.IsNullOrWhiteSpace(this.textBox_Cipher.Text)
-                || comboBox1.SelectedItem == null)
+                || comboBox1.SelectedItem == null || comboBox1.SelectedIndex == -1)
             {
                 MessageBox.Show("Чтобы добавить или изменить запись заполните все поля!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -68,21 +68,21 @@ namespace OGM
                 newEquipmentGroup.name = this.textBox_NameEquipment.Text;
                 newEquipmentGroup.сipher = this.textBox_Cipher.Text;
 
-                // это плохо, хз как сделать нормально
-                Workshop temp = null;
-                foreach (Workshop item in Program.db.Workshops.ToList())
-                    if (item.name == this.comboBox1.Text)
-                    {
-                        temp = item;
-                        break;
-                    }
+                int PK_Workshop = -1;
+                if (comboBox1.SelectedItem != null && comboBox1.SelectedIndex != -1)
+                    PK_Workshop = ((Workshop)this.comboBox1.SelectedItem).PK_Workshop;
 
-                
 
-                newEquipmentGroup.PK_Workshop = temp.PK_Workshop;
-
-                Program.db.EquipmentGroups.Add(newEquipmentGroup);
-                MessageBox.Show("Успешно добавлено!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (PK_Workshop != -1)
+                {
+                    Program.db.EquipmentGroups.Add(newEquipmentGroup);
+                    MessageBox.Show("Успешно добавлено!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    newEquipmentGroup.PK_Workshop = PK_Workshop;
+                }
+                else
+                {
+                    MessageBox.Show("Выберите цех!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
 

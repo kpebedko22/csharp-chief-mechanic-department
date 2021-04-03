@@ -35,45 +35,13 @@ namespace OGM
         }
 
 
-        private DataTable create_temp_table()
-        {
-            List<EquipmentGroup> equipmentGroups = Program.db.EquipmentGroups.ToList();
-
-
-            var data = new DataTable("TempGroupEquipment");
-
-            data.Columns.Add("PK_Equipment_Group", typeof(int));
-            data.Columns.Add("name", typeof(string));
-            data.Columns.Add("сipher", typeof(string));
-            data.Columns.Add("PK_Workshop", typeof(int));
-            data.Columns.Add("Workshop", typeof(string));
-
-            foreach (EquipmentGroup item in equipmentGroups)
-                try
-                {
-                    data.Rows.Add(item.PK_Equipment_Group, item.name, item.сipher, item.PK_Workshop ,Program.db.Workshops.Find(item.PK_Workshop));
-                }
-                catch (Exception)
-                {
-                    data.Rows.Add(item.PK_Equipment_Group, item.name, item.сipher, item.PK_Workshop, "Указанный цех не существует...");
-                    throw;
-                }
-               
-            return data;
-        }
-
-
 
         private void GroupEquipmentForm_Activated(object sender, EventArgs e)
         {
-            List<Workshop> workshops = Program.db.Workshops.ToList();
-            
-            
-            dataGridView_DataSearch.DataSource = create_temp_table();
+            dataGridView_DataSearch.DataSource = Program.db.EquipmentGroups.ToList();
             dataGridView_DataSearch.ClearSelection();
 
-
-            //dataGridView_DataSearch.DataSource = equipmentGroups;
+            List<Workshop> workshops = Program.db.Workshops.ToList();
             this.comboBox_Workshop.DataSource = workshops;
             
             this.comboBox_Workshop.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
@@ -85,11 +53,11 @@ namespace OGM
             int PK_Group_Equipment = -1;
             try
             {
-                PK_Group_Equipment = Convert.ToInt32(dataGridView_DataSearch.SelectedRows[0].Cells[1].Value);
+                PK_Group_Equipment = Convert.ToInt32(dataGridView_DataSearch.SelectedRows[0].Cells[0].Value);
             }
-            catch (Exception exception)
+            catch 
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show("Выбранная запись отсутствует в таблице!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             EquipmentGroup equipmentGroup = Program.db.EquipmentGroups.Find(PK_Group_Equipment);
@@ -102,26 +70,29 @@ namespace OGM
 
         private void button_Search_Click(object sender, EventArgs e)
         {
-            DataTable table = create_temp_table();
-            DataTable tableresult = new DataTable();
-            tableresult.Columns.Add("PK_Equipment_Group", typeof(int));
-            tableresult.Columns.Add("name", typeof(string));
-            tableresult.Columns.Add("сipher", typeof(string));
-            tableresult.Columns.Add("PK_Workshop", typeof(int));
-            tableresult.Columns.Add("Workshop", typeof(string));
+            List<EquipmentGroup> table = Program.db.EquipmentGroups.ToList();
+            List<EquipmentGroup> tableresult = new List<EquipmentGroup>();
+
+            int PK_Workshop = -1;
+            if (this.comboBox_Workshop.SelectedItem != null)
+                PK_Workshop = ((Workshop)this.comboBox_Workshop.SelectedItem).PK_Workshop;
 
 
+            foreach (EquipmentGroup item in table)
+                if (item.name.Contains(this.textBox_NameEquipment.Text)
+                     && item.сipher.Contains(this.textBox_Сipher.Text))
+                {
 
-            foreach (DataRow item in table.Rows)
-            {
+                    if (PK_Workshop != -1)
+                    {
+                        if (item.PK_Workshop == PK_Workshop)
+                            tableresult.Add(item);
+                    }
+                    else
+                        tableresult.Add(item);
 
-                if (item.ItemArray[1].ToString().Contains(this.textBox_NameEquipment.Text)
-                     && item.ItemArray[2].ToString().Contains(this.textBox_Сipher.Text)
-                     && item.ItemArray[4].ToString().Contains(this.comboBox_Workshop.Text))
-                    tableresult.Rows.Add(item.ItemArray[0], item.ItemArray[1], item.ItemArray[2], item.ItemArray[3], item.ItemArray[4]);
-            }
-
-
+                }
+            
 
             dataGridView_DataSearch.DataSource = tableresult;
             dataGridView_DataSearch.ClearSelection();
@@ -133,7 +104,7 @@ namespace OGM
             this.textBox_NameEquipment.Text = "";
             this.textBox_Сipher.Text = "";
             this.comboBox_Workshop.SelectedItem = null;
-            dataGridView_DataSearch.DataSource = create_temp_table();
+            dataGridView_DataSearch.DataSource = Program.db.EquipmentGroups.ToList();
             dataGridView_DataSearch.ClearSelection();
             this.comboBox_Workshop.Focus();
         }
@@ -152,7 +123,7 @@ namespace OGM
             {
                 foreach (DataGridViewRow row in dataGridView_DataSearch.SelectedRows)
                 {
-                    PK_EquipmentGroup = Convert.ToInt32(row.Cells[1].Value);
+                    PK_EquipmentGroup = Convert.ToInt32(row.Cells[0].Value);
                     EquipmentGroup curEquipmentGroup = Program.db.EquipmentGroups.Find(PK_EquipmentGroup);
 
                     if (curEquipmentGroup != null)
