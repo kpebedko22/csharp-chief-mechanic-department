@@ -283,7 +283,6 @@ namespace OGM
             // 
             // textBox_City
             // 
-            this.textBox_City.Enabled = false;
             this.textBox_City.Location = new System.Drawing.Point(136, 25);
             this.textBox_City.Name = "textBox_City";
             this.textBox_City.Size = new System.Drawing.Size(214, 29);

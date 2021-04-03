@@ -49,7 +49,9 @@ namespace OGM
             this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_InventoryNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_PK_Workshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Workshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_PK_Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_GroupEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_SerialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Search.SuspendLayout();
@@ -185,7 +187,9 @@ namespace OGM
             this.Column_PK,
             this.Column_NameEquipment,
             this.Column_InventoryNum,
+            this.Column_PK_Workshop,
             this.Column_Workshop,
+            this.Column_PK_Group,
             this.Column_GroupEquipment,
             this.Column_SerialNum});
             this.dataGridView.Location = new System.Drawing.Point(12, 339);
@@ -244,12 +248,26 @@ namespace OGM
             this.Column_InventoryNum.Name = "Column_InventoryNum";
             this.Column_InventoryNum.ReadOnly = true;
             // 
+            // Column_PK_Workshop
+            // 
+            this.Column_PK_Workshop.HeaderText = "ПК_Цех";
+            this.Column_PK_Workshop.Name = "Column_PK_Workshop";
+            this.Column_PK_Workshop.ReadOnly = true;
+            this.Column_PK_Workshop.Visible = false;
+            // 
             // Column_Workshop
             // 
             this.Column_Workshop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column_Workshop.HeaderText = "Цех";
             this.Column_Workshop.Name = "Column_Workshop";
             this.Column_Workshop.ReadOnly = true;
+            // 
+            // Column_PK_Group
+            // 
+            this.Column_PK_Group.HeaderText = "ПК_Группа";
+            this.Column_PK_Group.Name = "Column_PK_Group";
+            this.Column_PK_Group.ReadOnly = true;
+            this.Column_PK_Group.Visible = false;
             // 
             // Column_GroupEquipment
             // 
@@ -312,7 +330,9 @@ namespace OGM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_InventoryNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK_Workshop;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Workshop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK_Group;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_GroupEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_SerialNum;
     }

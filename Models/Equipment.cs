@@ -12,7 +12,7 @@ namespace OGM.Models
 {
     public partial class OGMContext : DbContext
     {
-        public DbSet<Equipment> Equipments { get; set; }
+        public DbSet<OGM.Equipment> Equipments { get; set; }
     }
 
     [Table("equipment")]
