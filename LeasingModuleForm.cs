@@ -31,7 +31,7 @@ namespace OGM
 
         private void оборудованиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Equipment().ShowDialog();
+            new EquipmentForm().ShowDialog();
         }
 
         private void группаОборудованияToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,7 +1,7 @@
 ﻿
 namespace OGM
 {
-    partial class Equipment
+    partial class EquipmentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -326,7 +326,7 @@ namespace OGM
         private System.Windows.Forms.Button button_AddEquipment;
         private System.Windows.Forms.Button button_EditEquipment;
         private System.Windows.Forms.Button button_RemoveEquipment;
-		private System.Windows.Forms.Button button_ResetSearch;
+        private System.Windows.Forms.Button button_ResetSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_InventoryNum;

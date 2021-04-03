@@ -24,7 +24,7 @@ namespace OGM {
 		}
 
 		private void ToolStripMenuItem_Equipment_Handbook_Click(object sender, EventArgs e) {
-			new Equipment().ShowDialog();
+			new EquipmentForm().ShowDialog();
 		}
 
 		private void ToolStripMenuItem_GroupEquipment_Handbook_Click(object sender, EventArgs e) {

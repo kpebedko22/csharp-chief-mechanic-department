@@ -12,9 +12,9 @@ using OGM.Models;
 
 namespace OGM
 {
-    public partial class Equipment : Form
+    public partial class EquipmentForm : Form
     {
-        public Equipment()
+        public EquipmentForm()
         {
             InitializeComponent();
 
@@ -38,7 +38,7 @@ namespace OGM
 
         private DataTable create_temp_table()
         {
-            List<OGM.Equipment> equipments = Program.db.Equipments.ToList();
+            List<Equipment> equipments = Program.db.Equipments.ToList();
 
 
             var data = new DataTable("TempGroupEquipment");

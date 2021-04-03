@@ -12,7 +12,7 @@ namespace OGM.Models
 {
     public partial class OGMContext : DbContext
     {
-        public DbSet<OGM.Equipment> Equipments { get; set; }
+        public DbSet<Equipment> Equipments { get; set; }
     }
 
     [Table("equipment")]
@@ -25,7 +25,7 @@ namespace OGM.Models
         public string serial_number { get; set; }
         public string inventory_number { get; set; }
         public double cost { get; set; }
-        public int PK_EquipmentGroup { get; set; }
+        public int PK_Equipment_Group { get; set; }
 
         public override string ToString()
         {

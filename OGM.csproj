@@ -175,11 +175,11 @@
     <Compile Include="AddWorkshopForm.Designer.cs">
       <DependentUpon>AddWorkshopForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Equipment.cs">
+    <Compile Include="EquipmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Equipment.Designer.cs">
-      <DependentUpon>Equipment.cs</DependentUpon>
+    <Compile Include="EquipmentForm.Designer.cs">
+      <DependentUpon>EquipmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EquipmentModuleForm.cs">
       <SubType>Form</SubType>
@@ -263,8 +263,8 @@
     <EmbeddedResource Include="AddWorkshopForm.resx">
       <DependentUpon>AddWorkshopForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Equipment.resx">
-      <DependentUpon>Equipment.cs</DependentUpon>
+    <EmbeddedResource Include="EquipmentForm.resx">
+      <DependentUpon>EquipmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EquipmentModuleForm.resx">
       <DependentUpon>EquipmentModuleForm.cs</DependentUpon>
