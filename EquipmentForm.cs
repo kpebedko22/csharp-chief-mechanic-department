@@ -29,58 +29,114 @@ namespace OGM
             dataGridView.Columns[5].DataPropertyName = "PK_Equipment_Group";
             dataGridView.Columns[6].DataPropertyName = "equipment_Group";
             dataGridView.Columns[7].DataPropertyName = "serial_number";
+            dataGridView.Columns[8].DataPropertyName = "cost";
         }
 
         private void button_AddEquipment_Click(object sender, EventArgs e)
         {
             new AddEquipment().ShowDialog();
         }
-
-        private DataTable create_temp_table()
-        {
-            List<Equipment> equipments = Program.db.Equipments.ToList();
-
-
-            var data = new DataTable("TempGroupEquipment");
-
-            data.Columns.Add("PK_Equipment", typeof(int));
-            data.Columns.Add("name", typeof(string));
-            data.Columns.Add("inventory_number", typeof(string));
-            data.Columns.Add("PK_Workshop", typeof(int));
-            data.Columns.Add("workshop", typeof(string));
-            data.Columns.Add("PK_Equipment_Group", typeof(int));
-            data.Columns.Add("equipment_Group", typeof(string));
-            data.Columns.Add("serial_number", typeof(string));
-
-            /*
-            foreach (OGM.Equipment item in equipments)
-                try
-                {
-                    data.Rows.Add(item., item.name, item.сipher, item.PK_Workshop, Program.db.Workshops.Find(item.PK_Workshop));
-                }
-                catch (Exception)
-                {
-                    data.Rows.Add(item.PK_Equipment_Group, item.name, item.сipher, item.PK_Workshop, "Указанный цех не существует...");
-                    throw;
-            */
-
-            return data;
-        }
+        
 
         private void Equipment_Activated(object sender, EventArgs e)
         {
-            List<Workshop> workshops = Program.db.Workshops.ToList();
+            List<Equipment> equipments = Program.db.Equipments.ToList();
 
-
-            dataGridView.DataSource = create_temp_table();
+            dataGridView.DataSource = equipments;
             dataGridView.ClearSelection();
 
+            this.comboBox_Workshop.DataSource = Program.db.Workshops.ToList();
+            this.comboBox_Workshop.SelectedIndex = -1;
+        }
 
-            //dataGridView_DataSearch.DataSource = equipmentGroups;
-            this.comboBox_Workshop.DataSource = workshops;
+        private void comboBox_Workshop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // при выборе цеха нужно найти его первичный ключ цех
+            // потом нужно найти все группы, принадлежащие данному цеху
 
-            this.comboBox_Workshop.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
-            this.comboBox_Workshop.SelectedItem = null;
+            if (comboBox_Workshop.SelectedIndex != -1 && comboBox_Workshop.SelectedIndex != null)
+            {
+
+                int PK_Workshop = ((Workshop)comboBox_Workshop.SelectedItem).PK_Workshop;
+
+                List<EquipmentGroup> equipmentGroups = Program.db.EquipmentGroups.ToList();
+                List<EquipmentGroup> equipmentGroupsResult = new List<EquipmentGroup>();
+
+                foreach (EquipmentGroup item in equipmentGroups)
+                    if (item.PK_Workshop == PK_Workshop)
+                        equipmentGroupsResult.Add(item);
+
+                this.comboBox_GroupEquipment.DataSource = equipmentGroupsResult;
+                this.comboBox_GroupEquipment.SelectedIndex = -1;
+            }
+            else
+            {
+                this.comboBox_GroupEquipment.DataSource = null;
+                this.comboBox_GroupEquipment.Text = "";
+                this.comboBox_GroupEquipment.SelectedIndex = -1;
+            }
+        }
+
+        private void button_Search_Click(object sender, EventArgs e)
+        {
+
+            if (String.IsNullOrWhiteSpace(this.textBox_InventoryNum.Text)) this.textBox_InventoryNum.Text = "";
+            if (String.IsNullOrWhiteSpace(this.textBox_NameEquipment.Text)) this.textBox_NameEquipment.Text = "";
+            if (String.IsNullOrWhiteSpace(this.textBox_SerialNum.Text)) this.textBox_SerialNum.Text = "";
+
+
+            List<Equipment> equipments = Program.db.Equipments.ToList();
+            List<Equipment> equipmentsResult = new List<Equipment>();
+
+            int PK_Workshop = -1;
+            if (((Workshop)comboBox_Workshop.SelectedItem) != null)
+                PK_Workshop = ((Workshop)comboBox_Workshop.SelectedItem).PK_Workshop;
+
+            int PK_Equipment_Group = -1;
+            if (((EquipmentGroup)comboBox_GroupEquipment.SelectedItem) != null)
+                PK_Equipment_Group = ((EquipmentGroup)comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group;
+
+            foreach (Equipment item in equipments)
+                if (item.name.Contains(this.textBox_NameEquipment.Text)
+                    && item.inventory_number.Contains(this.textBox_InventoryNum.Text)
+                    && item.serial_number.Contains(this.textBox_SerialNum.Text))
+                {
+
+                    bool is_good_row = true;
+                    if (PK_Workshop != -1)
+                        if (item.PK_Workshop != PK_Workshop)
+                            is_good_row = false;
+
+                    if (PK_Equipment_Group != -1)
+                        if (item.PK_Equipment_Group != PK_Equipment_Group)
+                            is_good_row = false;
+
+
+                    if (is_good_row)
+                        equipmentsResult.Add(item);
+
+                }
+                    
+
+
+            dataGridView.DataSource = equipmentsResult;
+
+        }
+
+        private void button_ResetSearch_Click(object sender, EventArgs e)
+        {
+            this.comboBox_GroupEquipment.SelectedIndex = -1;
+            this.comboBox_Workshop.SelectedIndex = -1;
+            this.textBox_NameEquipment.Text = "";
+            this.textBox_InventoryNum.Text = "";
+            this.textBox_SerialNum.Text = "";
+
+            List<Equipment> equipments = Program.db.Equipments.ToList();
+            dataGridView.DataSource = equipments;
+            dataGridView.ClearSelection();
+
+            this.comboBox_Workshop.Focus();
+
         }
     }
 }

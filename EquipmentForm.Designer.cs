@@ -54,6 +54,7 @@ namespace OGM
             this.Column_PK_Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_GroupEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_SerialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -87,14 +88,18 @@ namespace OGM
             this.button_ResetSearch.TabIndex = 7;
             this.button_ResetSearch.Text = "Сбросить параметры поиска";
             this.button_ResetSearch.UseVisualStyleBackColor = true;
+            this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
             // 
             // comboBox_Workshop
             // 
+            this.comboBox_Workshop.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_Workshop.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox_Workshop.FormattingEnabled = true;
             this.comboBox_Workshop.Location = new System.Drawing.Point(175, 40);
             this.comboBox_Workshop.Name = "comboBox_Workshop";
             this.comboBox_Workshop.Size = new System.Drawing.Size(200, 29);
             this.comboBox_Workshop.TabIndex = 1;
+            this.comboBox_Workshop.SelectedIndexChanged += new System.EventHandler(this.comboBox_Workshop_SelectedIndexChanged);
             // 
             // label_Workshop
             // 
@@ -113,6 +118,7 @@ namespace OGM
             this.button_Search.TabIndex = 6;
             this.button_Search.Text = "Найти";
             this.button_Search.UseVisualStyleBackColor = true;
+            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
             // 
             // comboBox_GroupEquipment
             // 
@@ -181,6 +187,7 @@ namespace OGM
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -191,7 +198,8 @@ namespace OGM
             this.Column_Workshop,
             this.Column_PK_Group,
             this.Column_GroupEquipment,
-            this.Column_SerialNum});
+            this.Column_SerialNum,
+            this.Column_Cost});
             this.dataGridView.Location = new System.Drawing.Point(12, 339);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -283,7 +291,15 @@ namespace OGM
             this.Column_SerialNum.Name = "Column_SerialNum";
             this.Column_SerialNum.ReadOnly = true;
             // 
-            // Equipment
+            // Column_Cost
+            // 
+            this.Column_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_Cost.HeaderText = "Стоимость";
+            this.Column_Cost.Name = "Column_Cost";
+            this.Column_Cost.ReadOnly = true;
+            this.Column_Cost.Visible = false;
+            // 
+            // EquipmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -298,7 +314,7 @@ namespace OGM
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Equipment";
+            this.Name = "EquipmentForm";
             this.Text = "Справочник - Оборудование";
             this.Activated += new System.EventHandler(this.Equipment_Activated);
             this.groupBox_Search.ResumeLayout(false);
@@ -335,5 +351,6 @@ namespace OGM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK_Group;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_GroupEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_SerialNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost;
     }
 }
