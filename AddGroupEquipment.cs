@@ -104,6 +104,7 @@ namespace OGM
 
                 this.EditEquipmentGroup.PK_Workshop = temp.PK_Workshop;
 
+                Program.db.EquipmentGroups.Update(EditEquipmentGroup);
                 MessageBox.Show("Успешно изменено!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 

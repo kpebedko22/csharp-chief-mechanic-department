@@ -93,6 +93,7 @@ namespace OGM
                 newEquipment.serial_number = this.textBox_SerialNum.Text;
                 newEquipment.PK_Equipment_Group = ((EquipmentGroup)this.comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group;
 
+                Program.db.Equipments.Add(newEquipment);
                 MessageBox.Show("Успешно добавлено!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -110,7 +111,7 @@ namespace OGM
                 EquipmentGroup equipmentGroup = ((EquipmentGroup)this.comboBox_GroupEquipment.SelectedItem);
 
                 this.EditEquipment.PK_Equipment_Group = equipmentGroup.PK_Equipment_Group;
-
+                Program.db.Equipments.Update(this.EditEquipment);
                 MessageBox.Show("Успешно изменено!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
