@@ -46,7 +46,7 @@ namespace OGM
 			this.label_Phone = new System.Windows.Forms.Label();
 			this.button_Search = new System.Windows.Forms.Button();
 			this.comboBox_Role = new System.Windows.Forms.ComboBox();
-			this.textBox_InventoryNum = new System.Windows.Forms.TextBox();
+			this.textBox_INN = new System.Windows.Forms.TextBox();
 			this.textBox_LegalAddress = new System.Windows.Forms.TextBox();
 			this.textBox_NameOrganiztion = new System.Windows.Forms.TextBox();
 			this.label_Role = new System.Windows.Forms.Label();
@@ -54,21 +54,24 @@ namespace OGM
 			this.label_LegalAddress = new System.Windows.Forms.Label();
 			this.label_NameOrganiztion = new System.Windows.Forms.Label();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.dataGridView = new System.Windows.Forms.DataGridView();
+			this.dataGridView_DataSearch = new System.Windows.Forms.DataGridView();
+			this.button_RemoveOrganization = new System.Windows.Forms.Button();
+			this.button_EditOrganization = new System.Windows.Forms.Button();
+			this.button_AddOrganization = new System.Windows.Forms.Button();
+			this.ColumnPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_NameOrganization = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_LegalAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_PostAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_INN = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_PaymentAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_Bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_CorrespondentAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_BIK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.button_RemoveOrganization = new System.Windows.Forms.Button();
-			this.button_EditOrganization = new System.Windows.Forms.Button();
-			this.button_AddOrganization = new System.Windows.Forms.Button();
+			this.button_ResetComboBoxRole = new System.Windows.Forms.Button();
 			this.groupBox_Search.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox_Search
@@ -78,6 +81,7 @@ namespace OGM
 			this.groupBox_Search.Controls.Add(this.textBox_PostAddress);
 			this.groupBox_Search.Controls.Add(this.label_PostAddress);
 			this.groupBox_Search.Controls.Add(this.textBox_BIK);
+			this.groupBox_Search.Controls.Add(this.button_ResetComboBoxRole);
 			this.groupBox_Search.Controls.Add(this.button_ResetSearch);
 			this.groupBox_Search.Controls.Add(this.textBox_CorrespondentAccount);
 			this.groupBox_Search.Controls.Add(this.textBox_PaymentAccount);
@@ -88,7 +92,7 @@ namespace OGM
 			this.groupBox_Search.Controls.Add(this.label_Phone);
 			this.groupBox_Search.Controls.Add(this.button_Search);
 			this.groupBox_Search.Controls.Add(this.comboBox_Role);
-			this.groupBox_Search.Controls.Add(this.textBox_InventoryNum);
+			this.groupBox_Search.Controls.Add(this.textBox_INN);
 			this.groupBox_Search.Controls.Add(this.textBox_LegalAddress);
 			this.groupBox_Search.Controls.Add(this.textBox_NameOrganiztion);
 			this.groupBox_Search.Controls.Add(this.label_Role);
@@ -149,6 +153,7 @@ namespace OGM
 			this.button_ResetSearch.TabIndex = 10;
 			this.button_ResetSearch.Text = "Сбросить параметры поиска";
 			this.button_ResetSearch.UseVisualStyleBackColor = true;
+			this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
 			// 
 			// textBox_CorrespondentAccount
 			// 
@@ -216,6 +221,7 @@ namespace OGM
 			this.button_Search.TabIndex = 10;
 			this.button_Search.Text = "Найти";
 			this.button_Search.UseVisualStyleBackColor = true;
+			this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
 			// 
 			// comboBox_Role
 			// 
@@ -229,12 +235,12 @@ namespace OGM
 			this.comboBox_Role.Size = new System.Drawing.Size(260, 29);
 			this.comboBox_Role.TabIndex = 1;
 			// 
-			// textBox_InventoryNum
+			// textBox_INN
 			// 
-			this.textBox_InventoryNum.Location = new System.Drawing.Point(657, 34);
-			this.textBox_InventoryNum.Name = "textBox_InventoryNum";
-			this.textBox_InventoryNum.Size = new System.Drawing.Size(260, 29);
-			this.textBox_InventoryNum.TabIndex = 5;
+			this.textBox_INN.Location = new System.Drawing.Point(657, 34);
+			this.textBox_INN.Name = "textBox_INN";
+			this.textBox_INN.Size = new System.Drawing.Size(260, 29);
+			this.textBox_INN.TabIndex = 5;
 			// 
 			// textBox_LegalAddress
 			// 
@@ -286,24 +292,64 @@ namespace OGM
 			this.label_NameOrganiztion.TabIndex = 0;
 			this.label_NameOrganiztion.Text = "Наименование:";
 			// 
-			// dataGridView
+			// dataGridView_DataSearch
 			// 
-			this.dataGridView.BackgroundColor = System.Drawing.Color.FloralWhite;
-			this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dataGridView_DataSearch.BackgroundColor = System.Drawing.Color.FloralWhite;
+			this.dataGridView_DataSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView_DataSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnPK,
             this.Column_NameOrganization,
             this.Column_Role,
             this.Column_LegalAddress,
             this.Column_PostAddress,
+            this.ColumnPhone,
             this.Column_INN,
             this.Column_PaymentAccount,
             this.Column_Bank,
             this.Column_CorrespondentAccount,
             this.Column_BIK});
-			this.dataGridView.Location = new System.Drawing.Point(12, 335);
-			this.dataGridView.Name = "dataGridView";
-			this.dataGridView.Size = new System.Drawing.Size(960, 314);
-			this.dataGridView.TabIndex = 14;
+			this.dataGridView_DataSearch.Location = new System.Drawing.Point(12, 335);
+			this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
+			this.dataGridView_DataSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridView_DataSearch.Size = new System.Drawing.Size(960, 314);
+			this.dataGridView_DataSearch.TabIndex = 14;
+			// 
+			// button_RemoveOrganization
+			// 
+			this.button_RemoveOrganization.Location = new System.Drawing.Point(424, 300);
+			this.button_RemoveOrganization.Name = "button_RemoveOrganization";
+			this.button_RemoveOrganization.Size = new System.Drawing.Size(200, 29);
+			this.button_RemoveOrganization.TabIndex = 13;
+			this.button_RemoveOrganization.Text = "Удалить";
+			this.button_RemoveOrganization.UseVisualStyleBackColor = true;
+			this.button_RemoveOrganization.Click += new System.EventHandler(this.button_RemoveOrganization_Click);
+			// 
+			// button_EditOrganization
+			// 
+			this.button_EditOrganization.Location = new System.Drawing.Point(218, 300);
+			this.button_EditOrganization.Name = "button_EditOrganization";
+			this.button_EditOrganization.Size = new System.Drawing.Size(200, 29);
+			this.button_EditOrganization.TabIndex = 12;
+			this.button_EditOrganization.Text = "Редактировать";
+			this.button_EditOrganization.UseVisualStyleBackColor = true;
+			this.button_EditOrganization.Click += new System.EventHandler(this.button_EditOrganization_Click);
+			// 
+			// button_AddOrganization
+			// 
+			this.button_AddOrganization.Location = new System.Drawing.Point(12, 300);
+			this.button_AddOrganization.Name = "button_AddOrganization";
+			this.button_AddOrganization.Size = new System.Drawing.Size(200, 29);
+			this.button_AddOrganization.TabIndex = 11;
+			this.button_AddOrganization.Text = "Добавить";
+			this.button_AddOrganization.UseVisualStyleBackColor = true;
+			this.button_AddOrganization.Click += new System.EventHandler(this.button_AddOrganization_Click);
+			// 
+			// ColumnPK
+			// 
+			this.ColumnPK.HeaderText = "Первичный ключ";
+			this.ColumnPK.Name = "ColumnPK";
+			this.ColumnPK.ReadOnly = true;
+			this.ColumnPK.Visible = false;
 			// 
 			// Column_NameOrganization
 			// 
@@ -320,7 +366,7 @@ namespace OGM
 			// 
 			// Column_LegalAddress
 			// 
-			this.Column_LegalAddress.HeaderText = "Юр. Адрес";
+			this.Column_LegalAddress.HeaderText = "Юр. адрес";
 			this.Column_LegalAddress.Name = "Column_LegalAddress";
 			this.Column_LegalAddress.ReadOnly = true;
 			this.Column_LegalAddress.Width = 110;
@@ -330,6 +376,12 @@ namespace OGM
 			this.Column_PostAddress.HeaderText = "Почтовый адрес";
 			this.Column_PostAddress.Name = "Column_PostAddress";
 			this.Column_PostAddress.ReadOnly = true;
+			// 
+			// ColumnPhone
+			// 
+			this.ColumnPhone.HeaderText = "Телефон/факс";
+			this.ColumnPhone.Name = "ColumnPhone";
+			this.ColumnPhone.ReadOnly = true;
 			// 
 			// Column_INN
 			// 
@@ -361,33 +413,16 @@ namespace OGM
 			this.Column_BIK.Name = "Column_BIK";
 			this.Column_BIK.ReadOnly = true;
 			// 
-			// button_RemoveOrganization
+			// button_ResetComboBoxRole
 			// 
-			this.button_RemoveOrganization.Location = new System.Drawing.Point(424, 300);
-			this.button_RemoveOrganization.Name = "button_RemoveOrganization";
-			this.button_RemoveOrganization.Size = new System.Drawing.Size(200, 29);
-			this.button_RemoveOrganization.TabIndex = 13;
-			this.button_RemoveOrganization.Text = "Удалить";
-			this.button_RemoveOrganization.UseVisualStyleBackColor = true;
-			// 
-			// button_EditOrganization
-			// 
-			this.button_EditOrganization.Location = new System.Drawing.Point(218, 300);
-			this.button_EditOrganization.Name = "button_EditOrganization";
-			this.button_EditOrganization.Size = new System.Drawing.Size(200, 29);
-			this.button_EditOrganization.TabIndex = 12;
-			this.button_EditOrganization.Text = "Редактировать";
-			this.button_EditOrganization.UseVisualStyleBackColor = true;
-			// 
-			// button_AddOrganization
-			// 
-			this.button_AddOrganization.Location = new System.Drawing.Point(12, 300);
-			this.button_AddOrganization.Name = "button_AddOrganization";
-			this.button_AddOrganization.Size = new System.Drawing.Size(200, 29);
-			this.button_AddOrganization.TabIndex = 11;
-			this.button_AddOrganization.Text = "Добавить";
-			this.button_AddOrganization.UseVisualStyleBackColor = true;
-			this.button_AddOrganization.Click += new System.EventHandler(this.button_AddOrganization_Click);
+			this.button_ResetComboBoxRole.BackgroundImage = global::OGM.Properties.Resources.cancel;
+			this.button_ResetComboBoxRole.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.button_ResetComboBoxRole.Location = new System.Drawing.Point(442, 76);
+			this.button_ResetComboBoxRole.Name = "button_ResetComboBoxRole";
+			this.button_ResetComboBoxRole.Size = new System.Drawing.Size(29, 29);
+			this.button_ResetComboBoxRole.TabIndex = 10;
+			this.button_ResetComboBoxRole.UseVisualStyleBackColor = true;
+			this.button_ResetComboBoxRole.Click += new System.EventHandler(this.button_ResetComboBoxRole_Click);
 			// 
 			// OrganizationForm
 			// 
@@ -397,7 +432,7 @@ namespace OGM
 			this.Controls.Add(this.button_RemoveOrganization);
 			this.Controls.Add(this.button_EditOrganization);
 			this.Controls.Add(this.button_AddOrganization);
-			this.Controls.Add(this.dataGridView);
+			this.Controls.Add(this.dataGridView_DataSearch);
 			this.Controls.Add(this.groupBox_Search);
 			this.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -406,9 +441,11 @@ namespace OGM
 			this.MinimizeBox = false;
 			this.Name = "OrganizationForm";
 			this.Text = "Справочник - Организация";
+			this.Activated += new System.EventHandler(this.OrganizationForm_Activated);
+			this.Load += new System.EventHandler(this.OrganizationForm_Load);
 			this.groupBox_Search.ResumeLayout(false);
 			this.groupBox_Search.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -420,7 +457,7 @@ namespace OGM
         private System.Windows.Forms.Label label_Phone;
         private System.Windows.Forms.Button button_Search;
         private System.Windows.Forms.ComboBox comboBox_Role;
-        private System.Windows.Forms.TextBox textBox_InventoryNum;
+        private System.Windows.Forms.TextBox textBox_INN;
         private System.Windows.Forms.TextBox textBox_LegalAddress;
         private System.Windows.Forms.TextBox textBox_NameOrganiztion;
         private System.Windows.Forms.Label label_Role;
@@ -438,7 +475,7 @@ namespace OGM
         private System.Windows.Forms.Label label_CorrespondentAccount;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label_PaymentAccount;
-        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridView dataGridView_DataSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameOrganization;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Role;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_LegalAddress;
@@ -452,5 +489,8 @@ namespace OGM
         private System.Windows.Forms.Button button_EditOrganization;
         private System.Windows.Forms.Button button_AddOrganization;
 		private System.Windows.Forms.Button button_ResetSearch;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPK;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPhone;
+		private System.Windows.Forms.Button button_ResetComboBoxRole;
 	}
 }

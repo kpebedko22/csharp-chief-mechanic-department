@@ -42,7 +42,7 @@ namespace OGM
 			this.textBox_Phone = new System.Windows.Forms.TextBox();
 			this.label_Phone = new System.Windows.Forms.Label();
 			this.comboBox_Role = new System.Windows.Forms.ComboBox();
-			this.textBox_InventoryNum = new System.Windows.Forms.TextBox();
+			this.textBox_INN = new System.Windows.Forms.TextBox();
 			this.textBox_LegalAddress = new System.Windows.Forms.TextBox();
 			this.textBox_NameOrganiztion = new System.Windows.Forms.TextBox();
 			this.label_Role = new System.Windows.Forms.Label();
@@ -162,12 +162,12 @@ namespace OGM
 			this.comboBox_Role.Size = new System.Drawing.Size(370, 29);
 			this.comboBox_Role.TabIndex = 1;
 			// 
-			// textBox_InventoryNum
+			// textBox_INN
 			// 
-			this.textBox_InventoryNum.Location = new System.Drawing.Point(202, 245);
-			this.textBox_InventoryNum.Name = "textBox_InventoryNum";
-			this.textBox_InventoryNum.Size = new System.Drawing.Size(370, 29);
-			this.textBox_InventoryNum.TabIndex = 5;
+			this.textBox_INN.Location = new System.Drawing.Point(202, 245);
+			this.textBox_INN.Name = "textBox_INN";
+			this.textBox_INN.Size = new System.Drawing.Size(370, 29);
+			this.textBox_INN.TabIndex = 5;
 			// 
 			// textBox_LegalAddress
 			// 
@@ -228,6 +228,7 @@ namespace OGM
 			this.button_Close.TabIndex = 12;
 			this.button_Close.Text = "Отмена";
 			this.button_Close.UseVisualStyleBackColor = true;
+			this.button_Close.Click += new System.EventHandler(this.button_Close_Click);
 			// 
 			// button_AddAndClose
 			// 
@@ -238,6 +239,7 @@ namespace OGM
 			this.button_AddAndClose.TabIndex = 11;
 			this.button_AddAndClose.Text = "Добавить и закрыть";
 			this.button_AddAndClose.UseVisualStyleBackColor = true;
+			this.button_AddAndClose.Click += new System.EventHandler(this.button_AddAndClose_Click);
 			// 
 			// button_Add
 			// 
@@ -248,6 +250,7 @@ namespace OGM
 			this.button_Add.TabIndex = 10;
 			this.button_Add.Text = "Добавить";
 			this.button_Add.UseVisualStyleBackColor = true;
+			this.button_Add.Click += new System.EventHandler(this.button_Add_Click);
 			// 
 			// AddOrganizationForm
 			// 
@@ -270,7 +273,7 @@ namespace OGM
 			this.Controls.Add(this.textBox_Phone);
 			this.Controls.Add(this.label_Phone);
 			this.Controls.Add(this.comboBox_Role);
-			this.Controls.Add(this.textBox_InventoryNum);
+			this.Controls.Add(this.textBox_INN);
 			this.Controls.Add(this.textBox_LegalAddress);
 			this.Controls.Add(this.textBox_NameOrganiztion);
 			this.Controls.Add(this.label_Role);
@@ -304,7 +307,7 @@ namespace OGM
         private System.Windows.Forms.TextBox textBox_Phone;
         private System.Windows.Forms.Label label_Phone;
         private System.Windows.Forms.ComboBox comboBox_Role;
-        private System.Windows.Forms.TextBox textBox_InventoryNum;
+        private System.Windows.Forms.TextBox textBox_INN;
         private System.Windows.Forms.TextBox textBox_LegalAddress;
         private System.Windows.Forms.TextBox textBox_NameOrganiztion;
         private System.Windows.Forms.Label label_Role;
