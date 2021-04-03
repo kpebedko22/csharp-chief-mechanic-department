@@ -156,5 +156,48 @@ namespace OGM
             if (equipment != null)
                 new AddEquipment(equipment).ShowDialog();
         }
+
+        private void button_RemoveEquipment_Click(object sender, EventArgs e)
+        {
+            // сформируем список для удаления 
+            // заранее - потому что messagebox, который отвечает за подтверждение удаления (ниже)
+            // вызывает событие Activated, что обновляет таблицу
+            // из-за этого selectedrows сбрасывается...
+
+            List<Equipment> EquipmentForRemove = new List<Equipment>();
+
+            int PK_Equipment = -1;
+            try
+            {
+                foreach (DataGridViewRow row in dataGridView.SelectedRows)
+                {
+                    PK_Equipment = Convert.ToInt32(row.Cells[0].Value);
+                    Equipment curEquipment = Program.db.Equipments.Find(PK_Equipment);
+
+                    if (curEquipment != null)
+                        EquipmentForRemove.Add(curEquipment);
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+
+
+            // запрос подтверждения
+            if (MessageBox.Show("Вы действительно хотите удалить выбранное оборудование? Данное действие нельзя будет отменить!", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+
+            // применим удаление
+            foreach (var equipment in EquipmentForRemove)
+                Program.db.Remove(equipment);
+
+            Program.db.SaveChanges();
+
+
+            this.button_Search.PerformClick();
+        }
     }
 }

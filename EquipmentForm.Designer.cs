@@ -299,6 +299,7 @@ namespace OGM
             this.button_RemoveEquipment.TabIndex = 10;
             this.button_RemoveEquipment.Text = "Удалить";
             this.button_RemoveEquipment.UseVisualStyleBackColor = true;
+            this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
             // 
             // EquipmentForm
             // 
