@@ -183,6 +183,7 @@ namespace OGM
             this.button_ResetSearch.TabIndex = 4;
             this.button_ResetSearch.Text = "Сбросить параметры поиска";
             this.button_ResetSearch.UseVisualStyleBackColor = true;
+            this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
             // 
             // button_Search
             // 
@@ -192,13 +193,16 @@ namespace OGM
             this.button_Search.TabIndex = 3;
             this.button_Search.Text = "Найти";
             this.button_Search.UseVisualStyleBackColor = true;
+            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
             // 
             // dateTimePicker_DateContract
             // 
             this.dateTimePicker_DateContract.CalendarFont = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker_DateContract.Checked = false;
             this.dateTimePicker_DateContract.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateTimePicker_DateContract.Location = new System.Drawing.Point(179, 116);
             this.dateTimePicker_DateContract.Name = "dateTimePicker_DateContract";
+            this.dateTimePicker_DateContract.ShowCheckBox = true;
             this.dateTimePicker_DateContract.Size = new System.Drawing.Size(200, 29);
             this.dateTimePicker_DateContract.TabIndex = 2;
             // 
@@ -246,6 +250,7 @@ namespace OGM
             // 
             // dataGridView_DataSearch
             // 
+            this.dataGridView_DataSearch.AllowUserToAddRows = false;
             this.dataGridView_DataSearch.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.dataGridView_DataSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DataSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -258,6 +263,7 @@ namespace OGM
             this.dataGridView_DataSearch.Location = new System.Drawing.Point(12, 200);
             this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
             this.dataGridView_DataSearch.ReadOnly = true;
+            this.dataGridView_DataSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_DataSearch.Size = new System.Drawing.Size(860, 349);
             this.dataGridView_DataSearch.TabIndex = 5;
             this.dataGridView_DataSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DataSearch_CellClick);

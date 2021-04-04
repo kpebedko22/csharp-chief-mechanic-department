@@ -112,5 +112,58 @@ namespace OGM
             this.comboBox_Leaser.AutoCompleteCustomSource.AddRange(organizations.Select(i => i.name).ToArray());
             this.comboBox_Leaser.SelectedItem = null;
         }
+
+        private void button_Search_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.textBox_ContractNumber.Text)) this.textBox_ContractNumber.Text = "";
+
+
+            List<LeasingContract> leasingContracts = Program.db.LeasingContracts.ToList();
+            List<LeasingContract> leasingContractsResult = new List<LeasingContract>();
+
+            int PK_Leaser = -1;
+            if (((Organization)comboBox_Leaser.SelectedItem) != null)
+                PK_Leaser = ((Organization)comboBox_Leaser.SelectedItem).PK_Organization;
+
+          
+
+            foreach (LeasingContract item in leasingContracts)
+                if (Convert.ToString(item.contract_number).Contains(this.textBox_ContractNumber.Text))
+                {
+
+                    bool is_good_row = true;
+                    if (PK_Leaser != -1)
+                        if (item.leaser != null)
+                            if (item.leaser.PK_Organization != PK_Leaser)
+                                is_good_row = false;
+
+                    if (this.dateTimePicker_DateContract.Checked == true)
+                        if (item.date.Date != this.dateTimePicker_DateContract.Value.Date)
+                            is_good_row = false;
+
+
+                    if (is_good_row)
+                        leasingContractsResult.Add(item);
+
+                }
+
+
+
+            dataGridView_DataSearch.DataSource = leasingContractsResult;
+            SetIndexNums();
+            dataGridView_DataSearch.ClearSelection();
+
+        }
+
+        private void button_ResetSearch_Click(object sender, EventArgs e)
+        {
+            this.comboBox_Leaser.SelectedIndex = -1;
+            this.comboBox_Leaser.Text = "";
+            this.textBox_ContractNumber.Text = "";
+            this.dateTimePicker_DateContract.Checked = false;
+
+            updateTable();
+
+        }
     }
 }
