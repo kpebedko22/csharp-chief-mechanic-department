@@ -20,7 +20,7 @@ namespace OGM {
 
 			Owner = owner;
 
-			dataGridView_DataSearch.Columns[1].DataPropertyName = "PK_Act_Debit";
+			dataGridView_DataSearch.Columns[1].DataPropertyName = "PK_Aсt_Debit";
 			dataGridView_DataSearch.Columns[2].DataPropertyName = "act_number";
 			dataGridView_DataSearch.Columns[3].DataPropertyName = "date";
 			SetIndexNums();
@@ -62,12 +62,17 @@ namespace OGM {
 			// если нажали на ссылку в 4 столбце
 			if (e.ColumnIndex == 4) {
 
+				Console.WriteLine(e.RowIndex);
+
+				Console.WriteLine(dataGridView_DataSearch.Rows[e.RowIndex].Cells[1].Value);
+
 				// берем первичный ключ акта в скрытом столбце (столбец 1)
 				int PK_ActDebit = Convert.ToInt32(dataGridView_DataSearch[1, e.RowIndex].Value);
-				
+				Console.WriteLine(PK_ActDebit);
+				ActDebit actDebit = Program.db.ActDebits.Find(PK_ActDebit);
 
-				// ну вообще открывать другую форму наверное надо, но пока так...
-				new LeasingViewForm().ShowDialog();
+				if (actDebit != null)
+					new DebitViewForm(actDebit).ShowDialog();
 			}
 		}
 
