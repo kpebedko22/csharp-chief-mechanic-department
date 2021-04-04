@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 
+using OGM.Models;
+
 namespace OGM {
 	public partial class LeasingViewForm : Form {
-		public LeasingViewForm() {
+		public LeasingViewForm(LeasingContract leasingContract = null) {
 			InitializeComponent();
 
 			OpenLeasingContract();
