@@ -58,6 +58,8 @@ namespace OGM {
 			this.button_Edit = new System.Windows.Forms.Button();
 			this.button_Debit = new System.Windows.Forms.Button();
 			this.checkBox_AllGroupDebit = new System.Windows.Forms.CheckBox();
+			this.label_Workshop = new System.Windows.Forms.Label();
+			this.comboBox_Workshop = new System.Windows.Forms.ComboBox();
 			this.menuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Debit)).BeginInit();
 			this.groupBox.SuspendLayout();
@@ -129,7 +131,7 @@ namespace OGM {
 			// ToolStripMenuItem_Find_EquipmentDebit
 			// 
 			this.ToolStripMenuItem_Find_EquipmentDebit.Name = "ToolStripMenuItem_Find_EquipmentDebit";
-			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(126, 22);
 			this.ToolStripMenuItem_Find_EquipmentDebit.Text = "Найти";
 			this.ToolStripMenuItem_Find_EquipmentDebit.Click += new System.EventHandler(this.ToolStripMenuItem_Find_EquipmentDebit_Click);
 			// 
@@ -185,7 +187,7 @@ namespace OGM {
 			this.dateTimePicker_DateDebit.Location = new System.Drawing.Point(555, 27);
 			this.dateTimePicker_DateDebit.Name = "dateTimePicker_DateDebit";
 			this.dateTimePicker_DateDebit.Size = new System.Drawing.Size(200, 29);
-			this.dateTimePicker_DateDebit.TabIndex = 1;
+			this.dateTimePicker_DateDebit.TabIndex = 2;
 			// 
 			// label_DateDebit
 			// 
@@ -208,8 +210,10 @@ namespace OGM {
             this.ColumnReasonDebit});
 			this.dataGridView_Debit.Location = new System.Drawing.Point(12, 332);
 			this.dataGridView_Debit.Name = "dataGridView_Debit";
+			this.dataGridView_Debit.ReadOnly = true;
+			this.dataGridView_Debit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView_Debit.Size = new System.Drawing.Size(860, 272);
-			this.dataGridView_Debit.TabIndex = 4;
+			this.dataGridView_Debit.TabIndex = 11;
 			// 
 			// Column
 			// 
@@ -249,7 +253,7 @@ namespace OGM {
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(137, 121);
+			this.label1.Location = new System.Drawing.Point(137, 151);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(144, 21);
 			this.label1.TabIndex = 2;
@@ -260,14 +264,14 @@ namespace OGM {
 			this.button_Delete.Location = new System.Drawing.Point(417, 226);
 			this.button_Delete.Name = "button_Delete";
 			this.button_Delete.Size = new System.Drawing.Size(200, 32);
-			this.button_Delete.TabIndex = 3;
+			this.button_Delete.TabIndex = 10;
 			this.button_Delete.Text = "Удалить";
 			this.button_Delete.UseVisualStyleBackColor = true;
 			// 
 			// label_Equipment
 			// 
 			this.label_Equipment.AutoSize = true;
-			this.label_Equipment.Location = new System.Drawing.Point(122, 86);
+			this.label_Equipment.Location = new System.Drawing.Point(122, 116);
 			this.label_Equipment.Name = "label_Equipment";
 			this.label_Equipment.Size = new System.Drawing.Size(159, 21);
 			this.label_Equipment.TabIndex = 2;
@@ -276,15 +280,15 @@ namespace OGM {
 			// comboBox_ReasonDebit
 			// 
 			this.comboBox_ReasonDebit.FormattingEnabled = true;
-			this.comboBox_ReasonDebit.Location = new System.Drawing.Point(287, 118);
+			this.comboBox_ReasonDebit.Location = new System.Drawing.Point(287, 148);
 			this.comboBox_ReasonDebit.Name = "comboBox_ReasonDebit";
 			this.comboBox_ReasonDebit.Size = new System.Drawing.Size(250, 29);
-			this.comboBox_ReasonDebit.TabIndex = 0;
+			this.comboBox_ReasonDebit.TabIndex = 6;
 			// 
 			// label_GroupEquipment
 			// 
 			this.label_GroupEquipment.AutoSize = true;
-			this.label_GroupEquipment.Location = new System.Drawing.Point(114, 51);
+			this.label_GroupEquipment.Location = new System.Drawing.Point(114, 81);
 			this.label_GroupEquipment.Name = "label_GroupEquipment";
 			this.label_GroupEquipment.Size = new System.Drawing.Size(167, 21);
 			this.label_GroupEquipment.TabIndex = 1;
@@ -293,18 +297,18 @@ namespace OGM {
 			// comboBox_Equipment
 			// 
 			this.comboBox_Equipment.FormattingEnabled = true;
-			this.comboBox_Equipment.Location = new System.Drawing.Point(287, 83);
+			this.comboBox_Equipment.Location = new System.Drawing.Point(287, 113);
 			this.comboBox_Equipment.Name = "comboBox_Equipment";
 			this.comboBox_Equipment.Size = new System.Drawing.Size(250, 29);
-			this.comboBox_Equipment.TabIndex = 0;
+			this.comboBox_Equipment.TabIndex = 5;
 			// 
 			// comboBox_GroupEquipment
 			// 
 			this.comboBox_GroupEquipment.FormattingEnabled = true;
-			this.comboBox_GroupEquipment.Location = new System.Drawing.Point(287, 48);
+			this.comboBox_GroupEquipment.Location = new System.Drawing.Point(287, 78);
 			this.comboBox_GroupEquipment.Name = "comboBox_GroupEquipment";
 			this.comboBox_GroupEquipment.Size = new System.Drawing.Size(250, 29);
-			this.comboBox_GroupEquipment.TabIndex = 0;
+			this.comboBox_GroupEquipment.TabIndex = 4;
 			// 
 			// button_Add
 			// 
@@ -323,7 +327,9 @@ namespace OGM {
 			this.groupBox.Controls.Add(this.button_Debit);
 			this.groupBox.Controls.Add(this.checkBox_AllGroupDebit);
 			this.groupBox.Controls.Add(this.comboBox_ReasonDebit);
+			this.groupBox.Controls.Add(this.comboBox_Workshop);
 			this.groupBox.Controls.Add(this.comboBox_GroupEquipment);
+			this.groupBox.Controls.Add(this.label_Workshop);
 			this.groupBox.Controls.Add(this.comboBox_Equipment);
 			this.groupBox.Controls.Add(this.label_GroupEquipment);
 			this.groupBox.Controls.Add(this.label1);
@@ -341,7 +347,7 @@ namespace OGM {
 			this.button_Edit.Location = new System.Drawing.Point(211, 226);
 			this.button_Edit.Name = "button_Edit";
 			this.button_Edit.Size = new System.Drawing.Size(200, 32);
-			this.button_Edit.TabIndex = 5;
+			this.button_Edit.TabIndex = 9;
 			this.button_Edit.Text = "Редактировать";
 			this.button_Edit.UseVisualStyleBackColor = true;
 			// 
@@ -350,20 +356,38 @@ namespace OGM {
 			this.button_Debit.Location = new System.Drawing.Point(6, 226);
 			this.button_Debit.Name = "button_Debit";
 			this.button_Debit.Size = new System.Drawing.Size(200, 32);
-			this.button_Debit.TabIndex = 5;
+			this.button_Debit.TabIndex = 8;
 			this.button_Debit.Text = "Списать";
 			this.button_Debit.UseVisualStyleBackColor = true;
 			// 
 			// checkBox_AllGroupDebit
 			// 
 			this.checkBox_AllGroupDebit.AutoSize = true;
-			this.checkBox_AllGroupDebit.Location = new System.Drawing.Point(566, 86);
+			this.checkBox_AllGroupDebit.Location = new System.Drawing.Point(571, 80);
 			this.checkBox_AllGroupDebit.Name = "checkBox_AllGroupDebit";
 			this.checkBox_AllGroupDebit.Size = new System.Drawing.Size(172, 25);
-			this.checkBox_AllGroupDebit.TabIndex = 4;
+			this.checkBox_AllGroupDebit.TabIndex = 7;
 			this.checkBox_AllGroupDebit.Text = "Списать всю группу";
 			this.checkBox_AllGroupDebit.UseVisualStyleBackColor = true;
 			this.checkBox_AllGroupDebit.CheckedChanged += new System.EventHandler(this.checkBox_AllGroupDebit_CheckedChanged);
+			// 
+			// label_Workshop
+			// 
+			this.label_Workshop.AutoSize = true;
+			this.label_Workshop.Location = new System.Drawing.Point(244, 47);
+			this.label_Workshop.Name = "label_Workshop";
+			this.label_Workshop.Size = new System.Drawing.Size(37, 21);
+			this.label_Workshop.TabIndex = 1;
+			this.label_Workshop.Text = "Цех";
+			// 
+			// comboBox_Workshop
+			// 
+			this.comboBox_Workshop.FormattingEnabled = true;
+			this.comboBox_Workshop.Location = new System.Drawing.Point(287, 43);
+			this.comboBox_Workshop.Name = "comboBox_Workshop";
+			this.comboBox_Workshop.Size = new System.Drawing.Size(250, 29);
+			this.comboBox_Workshop.TabIndex = 3;
+			this.comboBox_Workshop.SelectedIndexChanged += new System.EventHandler(this.comboBox_Workshop_SelectedIndexChanged);
 			// 
 			// AddEquipmentDebitForm
 			// 
@@ -434,5 +458,7 @@ namespace OGM {
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCost;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReasonDebit;
+		private System.Windows.Forms.ComboBox comboBox_Workshop;
+		private System.Windows.Forms.Label label_Workshop;
 	}
 }

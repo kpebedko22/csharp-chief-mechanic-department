@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using OGM.Models;
+
 namespace OGM {
 	public partial class AddEquipmentDebitForm : Form {
 
@@ -17,6 +19,11 @@ namespace OGM {
 			InitializeComponent();
 
 			Owner = owner;
+
+			comboBox_Workshop.DataSource = Program.db.Workshops.ToList();
+			comboBox_Workshop.SelectedIndex = -1;
+
+
 		}
 
 		private void AddEquipmentDebitForm_FormClosed(object sender, FormClosedEventArgs e) {
@@ -43,16 +50,17 @@ namespace OGM {
 			new ReasonDebitForm().ShowDialog();
 		}
 
-        private void checkBox_AllGroupDebit_CheckedChanged(object sender, EventArgs e)
-        {
+        private void checkBox_AllGroupDebit_CheckedChanged(object sender, EventArgs e) {
 			comboBox_Equipment.Enabled = !checkBox_AllGroupDebit.Checked;
-
 			button_Debit.Text = checkBox_AllGroupDebit.Checked ? "Списать всю группу" : "Списать";
-
 		}
 
 		private void ToolStripMenuItem_Find_EquipmentDebit_Click(object sender, EventArgs e) {
 			this.Close();
+		}
+
+		private void comboBox_Workshop_SelectedIndexChanged(object sender, EventArgs e) {
+			//comboBox_GroupEquipment.DataSource = Program.db.
 		}
 	}
 }
