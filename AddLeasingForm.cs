@@ -22,36 +22,28 @@ namespace OGM
 
             Owner = owner;
 
+            this.numericUpDown_PenaltyFee.Controls[0].Visible = false;
+            this.numericUpDown_Cost.Controls[0].Visible = false;
+
             this.dateTimePicker_DateDelivery.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
 
             this.comboBox_Leaser.AutoCompleteMode = this.comboBox_Seller.AutoCompleteMode = this.comboBox_Equipment.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.comboBox_Leaser.AutoCompleteSource = this.comboBox_Seller.AutoCompleteSource = this.comboBox_Equipment.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            List<Organization> organizations = Program.db.Organizations.ToList();
-            List<Organization> leasers = new List<Organization>();
-            List<Organization> sellers = new List<Organization>();
-
-            // PK_Role = 1 - лизингополучатель
-            // PK_Role = 2 - лизингодатель
-            // PK_Role = 3 - Продавец
-            foreach (Organization item in organizations)
-            {
-                if (item.PK_Role == 2) leasers.Add(item);
-                if (item.PK_Role == 3) sellers.Add(item);
-            }
-
+            List<Organization> leasers = Program.db.Organizations.Where(b => b.PK_Role == 2).ToList();
             this.comboBox_Leaser.DataSource = leasers;
             this.comboBox_Leaser.AutoCompleteCustomSource.AddRange(leasers.Select(i => i.name).ToArray());
             this.comboBox_Leaser.SelectedIndex = -1;
 
+            List<Organization> sellers = Program.db.Organizations.Where(b => b.PK_Role == 3).ToList();
             this.comboBox_Seller.DataSource = sellers;
             this.comboBox_Seller.AutoCompleteCustomSource.AddRange(sellers.Select(i => i.name).ToArray());
             this.comboBox_Seller.SelectedIndex = -1;
 
-            List<EquipmentGroup> equipmentGroups = Program.db.EquipmentGroups.ToList();
-            this.comboBox_Equipment.DataSource = equipmentGroups;
-            this.comboBox_Equipment.AutoCompleteCustomSource.AddRange(equipmentGroups.Select(i => i.name).ToArray());
-            this.comboBox_Equipment.SelectedIndex = -1;
+            List<Workshop> workshops = Program.db.Workshops.ToList();
+            this.comboBox_Workshop.DataSource = workshops;
+            this.comboBox_Workshop.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
+            this.comboBox_Workshop.SelectedIndex = -1;
 
         }
 
@@ -169,7 +161,7 @@ namespace OGM
             // все поля должны быть заполнены
             if ((this.comboBox_Equipment.SelectedItem == null || this.comboBox_Equipment.SelectedIndex == -1)
                 || String.IsNullOrWhiteSpace(this.textBox_Amount.Text)
-                || String.IsNullOrWhiteSpace(this.textBox_Cost.Text))
+                || String.IsNullOrWhiteSpace(this.numericUpDown_Cost.Text))
             {
                 MessageBox.Show("Необходимо заполнить все поля, чтобы добавить строку в таблицу", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -192,7 +184,7 @@ namespace OGM
 
             try
             {
-                Decimal value = Convert.ToDecimal(this.textBox_Cost.Text);
+                Decimal value = this.numericUpDown_Cost.Value;
                 if (value < 0)
                     throw new Exception("Negative value!");
             }
@@ -205,7 +197,7 @@ namespace OGM
 
             // добавление в таблицу
             EquipmentGroup group = (EquipmentGroup)this.comboBox_Equipment.SelectedItem;
-            dataGridView1.Rows.Add(group.PK_Equipment_Group, group.name, this.textBox_Cost.Text, this.textBox_Amount.Text, "шт", Convert.ToInt32(this.textBox_Amount.Text) * Convert.ToDecimal(this.textBox_Cost.Text));
+            dataGridView1.Rows.Add(group.PK_Equipment_Group, group.name, this.numericUpDown_Cost.Text, this.textBox_Amount.Text, "шт", Convert.ToInt32(this.textBox_Amount.Text) * this.numericUpDown_Cost.Value);
 
 
         }
@@ -213,6 +205,169 @@ namespace OGM
         private void dateTimePicker_DateConclusion_ValueChanged(object sender, EventArgs e)
         {
             this.dateTimePicker_DateDelivery.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
+        }
+
+        private bool ShowMessage(String msg)
+        {
+            MessageBox.Show(msg, "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
+
+        private bool checkFields()
+        {
+            if (String.IsNullOrWhiteSpace(this.textBox_LeasingNum.Text))
+                return ShowMessage("Введите номер договора!");
+
+            if (this.comboBox_Leaser.SelectedItem == null || this.comboBox_Leaser.SelectedIndex == -1)
+                return ShowMessage("Укажите лизингодателя!");
+
+            if (this.comboBox_Seller.SelectedItem == null || this.comboBox_Seller.SelectedIndex == -1)
+                return ShowMessage("Укажите продавца!");
+
+            if (String.IsNullOrWhiteSpace(this.numericUpDown_DaysForFirstPayment.Text))
+                return ShowMessage("Укажите кол-во дней для 1-го платежа!");
+
+            if (String.IsNullOrWhiteSpace(this.numericUpDown_DaysForReport.Text))
+                return ShowMessage("Укажите кол-во дней принятия претензий!");
+
+            if (String.IsNullOrWhiteSpace(this.numericUpDown_DaysForForceMajeure.Text))
+                return ShowMessage("Укажите кол-во дней решение на форс-мажорных ситуаций!");
+
+            if (String.IsNullOrWhiteSpace(this.numericUpDown_Penalty.Text))
+                return ShowMessage("Укажите % пени!");
+
+            if (String.IsNullOrWhiteSpace(this.numericUpDown_MaxPenalty.Text))
+                return ShowMessage("Укажите максимальный % пени!");
+
+            if (String.IsNullOrWhiteSpace(this.numericUpDown_PenaltyFee.Text))
+                return ShowMessage("Укажите неустойку, в руб.!");
+
+            if (String.IsNullOrWhiteSpace(this.numericUpDown_PeriodOfUse.Text))
+                return ShowMessage("Укажите срок использования оборудования!");
+
+            if (String.IsNullOrWhiteSpace(this.textBox_AddressDelivery.Text))
+                return ShowMessage("Укажите адрес доставки оборудования!");
+
+            if (this.dataGridView1.Rows.Count < 1)
+                return ShowMessage("Таблица оборудования, приобритаемого в лизинг не может быть пустой!");
+
+            return true;
+        }
+
+        private bool AddLeasing()
+        {
+            // проверяем поля на заполненность и корректность ввода
+            if (checkFields() == false)
+                return false;
+
+            this.button_Add.Enabled = this.button_AddAndClose.Enabled = false;
+
+            // добавляем в бд договор
+
+            LeasingContract leasingContract = new LeasingContract();
+
+            leasingContract.contract_number = this.textBox_LeasingNum.Text;
+            leasingContract.date = this.dateTimePicker_DateConclusion.Value.Date;
+            leasingContract.date_delivery  = this.dateTimePicker_DateConclusion.Value.Date;
+            leasingContract.period_of_use = (int)this.numericUpDown_PeriodOfUse.Value;
+            leasingContract.address_delivery = this.textBox_AddressDelivery.Text;
+            leasingContract.days_for_first_payment = (int)this.numericUpDown_DaysForFirstPayment.Value;
+            leasingContract.days_for_report = (int)this.numericUpDown_DaysForReport.Value;
+            leasingContract.penalty = this.numericUpDown_Penalty.Value;
+            leasingContract.max_penalty = this.numericUpDown_MaxPenalty.Value;
+            leasingContract.days_for_force_majeure = (int)this.numericUpDown_DaysForForceMajeure.Value;
+            leasingContract.penalty_fee = this.numericUpDown_DaysForForceMajeure.Value;
+
+            Program.db.LeasingContracts.Add(leasingContract);
+            Program.db.SaveChanges();
+
+            // после сохранения изменений нам доступен первичный ключ договора
+            // создадим второстепенные таблицы - связь между организацией и договором
+            RelationshipOrganizationLeasingContract seller = new RelationshipOrganizationLeasingContract();
+            RelationshipOrganizationLeasingContract leaser = new RelationshipOrganizationLeasingContract();
+            seller.PK_Leasing_Contract = leaser.PK_Leasing_Contract = leasingContract.PK_Leasing_Contract;
+            seller.PK_Organization = ((Organization)this.comboBox_Seller.SelectedItem).PK_Organization;
+            seller.PK_Role = ((Organization)this.comboBox_Seller.SelectedItem).PK_Role;
+            leaser.PK_Organization = ((Organization)this.comboBox_Leaser.SelectedItem).PK_Organization;
+            leaser.PK_Role = ((Organization)this.comboBox_Leaser.SelectedItem).PK_Role;
+
+            Program.db.relationships_organization_leasing_contract.Add(seller);
+            Program.db.relationships_organization_leasing_contract.Add(leaser);
+            Program.db.SaveChanges();
+
+            // далее создадим экземпляры оборудования, приобритённого в лизинг
+            int count = 1;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {  
+                // 3 ячейка - это кол-во оборудования в строке
+                int amount = Convert.ToInt32(row.Cells[3].Value);
+                for (int i = 0; i < amount; i++)
+                {
+                    // создаём новый экземпляр оборудования
+                    Equipment equipment = new Equipment();
+                    equipment.name = row.Cells[1].Value.ToString();
+                    equipment.inventory_number = "ЛИЗ-" + leasingContract.contract_number + "-" + count.ToString();
+                    equipment.cost = this.numericUpDown_Cost.Value;
+                    equipment.PK_Equipment_Group = ((EquipmentGroup)this.comboBox_Equipment.SelectedItem).PK_Equipment_Group;
+                    equipment.serial_number = " "; 
+
+                    Program.db.Equipments.Add(equipment);
+
+                    count++;
+                }
+            }
+            Program.db.SaveChangesAsync();
+
+
+            MessageBox.Show("Договор за номером " + leasingContract.contract_number + " успешно создан!", "Успех!");
+
+            this.button_Add.Enabled = this.button_AddAndClose.Enabled = true;
+            return true;
+        }
+
+        private void button_Add_Click(object sender, EventArgs e)
+        {
+            AddLeasing();
+        }
+
+        private void button_AddAndClose_Click(object sender, EventArgs e)
+        {
+            if (AddLeasing())
+                this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void comboBox_Workshop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Workshop workshop = null;
+            
+            if (this.comboBox_Workshop.SelectedItem == null || this.comboBox_Workshop.SelectedIndex == -1)
+            {
+                this.comboBox_Equipment.DataSource = null;
+                this.comboBox_Equipment.SelectedItem = null;
+                this.comboBox_Equipment.SelectedIndex = -1;
+                return;
+            }
+
+
+            List<EquipmentGroup> equipmentGroups = Program.db.EquipmentGroups.Where(b => b.PK_Workshop == ((Workshop)this.comboBox_Workshop.SelectedItem).PK_Workshop).ToList();
+            this.comboBox_Equipment.DataSource = equipmentGroups;
+            this.comboBox_Equipment.AutoCompleteCustomSource.AddRange(equipmentGroups.Select(i => i.name).ToArray());
+            this.comboBox_Equipment.SelectedIndex = -1;
+
+            this.comboBox_Equipment.Focus();
+        }
+
+        private void comboBox_Equipment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.comboBox_Equipment.SelectedItem == null || this.comboBox_Equipment.SelectedIndex == -1)
+                return;
+            this.textBox_Amount.Focus();
         }
     }
 }

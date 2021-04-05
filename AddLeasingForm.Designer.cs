@@ -36,7 +36,6 @@ namespace OGM
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage_MainInfo = new System.Windows.Forms.TabPage();
             this.groupBox_Responsibility = new System.Windows.Forms.GroupBox();
-            this.textBox_PenaltyFee = new System.Windows.Forms.TextBox();
             this.pictureBox_PenaltyFee = new System.Windows.Forms.PictureBox();
             this.label_PenaltyFee = new System.Windows.Forms.Label();
             this.pictureBox_MaxPenalty = new System.Windows.Forms.PictureBox();
@@ -67,7 +66,6 @@ namespace OGM
             this.tabPage_Equipment = new System.Windows.Forms.TabPage();
             this.groupBox_RowOfTable = new System.Windows.Forms.GroupBox();
             this.label_Cost = new System.Windows.Forms.Label();
-            this.textBox_Cost = new System.Windows.Forms.TextBox();
             this.label_Amount = new System.Windows.Forms.Label();
             this.label_Equipment = new System.Windows.Forms.Label();
             this.textBox_Amount = new System.Windows.Forms.TextBox();
@@ -96,7 +94,13 @@ namespace OGM
             this.button_AddAndClose = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button_Add = new System.Windows.Forms.Button();
-            this.PK_Equipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericUpDown_PenaltyFee = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_Workshop = new System.Windows.Forms.ComboBox();
+            this.label_AddressDelivery = new System.Windows.Forms.Label();
+            this.textBox_AddressDelivery = new System.Windows.Forms.TextBox();
+            this.numericUpDown_Cost = new System.Windows.Forms.NumericUpDown();
+            this.Column_PK_Equipment_Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Cost_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,6 +125,8 @@ namespace OGM
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).BeginInit();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PenaltyFee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).BeginInit();
             this.SuspendLayout();
             // 
             // label_LeasingNum
@@ -166,7 +172,7 @@ namespace OGM
             // 
             // groupBox_Responsibility
             // 
-            this.groupBox_Responsibility.Controls.Add(this.textBox_PenaltyFee);
+            this.groupBox_Responsibility.Controls.Add(this.numericUpDown_PenaltyFee);
             this.groupBox_Responsibility.Controls.Add(this.pictureBox_PenaltyFee);
             this.groupBox_Responsibility.Controls.Add(this.label_PenaltyFee);
             this.groupBox_Responsibility.Controls.Add(this.pictureBox_MaxPenalty);
@@ -181,13 +187,6 @@ namespace OGM
             this.groupBox_Responsibility.TabIndex = 15;
             this.groupBox_Responsibility.TabStop = false;
             this.groupBox_Responsibility.Text = "Ответственность";
-            // 
-            // textBox_PenaltyFee
-            // 
-            this.textBox_PenaltyFee.Location = new System.Drawing.Point(244, 141);
-            this.textBox_PenaltyFee.Name = "textBox_PenaltyFee";
-            this.textBox_PenaltyFee.Size = new System.Drawing.Size(150, 29);
-            this.textBox_PenaltyFee.TabIndex = 10;
             // 
             // pictureBox_PenaltyFee
             // 
@@ -235,19 +234,30 @@ namespace OGM
             // 
             // numericUpDown_MaxPenalty
             // 
+            this.numericUpDown_MaxPenalty.DecimalPlaces = 2;
+            this.numericUpDown_MaxPenalty.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
             this.numericUpDown_MaxPenalty.Location = new System.Drawing.Point(244, 92);
             this.numericUpDown_MaxPenalty.Name = "numericUpDown_MaxPenalty";
             this.numericUpDown_MaxPenalty.Size = new System.Drawing.Size(150, 29);
             this.numericUpDown_MaxPenalty.TabIndex = 9;
             this.numericUpDown_MaxPenalty.Value = new decimal(new int[] {
-            5,
+            500,
             0,
             0,
-            0});
+            131072});
             // 
             // numericUpDown_Penalty
             // 
             this.numericUpDown_Penalty.DecimalPlaces = 2;
+            this.numericUpDown_Penalty.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
             this.numericUpDown_Penalty.Location = new System.Drawing.Point(244, 42);
             this.numericUpDown_Penalty.Name = "numericUpDown_Penalty";
             this.numericUpDown_Penalty.Size = new System.Drawing.Size(150, 29);
@@ -474,7 +484,9 @@ namespace OGM
             // 
             // tabPage_Equipment
             // 
+            this.tabPage_Equipment.Controls.Add(this.label_AddressDelivery);
             this.tabPage_Equipment.Controls.Add(this.groupBox_RowOfTable);
+            this.tabPage_Equipment.Controls.Add(this.textBox_AddressDelivery);
             this.tabPage_Equipment.Controls.Add(this.dataGridView1);
             this.tabPage_Equipment.Controls.Add(this.numericUpDown_PeriodOfUse);
             this.tabPage_Equipment.Controls.Add(this.label_PeriodOfUse);
@@ -490,8 +502,10 @@ namespace OGM
             // 
             // groupBox_RowOfTable
             // 
+            this.groupBox_RowOfTable.Controls.Add(this.numericUpDown_Cost);
+            this.groupBox_RowOfTable.Controls.Add(this.label1);
+            this.groupBox_RowOfTable.Controls.Add(this.comboBox_Workshop);
             this.groupBox_RowOfTable.Controls.Add(this.label_Cost);
-            this.groupBox_RowOfTable.Controls.Add(this.textBox_Cost);
             this.groupBox_RowOfTable.Controls.Add(this.label_Amount);
             this.groupBox_RowOfTable.Controls.Add(this.label_Equipment);
             this.groupBox_RowOfTable.Controls.Add(this.textBox_Amount);
@@ -499,7 +513,7 @@ namespace OGM
             this.groupBox_RowOfTable.Controls.Add(this.button_RemoveEquipment);
             this.groupBox_RowOfTable.Controls.Add(this.button_Edit);
             this.groupBox_RowOfTable.Controls.Add(this.button_AddRowEquipment);
-            this.groupBox_RowOfTable.Location = new System.Drawing.Point(6, 56);
+            this.groupBox_RowOfTable.Location = new System.Drawing.Point(6, 114);
             this.groupBox_RowOfTable.Name = "groupBox_RowOfTable";
             this.groupBox_RowOfTable.Size = new System.Drawing.Size(840, 214);
             this.groupBox_RowOfTable.TabIndex = 22;
@@ -510,23 +524,16 @@ namespace OGM
             // label_Cost
             // 
             this.label_Cost.AutoSize = true;
-            this.label_Cost.Location = new System.Drawing.Point(114, 111);
+            this.label_Cost.Location = new System.Drawing.Point(114, 137);
             this.label_Cost.Name = "label_Cost";
             this.label_Cost.Size = new System.Drawing.Size(172, 21);
             this.label_Cost.TabIndex = 26;
             this.label_Cost.Text = "Стоимость за единицу";
             // 
-            // textBox_Cost
-            // 
-            this.textBox_Cost.Location = new System.Drawing.Point(292, 108);
-            this.textBox_Cost.Name = "textBox_Cost";
-            this.textBox_Cost.Size = new System.Drawing.Size(250, 29);
-            this.textBox_Cost.TabIndex = 16;
-            // 
             // label_Amount
             // 
             this.label_Amount.AutoSize = true;
-            this.label_Amount.Location = new System.Drawing.Point(193, 76);
+            this.label_Amount.Location = new System.Drawing.Point(193, 102);
             this.label_Amount.Name = "label_Amount";
             this.label_Amount.Size = new System.Drawing.Size(93, 21);
             this.label_Amount.TabIndex = 24;
@@ -535,7 +542,7 @@ namespace OGM
             // label_Equipment
             // 
             this.label_Equipment.AutoSize = true;
-            this.label_Equipment.Location = new System.Drawing.Point(170, 41);
+            this.label_Equipment.Location = new System.Drawing.Point(170, 67);
             this.label_Equipment.Name = "label_Equipment";
             this.label_Equipment.Size = new System.Drawing.Size(117, 21);
             this.label_Equipment.TabIndex = 24;
@@ -543,25 +550,26 @@ namespace OGM
             // 
             // textBox_Amount
             // 
-            this.textBox_Amount.Location = new System.Drawing.Point(292, 73);
+            this.textBox_Amount.Location = new System.Drawing.Point(292, 99);
             this.textBox_Amount.Name = "textBox_Amount";
             this.textBox_Amount.Size = new System.Drawing.Size(250, 29);
-            this.textBox_Amount.TabIndex = 15;
+            this.textBox_Amount.TabIndex = 17;
             // 
             // comboBox_Equipment
             // 
             this.comboBox_Equipment.FormattingEnabled = true;
-            this.comboBox_Equipment.Location = new System.Drawing.Point(292, 38);
+            this.comboBox_Equipment.Location = new System.Drawing.Point(292, 64);
             this.comboBox_Equipment.Name = "comboBox_Equipment";
             this.comboBox_Equipment.Size = new System.Drawing.Size(250, 29);
-            this.comboBox_Equipment.TabIndex = 14;
+            this.comboBox_Equipment.TabIndex = 16;
+            this.comboBox_Equipment.SelectedIndexChanged += new System.EventHandler(this.comboBox_Equipment_SelectedIndexChanged);
             // 
             // button_RemoveEquipment
             // 
             this.button_RemoveEquipment.Location = new System.Drawing.Point(418, 176);
             this.button_RemoveEquipment.Name = "button_RemoveEquipment";
             this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 32);
-            this.button_RemoveEquipment.TabIndex = 19;
+            this.button_RemoveEquipment.TabIndex = 21;
             this.button_RemoveEquipment.Text = "Удалить";
             this.button_RemoveEquipment.UseVisualStyleBackColor = true;
             this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
@@ -571,7 +579,7 @@ namespace OGM
             this.button_Edit.Location = new System.Drawing.Point(212, 176);
             this.button_Edit.Name = "button_Edit";
             this.button_Edit.Size = new System.Drawing.Size(200, 32);
-            this.button_Edit.TabIndex = 18;
+            this.button_Edit.TabIndex = 20;
             this.button_Edit.Text = "Редактировать";
             this.button_Edit.UseVisualStyleBackColor = true;
             // 
@@ -580,7 +588,7 @@ namespace OGM
             this.button_AddRowEquipment.Location = new System.Drawing.Point(6, 176);
             this.button_AddRowEquipment.Name = "button_AddRowEquipment";
             this.button_AddRowEquipment.Size = new System.Drawing.Size(200, 32);
-            this.button_AddRowEquipment.TabIndex = 17;
+            this.button_AddRowEquipment.TabIndex = 19;
             this.button_AddRowEquipment.Text = "Добавить";
             this.button_AddRowEquipment.UseVisualStyleBackColor = true;
             this.button_AddRowEquipment.Click += new System.EventHandler(this.button_AddRowEquipment_Click);
@@ -592,21 +600,26 @@ namespace OGM
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PK_Equipment,
+            this.Column_PK_Equipment_Group,
             this.Column_NameEquipment,
             this.Column_Cost_1,
             this.Column_Amount,
             this.Column_Mesure,
             this.Column_Cost});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 276);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 334);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(840, 226);
-            this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.Size = new System.Drawing.Size(840, 165);
+            this.dataGridView1.TabIndex = 21;
             // 
             // numericUpDown_PeriodOfUse
             // 
             this.numericUpDown_PeriodOfUse.Location = new System.Drawing.Point(298, 21);
+            this.numericUpDown_PeriodOfUse.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown_PeriodOfUse.Name = "numericUpDown_PeriodOfUse";
             this.numericUpDown_PeriodOfUse.Size = new System.Drawing.Size(70, 29);
             this.numericUpDown_PeriodOfUse.TabIndex = 12;
@@ -747,6 +760,7 @@ namespace OGM
             this.button_AddAndClose.TabIndex = 25;
             this.button_AddAndClose.Text = "Добавить договор и закрыть";
             this.button_AddAndClose.UseVisualStyleBackColor = true;
+            this.button_AddAndClose.Click += new System.EventHandler(this.button_AddAndClose_Click);
             // 
             // button1
             // 
@@ -758,6 +772,7 @@ namespace OGM
             this.button1.TabIndex = 27;
             this.button1.Text = "Отменить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button_Add
             // 
@@ -769,12 +784,73 @@ namespace OGM
             this.button_Add.TabIndex = 26;
             this.button_Add.Text = "Добавить договор";
             this.button_Add.UseVisualStyleBackColor = true;
+            this.button_Add.Click += new System.EventHandler(this.button_Add_Click);
             // 
-            // PK_Equipment
+            // numericUpDown_PenaltyFee
             // 
-            this.PK_Equipment.HeaderText = "PK_Equipment";
-            this.PK_Equipment.Name = "PK_Equipment";
-            this.PK_Equipment.Visible = false;
+            this.numericUpDown_PenaltyFee.DecimalPlaces = 2;
+            this.numericUpDown_PenaltyFee.Location = new System.Drawing.Point(244, 142);
+            this.numericUpDown_PenaltyFee.Maximum = new decimal(new int[] {
+            -1486618625,
+            232830643,
+            0,
+            0});
+            this.numericUpDown_PenaltyFee.Name = "numericUpDown_PenaltyFee";
+            this.numericUpDown_PenaltyFee.Size = new System.Drawing.Size(150, 29);
+            this.numericUpDown_PenaltyFee.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(249, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 21);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Цех";
+            // 
+            // comboBox_Workshop
+            // 
+            this.comboBox_Workshop.FormattingEnabled = true;
+            this.comboBox_Workshop.Location = new System.Drawing.Point(292, 28);
+            this.comboBox_Workshop.Name = "comboBox_Workshop";
+            this.comboBox_Workshop.Size = new System.Drawing.Size(250, 29);
+            this.comboBox_Workshop.TabIndex = 15;
+            this.comboBox_Workshop.SelectedIndexChanged += new System.EventHandler(this.comboBox_Workshop_SelectedIndexChanged);
+            // 
+            // label_AddressDelivery
+            // 
+            this.label_AddressDelivery.AutoSize = true;
+            this.label_AddressDelivery.Location = new System.Drawing.Point(69, 72);
+            this.label_AddressDelivery.Name = "label_AddressDelivery";
+            this.label_AddressDelivery.Size = new System.Drawing.Size(126, 21);
+            this.label_AddressDelivery.TabIndex = 30;
+            this.label_AddressDelivery.Text = "Адрес доставки ";
+            // 
+            // textBox_AddressDelivery
+            // 
+            this.textBox_AddressDelivery.Location = new System.Drawing.Point(201, 69);
+            this.textBox_AddressDelivery.Name = "textBox_AddressDelivery";
+            this.textBox_AddressDelivery.Size = new System.Drawing.Size(538, 29);
+            this.textBox_AddressDelivery.TabIndex = 14;
+            // 
+            // numericUpDown_Cost
+            // 
+            this.numericUpDown_Cost.DecimalPlaces = 2;
+            this.numericUpDown_Cost.Location = new System.Drawing.Point(293, 137);
+            this.numericUpDown_Cost.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numericUpDown_Cost.Name = "numericUpDown_Cost";
+            this.numericUpDown_Cost.Size = new System.Drawing.Size(249, 29);
+            this.numericUpDown_Cost.TabIndex = 18;
+            // 
+            // Column_PK_Equipment_Group
+            // 
+            this.Column_PK_Equipment_Group.HeaderText = "ПК_Группы_Оборудования";
+            this.Column_PK_Equipment_Group.Name = "Column_PK_Equipment_Group";
+            this.Column_PK_Equipment_Group.Visible = false;
             // 
             // Column_NameEquipment
             // 
@@ -862,6 +938,8 @@ namespace OGM
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PenaltyFee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -889,7 +967,6 @@ namespace OGM
         private System.Windows.Forms.Label label_Date;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.GroupBox groupBox_Responsibility;
-        private System.Windows.Forms.TextBox textBox_PenaltyFee;
         private System.Windows.Forms.PictureBox pictureBox_PenaltyFee;
         private System.Windows.Forms.Label label_PenaltyFee;
         private System.Windows.Forms.PictureBox pictureBox_MaxPenalty;
@@ -928,13 +1005,18 @@ namespace OGM
         private System.Windows.Forms.ComboBox comboBox_Equipment;
         private System.Windows.Forms.Label label_nameSeller;
         private System.Windows.Forms.Label label_Cost;
-        private System.Windows.Forms.TextBox textBox_Cost;
         private System.Windows.Forms.Label label_INNLeaser;
         private System.Windows.Forms.Label label_phoneLeaser;
         private System.Windows.Forms.Label label_nameLeaser;
         private System.Windows.Forms.Label label_INNSeller;
         private System.Windows.Forms.Label label_phoneSeller;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PK_Equipment;
+        private System.Windows.Forms.NumericUpDown numericUpDown_PenaltyFee;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox_Workshop;
+        private System.Windows.Forms.Label label_AddressDelivery;
+        private System.Windows.Forms.TextBox textBox_AddressDelivery;
+        private System.Windows.Forms.NumericUpDown numericUpDown_Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK_Equipment_Group;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost_1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Amount;

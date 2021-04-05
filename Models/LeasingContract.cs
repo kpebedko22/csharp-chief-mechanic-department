@@ -32,8 +32,8 @@ namespace OGM.Models
         public string address_delivery { get; set; }
         public int days_for_first_payment { get; set; }
         public int days_for_report { get; set; }
-        public int penalty { get; set; }
-        public int max_penalty { get; set; }
+        public Decimal penalty { get; set; }
+        public Decimal max_penalty { get; set; }
         public int days_for_force_majeure { get; set; }
         public Decimal penalty_fee { get; set; }
 
@@ -51,6 +51,8 @@ namespace OGM.Models
         public Organization leaser { get { return GetOrganizationByRole(2); } }
 
         public Organization seller { get { return GetOrganizationByRole(3); } }
+
+        public String view { get { return "Просмотреть"; } }
 
         public override string ToString()
         {
