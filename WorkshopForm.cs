@@ -31,15 +31,19 @@ namespace OGM
 
         private void button_Search_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(this.textBox_Email.Text)) this.textBox_Email.Text = "";
+            if (String.IsNullOrWhiteSpace(this.textBox_NameWorkshop.Text)) this.textBox_NameWorkshop.Text = "";
+            if (String.IsNullOrWhiteSpace(this.textBox_PhoneWorkshop.Text)) this.textBox_PhoneWorkshop.Text = "";
+
             List<Workshop> workshops = Program.db.Workshops.ToList();
             List<Workshop> workshopsResult = new List<Workshop>();
 
 
             foreach (var item in workshops)
 
-                if (item.name.Contains(this.textBox_NameWorkshop.Text) 
-                && item.phone_number.Contains(this.textBox_PhoneWorkshop.Text)
-                && item.email.Contains(this.textBox_Email.Text))
+                if (item.name.ToLower().Contains(this.textBox_NameWorkshop.Text.ToLower()) 
+                && item.phone_number.ToLower().Contains(this.textBox_PhoneWorkshop.Text.ToLower())
+                && item.email.ToLower().Contains(this.textBox_Email.Text.ToLower()))
 
                     workshopsResult.Add(item);
 

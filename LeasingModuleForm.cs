@@ -117,6 +117,17 @@ namespace OGM
         {
             if (String.IsNullOrWhiteSpace(this.textBox_ContractNumber.Text)) this.textBox_ContractNumber.Text = "";
 
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(this.textBox_ContractNumber.Text))
+                    Convert.ToInt32(this.textBox_ContractNumber.Text);
+            }
+            catch 
+            {
+                MessageBox.Show("Некорректный ввод: номер договора - это целое число.", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
             List<LeasingContract> leasingContracts = Program.db.LeasingContracts.ToList();
             List<LeasingContract> leasingContractsResult = new List<LeasingContract>();
@@ -128,7 +139,7 @@ namespace OGM
           
 
             foreach (LeasingContract item in leasingContracts)
-                if (Convert.ToString(item.contract_number).Contains(this.textBox_ContractNumber.Text))
+                if (Convert.ToString(item.contract_number).Contains(this.textBox_ContractNumber.Text.ToLower()))
                 {
 
                     bool is_good_row = true;

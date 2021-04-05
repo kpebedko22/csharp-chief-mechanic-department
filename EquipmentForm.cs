@@ -97,9 +97,9 @@ namespace OGM
                 PK_Equipment_Group = ((EquipmentGroup)comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group;
 
             foreach (Equipment item in equipments)
-                if (item.name.Contains(this.textBox_NameEquipment.Text)
-                    && item.inventory_number.Contains(this.textBox_InventoryNum.Text)
-                    && item.serial_number.Contains(this.textBox_SerialNum.Text))
+                if (item.name.ToLower().Contains(this.textBox_NameEquipment.Text.ToLower())
+                    && item.inventory_number.ToLower().Contains(this.textBox_InventoryNum.Text.ToLower())
+                    && item.serial_number.ToLower().Contains(this.textBox_SerialNum.Text.ToLower()))
                 {
 
                     bool is_good_row = true;
