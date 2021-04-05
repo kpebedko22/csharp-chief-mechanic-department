@@ -120,7 +120,7 @@ namespace OGM
 
 
             dataGridView.DataSource = equipmentsResult;
-
+            dataGridView.ClearSelection();
         }
 
         private void button_ResetSearch_Click(object sender, EventArgs e)
