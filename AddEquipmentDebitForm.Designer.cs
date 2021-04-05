@@ -41,11 +41,6 @@ namespace OGM {
 			this.dateTimePicker_DateDebit = new System.Windows.Forms.DateTimePicker();
 			this.label_DateDebit = new System.Windows.Forms.Label();
 			this.dataGridView_Debit = new System.Windows.Forms.DataGridView();
-			this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button_Delete = new System.Windows.Forms.Button();
 			this.label_Equipment = new System.Windows.Forms.Label();
@@ -58,8 +53,14 @@ namespace OGM {
 			this.button_Edit = new System.Windows.Forms.Button();
 			this.button_Debit = new System.Windows.Forms.Button();
 			this.checkBox_AllGroupDebit = new System.Windows.Forms.CheckBox();
-			this.label_Workshop = new System.Windows.Forms.Label();
 			this.comboBox_Workshop = new System.Windows.Forms.ComboBox();
+			this.label_Workshop = new System.Windows.Forms.Label();
+			this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.menuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Debit)).BeginInit();
 			this.groupBox.SuspendLayout();
@@ -90,6 +91,7 @@ namespace OGM {
 			this.button_AddAndClose.TabIndex = 2;
 			this.button_AddAndClose.Text = "Добавить акт и закрыть";
 			this.button_AddAndClose.UseVisualStyleBackColor = true;
+			this.button_AddAndClose.Click += new System.EventHandler(this.button_AddAndClose_Click);
 			// 
 			// button_Close
 			// 
@@ -101,6 +103,7 @@ namespace OGM {
 			this.button_Close.TabIndex = 2;
 			this.button_Close.Text = "Отменить";
 			this.button_Close.UseVisualStyleBackColor = true;
+			this.button_Close.Click += new System.EventHandler(this.button_Close_Click);
 			// 
 			// menuStrip
 			// 
@@ -200,10 +203,13 @@ namespace OGM {
 			// 
 			// dataGridView_Debit
 			// 
+			this.dataGridView_Debit.AllowUserToAddRows = false;
+			this.dataGridView_Debit.AllowUserToDeleteRows = false;
 			this.dataGridView_Debit.BackgroundColor = System.Drawing.Color.FloralWhite;
 			this.dataGridView_Debit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_Debit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column,
+            this.ColumnWorkshop,
             this.ColumnInventoryNumber,
             this.ColumnName,
             this.ColumnCost,
@@ -214,41 +220,6 @@ namespace OGM {
 			this.dataGridView_Debit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView_Debit.Size = new System.Drawing.Size(860, 272);
 			this.dataGridView_Debit.TabIndex = 11;
-			// 
-			// Column
-			// 
-			this.Column.HeaderText = "#";
-			this.Column.Name = "Column";
-			this.Column.ReadOnly = true;
-			this.Column.Width = 50;
-			// 
-			// ColumnInventoryNumber
-			// 
-			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
-			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
-			this.ColumnInventoryNumber.ReadOnly = true;
-			this.ColumnInventoryNumber.Width = 200;
-			// 
-			// ColumnName
-			// 
-			this.ColumnName.HeaderText = "Наименование оборудования";
-			this.ColumnName.Name = "ColumnName";
-			this.ColumnName.ReadOnly = true;
-			this.ColumnName.Width = 250;
-			// 
-			// ColumnCost
-			// 
-			this.ColumnCost.HeaderText = "Остаточная стоимость";
-			this.ColumnCost.Name = "ColumnCost";
-			this.ColumnCost.ReadOnly = true;
-			this.ColumnCost.Width = 200;
-			// 
-			// ColumnReasonDebit
-			// 
-			this.ColumnReasonDebit.HeaderText = "Причина списания";
-			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
-			this.ColumnReasonDebit.ReadOnly = true;
-			this.ColumnReasonDebit.Width = 200;
 			// 
 			// label1
 			// 
@@ -267,6 +238,7 @@ namespace OGM {
 			this.button_Delete.TabIndex = 10;
 			this.button_Delete.Text = "Удалить";
 			this.button_Delete.UseVisualStyleBackColor = true;
+			this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
 			// 
 			// label_Equipment
 			// 
@@ -309,6 +281,7 @@ namespace OGM {
 			this.comboBox_GroupEquipment.Name = "comboBox_GroupEquipment";
 			this.comboBox_GroupEquipment.Size = new System.Drawing.Size(250, 29);
 			this.comboBox_GroupEquipment.TabIndex = 4;
+			this.comboBox_GroupEquipment.SelectedIndexChanged += new System.EventHandler(this.comboBox_GroupEquipment_SelectedIndexChanged);
 			// 
 			// button_Add
 			// 
@@ -320,6 +293,7 @@ namespace OGM {
 			this.button_Add.TabIndex = 2;
 			this.button_Add.Text = "Добавить акт";
 			this.button_Add.UseVisualStyleBackColor = true;
+			this.button_Add.Click += new System.EventHandler(this.button_Add_Click);
 			// 
 			// groupBox
 			// 
@@ -359,6 +333,7 @@ namespace OGM {
 			this.button_Debit.TabIndex = 8;
 			this.button_Debit.Text = "Списать";
 			this.button_Debit.UseVisualStyleBackColor = true;
+			this.button_Debit.Click += new System.EventHandler(this.button_Debit_Click);
 			// 
 			// checkBox_AllGroupDebit
 			// 
@@ -371,6 +346,15 @@ namespace OGM {
 			this.checkBox_AllGroupDebit.UseVisualStyleBackColor = true;
 			this.checkBox_AllGroupDebit.CheckedChanged += new System.EventHandler(this.checkBox_AllGroupDebit_CheckedChanged);
 			// 
+			// comboBox_Workshop
+			// 
+			this.comboBox_Workshop.FormattingEnabled = true;
+			this.comboBox_Workshop.Location = new System.Drawing.Point(287, 43);
+			this.comboBox_Workshop.Name = "comboBox_Workshop";
+			this.comboBox_Workshop.Size = new System.Drawing.Size(250, 29);
+			this.comboBox_Workshop.TabIndex = 3;
+			this.comboBox_Workshop.SelectedIndexChanged += new System.EventHandler(this.comboBox_Workshop_SelectedIndexChanged);
+			// 
 			// label_Workshop
 			// 
 			this.label_Workshop.AutoSize = true;
@@ -380,14 +364,46 @@ namespace OGM {
 			this.label_Workshop.TabIndex = 1;
 			this.label_Workshop.Text = "Цех";
 			// 
-			// comboBox_Workshop
+			// Column
 			// 
-			this.comboBox_Workshop.FormattingEnabled = true;
-			this.comboBox_Workshop.Location = new System.Drawing.Point(287, 43);
-			this.comboBox_Workshop.Name = "comboBox_Workshop";
-			this.comboBox_Workshop.Size = new System.Drawing.Size(250, 29);
-			this.comboBox_Workshop.TabIndex = 3;
-			this.comboBox_Workshop.SelectedIndexChanged += new System.EventHandler(this.comboBox_Workshop_SelectedIndexChanged);
+			this.Column.HeaderText = "#";
+			this.Column.Name = "Column";
+			this.Column.ReadOnly = true;
+			this.Column.Width = 50;
+			// 
+			// ColumnWorkshop
+			// 
+			this.ColumnWorkshop.HeaderText = "Цех";
+			this.ColumnWorkshop.Name = "ColumnWorkshop";
+			this.ColumnWorkshop.ReadOnly = true;
+			// 
+			// ColumnInventoryNumber
+			// 
+			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
+			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
+			this.ColumnInventoryNumber.ReadOnly = true;
+			this.ColumnInventoryNumber.Width = 200;
+			// 
+			// ColumnName
+			// 
+			this.ColumnName.HeaderText = "Наименование оборудования";
+			this.ColumnName.Name = "ColumnName";
+			this.ColumnName.ReadOnly = true;
+			this.ColumnName.Width = 250;
+			// 
+			// ColumnCost
+			// 
+			this.ColumnCost.HeaderText = "Остаточная стоимость";
+			this.ColumnCost.Name = "ColumnCost";
+			this.ColumnCost.ReadOnly = true;
+			this.ColumnCost.Width = 200;
+			// 
+			// ColumnReasonDebit
+			// 
+			this.ColumnReasonDebit.HeaderText = "Причина списания";
+			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
+			this.ColumnReasonDebit.ReadOnly = true;
+			this.ColumnReasonDebit.Width = 200;
 			// 
 			// AddEquipmentDebitForm
 			// 
@@ -453,12 +469,13 @@ namespace OGM {
         private System.Windows.Forms.Button button_Debit;
         private System.Windows.Forms.CheckBox checkBox_AllGroupDebit;
         private System.Windows.Forms.Button button_Edit;
+		private System.Windows.Forms.ComboBox comboBox_Workshop;
+		private System.Windows.Forms.Label label_Workshop;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnWorkshop;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInventoryNumber;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCost;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReasonDebit;
-		private System.Windows.Forms.ComboBox comboBox_Workshop;
-		private System.Windows.Forms.Label label_Workshop;
 	}
 }
