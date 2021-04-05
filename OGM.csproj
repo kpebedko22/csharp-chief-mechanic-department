@@ -151,6 +151,7 @@
     <Compile Include="AddGroupEquipment.Designer.cs">
       <DependentUpon>AddGroupEquipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Additions\NumToWord.cs" />
     <Compile Include="AddLeasingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +175,12 @@
     </Compile>
     <Compile Include="AddWorkshopForm.Designer.cs">
       <DependentUpon>AddWorkshopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DebitViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebitViewForm.Designer.cs">
+      <DependentUpon>DebitViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EquipmentForm.cs">
       <SubType>Form</SubType>
@@ -217,6 +224,8 @@
     <Compile Include="LeasingModuleForm.Designer.cs">
       <DependentUpon>LeasingModuleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActDebit.cs" />
+    <Compile Include="Models\DebitEquipment.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\EquipmentGroup.cs" />
     <Compile Include="Models\LeasingContract.cs" />
@@ -267,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddWorkshopForm.resx">
       <DependentUpon>AddWorkshopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DebitViewForm.resx">
+      <DependentUpon>DebitViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EquipmentForm.resx">
       <DependentUpon>EquipmentForm.cs</DependentUpon>
@@ -357,5 +369,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,6 +36,7 @@ namespace OGM {
 			this.ToolStripMenuItem_Organization_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_ReasonDebit_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox_Search = new System.Windows.Forms.GroupBox();
+			this.button_ResetSearch = new System.Windows.Forms.Button();
 			this.pictureBox_Info = new System.Windows.Forms.PictureBox();
 			this.button_Search = new System.Windows.Forms.Button();
 			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
@@ -45,10 +46,10 @@ namespace OGM {
 			this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
 			this.dataGridView_DataSearch = new System.Windows.Forms.DataGridView();
 			this.ColumnNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnActNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnView = new System.Windows.Forms.DataGridViewLinkColumn();
-			this.button_ResetSearch = new System.Windows.Forms.Button();
 			this.menuStrip.SuspendLayout();
 			this.groupBox_Search.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
@@ -151,6 +152,16 @@ namespace OGM {
 			this.groupBox_Search.TabStop = false;
 			this.groupBox_Search.Text = "Параметры поиска акта (-ов)";
 			// 
+			// button_ResetSearch
+			// 
+			this.button_ResetSearch.Location = new System.Drawing.Point(520, 76);
+			this.button_ResetSearch.Name = "button_ResetSearch";
+			this.button_ResetSearch.Size = new System.Drawing.Size(300, 29);
+			this.button_ResetSearch.TabIndex = 3;
+			this.button_ResetSearch.Text = "Сбросить параметры поиска";
+			this.button_ResetSearch.UseVisualStyleBackColor = true;
+			this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
+			// 
 			// pictureBox_Info
 			// 
 			this.pictureBox_Info.Image = global::OGM.Properties.Resources.info;
@@ -171,6 +182,7 @@ namespace OGM {
 			this.button_Search.TabIndex = 2;
 			this.button_Search.Text = "Найти";
 			this.button_Search.UseVisualStyleBackColor = true;
+			this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
 			// 
 			// textBox_ActNumber
 			// 
@@ -190,8 +202,10 @@ namespace OGM {
 			// 
 			// dateTimePicker_DateDebit
 			// 
+			this.dateTimePicker_DateDebit.Checked = false;
 			this.dateTimePicker_DateDebit.Location = new System.Drawing.Point(179, 76);
 			this.dateTimePicker_DateDebit.Name = "dateTimePicker_DateDebit";
+			this.dateTimePicker_DateDebit.ShowCheckBox = true;
 			this.dateTimePicker_DateDebit.Size = new System.Drawing.Size(200, 29);
 			this.dateTimePicker_DateDebit.TabIndex = 1;
 			// 
@@ -210,52 +224,47 @@ namespace OGM {
 			this.dataGridView_DataSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_DataSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNum,
+            this.ColumnPK,
             this.ColumnActNumber,
             this.ColumnDateDebit,
             this.ColumnView});
 			this.dataGridView_DataSearch.Location = new System.Drawing.Point(12, 174);
 			this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
-			this.dataGridView_DataSearch.ReadOnly = true;
 			this.dataGridView_DataSearch.Size = new System.Drawing.Size(860, 375);
 			this.dataGridView_DataSearch.TabIndex = 4;
+			this.dataGridView_DataSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DataSearch_CellClick);
 			// 
 			// ColumnNum
 			// 
 			this.ColumnNum.HeaderText = "#";
 			this.ColumnNum.Name = "ColumnNum";
-			this.ColumnNum.ReadOnly = true;
+			// 
+			// ColumnPK
+			// 
+			this.ColumnPK.HeaderText = "Первичный ключ";
+			this.ColumnPK.Name = "ColumnPK";
+			this.ColumnPK.ReadOnly = true;
+			this.ColumnPK.Visible = false;
 			// 
 			// ColumnActNumber
 			// 
 			this.ColumnActNumber.HeaderText = "Номер акта";
 			this.ColumnActNumber.Name = "ColumnActNumber";
-			this.ColumnActNumber.ReadOnly = true;
 			this.ColumnActNumber.Width = 200;
 			// 
 			// ColumnDateDebit
 			// 
 			this.ColumnDateDebit.HeaderText = "Дата списания";
 			this.ColumnDateDebit.Name = "ColumnDateDebit";
-			this.ColumnDateDebit.ReadOnly = true;
 			this.ColumnDateDebit.Width = 200;
 			// 
 			// ColumnView
 			// 
 			this.ColumnView.HeaderText = "";
 			this.ColumnView.Name = "ColumnView";
-			this.ColumnView.ReadOnly = true;
 			this.ColumnView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.ColumnView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.ColumnView.Width = 200;
-			// 
-			// button_ResetSearch
-			// 
-			this.button_ResetSearch.Location = new System.Drawing.Point(520, 76);
-			this.button_ResetSearch.Name = "button_ResetSearch";
-			this.button_ResetSearch.Size = new System.Drawing.Size(300, 29);
-			this.button_ResetSearch.TabIndex = 3;
-			this.button_ResetSearch.Text = "Сбросить параметры поиска";
-			this.button_ResetSearch.UseVisualStyleBackColor = true;
 			// 
 			// EquipmentModuleForm
 			// 
@@ -273,7 +282,9 @@ namespace OGM {
 			this.MinimizeBox = false;
 			this.Name = "EquipmentModuleForm";
 			this.Text = "Поиск актов списания оборудования";
+			this.Activated += new System.EventHandler(this.EquipmentModuleForm_Activated);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EquipmentModuleForm_FormClosed);
+			this.Load += new System.EventHandler(this.EquipmentModuleForm_Load);
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();
 			this.groupBox_Search.ResumeLayout(false);
@@ -308,6 +319,7 @@ namespace OGM {
 		private System.Windows.Forms.DataGridView dataGridView_DataSearch;
 		private System.Windows.Forms.Button button_ResetSearch;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNum;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPK;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActNumber;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateDebit;
 		private System.Windows.Forms.DataGridViewLinkColumn ColumnView;
