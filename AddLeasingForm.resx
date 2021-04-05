@@ -117,14 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="Column_PK.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
-  <data name="pictureBox_PenaltyFee.ToolTip" xml:space="preserve">
-    <value>За неисполнение или ненадлежащее исполнение обязательств по настоящему договору,
-а также за досрочное расторжение договора виновная сторона уплачивает штрафную
-неустойку в указанной сумме , не исключающей возможности предъявления иска о взыскании убытков.</value>
-  </data>
   <metadata name="Column_NameEquipment.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -137,6 +132,14 @@
   <metadata name="Column_Cost.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="pictureBox_PenaltyFee.ToolTip" xml:space="preserve">
+    <value>За неисполнение или ненадлежащее исполнение обязательств по настоящему договору,
+а также за досрочное расторжение договора виновная сторона уплачивает штрафную
+неустойку в указанной сумме , не исключающей возможности предъявления иска о взыскании убытков.</value>
+  </data>
   <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>125, 17</value>
   </metadata>

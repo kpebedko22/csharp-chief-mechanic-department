@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using OGM.Models;
+
 namespace OGM
 {
     public partial class AddLeasingForm : Form
@@ -19,6 +21,36 @@ namespace OGM
             InitializeComponent();
 
             Owner = owner;
+
+            this.comboBox_Leaser.AutoCompleteMode = this.comboBox_Seller.AutoCompleteMode = this.comboBox_Equipment.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.comboBox_Leaser.AutoCompleteSource = this.comboBox_Seller.AutoCompleteSource = this.comboBox_Equipment.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            List<Organization> organizations = Program.db.Organizations.ToList();
+            List<Organization> leasers = new List<Organization>();
+            List<Organization> sellers = new List<Organization>();
+
+            // PK_Role = 1 - лизингополучатель
+            // PK_Role = 2 - лизингодатель
+            // PK_Role = 3 - Продавец
+            foreach (Organization item in organizations)
+            {
+                if (item.PK_Role == 2) leasers.Add(item);
+                if (item.PK_Role == 3) sellers.Add(item);
+            }
+
+            this.comboBox_Leaser.DataSource = leasers;
+            this.comboBox_Leaser.AutoCompleteCustomSource.AddRange(leasers.Select(i => i.name).ToArray());
+            this.comboBox_Leaser.SelectedIndex = -1;
+
+            this.comboBox_Seller.DataSource = sellers;
+            this.comboBox_Seller.AutoCompleteCustomSource.AddRange(sellers.Select(i => i.name).ToArray());
+            this.comboBox_Seller.SelectedIndex = -1;
+
+            List<EquipmentGroup> equipmentGroups = Program.db.EquipmentGroups.ToList();
+            this.comboBox_Equipment.DataSource = equipmentGroups;
+            this.comboBox_Equipment.AutoCompleteCustomSource.AddRange(equipmentGroups.Select(i => i.name).ToArray());
+            this.comboBox_Equipment.SelectedIndex = -1;
+
         }
 
 
