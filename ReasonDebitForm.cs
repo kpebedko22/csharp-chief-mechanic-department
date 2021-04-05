@@ -76,12 +76,17 @@ namespace OGM
 
         private void button_Search_Click(object sender, EventArgs e)
         {
-            List<ReasonDebit> reasonDebits = Program.db.ReasonDebits.ToList();
 
+            if (String.IsNullOrWhiteSpace(this.textBox_NameReasonDebit.Text)) this.textBox_NameReasonDebit.Text = "";
+            if (String.IsNullOrWhiteSpace(this.textBox_CipherReasonDebit.Text)) this.textBox_CipherReasonDebit.Text = "";
+
+
+            List<ReasonDebit> reasonDebits = Program.db.ReasonDebits.ToList();
             List<ReasonDebit> reasonDebitsResult = new List<ReasonDebit>();
 
             foreach (var item in reasonDebits)
-                if (item.name.Contains(this.textBox_NameReasonDebit.Text) && item.code.Contains(this.textBox_CipherReasonDebit.Text))
+                if (item.name.ToLower().Contains(this.textBox_NameReasonDebit.Text.ToLower())
+                    && item.code.ToLower().Contains(this.textBox_CipherReasonDebit.Text.ToLower()))
                     reasonDebitsResult.Add(item);
 
 

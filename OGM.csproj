@@ -228,10 +228,13 @@
     <Compile Include="Models\DebitEquipment.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\EquipmentGroup.cs" />
+    <Compile Include="Models\LeasingContract.cs" />
     <Compile Include="Models\OGMContext.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\ReasonDebit.cs" />
+    <Compile Include="Models\RelationshipOrganizationLeasingContract.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RowAttachmentSpecification.cs" />
     <Compile Include="Models\Workshop.cs" />
     <Compile Include="OrganizationForm.cs">
       <SubType>Form</SubType>

@@ -70,6 +70,9 @@ namespace OGM
 
         private void button_Search_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(this.textBox_NameEquipment.Text)) this.textBox_NameEquipment.Text = "";
+            if (String.IsNullOrWhiteSpace(this.textBox_Сipher.Text)) this.textBox_Сipher.Text = "";
+
             List<EquipmentGroup> table = Program.db.EquipmentGroups.ToList();
             List<EquipmentGroup> tableresult = new List<EquipmentGroup>();
 
@@ -79,8 +82,8 @@ namespace OGM
 
 
             foreach (EquipmentGroup item in table)
-                if (item.name.Contains(this.textBox_NameEquipment.Text)
-                     && item.сipher.Contains(this.textBox_Сipher.Text))
+                if (item.name.ToLower().Contains(this.textBox_NameEquipment.Text.ToLower())
+                     && item.сipher.ToLower().Contains(this.textBox_Сipher.Text.ToLower()))
                 {
 
                     if (PK_Workshop != -1)
@@ -90,7 +93,6 @@ namespace OGM
                     }
                     else
                         tableresult.Add(item);
-
                 }
             
 

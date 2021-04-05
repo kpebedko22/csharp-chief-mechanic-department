@@ -24,7 +24,7 @@ namespace OGM.Models
         public string name { get; set; }
         public string serial_number { get; set; }
         public string inventory_number { get; set; }
-        public double cost { get; set; }
+        public Decimal cost { get; set; }
         public int PK_Equipment_Group { get; set; }
 
         public EquipmentGroup equipment_Group { get { return Program.db.EquipmentGroups.Find(PK_Equipment_Group); } }
