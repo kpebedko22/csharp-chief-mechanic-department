@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 using OGM.Models;
 
@@ -34,16 +35,72 @@ namespace OGM
             dataGridView_DataSearch.Columns[0].DataPropertyName = "PK_Leasing_Contract";
             dataGridView_DataSearch.Columns[1].DataPropertyName = "contract_number";
             dataGridView_DataSearch.Columns[2].DataPropertyName = "date";
-            dataGridView_DataSearch.Columns[3].DataPropertyName = "leaser";
+            //dataGridView_DataSearch.Columns[3].DataPropertyName = "leaser";
             dataGridView_DataSearch.Columns[4].DataPropertyName = "view";
 
         }
 
-        private void updateTable()
+        private static string MySlowMethod(int pk_contract)
         {
-            List<LeasingContract> contracts = Program.db.LeasingContracts.ToList();
+            List<RelationshipOrganizationLeasingContract> temp = Program.db.relationships_organization_leasing_contract.Where(b => b.PK_Leasing_Contract == pk_contract && b.PK_Role == 2).ToList();
+            
+            if (temp.Count > 0)
+                return temp.ElementAt(0).Organization.ToString();
+            return null;
+
+
+        }
+
+        async ValueTask<string> getLeaserAsync(int pk_contract)
+        {
+            return await Task.Run(() => MySlowMethod(pk_contract));
+        }
+
+
+        private void FillLeaserColumn()
+        {
+            
+            for (int i = 0; i < dataGridView_DataSearch.RowCount; i++)
+            {
+                dataGridView_DataSearch.Invoke(new MethodInvoker(delegate ()
+                {
+                    int pk_contract = Convert.ToInt32(dataGridView_DataSearch.Rows[i].Cells[0].Value);
+
+                    var result = Task.Run(() => { return MySlowMethod(pk_contract); });
+
+                    result.Wait();
+
+                    dataGridView_DataSearch.Rows[i].Cells[3].Value = result.Result;
+                }));
+            }
+
+            if (this.button_Search.InvokeRequired)
+                button_Search.Invoke((Action)delegate
+                {
+                    button_Search.Enabled = true;
+                });
+            if (this.button_ResetSearch.InvokeRequired)
+                button_ResetSearch.Invoke((Action)delegate
+                {
+                    button_ResetSearch.Enabled = true;
+                });
+        }
+
+
+        private Thread thread = null;
+        private void updateTable(List<LeasingContract> contracts)
+        {
+            if (this.thread != null)
+                this.thread.Abort();
+
             dataGridView_DataSearch.DataSource = contracts;
             dataGridView_DataSearch.ClearSelection();
+
+            this.button_ResetSearch.Enabled = this.button_Search.Enabled = false;
+            Thread thread = new Thread(new ThreadStart(FillLeaserColumn));
+            thread.IsBackground = true;
+            thread.Start();
+            
         }
 
 
@@ -97,12 +154,7 @@ namespace OGM
 
         private void LeasingModuleForm_Activated(object sender, EventArgs e)
         {
-           // updateTable();
 
-            //List<Organization> organizations = Program.db.Organizations.ToList();
-            //this.comboBox_Leaser.DataSource = organizations;
-            //this.comboBox_Leaser.AutoCompleteCustomSource.AddRange(organizations.Select(i => i.name).ToArray());
-            //this.comboBox_Leaser.SelectedItem = null;
         }
 
         private void button_Search_Click(object sender, EventArgs e)
@@ -111,13 +163,16 @@ namespace OGM
 
 
 
-            List<LeasingContract> leasingContracts = null;
+            List<LeasingContract> leasingContracts = new List<LeasingContract>();
             List<LeasingContract> leasingContractsResult = new List<LeasingContract>();
 
             if (((Organization)comboBox_Leaser.SelectedItem) != null)
             {
                 int PK_Leaser = ((Organization)comboBox_Leaser.SelectedItem).PK_Organization;
-                leasingContracts = Program.db.LeasingContracts.Where(b => b.leaser.PK_Organization == PK_Leaser).ToList();
+                List<RelationshipOrganizationLeasingContract> temp = Program.db.relationships_organization_leasing_contract.Where(b => b.PK_Organization == PK_Leaser && b.PK_Role == 2).ToList();
+
+                foreach (RelationshipOrganizationLeasingContract item in temp)
+                    leasingContracts.Add(Program.db.LeasingContracts.Find(item.PK_Leasing_Contract));
             }
             else
                 leasingContracts = Program.db.LeasingContracts.ToList();
@@ -136,13 +191,10 @@ namespace OGM
                         leasingContractsResult.Add(item);
 
                     }
-                dataGridView_DataSearch.DataSource = leasingContractsResult;
+                updateTable(leasingContractsResult);
             }
-
-
-
-            dataGridView_DataSearch.DataSource = leasingContracts;
-            dataGridView_DataSearch.ClearSelection();
+            else
+                updateTable(leasingContracts);
 
         }
 
@@ -153,14 +205,15 @@ namespace OGM
             this.textBox_ContractNumber.Text = "";
             this.dateTimePicker_DateContract.Checked = false;
 
-            updateTable();
+            updateTable(Program.db.LeasingContracts.ToList());
 
         }
 
         private void LeasingModuleForm_Load(object sender, EventArgs e)
         {
 
-            updateTable();
+            updateTable(Program.db.LeasingContracts.ToList());
+
 
             List<Organization> organizations = Program.db.Organizations.ToList();
             this.comboBox_Leaser.DataSource = organizations;
