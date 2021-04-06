@@ -541,7 +541,6 @@ namespace OGM
             this.groupBox_RowOfTable.TabIndex = 22;
             this.groupBox_RowOfTable.TabStop = false;
             this.groupBox_RowOfTable.Text = "Правка списка оборудования";
-            this.groupBox_RowOfTable.Enter += new System.EventHandler(this.groupBox_RowOfTable_Enter);
             // 
             // numericUpDown_Cost
             // 
@@ -911,8 +910,8 @@ namespace OGM
             this.MinimizeBox = false;
             this.Name = "AddLeasingForm";
             this.Text = "Добавить новый договор лизинга";
+            this.Activated += new System.EventHandler(this.AddLeasingForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddLeasingForm_FormClosed);
-            this.Load += new System.EventHandler(this.AddLeasingForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage_MainInfo.ResumeLayout(false);
             this.groupBox_Responsibility.ResumeLayout(false);

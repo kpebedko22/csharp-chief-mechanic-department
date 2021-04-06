@@ -145,20 +145,6 @@ namespace OGM
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddLeasingForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox_RowOfTable_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBox_Seller_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -460,6 +446,37 @@ namespace OGM
             this.button_AddRowEquipment.Text = "Применить";
             this.button_RemoveEquipment.Text = "Отменить";
 
+        }
+
+        private void AddLeasingForm_Activated(object sender, EventArgs e)
+        {
+            Workshop workshop = ((Workshop)this.comboBox_Workshop.SelectedItem);
+            EquipmentGroup group = ((EquipmentGroup)this.comboBox_Equipment.SelectedItem);
+            Organization leaser = ((Organization)this.comboBox_Leaser.SelectedItem);
+            Organization seller = ((Organization)this.comboBox_Seller.SelectedItem);
+
+
+
+            List<Organization> leasers = Program.db.Organizations.Where(b => b.PK_Role == 2).ToList();
+            this.comboBox_Leaser.DataSource = leasers;
+            this.comboBox_Leaser.AutoCompleteCustomSource.AddRange(leasers.Select(i => i.name).ToArray());
+            this.comboBox_Leaser.SelectedItem = leaser;
+
+            List<Organization> sellers = Program.db.Organizations.Where(b => b.PK_Role == 3).ToList();
+            this.comboBox_Seller.DataSource = sellers;
+            this.comboBox_Seller.AutoCompleteCustomSource.AddRange(sellers.Select(i => i.name).ToArray());
+            this.comboBox_Seller.SelectedItem = seller;
+
+            List<Workshop> workshops = Program.db.Workshops.ToList();
+            this.comboBox_Workshop.DataSource = workshops;
+            this.comboBox_Workshop.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
+            this.comboBox_Workshop.SelectedItem = workshop;
+
+
+            List<EquipmentGroup> groups = Program.db.EquipmentGroups.ToList();
+            this.comboBox_Equipment.DataSource = groups;
+            this.comboBox_Equipment.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
+            this.comboBox_Equipment.SelectedItem = group;
         }
     }
 }
