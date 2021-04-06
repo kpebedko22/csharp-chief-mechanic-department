@@ -12,15 +12,6 @@ namespace OGM.Models
 {
 	public partial class OGMContext : DbContext
 	{
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
-			modelBuilder.Entity<RelationshipOrganizationLeasingContract>(
-			eb =>
-			{
-				eb.HasNoKey();
-			});
-		}
-
 		public DbSet<RelationshipOrganizationLeasingContract> relationships_organization_leasing_contract { get; set; }
 	}
 
@@ -29,7 +20,8 @@ namespace OGM.Models
 	[Table("relationship_organization_leasing_contract")]
 	public class RelationshipOrganizationLeasingContract
 	{
-
+		[Key]
+		public int PK { get; set; }
 		public int PK_Leasing_Contract { get; set; }
 		public int PK_Organization { get; set; }
 		public int PK_Role { get; set; }

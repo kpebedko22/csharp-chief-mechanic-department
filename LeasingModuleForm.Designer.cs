@@ -52,13 +52,12 @@ namespace OGM
             this.comboBox_Leaser = new System.Windows.Forms.ComboBox();
             this.dataGridView_DataSearch = new System.Windows.Forms.DataGridView();
             this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_ContractNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Leaser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_View = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.menuStrip.SuspendLayout();
             this.groupBox_Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
@@ -254,7 +253,6 @@ namespace OGM
             this.dataGridView_DataSearch.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.dataGridView_DataSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DataSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column_PK,
             this.Column_ContractNum,
             this.Column_Date,
@@ -267,12 +265,6 @@ namespace OGM
             this.dataGridView_DataSearch.Size = new System.Drawing.Size(860, 349);
             this.dataGridView_DataSearch.TabIndex = 5;
             this.dataGridView_DataSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DataSearch_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "#";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // Column_PK
             // 
@@ -329,6 +321,7 @@ namespace OGM
             this.Text = "Поиск договоров лизинга";
             this.Activated += new System.EventHandler(this.LeasingModuleForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LeasingModuleForm_FormClosed);
+            this.Load += new System.EventHandler(this.LeasingModuleForm_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.groupBox_Search.ResumeLayout(false);
@@ -364,12 +357,11 @@ namespace OGM
         private System.Windows.Forms.ToolTip toolTip_Info;
         private System.Windows.Forms.ToolStripMenuItem группаОборудованияToolStripMenuItem;
 		private System.Windows.Forms.Button button_ResetSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_ContractNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Leaser;
         private System.Windows.Forms.DataGridViewLinkColumn Column_View;
-        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
