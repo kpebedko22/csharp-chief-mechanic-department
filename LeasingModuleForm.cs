@@ -103,9 +103,19 @@ namespace OGM
             
         }
 
+        private void updateTable()
+        {
+            List<RelationshipOrganizationLeasingContract> relationships = Program.
+                db.relationships_organization_leasing_contract.Where(b => b.PK_Role == 2).ToList();
+
+            dataGridView_DataSearch.DataSource = relationships;
+            dataGridView_DataSearch.ClearSelection();
+
+        }
 
 
-		private void LeasingModuleForm_FormClosed(object sender, FormClosedEventArgs e) {
+
+        private void LeasingModuleForm_FormClosed(object sender, FormClosedEventArgs e) {
             Owner.Visible = true;
         }
 
@@ -191,10 +201,11 @@ namespace OGM
                         leasingContractsResult.Add(item);
 
                     }
-                updateTable(leasingContractsResult);
+                // updateTable(leasingContractsResult);
             }
             else
-                updateTable(leasingContracts);
+                updateTable();
+                //updateTable(leasingContracts);
 
         }
 
@@ -205,14 +216,16 @@ namespace OGM
             this.textBox_ContractNumber.Text = "";
             this.dateTimePicker_DateContract.Checked = false;
 
-            updateTable(Program.db.LeasingContracts.ToList());
+            //updateTable(Program.db.LeasingContracts.ToList());
+            updateTable();
 
         }
 
         private void LeasingModuleForm_Load(object sender, EventArgs e)
         {
 
-            updateTable(Program.db.LeasingContracts.ToList());
+            //updateTable(Program.db.LeasingContracts.ToList());
+            updateTable();
 
 
             List<Organization> organizations = Program.db.Organizations.ToList();
