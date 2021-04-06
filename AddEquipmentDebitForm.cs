@@ -138,12 +138,59 @@ namespace OGM {
 		}
 
 		private bool AddActDebit() {
+			try {
+				// проверка на заполнение
+				if (String.IsNullOrWhiteSpace(textBox_ActNumber.Text)) {
+					MessageBox.Show("Чтобы добавить или изменить запись заполните все поля!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					return false;
+				}
+
+				if (dataGridView_Debit.Rows.Count < 1) {
+					MessageBox.Show("Чтобы добавить или изменить запись заполните все поля!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					return false;
+				}
+
+				ActDebit actDebit = new ActDebit();
+
+				actDebit.act_number = textBox_ActNumber.Text;
+				actDebit.date = dateTimePicker_DateDebit.Value.Date;
+
+				//EquipmentGroup equipmentGroup = 
+				actDebit.PK_Equipment_Group = 1;
 
 
+				Program.db.ActDebits.Add(actDebit);
 
+				Program.db.SaveChanges();
 
+				int PK = actDebit.PK_Aсt_Debit;
 
-			return true;
+				List<DebitEquipment> temp = new List<DebitEquipment>();
+				foreach (DataGridViewRow row in dataGridView_Debit.Rows) {
+
+					DebitEquipment debitEquipment = new DebitEquipment();
+					debitEquipment.inventory_number = row.Cells[2].Value.ToString();
+					debitEquipment.PK_Reason_Debit = (((ReasonDebit)row.Cells[5].Value).PK_Reason_Debit);
+					debitEquipment.PK_Act_Debit = PK;
+
+					//Program.db.DebitEquipments.Add(debitEquipment);
+
+					temp.Add(debitEquipment);
+					//Program.db.SaveChanges();
+				}
+
+				Program.db.AddRange(temp);
+
+				Program.db.SaveChanges();
+				return true;
+			}
+			catch (Exception e) {
+
+				MessageBox.Show(e.Message);
+				return false;
+			}
+
+			
 		}
 
 		private void button_Close_Click(object sender, EventArgs e) {
