@@ -341,6 +341,9 @@ namespace OGM
             {  
                 // 3 ячейка - это кол-во оборудования в строке
                 int amount = Convert.ToInt32(row.Cells[3].Value);
+
+                // 0 ячейка - это пк_группы оборудования
+                int pk_group = Convert.ToInt32(row.Cells[0].Value);
                 for (int i = 0; i < amount; i++)
                 {
                     // создаём новый экземпляр оборудования
@@ -355,6 +358,13 @@ namespace OGM
 
                     count++;
                 }
+
+                RowAttachmentSpecification rowAttachmentSpecification = new RowAttachmentSpecification();
+                rowAttachmentSpecification.amount = amount;
+                rowAttachmentSpecification.PK_Equipment_Group = pk_group;
+                rowAttachmentSpecification.PK_Leasing_Contract = leasingContract.PK_Leasing_Contract;
+
+                Program.db.RowsAttachmentSpecification.Add(rowAttachmentSpecification);
             }
             Program.db.SaveChangesAsync();
 
