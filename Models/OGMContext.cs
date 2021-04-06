@@ -32,7 +32,7 @@ namespace OGM.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL(
-                "server=37.59.55.185;user=ZQ73KRwNC8;password=m6PnNvjtXJ;database=ZQ73KRwNC8;"
+                "server=25.36.221.15;user=application2;password=Qwerty_1;database=zq73krwnc8;"
             );
         }
 

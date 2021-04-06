@@ -301,6 +301,7 @@ namespace OGM
             this.Column_View.HeaderText = "";
             this.Column_View.Name = "Column_View";
             this.Column_View.ReadOnly = true;
+            this.Column_View.Text = "Просмотреть";
             this.Column_View.VisitedLinkColor = System.Drawing.Color.Blue;
             // 
             // LeasingModuleForm
