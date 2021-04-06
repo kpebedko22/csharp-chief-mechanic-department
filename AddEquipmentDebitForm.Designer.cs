@@ -57,10 +57,13 @@ namespace OGM {
 			this.label_Workshop = new System.Windows.Forms.Label();
 			this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnPK_Equipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.BG_Worker_OnLoad = new System.ComponentModel.BackgroundWorker();
 			this.menuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Debit)).BeginInit();
 			this.groupBox.SuspendLayout();
@@ -210,6 +213,8 @@ namespace OGM {
 			this.dataGridView_Debit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column,
             this.ColumnWorkshop,
+            this.ColumnGroup,
+            this.ColumnPK_Equipment,
             this.ColumnInventoryNumber,
             this.ColumnName,
             this.ColumnCost,
@@ -324,6 +329,7 @@ namespace OGM {
 			this.button_Edit.TabIndex = 9;
 			this.button_Edit.Text = "Редактировать";
 			this.button_Edit.UseVisualStyleBackColor = true;
+			this.button_Edit.Click += new System.EventHandler(this.button_Edit_Click);
 			// 
 			// button_Debit
 			// 
@@ -377,26 +383,39 @@ namespace OGM {
 			this.ColumnWorkshop.Name = "ColumnWorkshop";
 			this.ColumnWorkshop.ReadOnly = true;
 			// 
+			// ColumnGroup
+			// 
+			this.ColumnGroup.HeaderText = "Группа оборудования";
+			this.ColumnGroup.Name = "ColumnGroup";
+			this.ColumnGroup.ReadOnly = true;
+			this.ColumnGroup.Width = 120;
+			// 
+			// ColumnPK_Equipment
+			// 
+			this.ColumnPK_Equipment.HeaderText = "ПК оборудования";
+			this.ColumnPK_Equipment.Name = "ColumnPK_Equipment";
+			this.ColumnPK_Equipment.ReadOnly = true;
+			this.ColumnPK_Equipment.Visible = false;
+			// 
 			// ColumnInventoryNumber
 			// 
 			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
 			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
 			this.ColumnInventoryNumber.ReadOnly = true;
-			this.ColumnInventoryNumber.Width = 200;
+			this.ColumnInventoryNumber.Width = 120;
 			// 
 			// ColumnName
 			// 
 			this.ColumnName.HeaderText = "Наименование оборудования";
 			this.ColumnName.Name = "ColumnName";
 			this.ColumnName.ReadOnly = true;
-			this.ColumnName.Width = 250;
+			this.ColumnName.Width = 150;
 			// 
 			// ColumnCost
 			// 
 			this.ColumnCost.HeaderText = "Остаточная стоимость";
 			this.ColumnCost.Name = "ColumnCost";
 			this.ColumnCost.ReadOnly = true;
-			this.ColumnCost.Width = 200;
 			// 
 			// ColumnReasonDebit
 			// 
@@ -404,6 +423,11 @@ namespace OGM {
 			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
 			this.ColumnReasonDebit.ReadOnly = true;
 			this.ColumnReasonDebit.Width = 200;
+			// 
+			// BG_Worker_OnLoad
+			// 
+			this.BG_Worker_OnLoad.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BG_Worker_OnLoad_DoWork);
+			this.BG_Worker_OnLoad.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BG_Worker_OnLoad_RunWorkerCompleted);
 			// 
 			// AddEquipmentDebitForm
 			// 
@@ -473,9 +497,12 @@ namespace OGM {
 		private System.Windows.Forms.Label label_Workshop;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnWorkshop;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGroup;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPK_Equipment;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInventoryNumber;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCost;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReasonDebit;
+		private System.ComponentModel.BackgroundWorker BG_Worker_OnLoad;
 	}
 }

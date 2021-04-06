@@ -15,6 +15,42 @@ namespace OGM {
 
 		private Form Owner;
 
+		private bool EditingMode = false;
+		private int EditingIndex = -1;
+		private Workshop workshopSaved = null;
+		private EquipmentGroup groupSaved = null;
+		private Equipment equipmentSaved = null;
+		private ReasonDebit reasonSaved = null;
+		private bool stateAllSaved = false;
+
+		private void SaveBeforeEdit() {
+			workshopSaved = (Workshop)comboBox_Workshop.SelectedItem;
+			groupSaved = (EquipmentGroup)comboBox_GroupEquipment.SelectedItem;
+			equipmentSaved = (Equipment)comboBox_Equipment.SelectedItem;
+			reasonSaved = (ReasonDebit)comboBox_ReasonDebit.SelectedItem;
+
+			stateAllSaved = checkBox_AllGroupDebit.Checked;
+		}
+
+		private void RestoreEdit() {
+			comboBox_Workshop.SelectedItem = workshopSaved;
+			comboBox_GroupEquipment.SelectedItem = groupSaved;
+			comboBox_Equipment.SelectedItem = equipmentSaved;
+			comboBox_ReasonDebit.SelectedItem = reasonSaved;
+
+			checkBox_AllGroupDebit.Enabled = true;
+			checkBox_AllGroupDebit.Checked = stateAllSaved;
+
+			button_Debit.Text = "Списать";
+			button_Delete.Text = "Удалить";
+
+			stateAllSaved = false;
+			EditingMode = false;
+			EditingIndex = -1;
+		}
+
+		private object cmbWorkshops, cmbReasons;
+
 		public AddEquipmentDebitForm(Form owner) {
 			InitializeComponent();
 
@@ -23,11 +59,19 @@ namespace OGM {
 			dataGridView_Debit.AutoGenerateColumns = false;
 			dataGridView_Debit.ReadOnly = true;
 
-			comboBox_Workshop.DataSource = Program.db.Workshops.ToList();
-			comboBox_Workshop.SelectedIndex = -1;
+			//comboBox_Workshop.DataSource = Program.db.Workshops.ToList();
+			//comboBox_Workshop.SelectedIndex = -1;
+			//
+			//comboBox_ReasonDebit.DataSource = Program.db.ReasonDebits.ToList();
+			//comboBox_ReasonDebit.SelectedIndex = -1;
 
-			comboBox_ReasonDebit.DataSource = Program.db.ReasonDebits.ToList();
-			comboBox_ReasonDebit.SelectedIndex = -1;
+
+			comboBox_Workshop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			comboBox_GroupEquipment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			comboBox_Equipment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			comboBox_ReasonDebit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+
+			BG_Worker_OnLoad.RunWorkerAsync();
 		}
 
 		private void AddEquipmentDebitForm_FormClosed(object sender, FormClosedEventArgs e) {
@@ -63,43 +107,76 @@ namespace OGM {
 			this.Close();
 		}
 
-
-		private List<EquipmentGroup> EquipmentGroupsForWorkshop(Workshop workshop) {
-
-			if (workshop == null) return null;
-
-			List<EquipmentGroup> all = Program.db.EquipmentGroups.ToList();
-			List<EquipmentGroup> res = new List<EquipmentGroup>();
-
-			foreach (var item in all) if (item.PK_Workshop == workshop.PK_Workshop) res.Add(item);
-
-			return res;
-		}
-
-		private List<Equipment> EquipmentsForEquipmentGroup(EquipmentGroup equipmentGroup) {
-			if (equipmentGroup == null) return null;
-
-			List<Equipment> all = Program.db.Equipments.ToList();
-			List<Equipment> res = new List<Equipment>();
-
-			foreach (var item in all) if (item.PK_Equipment_Group == equipmentGroup.PK_Equipment_Group) res.Add(item);
-
-			return res;
-		}
-
+		/* Все работатет */
 		private void comboBox_Workshop_SelectedIndexChanged(object sender, EventArgs e) {
-			comboBox_GroupEquipment.DataSource = EquipmentGroupsForWorkshop((Workshop)comboBox_Workshop.SelectedItem);
+
+			if (comboBox_Workshop.SelectedItem == null || comboBox_Workshop.SelectedIndex == -1) {
+				comboBox_GroupEquipment.DataSource = null;
+				comboBox_GroupEquipment.SelectedItem = null;
+				comboBox_GroupEquipment.SelectedIndex = -1;
+				return;
+			}
+
+			List<EquipmentGroup> list = Program.db.EquipmentGroups.Where(b => b.PK_Workshop == ((Workshop)comboBox_Workshop.SelectedItem).PK_Workshop).ToList();
+
+			if (list.Count < 1) {
+				comboBox_GroupEquipment.DataSource = null;
+				comboBox_GroupEquipment.SelectedItem = null;
+				comboBox_GroupEquipment.SelectedIndex = -1;
+				return;
+			}
+
+			comboBox_GroupEquipment.DataSource = list;
 			comboBox_GroupEquipment.SelectedIndex = -1;
 		}
-
 		private void comboBox_GroupEquipment_SelectedIndexChanged(object sender, EventArgs e) {
-			comboBox_Equipment.DataSource = EquipmentsForEquipmentGroup((EquipmentGroup)comboBox_GroupEquipment.SelectedItem);
+			
+			if (comboBox_GroupEquipment.SelectedItem == null || comboBox_GroupEquipment.SelectedIndex == -1) {
+				comboBox_Equipment.DataSource = null;
+				comboBox_Equipment.SelectedItem = null;
+				comboBox_Equipment.SelectedIndex = -1;
+				return;
+			}
+
+			List<Equipment> list = Program.db.Equipments.Where(b => b.PK_Equipment_Group == ((EquipmentGroup)comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group).ToList();
+			
+			if (list.Count < 1) {
+				comboBox_Equipment.DataSource = null;
+				comboBox_Equipment.SelectedItem = null;
+				comboBox_Equipment.SelectedIndex = -1;
+				return;
+			}
+
+			comboBox_Equipment.DataSource = list;
 			comboBox_Equipment.DisplayMember = "inventory_number";
 			comboBox_Equipment.SelectedIndex = -1;
 		}
+		/* End Все работатет */
+
+
 
 		private void button_Debit_Click(object sender, EventArgs e) {
 
+			if (!CheckBeforeAddingToTable()) { MessageBox.Show("Не все поля заполнены"); return; }
+
+			// если редактирование строки
+			if (EditingMode) {
+				Equipment equipment = (Equipment)comboBox_Equipment.SelectedItem;
+
+				dataGridView_Debit.Rows[EditingIndex].Cells[1].Value = comboBox_Workshop.SelectedItem;
+				dataGridView_Debit.Rows[EditingIndex].Cells[2].Value = comboBox_GroupEquipment.SelectedItem;
+				dataGridView_Debit.Rows[EditingIndex].Cells[3].Value = equipment;
+				dataGridView_Debit.Rows[EditingIndex].Cells[4].Value = equipment.inventory_number;
+				dataGridView_Debit.Rows[EditingIndex].Cells[5].Value = equipment.name;
+				dataGridView_Debit.Rows[EditingIndex].Cells[6].Value = equipment.cost;
+				dataGridView_Debit.Rows[EditingIndex].Cells[7].Value = comboBox_ReasonDebit.SelectedItem;
+
+				RestoreEdit();
+				return;
+			}
+
+
+			// иначе обычное списание
 			// если чекбокс тру - списываем все оборудование из группы
 			if (checkBox_AllGroupDebit.Checked) {
 				foreach(Equipment item in comboBox_Equipment.Items)
@@ -115,16 +192,70 @@ namespace OGM {
 		}
 
 		private void button_Delete_Click(object sender, EventArgs e) {
-			foreach(DataGridViewRow row in dataGridView_Debit.SelectedRows)
+			// отмена изменения строки таблицы
+			if (EditingMode) {
+				RestoreEdit();
+				return;
+			}
+
+			foreach (DataGridViewRow row in dataGridView_Debit.SelectedRows)
 				dataGridView_Debit.Rows.RemoveAt(row.Index);
 
 			UpdateIndicesInTable();
+		}
+		
+		private void button_Edit_Click(object sender, EventArgs e) {
+
+			if (dataGridView_Debit.SelectedRows.Count < 1) {
+				MessageBox.Show("Выберите строку таблицы");
+				return;
+			}
+
+			DataGridViewRow row = dataGridView_Debit.SelectedRows[0];
+			EditingIndex = row.Index;
+			EditingMode = true;
+
+			SaveBeforeEdit();
+
+			if (checkBox_AllGroupDebit.Checked) checkBox_AllGroupDebit.Checked = false;
+			checkBox_AllGroupDebit.Enabled = false;
+
+			comboBox_Workshop.SelectedItem = row.Cells[1].Value;
+			comboBox_GroupEquipment.SelectedItem = row.Cells[2].Value;
+			comboBox_Equipment.SelectedItem = row.Cells[3].Value;
+			comboBox_ReasonDebit.SelectedItem = row.Cells[7].Value;
+
+			button_Debit.Text = "Применить";
+			button_Delete.Text = "Отменить";
+		}
+
+
+
+		private bool CheckBeforeAddingToTable() {
+
+			// если не выбран цех
+			if (comboBox_Workshop.SelectedIndex == -1) return false;
+
+			// если не выбрана группа
+			if (comboBox_GroupEquipment.SelectedIndex == -1) return false;
+			
+			// если не выбрано "списать всю группу" и не выбрано оборудование
+			if (!checkBox_AllGroupDebit.Checked && comboBox_Equipment.SelectedIndex == -1) return false;
+
+			// если не выбрана причина списания
+			if (comboBox_ReasonDebit.SelectedIndex == -1) return false;
+
+			// можно здесь проверять что такое оборудование уже есть в таблице на списание
+
+			return true;
 		}
 
 		private void AddToTable(Equipment equipment) {
 			dataGridView_Debit.Rows.Add(
 						dataGridView_Debit.Rows.Count + 1,
 						comboBox_Workshop.SelectedItem,
+						comboBox_GroupEquipment.SelectedItem,
+						equipment,
 						equipment.inventory_number,
 						equipment.name,
 						equipment.cost,
@@ -151,37 +282,34 @@ namespace OGM {
 				}
 
 				ActDebit actDebit = new ActDebit();
-
+				
 				actDebit.act_number = textBox_ActNumber.Text;
 				actDebit.date = dateTimePicker_DateDebit.Value.Date;
-
-				//EquipmentGroup equipmentGroup = 
+				
+				// тут должна быть группа, но нет...
+				// делаю дефолт потому что...
 				actDebit.PK_Equipment_Group = 1;
-
-
+				
+				
 				Program.db.ActDebits.Add(actDebit);
-
 				Program.db.SaveChanges();
-
+				
 				int PK = actDebit.PK_Aсt_Debit;
 
-				List<DebitEquipment> temp = new List<DebitEquipment>();
-				foreach (DataGridViewRow row in dataGridView_Debit.Rows) {
 
-					DebitEquipment debitEquipment = new DebitEquipment();
-					debitEquipment.inventory_number = row.Cells[2].Value.ToString();
-					debitEquipment.PK_Reason_Debit = (((ReasonDebit)row.Cells[5].Value).PK_Reason_Debit);
-					debitEquipment.PK_Act_Debit = PK;
+				List <DebitEquipment> debits = new List<DebitEquipment>();
 
-					//Program.db.DebitEquipments.Add(debitEquipment);
+				foreach (DataGridViewRow row in dataGridView_Debit.Rows) 
+					debits.Add(new DebitEquipment {
+						inventory_number = row.Cells[2].Value.ToString(),
+						PK_Reason_Debit = ((ReasonDebit)row.Cells[5].Value).PK_Reason_Debit,
+						PK_Aсt_Debit = PK
+					});
+				
 
-					temp.Add(debitEquipment);
-					//Program.db.SaveChanges();
-				}
-
-				Program.db.AddRange(temp);
-
+				Program.db.DebitEquipments.AddRange(debits);
 				Program.db.SaveChanges();
+
 				return true;
 			}
 			catch (Exception e) {
@@ -204,5 +332,27 @@ namespace OGM {
 		private void button_Add_Click(object sender, EventArgs e) {
 			AddActDebit();
 		}
+
+		
+
+		private void BG_Worker_OnLoad_DoWork(object sender, DoWorkEventArgs e) {
+			cmbWorkshops = Program.db.Workshops.ToList();
+			cmbReasons = Program.db.ReasonDebits.ToList();
+		}
+
+		private void BG_Worker_OnLoad_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
+			if (e.Error != null) { MessageBox.Show(e.Error.Message); return; }
+			else {
+				comboBox_Workshop.DataSource = cmbWorkshops;
+				comboBox_Workshop.SelectedIndex = -1;
+
+				comboBox_ReasonDebit.DataSource = cmbReasons;
+				comboBox_ReasonDebit.SelectedIndex = -1;
+
+				cmbWorkshops = null;
+				cmbReasons = null;
+			}
+		}
+
 	}
 }
