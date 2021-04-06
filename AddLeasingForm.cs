@@ -16,6 +16,31 @@ namespace OGM
     {
 
         private Form Owner;
+
+        int index_row_in_edit;
+        Workshop workshop_saved = null;
+        EquipmentGroup group_saved = null;
+        string amount_saved = "";
+        Decimal cost_saved = 0;
+
+        private void save_row_data()
+        {
+            workshop_saved = ((Workshop)comboBox_Workshop.SelectedItem);
+            group_saved = ((EquipmentGroup)comboBox_Equipment.SelectedItem);
+            amount_saved = this.textBox_Amount.Text;
+            cost_saved = this.numericUpDown_Cost.Value;
+        }
+
+        private void restore_row_data()
+        {
+            comboBox_Workshop.SelectedItem = this.workshop_saved;
+            comboBox_Equipment.SelectedItem = this.group_saved;
+            this.textBox_Amount.Text = this.amount_saved;
+            this.numericUpDown_Cost.Value = this.cost_saved;
+            this.index_row_in_edit = -1;
+            }
+
+
         public AddLeasingForm(Form owner)
         {
             InitializeComponent();
@@ -90,6 +115,17 @@ namespace OGM
 
         private void button_RemoveEquipment_Click(object sender, EventArgs e)
         {
+
+            // отмена изменения строки таблицы
+            if (this.button_RemoveEquipment.Text == "Отменить")
+            {
+                restore_row_data();
+                this.button_RemoveEquipment.Text = "Удалить";
+                this.button_AddRowEquipment.Text = "Добавить";
+                return;
+            }
+
+            // удаление
             List<DataGridViewRow> rows_for_delete = new List<DataGridViewRow>();
 
             foreach (DataGridViewRow item in dataGridView1.SelectedRows)
@@ -195,10 +231,28 @@ namespace OGM
             }
 
 
-            // добавление в таблицу
-            EquipmentGroup group = (EquipmentGroup)this.comboBox_Equipment.SelectedItem;
-            dataGridView1.Rows.Add(group.PK_Equipment_Group, group.name, this.numericUpDown_Cost.Text, this.textBox_Amount.Text, "шт", Convert.ToInt32(this.textBox_Amount.Text) * this.numericUpDown_Cost.Value);
 
+
+            EquipmentGroup group = (EquipmentGroup)this.comboBox_Equipment.SelectedItem;
+
+            // изменение строки таблицы
+            if (this.button_AddRowEquipment.Text == "Применить")
+            {
+                this.dataGridView1.Rows[this.index_row_in_edit].Cells[0].Value = group.PK_Equipment_Group;
+                this.dataGridView1.Rows[this.index_row_in_edit].Cells[1].Value = group.name;
+                this.dataGridView1.Rows[this.index_row_in_edit].Cells[2].Value = this.numericUpDown_Cost.Value;
+                this.dataGridView1.Rows[this.index_row_in_edit].Cells[3].Value = this.textBox_Amount.Text;
+                this.dataGridView1.Rows[this.index_row_in_edit].Cells[5].Value = Convert.ToInt32(this.textBox_Amount.Text) * this.numericUpDown_Cost.Value;
+                
+                restore_row_data();
+                this.button_AddRowEquipment.Text = "Добавить";
+                this.button_RemoveEquipment.Text = "Удалить";
+                return;
+            }
+
+
+            // добавление в таблицу    
+            dataGridView1.Rows.Add(group.PK_Equipment_Group, group.name, this.numericUpDown_Cost.Text, this.textBox_Amount.Text, "шт", Convert.ToInt32(this.textBox_Amount.Text) * this.numericUpDown_Cost.Value);
 
         }
 
@@ -368,6 +422,44 @@ namespace OGM
             if (this.comboBox_Equipment.SelectedItem == null || this.comboBox_Equipment.SelectedIndex == -1)
                 return;
             this.textBox_Amount.Focus();
+        }
+
+        private void button_Edit_Click(object sender, EventArgs e)
+        {
+            int index = -1;
+            try
+            {
+                index = Convert.ToInt32(dataGridView1.SelectedRows[0].Index);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Выберите строку в таблице, которую нужно изменить", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+            if (index == -1)
+                return;
+
+            this.index_row_in_edit = index;
+
+            // сохраняем введенные данные
+            save_row_data();
+
+            // заполняем поля из таблицы
+
+            EquipmentGroup equipmentGroupInEdit = Program.db.EquipmentGroups.Find(Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value));
+
+            this.comboBox_Workshop.SelectedItem = equipmentGroupInEdit.workshop;
+            this.comboBox_Equipment.SelectedItem = equipmentGroupInEdit;
+            this.textBox_Amount.Text = Convert.ToString(dataGridView1.Rows[index].Cells[3].Value);
+            this.numericUpDown_Cost.Value = Convert.ToDecimal(dataGridView1.Rows[index].Cells[2].Value);
+
+            // переименовываем кнопки
+
+            this.button_AddRowEquipment.Text = "Применить";
+            this.button_RemoveEquipment.Text = "Отменить";
+
         }
     }
 }
