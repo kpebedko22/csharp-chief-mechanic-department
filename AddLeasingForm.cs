@@ -14,8 +14,8 @@ namespace OGM
 {
     public partial class AddLeasingForm : Form
     {
-
-        private Form Owner;
+        private bool showOwner = true;
+        private new Form Owner;
 
         int index_row_in_edit;
         Workshop workshop_saved = null;
@@ -75,7 +75,8 @@ namespace OGM
 
         private void AddLeasingForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Owner.Visible = true;
+            if (showOwner)
+                Owner.Visible = true;
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,7 +86,11 @@ namespace OGM
 
         private void найтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            showOwner = false;
+
+            LeasingModuleForm form = new LeasingModuleForm(Owner);
             this.Close();
+            form.Visible = true;
         }
 
         private void оборудованиеToolStripMenuItem_Click(object sender, EventArgs e)
