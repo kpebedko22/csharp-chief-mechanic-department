@@ -59,16 +59,18 @@ namespace OGM {
 
 		private void dataGridView_DataSearch_CellClick(object sender, DataGridViewCellEventArgs e) {
 
+			if (e.RowIndex == -1) return;
+
 			// если нажали на ссылку в 4 столбце
 			if (e.ColumnIndex == 4) {
 
-				Console.WriteLine(e.RowIndex);
+				//Console.WriteLine(e.RowIndex);
 
-				Console.WriteLine(dataGridView_DataSearch.Rows[e.RowIndex].Cells[1].Value);
+				//Console.WriteLine(dataGridView_DataSearch.Rows[e.RowIndex].Cells[1].Value);
 
 				// берем первичный ключ акта в скрытом столбце (столбец 1)
 				int PK_ActDebit = Convert.ToInt32(dataGridView_DataSearch[1, e.RowIndex].Value);
-				Console.WriteLine(PK_ActDebit);
+				//Console.WriteLine(PK_ActDebit);
 				ActDebit actDebit = Program.db.ActDebits.Find(PK_ActDebit);
 
 				if (actDebit != null)

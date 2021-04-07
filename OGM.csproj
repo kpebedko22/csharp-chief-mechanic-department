@@ -186,6 +186,7 @@
       <DependentUpon>AddGroupEquipment.cs</DependentUpon>
     </Compile>
     <Compile Include="Additions\NumToWord.cs" />
+    <Compile Include="Additions\OfficeExport.cs" />
     <Compile Include="AddLeasingForm.cs">
       <SubType>Form</SubType>
     </Compile>

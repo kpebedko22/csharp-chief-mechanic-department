@@ -123,17 +123,17 @@ namespace OGM {
 			this.label_ActDebitNum.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label_ActDebitNum.AutoSize = true;
 			this.label_ActDebitNum.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label_ActDebitNum.Location = new System.Drawing.Point(263, 8);
+			this.label_ActDebitNum.Location = new System.Drawing.Point(261, 8);
 			this.label_ActDebitNum.Name = "label_ActDebitNum";
-			this.label_ActDebitNum.Size = new System.Drawing.Size(257, 21);
+			this.label_ActDebitNum.Size = new System.Drawing.Size(262, 21);
 			this.label_ActDebitNum.TabIndex = 0;
 			this.label_ActDebitNum.Text = "Акт списания оборудования №";
 			// 
 			// tabControl
 			// 
 			this.tabControl.Controls.Add(this.tabPageDoc);
-			this.tabControl.Controls.Add(this.tabPage2);
 			this.tabControl.Controls.Add(this.tabPageExportData);
+			this.tabControl.Controls.Add(this.tabPage2);
 			this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl.Location = new System.Drawing.Point(3, 41);
 			this.tabControl.Name = "tabControl";
@@ -149,7 +149,7 @@ namespace OGM {
 			this.tabPageDoc.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPageDoc.Size = new System.Drawing.Size(770, 358);
 			this.tabPageDoc.TabIndex = 0;
-			this.tabPageDoc.Text = "Главное";
+			this.tabPageDoc.Text = "Шаблон документа";
 			this.tabPageDoc.UseVisualStyleBackColor = true;
 			// 
 			// richTextBox_ActDebit
@@ -197,7 +197,7 @@ namespace OGM {
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(19, 244);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(291, 21);
+			this.label5.Size = new System.Drawing.Size(292, 21);
 			this.label5.TabIndex = 2;
 			this.label5.Text = "Заместитель главного бухгалтера, ФИО";
 			// 
@@ -215,7 +215,7 @@ namespace OGM {
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(64, 138);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(246, 21);
+			this.label3.Size = new System.Drawing.Size(245, 21);
 			this.label3.TabIndex = 2;
 			this.label3.Text = "Начальник отдела закупок, ФИО";
 			// 
