@@ -351,7 +351,7 @@ namespace OGM
                     equipment.name = row.Cells[1].Value.ToString();
                     equipment.inventory_number = "ЛИЗ-" + leasingContract.contract_number + "-" + count.ToString();
                     equipment.cost = this.numericUpDown_Cost.Value;
-                    equipment.PK_Equipment_Group = ((EquipmentGroup)this.comboBox_Equipment.SelectedItem).PK_Equipment_Group;
+                    equipment.PK_Equipment_Group = pk_group;
                     equipment.serial_number = " "; 
 
                     Program.db.Equipments.Add(equipment);
@@ -377,7 +377,30 @@ namespace OGM
 
         private void button_Add_Click(object sender, EventArgs e)
         {
-            AddLeasing();
+            if (AddLeasing())
+            {
+                this.textBox_LeasingNum.Text = "";
+                this.textBox_Amount.Text = "";
+                this.textBox_AddressDelivery.Text = "";
+                this.numericUpDown_Cost.Value = 0;
+                
+                this.numericUpDown_DaysForFirstPayment.Value = 10;
+                this.numericUpDown_DaysForForceMajeure.Value = 7;
+                this.numericUpDown_DaysForReport.Value = 5;
+                this.numericUpDown_Penalty.Value = (Decimal)(0.5);
+                this.numericUpDown_MaxPenalty.Value = 5;
+                this.numericUpDown_PenaltyFee.Value = 0;
+
+                this.numericUpDown_PeriodOfUse.Value = 3;
+
+                this.comboBox_Workshop.SelectedItem = null;
+                this.comboBox_Equipment.SelectedItem = null;
+
+                this.dataGridView1.Rows.Clear();
+
+                this.tabControl.SelectedIndex = 0;
+
+            }
         }
 
         private void button_AddAndClose_Click(object sender, EventArgs e)
