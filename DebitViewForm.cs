@@ -15,53 +15,57 @@ namespace OGM {
 	public partial class DebitViewForm : Form {
 
 		private ActDebit ActDebit = null;
+		private List<DebitEquipment> debitEquipments = null;
 
-		//string rtfActDebit = null;
+		private double ActDebitTotalCost = 0;
 
 		public DebitViewForm(ActDebit actDebit) {
 			InitializeComponent();
 
+			// сохраняем текущий акт списания в переменную формы
 			ActDebit = actDebit;
 
+			// выводим лейбл формы
 			label_ActDebitNum.Text = "Акт списания оборудования №" + ActDebit.act_number;
 
+			// загрузка документа в таб "шаблон документа"
+			OpenTemplateDocument();
 
-			OpenDocument();
+			// выбрать все строки акта списания из БД
+			debitEquipments = Program.db.DebitEquipments.Where(b => b.PK_Aсt_Debit == ActDebit.PK_Aсt_Debit).ToList();
+
+			UpdateTable();
+
+			//
+			textBox_ActNumber.Text = ActDebit.act_number;
+			dateTimePicker_ActDate.Value = ActDebit.date;
+			//textBox_ActTotalPrice.Text =
 		}
 
-		private void OpenDocument() {
-			//act_debit_template.rtf
+		private void UpdateTable() {
 
-			string path = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template.rtf";
 
-			richTextBox_ActDebit.LoadFile(path);
-			//
-			//richTextBox_ActDebit.Find("[<номер_акта>]");
-			//richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<номер_акта>]", ActDebit.act_number);
-			//
-			//string d = "«" + ActDebit.date.Day + "» " + ActDebit.date.ToString("MMMM").ToLower() + " " + ActDebit.date.Year + "г.";
-			//richTextBox_ActDebit.Find("[<дата_списания>]");
-			//richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<дата_списания>]", d);
-			//
-			//// сохраняем текст дока в переменную
-			//rtfActDebit = richTextBox_ActDebit.Rtf;
-		}
 
-		private void button_Save_Click(object sender, EventArgs e) {
-
-			if (ActDebit == null) return;
-
-			ExportDoc();
 
 		}
 
-		private void ExportDoc() {
+		private void OpenTemplateDocument() {
+			try {
+				string path = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template.rtf";
+				richTextBox_ActDebit.LoadFile(path);
+			}
+			catch (Exception e) {
+				MessageBox.Show(e.Message);
+			}
+		}
+
+		private void ExportDoc(string nameFileExport) {
 
 			OfficeExport.ExportData exportData;
 
 			exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template3.docx";
-			exportData.nameFileExport = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_number" + ActDebit.act_number + ".docx";
-			exportData.tableIndex = 2; //скорее всего по умолчанию так и будет
+			exportData.nameFileExport = nameFileExport;			// Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_number" + ActDebit.act_number + ".docx";
+			exportData.tableIndex = 2;							// номер таблицы в доке
 			exportData.textToReplace = new List<string>() {
 				"[<наименование_организации>]"          ,
 				"[<фио_гл_механик>]"                    ,
@@ -77,18 +81,20 @@ namespace OGM {
 
 			// тут какие-то текстбоксы видимо с формы
 			exportData.textReplaceWith = new List<string>() {
-				 "----",
-				textBox_FIO_MainMechanic.Text,
-				ActDebit.date.ToString(),
-				ActDebit.act_number.ToString(),
-				 "----",
-				 "----",
-				 textBox_FIO_DeputyDirector.Text,
-				 textBox_FIO_HeadProcurement.Text,
-				 textBox_FIO_Engineer.Text,
-				 textBox_FIO_DeputyAccountant.Text
+				 "----",												// название конторы
+				textBox_FIO_MainMechanic.Text,							// фио главного механика
+				"«" + ActDebit.date.Day + "» " + ActDebit.date.Month.ToString("MMMM") + " " + ActDebit.date.Year + " г.",	// дата как «___»________202_г.
+				ActDebit.act_number.ToString(),							// номер акта
+				 "----",												// сумма прописью - рубли
+				 "----",												// сумма цифрами - копейки
+				 textBox_FIO_DeputyDirector.Text,						// фио зам.ген.директора
+				 textBox_FIO_HeadProcurement.Text,						// нач отдела закупок
+				 textBox_FIO_Engineer.Text,								// инженер
+				 textBox_FIO_DeputyAccountant.Text						// зам главбуха
 			};
-			exportData.openFileExport = true; // если надо открыть файл после экспорта автоматически - checkBox_openFileExport.Checked - с формы юзать такую хуйню
+
+			// если надо открыть файл после экспорта автоматически
+			exportData.openFileExport = checkBox_OpenFileExport.Checked;	
 
 			// и самый интересный момент - таблица
 			// количество строк с учетом что одна строка по умолчанию есть внутри шаблона
@@ -100,7 +106,7 @@ namespace OGM {
 				7	// количество
 			};
 			exportData.valuesDefaultValues = new List<string>() {
-				"766",	// код по ОКЕИ ед. измерения
+				"796",	// код по ОКЕИ ед. измерения
 				"шт.",	// наименование ед. измерения
 				"1"		// количество
 			};
@@ -113,12 +119,43 @@ namespace OGM {
 				9	// причина списания
 			};
 
-			exportData.valuesCustomValues = new string[,] {
-				{"цех1", "инв номер1", "наим оборудования 1", "оста стоим 1 ", "причина списания 1" },
-				{"цех2", "инв номер2", "наим оборудования 2", "оста стоим 2", "причина списания 2" }
-			};
+			exportData.valuesCustomValues = new List<List<string>>();
+			
+			/*foreach(var item in debitEquipments) {
+				exportData.valuesCustomValues.Add(
+					new List<string>() {
+						item.Workshop,			// цех
+						item.inventory_number,	// инв. номер
+						item.name,				// наим
+						item.price,				// стоимость
+						item.ReasonDebit		// причина
+					});
+			}*/
 
 			OfficeExport.Export(exportData);
+		}
+
+		private void button_Export_Click(object sender, EventArgs e) {
+			return; // удалить потом
+
+			if (ActDebit == null) {
+				MessageBox.Show("Что-то пошло не так и акта списания нет...");
+				return;
+			}
+
+			if (debitEquipments.Count < 1) {
+				MessageBox.Show("Нет строк в акте списания. Отказ в экспорте...");
+				return;
+			}
+
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+			saveFileDialog.Filter = "Документ Word (*.docx)|*.docx";
+			saveFileDialog.RestoreDirectory = true;
+
+			if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+				ExportDoc(saveFileDialog.FileName);
+			}
 		}
 	}
 }

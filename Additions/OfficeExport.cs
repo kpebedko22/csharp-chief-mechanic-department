@@ -35,35 +35,29 @@ namespace OGM.Additions {
 			public List<int> indicesCustomValues;
 
 			// Значения для столбцов таблицы с уникальными значениями
-			public string[,] valuesCustomValues;
+			public List<List<string>> valuesCustomValues;
 		}
 
 
 		public static void Export(ExportData data) {
 
 			// копируем файл
-			System.IO.File.Copy(data.nameFileTemplate, data.nameFileExport);
+			System.IO.File.Copy(data.nameFileTemplate, data.nameFileExport, true);
 
-			// перемещение файла в другое место + можно переименовать
-			//System.IO.File.Move();
-
-			// путь до нового файла
-			string path = data.nameFileExport;
-
+			// открываем ворд и документ вордовский (только что скопированный шаблон)
 			Word.Application wordApp = new Word.Application();
 
-			Word.Document document = wordApp.Documents.OpenNoRepairDialog(path);
+			Word.Document document = wordApp.Documents.OpenNoRepairDialog(data.nameFileExport);
 			document.Activate();
 
-			// выбираем таблицу в ворде - 2 таблицу, т.к. она представляет только строки
-			// т.к. иначе ошибка - запрещено форматирование из-за объединенных клеток хедера
+			// выбираем таблицу в ворде
 			Word.Table table = document.Tables[data.tableIndex];
 
 			// Добавление строки в таблицу
 			// добавляет почему-то строку перед существующей
 			// поэтому проще сначала создать нужное количество строк
 			// а потом пройтись по ним и заполнить каждую
-			int numRows = data.valuesCustomValues.GetUpperBound(0);
+			int numRows = data.valuesCustomValues.Count - 1;
 			for (int i = 0; i < numRows; i++) {
 				// дублирование пустой строки таблицы
 				var row = table.Rows.Add(table.Rows[1]);
@@ -85,7 +79,7 @@ namespace OGM.Additions {
 				// кастомные значения
 				int numCustomColumns = data.indicesCustomValues.Count;
 				for (int k = 0; k < numCustomColumns; k++)
-					row.Cells[data.indicesCustomValues[k]].Range.Text = data.valuesCustomValues[numRow - 2, k];
+					row.Cells[data.indicesCustomValues[k]].Range.Text = data.valuesCustomValues[numRow - 2][k];
 			}
 
 			// замена текста
