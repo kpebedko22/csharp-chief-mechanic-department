@@ -34,7 +34,7 @@ namespace OGM.Models
             optionsBuilder.UseMySQL(
                 //"server=37.59.55.185;user=ZQ73KRwNC8;password=m6PnNvjtXJ;database=ZQ73KRwNC8;" // беплатная удалённая бд
                 //"server=25.36.221.15;user=application2;password=Qwerty_1;database=zq73krwnc8;" // пк
-                "server=25.36.221.15;user=application2;password=Qwerty_1;database=zq73krwnc8;" // ноут
+                "server=25.15.8.199;user=application2;password=Qwerty_1;database=zq73krwnc8;" // ноут
             );
         }
 
