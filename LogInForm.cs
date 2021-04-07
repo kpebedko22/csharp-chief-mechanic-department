@@ -26,11 +26,15 @@ namespace OGM {
 		}
 
 		private void button_Leasing_Click(object sender, EventArgs e) {
-			
+			AddLeasingForm form = new AddLeasingForm(this);
+			this.Hide();
+			form.Visible = true;
 		}
 
 		private void button_Equipment_Click(object sender, EventArgs e) {
-			
+			AddEquipmentDebitForm form = new AddEquipmentDebitForm(this);
+			this.Hide();
+			form.Visible = true;
 		}
 
 		private void button_LogOut_Click(object sender, EventArgs e) {

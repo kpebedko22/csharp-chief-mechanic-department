@@ -13,7 +13,8 @@ using OGM.Models;
 namespace OGM {
 	public partial class AddEquipmentDebitForm : Form {
 
-		private Form Owner;
+		private bool showOwner = true;
+		private new Form Owner;
 
 		private bool EditingMode = false;
 		private int EditingIndex = -1;
@@ -75,7 +76,8 @@ namespace OGM {
 		}
 
 		private void AddEquipmentDebitForm_FormClosed(object sender, FormClosedEventArgs e) {
-			Owner.Visible = true;
+			if (showOwner)
+				Owner.Visible = true;
 		}
 
 		private void ToolStripMenuItem_Equipment_Handbook_Click(object sender, EventArgs e) {
@@ -104,7 +106,11 @@ namespace OGM {
 		}
 
 		private void ToolStripMenuItem_Find_EquipmentDebit_Click(object sender, EventArgs e) {
+			showOwner = false;
+
+			EquipmentModuleForm form = new EquipmentModuleForm(Owner);
 			this.Close();
+			form.Visible = true;
 		}
 
 		/* Все работатет */
@@ -339,7 +345,6 @@ namespace OGM {
 			cmbWorkshops = Program.db.Workshops.ToList();
 			cmbReasons = Program.db.ReasonDebits.ToList();
 		}
-
 		private void BG_Worker_OnLoad_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
 			if (e.Error != null) { MessageBox.Show(e.Error.Message); return; }
 			else {

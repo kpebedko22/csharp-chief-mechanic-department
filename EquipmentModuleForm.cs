@@ -13,7 +13,8 @@ using OGM.Models;
 namespace OGM {
 	public partial class EquipmentModuleForm : Form {
 
-		private Form Owner;
+		private bool showOwner = true;
+		private new Form Owner;
 
 		public EquipmentModuleForm(Form owner) {
 			InitializeComponent();
@@ -29,12 +30,16 @@ namespace OGM {
 		}
 
 		private void EquipmentModuleForm_FormClosed(object sender, FormClosedEventArgs e) {
-			Owner.Visible = true;
+			if (showOwner)
+				Owner.Visible = true;
 		}
 
 		private void ToolStripMenuItem_Add_EquipmentDebit_Click(object sender, EventArgs e) {
-			this.Visible = false;
-			new AddEquipmentDebitForm(this).Show();
+			showOwner = false;
+
+			AddEquipmentDebitForm form = new AddEquipmentDebitForm(Owner);
+			this.Close();
+			form.Visible = true;
 		}
 
 		private void ToolStripMenuItem_Equipment_Handbook_Click(object sender, EventArgs e) {
