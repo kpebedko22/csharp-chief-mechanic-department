@@ -42,8 +42,9 @@ namespace OGM.Models
             List<RelationshipOrganizationLeasingContract> temp = Program.db.relationships_organization_leasing_contract
             .Where(b => b.PK_Leasing_Contract == PK_Leasing_Contract && b.PK_Role == PK_Role).ToList();
 
-            if (temp.Count > 0)
-                return temp.ElementAt(0).Organization;
+            //if (temp.Count > 0)
+              //  return temp.ElementAt(0).Organization;
+
 
             return null;
         }

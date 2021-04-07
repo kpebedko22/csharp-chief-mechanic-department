@@ -22,15 +22,22 @@ namespace OGM.Models
 	{
 		[Key]
 		public int PK { get; set; }
+
+		[ForeignKey("PK_Leasing_Contract")]
 		public int PK_Leasing_Contract { get; set; }
+
+		[ForeignKey("PK_Organization")]
 		public int PK_Organization { get; set; }
-		public int PK_Role { get; set; }
+
+		[ForeignKey("PK_Role")]
+		public int? PK_Role { get; set; }
+
 
 		public LeasingContract Leasing_Contract { get { return Program.db.LeasingContracts.Find(PK_Leasing_Contract); } }
 		public Organization Organization { get { return Program.db.Organizations.Find(PK_Organization); } }
 		public Role Role { get { return Program.db.Roles.Find(PK_Role); } }
 
-		
+
 
 	}
 
