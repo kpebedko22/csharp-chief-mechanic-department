@@ -31,11 +31,11 @@ namespace OGM.Models {
 			}
 		}
 
-		public int PK_Act_Debit { get; set; }
+		public int PK_Aсt_Debit { get; set; }
 
 		public ActDebit ActDebit {
 			get {
-				return Program.db.ActDebits.Find(PK_Act_Debit);
+				return Program.db.ActDebits.Find(PK_Aсt_Debit);
 			}
 		}
 

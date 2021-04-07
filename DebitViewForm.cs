@@ -52,23 +52,24 @@ namespace OGM {
 			richTextBox_ActDebit.Rtf = rtfActDebit;
 
 			// проходим по всем полям чтоб заменить
-			richTextBox_ActDebit.Find("[<фио_гл_механик>]");
-			richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_гл_механик>]", textBox_FIO_MainMechanic.Text);
+			if (richTextBox_ActDebit.Find("[<фио_гл_механик>]") != -1)
+				richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_гл_механик>]", textBox_FIO_MainMechanic.Text);
 
 
-			richTextBox_ActDebit.Find("[<фио_зам_ген_директор>]");
-			richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_зам_ген_директор>]", textBox_FIO_DeputyDirector.Text);
+			if (richTextBox_ActDebit.Find("[<фио_зам_ген_директор>]") != -1)
+				richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_зам_ген_директор>]", textBox_FIO_DeputyDirector.Text);
 
 
-			richTextBox_ActDebit.Find("[<фио_нач_отд_закупок>]");
-			richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_нач_отд_закупок>]", textBox_FIO_HeadProcurement.Text);
+			if (richTextBox_ActDebit.Find("[<фио_нач_отд_закупок>]") != -1)
+				richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_нач_отд_закупок>]", textBox_FIO_HeadProcurement.Text);
 
 
-			richTextBox_ActDebit.Find("[<фио_инженер>]");
-			richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_инженер>]", textBox_FIO_Engineer.Text);
+			if (richTextBox_ActDebit.Find("[<фио_инженер>]") != -1)
+				richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_инженер>]", textBox_FIO_Engineer.Text);
 
-			//richTextBox_ActDebit.Find("[<фио_зам_главбух>]");
-			//richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_зам_главбух>]", textBox_FIO_DeputyAccountant.Text);
+
+			if (richTextBox_ActDebit.Find("[<фио_зам_главбух>]") != -1)
+				richTextBox_ActDebit.SelectedText = richTextBox_ActDebit.SelectedText.Replace("[<фио_зам_главбух>]", textBox_FIO_DeputyAccountant.Text);
 
 
 
@@ -77,7 +78,7 @@ namespace OGM {
 			 * [<сумма_списания_копейки>] 
 			 * */
 
-			//richTextBox_ActDebit.
+			tabControl.SelectedTab = tabControl.TabPages[0];
 		}
 	}
 }
