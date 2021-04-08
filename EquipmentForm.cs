@@ -54,7 +54,7 @@ namespace OGM
             // при выборе цеха нужно найти его первичный ключ цех
             // потом нужно найти все группы, принадлежащие данному цеху
 
-            if (comboBox_Workshop.SelectedIndex != -1 && comboBox_Workshop.SelectedIndex != null)
+            if (comboBox_Workshop.SelectedIndex != -1 && comboBox_Workshop.SelectedItem != null)
             {
 
                 int PK_Workshop = ((Workshop)comboBox_Workshop.SelectedItem).PK_Workshop;
