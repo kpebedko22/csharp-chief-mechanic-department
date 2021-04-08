@@ -50,7 +50,8 @@ namespace OGM {
 			EditingIndex = -1;
 		}
 
-		private object cmbWorkshops, cmbReasons;
+		private List<Workshop> cmbWorkshops;
+		private List<ReasonDebit> cmbReasons;
 
 		public AddEquipmentDebitForm(Form owner) {
 			InitializeComponent();
@@ -307,8 +308,8 @@ namespace OGM {
 
 				foreach (DataGridViewRow row in dataGridView_Debit.Rows) 
 					debits.Add(new DebitEquipment {
-						inventory_number = row.Cells[2].Value.ToString(),
-						PK_Reason_Debit = ((ReasonDebit)row.Cells[5].Value).PK_Reason_Debit,
+						inventory_number = row.Cells[3].Value.ToString(),
+						PK_Reason_Debit = ((ReasonDebit)row.Cells[7].Value).PK_Reason_Debit,
 						PK_Aсt_Debit = PK
 					});
 				
@@ -351,11 +352,14 @@ namespace OGM {
 				comboBox_Workshop.DataSource = cmbWorkshops;
 				comboBox_Workshop.SelectedIndex = -1;
 
+
+				Console.WriteLine(cmbReasons);
+				Console.WriteLine(cmbReasons[0]);
 				comboBox_ReasonDebit.DataSource = cmbReasons;
 				comboBox_ReasonDebit.SelectedIndex = -1;
 
-				cmbWorkshops = null;
-				cmbReasons = null;
+				cmbWorkshops.Clear();
+				cmbReasons.Clear();
 			}
 		}
 

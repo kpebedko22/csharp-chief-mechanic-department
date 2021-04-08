@@ -33,9 +33,25 @@ namespace OGM {
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.label_ActDebitNum = new System.Windows.Forms.Label();
 			this.tabControl = new System.Windows.Forms.TabControl();
-			this.tabPageDoc = new System.Windows.Forms.TabPage();
-			this.richTextBox_ActDebit = new System.Windows.Forms.RichTextBox();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.dataGridView_Data = new System.Windows.Forms.DataGridView();
+			this.ColumnIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnEquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
+			this.textBox_ActTotalPrice = new System.Windows.Forms.TextBox();
+			this.dateTimePicker_ActDate = new System.Windows.Forms.DateTimePicker();
 			this.tabPageExportData = new System.Windows.Forms.TabPage();
+			this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -47,33 +63,17 @@ namespace OGM {
 			this.textBox_FIO_HeadProcurement = new System.Windows.Forms.TextBox();
 			this.textBox_FIO_DeputyDirector = new System.Windows.Forms.TextBox();
 			this.textBox_FIO_MainMechanic = new System.Windows.Forms.TextBox();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.dataGridView_Data = new System.Windows.Forms.DataGridView();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
-			this.textBox_ActTotalPrice = new System.Windows.Forms.TextBox();
-			this.dateTimePicker_ActDate = new System.Windows.Forms.DateTimePicker();
-			this.ColumnIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnEquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.tabPageDoc = new System.Windows.Forms.TabPage();
+			this.richTextBox_ActDebit = new System.Windows.Forms.RichTextBox();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
 			this.tabControl.SuspendLayout();
-			this.tabPageDoc.SuspendLayout();
-			this.tabPageExportData.SuspendLayout();
 			this.tabPage2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
+			this.tabPageExportData.SuspendLayout();
+			this.tabPageDoc.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -162,28 +162,187 @@ namespace OGM {
 			this.tabControl.Size = new System.Drawing.Size(778, 430);
 			this.tabControl.TabIndex = 1;
 			// 
-			// tabPageDoc
+			// tabPage2
 			// 
-			this.tabPageDoc.Controls.Add(this.richTextBox_ActDebit);
-			this.tabPageDoc.Location = new System.Drawing.Point(4, 30);
-			this.tabPageDoc.Name = "tabPageDoc";
-			this.tabPageDoc.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageDoc.Size = new System.Drawing.Size(770, 396);
-			this.tabPageDoc.TabIndex = 0;
-			this.tabPageDoc.Text = "Шаблон документа";
-			this.tabPageDoc.UseVisualStyleBackColor = true;
+			this.tabPage2.Controls.Add(this.tableLayoutPanel1);
+			this.tabPage2.Location = new System.Drawing.Point(4, 30);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(770, 396);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Спецификация";
+			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// richTextBox_ActDebit
+			// tableLayoutPanel1
 			// 
-			this.richTextBox_ActDebit.BackColor = System.Drawing.Color.White;
-			this.richTextBox_ActDebit.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.richTextBox_ActDebit.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.richTextBox_ActDebit.Location = new System.Drawing.Point(3, 3);
-			this.richTextBox_ActDebit.Name = "richTextBox_ActDebit";
-			this.richTextBox_ActDebit.ReadOnly = true;
-			this.richTextBox_ActDebit.Size = new System.Drawing.Size(764, 390);
-			this.richTextBox_ActDebit.TabIndex = 0;
-			this.richTextBox_ActDebit.Text = "";
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.Controls.Add(this.dataGridView_Data, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(764, 390);
+			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// dataGridView_Data
+			// 
+			this.dataGridView_Data.AllowUserToAddRows = false;
+			this.dataGridView_Data.AllowUserToDeleteRows = false;
+			this.dataGridView_Data.BackgroundColor = System.Drawing.Color.FloralWhite;
+			this.dataGridView_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnIndex,
+            this.ColumnWorkshop,
+            this.ColumnGroup,
+            this.ColumnInventoryNumber,
+            this.ColumnEquipmentName,
+            this.ColumnCost,
+            this.ColumnReasonDebit});
+			this.dataGridView_Data.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView_Data.Location = new System.Drawing.Point(3, 103);
+			this.dataGridView_Data.Name = "dataGridView_Data";
+			this.dataGridView_Data.ReadOnly = true;
+			this.dataGridView_Data.Size = new System.Drawing.Size(758, 284);
+			this.dataGridView_Data.TabIndex = 1;
+			// 
+			// ColumnIndex
+			// 
+			this.ColumnIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.ColumnIndex.HeaderText = "#";
+			this.ColumnIndex.MinimumWidth = 50;
+			this.ColumnIndex.Name = "ColumnIndex";
+			this.ColumnIndex.ReadOnly = true;
+			// 
+			// ColumnWorkshop
+			// 
+			this.ColumnWorkshop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnWorkshop.HeaderText = "Цех";
+			this.ColumnWorkshop.Name = "ColumnWorkshop";
+			this.ColumnWorkshop.ReadOnly = true;
+			// 
+			// ColumnGroup
+			// 
+			this.ColumnGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnGroup.HeaderText = "Группа оборудования";
+			this.ColumnGroup.Name = "ColumnGroup";
+			this.ColumnGroup.ReadOnly = true;
+			// 
+			// ColumnInventoryNumber
+			// 
+			this.ColumnInventoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
+			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
+			this.ColumnInventoryNumber.ReadOnly = true;
+			// 
+			// ColumnEquipmentName
+			// 
+			this.ColumnEquipmentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnEquipmentName.HeaderText = "Наименование оборудования";
+			this.ColumnEquipmentName.Name = "ColumnEquipmentName";
+			this.ColumnEquipmentName.ReadOnly = true;
+			// 
+			// ColumnCost
+			// 
+			this.ColumnCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnCost.HeaderText = "Остаточная стоимость";
+			this.ColumnCost.Name = "ColumnCost";
+			this.ColumnCost.ReadOnly = true;
+			// 
+			// ColumnReasonDebit
+			// 
+			this.ColumnReasonDebit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnReasonDebit.HeaderText = "Причина списания";
+			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
+			this.ColumnReasonDebit.ReadOnly = true;
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 5;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Controls.Add(this.label6, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.label7, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label8, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_ActNumber, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_ActTotalPrice, 3, 0);
+			this.tableLayoutPanel2.Controls.Add(this.dateTimePicker_ActDate, 1, 1);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 3;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(758, 94);
+			this.tableLayoutPanel2.TabIndex = 2;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label6.Location = new System.Drawing.Point(4, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(163, 35);
+			this.label6.TabIndex = 0;
+			this.label6.Text = "Номер акта списания";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label7.Location = new System.Drawing.Point(18, 35);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(149, 35);
+			this.label7.TabIndex = 1;
+			this.label7.Text = "Дата акта списания";
+			this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label8.Location = new System.Drawing.Point(350, 0);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(157, 35);
+			this.label8.TabIndex = 2;
+			this.label8.Text = "Стоимость списания";
+			this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// textBox_ActNumber
+			// 
+			this.textBox_ActNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_ActNumber.Enabled = false;
+			this.textBox_ActNumber.Location = new System.Drawing.Point(173, 3);
+			this.textBox_ActNumber.Name = "textBox_ActNumber";
+			this.textBox_ActNumber.Size = new System.Drawing.Size(164, 29);
+			this.textBox_ActNumber.TabIndex = 3;
+			// 
+			// textBox_ActTotalPrice
+			// 
+			this.textBox_ActTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_ActTotalPrice.Enabled = false;
+			this.textBox_ActTotalPrice.Location = new System.Drawing.Point(513, 3);
+			this.textBox_ActTotalPrice.Name = "textBox_ActTotalPrice";
+			this.textBox_ActTotalPrice.Size = new System.Drawing.Size(164, 29);
+			this.textBox_ActTotalPrice.TabIndex = 4;
+			// 
+			// dateTimePicker_ActDate
+			// 
+			this.dateTimePicker_ActDate.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dateTimePicker_ActDate.Enabled = false;
+			this.dateTimePicker_ActDate.Location = new System.Drawing.Point(173, 38);
+			this.dateTimePicker_ActDate.Name = "dateTimePicker_ActDate";
+			this.dateTimePicker_ActDate.Size = new System.Drawing.Size(164, 29);
+			this.dateTimePicker_ActDate.TabIndex = 5;
 			// 
 			// tabPageExportData
 			// 
@@ -205,6 +364,18 @@ namespace OGM {
 			this.tabPageExportData.TabIndex = 2;
 			this.tabPageExportData.Text = "Данные для экспорта";
 			this.tabPageExportData.UseVisualStyleBackColor = true;
+			// 
+			// checkBox_OpenFileExport
+			// 
+			this.checkBox_OpenFileExport.AutoSize = true;
+			this.checkBox_OpenFileExport.Checked = true;
+			this.checkBox_OpenFileExport.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox_OpenFileExport.Location = new System.Drawing.Point(34, 333);
+			this.checkBox_OpenFileExport.Name = "checkBox_OpenFileExport";
+			this.checkBox_OpenFileExport.Size = new System.Drawing.Size(350, 25);
+			this.checkBox_OpenFileExport.TabIndex = 6;
+			this.checkBox_OpenFileExport.Text = "Открыть документ по завершению экспорта";
+			this.checkBox_OpenFileExport.UseVisualStyleBackColor = true;
 			// 
 			// label5
 			// 
@@ -296,190 +467,28 @@ namespace OGM {
 			this.textBox_FIO_MainMechanic.Size = new System.Drawing.Size(250, 29);
 			this.textBox_FIO_MainMechanic.TabIndex = 0;
 			// 
-			// tabPage2
+			// tabPageDoc
 			// 
-			this.tabPage2.Controls.Add(this.tableLayoutPanel1);
-			this.tabPage2.Location = new System.Drawing.Point(4, 30);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(770, 396);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Спецификация";
-			this.tabPage2.UseVisualStyleBackColor = true;
+			this.tabPageDoc.Controls.Add(this.richTextBox_ActDebit);
+			this.tabPageDoc.Location = new System.Drawing.Point(4, 30);
+			this.tabPageDoc.Name = "tabPageDoc";
+			this.tabPageDoc.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageDoc.Size = new System.Drawing.Size(770, 396);
+			this.tabPageDoc.TabIndex = 0;
+			this.tabPageDoc.Text = "Шаблон документа";
+			this.tabPageDoc.UseVisualStyleBackColor = true;
 			// 
-			// checkBox_OpenFileExport
+			// richTextBox_ActDebit
 			// 
-			this.checkBox_OpenFileExport.AutoSize = true;
-			this.checkBox_OpenFileExport.Checked = true;
-			this.checkBox_OpenFileExport.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox_OpenFileExport.Location = new System.Drawing.Point(34, 333);
-			this.checkBox_OpenFileExport.Name = "checkBox_OpenFileExport";
-			this.checkBox_OpenFileExport.Size = new System.Drawing.Size(350, 25);
-			this.checkBox_OpenFileExport.TabIndex = 6;
-			this.checkBox_OpenFileExport.Text = "Открыть документ по завершению экспорта";
-			this.checkBox_OpenFileExport.UseVisualStyleBackColor = true;
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Controls.Add(this.dataGridView_Data, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(764, 390);
-			this.tableLayoutPanel1.TabIndex = 0;
-			// 
-			// dataGridView_Data
-			// 
-			this.dataGridView_Data.BackgroundColor = System.Drawing.Color.FloralWhite;
-			this.dataGridView_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnIndex,
-            this.ColumnWorkshop,
-            this.ColumnGroup,
-            this.ColumnInventoryNumber,
-            this.ColumnEquipmentName,
-            this.ColumnCost,
-            this.ColumnReasonDebit});
-			this.dataGridView_Data.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView_Data.Location = new System.Drawing.Point(3, 103);
-			this.dataGridView_Data.Name = "dataGridView_Data";
-			this.dataGridView_Data.ReadOnly = true;
-			this.dataGridView_Data.Size = new System.Drawing.Size(758, 284);
-			this.dataGridView_Data.TabIndex = 1;
-			// 
-			// tableLayoutPanel2
-			// 
-			this.tableLayoutPanel2.ColumnCount = 5;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Controls.Add(this.label6, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.label7, 0, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label8, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_ActNumber, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_ActTotalPrice, 3, 0);
-			this.tableLayoutPanel2.Controls.Add(this.dateTimePicker_ActDate, 1, 1);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 3;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(758, 94);
-			this.tableLayoutPanel2.TabIndex = 2;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label6.Location = new System.Drawing.Point(4, 0);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(163, 35);
-			this.label6.TabIndex = 0;
-			this.label6.Text = "Номер акта списания";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label7.Location = new System.Drawing.Point(18, 35);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(149, 35);
-			this.label7.TabIndex = 1;
-			this.label7.Text = "Дата акта списания";
-			this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label8.Location = new System.Drawing.Point(350, 0);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(157, 35);
-			this.label8.TabIndex = 2;
-			this.label8.Text = "Стоимость списания";
-			this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// textBox_ActNumber
-			// 
-			this.textBox_ActNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_ActNumber.Enabled = false;
-			this.textBox_ActNumber.Location = new System.Drawing.Point(173, 3);
-			this.textBox_ActNumber.Name = "textBox_ActNumber";
-			this.textBox_ActNumber.Size = new System.Drawing.Size(164, 29);
-			this.textBox_ActNumber.TabIndex = 3;
-			// 
-			// textBox_ActTotalPrice
-			// 
-			this.textBox_ActTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_ActTotalPrice.Enabled = false;
-			this.textBox_ActTotalPrice.Location = new System.Drawing.Point(513, 3);
-			this.textBox_ActTotalPrice.Name = "textBox_ActTotalPrice";
-			this.textBox_ActTotalPrice.Size = new System.Drawing.Size(164, 29);
-			this.textBox_ActTotalPrice.TabIndex = 4;
-			// 
-			// dateTimePicker_ActDate
-			// 
-			this.dateTimePicker_ActDate.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dateTimePicker_ActDate.Enabled = false;
-			this.dateTimePicker_ActDate.Location = new System.Drawing.Point(173, 38);
-			this.dateTimePicker_ActDate.Name = "dateTimePicker_ActDate";
-			this.dateTimePicker_ActDate.Size = new System.Drawing.Size(164, 29);
-			this.dateTimePicker_ActDate.TabIndex = 5;
-			// 
-			// ColumnIndex
-			// 
-			this.ColumnIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.ColumnIndex.HeaderText = "#";
-			this.ColumnIndex.MinimumWidth = 50;
-			this.ColumnIndex.Name = "ColumnIndex";
-			// 
-			// ColumnWorkshop
-			// 
-			this.ColumnWorkshop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnWorkshop.HeaderText = "Цех";
-			this.ColumnWorkshop.Name = "ColumnWorkshop";
-			// 
-			// ColumnGroup
-			// 
-			this.ColumnGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnGroup.HeaderText = "Группа оборудования";
-			this.ColumnGroup.Name = "ColumnGroup";
-			// 
-			// ColumnInventoryNumber
-			// 
-			this.ColumnInventoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
-			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
-			// 
-			// ColumnEquipmentName
-			// 
-			this.ColumnEquipmentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnEquipmentName.HeaderText = "Наименование оборудования";
-			this.ColumnEquipmentName.Name = "ColumnEquipmentName";
-			// 
-			// ColumnCost
-			// 
-			this.ColumnCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnCost.HeaderText = "Остаточная стоимость";
-			this.ColumnCost.Name = "ColumnCost";
-			// 
-			// ColumnReasonDebit
-			// 
-			this.ColumnReasonDebit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnReasonDebit.HeaderText = "Причина списания";
-			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
+			this.richTextBox_ActDebit.BackColor = System.Drawing.Color.White;
+			this.richTextBox_ActDebit.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.richTextBox_ActDebit.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.richTextBox_ActDebit.Location = new System.Drawing.Point(3, 3);
+			this.richTextBox_ActDebit.Name = "richTextBox_ActDebit";
+			this.richTextBox_ActDebit.ReadOnly = true;
+			this.richTextBox_ActDebit.Size = new System.Drawing.Size(764, 390);
+			this.richTextBox_ActDebit.TabIndex = 0;
+			this.richTextBox_ActDebit.Text = "";
 			// 
 			// DebitViewForm
 			// 
@@ -498,14 +507,14 @@ namespace OGM {
 			this.tableLayoutPanel.ResumeLayout(false);
 			this.tableLayoutPanel.PerformLayout();
 			this.tabControl.ResumeLayout(false);
-			this.tabPageDoc.ResumeLayout(false);
-			this.tabPageExportData.ResumeLayout(false);
-			this.tabPageExportData.PerformLayout();
 			this.tabPage2.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).EndInit();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
+			this.tabPageExportData.ResumeLayout(false);
+			this.tabPageExportData.PerformLayout();
+			this.tabPageDoc.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
