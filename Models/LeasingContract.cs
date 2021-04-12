@@ -28,7 +28,10 @@ namespace OGM.Models
 
         [Column(TypeName = "Date")]
         public DateTime date_delivery { get; set; }
-        public int period_of_use { get; set; }
+
+        [Column(TypeName = "Date")]
+        public DateTime date_end { get; set; }
+        public string period_of_use { get; set; }
         public string address_delivery { get; set; }
         public int days_for_first_payment { get; set; }
         public int days_for_report { get; set; }

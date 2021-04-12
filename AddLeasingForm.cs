@@ -51,9 +51,17 @@ namespace OGM
             this.numericUpDown_Cost.Controls[0].Visible = false;
 
             this.dateTimePicker_DateDelivery.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
+            this.dateTimePicker_DateEnd.MinDate = this.dateTimePicker_DateEnd.Value.Date;
+            this.dateTimePicker_DateEnd.Value = this.dateTimePicker_DateEnd.Value.AddYears(3);
 
-            this.comboBox_Leaser.AutoCompleteMode = this.comboBox_Seller.AutoCompleteMode = this.comboBox_Equipment.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.comboBox_Leaser.AutoCompleteSource = this.comboBox_Seller.AutoCompleteSource = this.comboBox_Equipment.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.comboBox_lessee.AutoCompleteMode = this.comboBox_Leaser.AutoCompleteMode = this.comboBox_Seller.AutoCompleteMode = this.comboBox_Equipment.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.comboBox_lessee.AutoCompleteSource = this.comboBox_Leaser.AutoCompleteSource = this.comboBox_Seller.AutoCompleteSource = this.comboBox_Equipment.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            List<Organization> lessee = Program.db.Organizations.Where(b => b.PK_Role == 1).ToList();
+            this.comboBox_lessee.DataSource = lessee;
+            this.comboBox_lessee.AutoCompleteCustomSource.AddRange(lessee.Select(i => i.name).ToArray());
+            this.comboBox_lessee.SelectedIndex = -1;
 
             List<Organization> leasers = Program.db.Organizations.Where(b => b.PK_Role == 2).ToList();
             this.comboBox_Leaser.DataSource = leasers;
@@ -70,6 +78,7 @@ namespace OGM
             this.comboBox_Workshop.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
             this.comboBox_Workshop.SelectedIndex = -1;
 
+           
         }
 
 
@@ -250,6 +259,7 @@ namespace OGM
         private void dateTimePicker_DateConclusion_ValueChanged(object sender, EventArgs e)
         {
             this.dateTimePicker_DateDelivery.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
+            this.dateTimePicker_DateEnd.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
         }
 
         private bool ShowMessage(String msg)
@@ -262,6 +272,9 @@ namespace OGM
         {
             if (String.IsNullOrWhiteSpace(this.textBox_LeasingNum.Text))
                 return ShowMessage("Введите номер договора!");
+
+            if (this.comboBox_lessee.SelectedItem == null || this.comboBox_lessee.SelectedIndex == -1)
+                return ShowMessage("Укажите лизингополучателя!");
 
             if (this.comboBox_Leaser.SelectedItem == null || this.comboBox_Leaser.SelectedIndex == -1)
                 return ShowMessage("Укажите лизингодателя!");
@@ -287,7 +300,7 @@ namespace OGM
             if (String.IsNullOrWhiteSpace(this.numericUpDown_PenaltyFee.Text))
                 return ShowMessage("Укажите неустойку, в руб.!");
 
-            if (String.IsNullOrWhiteSpace(this.numericUpDown_PeriodOfUse.Text))
+            if (String.IsNullOrWhiteSpace(this.textBox_PeriodOfUse.Text))
                 return ShowMessage("Укажите срок использования оборудования!");
 
             if (String.IsNullOrWhiteSpace(this.textBox_AddressDelivery.Text))
@@ -310,11 +323,11 @@ namespace OGM
             // добавляем в бд договор
 
             LeasingContract leasingContract = new LeasingContract();
-
             leasingContract.contract_number = this.textBox_LeasingNum.Text;
             leasingContract.date = this.dateTimePicker_DateConclusion.Value.Date;
+            leasingContract.date_end = this.dateTimePicker_DateEnd.Value.Date;
             leasingContract.date_delivery  = this.dateTimePicker_DateConclusion.Value.Date;
-            leasingContract.period_of_use = (int)this.numericUpDown_PeriodOfUse.Value;
+            leasingContract.period_of_use = this.textBox_PeriodOfUse.Text;
             leasingContract.address_delivery = this.textBox_AddressDelivery.Text;
             leasingContract.days_for_first_payment = (int)this.numericUpDown_DaysForFirstPayment.Value;
             leasingContract.days_for_report = (int)this.numericUpDown_DaysForReport.Value;
@@ -328,14 +341,22 @@ namespace OGM
 
             // после сохранения изменений нам доступен первичный ключ договора
             // создадим второстепенные таблицы - связь между организацией и договором
+            RelationshipOrganizationLeasingContract lessee = new RelationshipOrganizationLeasingContract();
             RelationshipOrganizationLeasingContract seller = new RelationshipOrganizationLeasingContract();
             RelationshipOrganizationLeasingContract leaser = new RelationshipOrganizationLeasingContract();
-            seller.PK_Leasing_Contract = leaser.PK_Leasing_Contract = leasingContract.PK_Leasing_Contract;
+
+            lessee.PK_Leasing_Contract = seller.PK_Leasing_Contract = leaser.PK_Leasing_Contract = leasingContract.PK_Leasing_Contract;
+
+            lessee.PK_Organization = ((Organization)this.comboBox_lessee.SelectedItem).PK_Organization;
+            lessee.PK_Role = ((Organization)this.comboBox_lessee.SelectedItem).PK_Role;
+
             seller.PK_Organization = ((Organization)this.comboBox_Seller.SelectedItem).PK_Organization;
             seller.PK_Role = ((Organization)this.comboBox_Seller.SelectedItem).PK_Role;
+
             leaser.PK_Organization = ((Organization)this.comboBox_Leaser.SelectedItem).PK_Organization;
             leaser.PK_Role = ((Organization)this.comboBox_Leaser.SelectedItem).PK_Role;
 
+            Program.db.relationships_organization_leasing_contract.Add(lessee);
             Program.db.relationships_organization_leasing_contract.Add(seller);
             Program.db.relationships_organization_leasing_contract.Add(leaser);
             Program.db.SaveChanges();
@@ -399,7 +420,7 @@ namespace OGM
                 this.numericUpDown_MaxPenalty.Value = 5;
                 this.numericUpDown_PenaltyFee.Value = 0;
 
-                this.numericUpDown_PeriodOfUse.Value = 3;
+                this.textBox_PeriodOfUse.Text = "3";
 
                 this.comboBox_Workshop.SelectedItem = null;
                 this.comboBox_Equipment.SelectedItem = null;
