@@ -100,6 +100,10 @@ namespace OGM
             if (((EquipmentGroup)comboBox_GroupEquipment.SelectedItem) != null)
                 PK_Equipment_Group = ((EquipmentGroup)comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group;
 
+
+            bool is_debit = this.radioButton_is_debit.Checked;
+            bool is_leasing = this.radioButton_is_leasing.Checked;
+
             foreach (Equipment item in equipments)
                 if (item.name.ToLower().Contains(this.textBox_NameEquipment.Text.ToLower())
                     && item.inventory_number.ToLower().Contains(this.textBox_InventoryNum.Text.ToLower())
@@ -114,6 +118,15 @@ namespace OGM
                     if (PK_Equipment_Group != -1)
                         if (item.PK_Equipment_Group != PK_Equipment_Group)
                             is_good_row = false;
+
+                    if (is_debit)
+                        if (item.is_debit == false)
+                            is_good_row = false;
+
+                    if (is_leasing)
+                        if (item.is_leasing == false)
+                            is_good_row = false;
+
 
 
                     if (is_good_row)

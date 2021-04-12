@@ -43,9 +43,6 @@ namespace OGM
             this.label_SerialNum = new System.Windows.Forms.Label();
             this.label_NameEquipment = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.button_AddEquipment = new System.Windows.Forms.Button();
-            this.button_EditEquipment = new System.Windows.Forms.Button();
-            this.button_RemoveEquipment = new System.Windows.Forms.Button();
             this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_InventoryNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,12 +54,21 @@ namespace OGM
             this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.button_AddEquipment = new System.Windows.Forms.Button();
+            this.button_EditEquipment = new System.Windows.Forms.Button();
+            this.button_RemoveEquipment = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton_all = new System.Windows.Forms.RadioButton();
+            this.radioButton_is_debit = new System.Windows.Forms.RadioButton();
+            this.radioButton_is_leasing = new System.Windows.Forms.RadioButton();
             this.groupBox_Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_Search
             // 
+            this.groupBox_Search.Controls.Add(this.groupBox1);
             this.groupBox_Search.Controls.Add(this.button_ResetSearch);
             this.groupBox_Search.Controls.Add(this.comboBox_Workshop);
             this.groupBox_Search.Controls.Add(this.label_Workshop);
@@ -84,10 +90,10 @@ namespace OGM
             // 
             // button_ResetSearch
             // 
-            this.button_ResetSearch.Location = new System.Drawing.Point(520, 76);
+            this.button_ResetSearch.Location = new System.Drawing.Point(520, 54);
             this.button_ResetSearch.Name = "button_ResetSearch";
             this.button_ResetSearch.Size = new System.Drawing.Size(300, 29);
-            this.button_ResetSearch.TabIndex = 7;
+            this.button_ResetSearch.TabIndex = 8;
             this.button_ResetSearch.Text = "Сбросить параметры поиска";
             this.button_ResetSearch.UseVisualStyleBackColor = true;
             this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
@@ -114,10 +120,10 @@ namespace OGM
             // 
             // button_Search
             // 
-            this.button_Search.Location = new System.Drawing.Point(520, 36);
+            this.button_Search.Location = new System.Drawing.Point(520, 19);
             this.button_Search.Name = "button_Search";
             this.button_Search.Size = new System.Drawing.Size(300, 29);
-            this.button_Search.TabIndex = 6;
+            this.button_Search.TabIndex = 7;
             this.button_Search.Text = "Найти";
             this.button_Search.UseVisualStyleBackColor = true;
             this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
@@ -209,37 +215,7 @@ namespace OGM
             this.dataGridView.ReadOnly = true;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(860, 310);
-            this.dataGridView.TabIndex = 11;
-            // 
-            // button_AddEquipment
-            // 
-            this.button_AddEquipment.Location = new System.Drawing.Point(12, 290);
-            this.button_AddEquipment.Name = "button_AddEquipment";
-            this.button_AddEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_AddEquipment.TabIndex = 8;
-            this.button_AddEquipment.Text = "Добавить";
-            this.button_AddEquipment.UseVisualStyleBackColor = true;
-            this.button_AddEquipment.Click += new System.EventHandler(this.button_AddEquipment_Click);
-            // 
-            // button_EditEquipment
-            // 
-            this.button_EditEquipment.Location = new System.Drawing.Point(218, 290);
-            this.button_EditEquipment.Name = "button_EditEquipment";
-            this.button_EditEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_EditEquipment.TabIndex = 9;
-            this.button_EditEquipment.Text = "Редактировать";
-            this.button_EditEquipment.UseVisualStyleBackColor = true;
-            this.button_EditEquipment.Click += new System.EventHandler(this.button_EditEquipment_Click);
-            // 
-            // button_RemoveEquipment
-            // 
-            this.button_RemoveEquipment.Location = new System.Drawing.Point(424, 290);
-            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
-            this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_RemoveEquipment.TabIndex = 10;
-            this.button_RemoveEquipment.Text = "Удалить";
-            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
-            this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
+            this.dataGridView.TabIndex = 12;
             // 
             // Column_PK
             // 
@@ -319,6 +295,80 @@ namespace OGM
             this.Column1.ReadOnly = true;
             this.Column1.Width = 80;
             // 
+            // button_AddEquipment
+            // 
+            this.button_AddEquipment.Location = new System.Drawing.Point(12, 290);
+            this.button_AddEquipment.Name = "button_AddEquipment";
+            this.button_AddEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_AddEquipment.TabIndex = 9;
+            this.button_AddEquipment.Text = "Добавить";
+            this.button_AddEquipment.UseVisualStyleBackColor = true;
+            this.button_AddEquipment.Click += new System.EventHandler(this.button_AddEquipment_Click);
+            // 
+            // button_EditEquipment
+            // 
+            this.button_EditEquipment.Location = new System.Drawing.Point(218, 290);
+            this.button_EditEquipment.Name = "button_EditEquipment";
+            this.button_EditEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_EditEquipment.TabIndex = 10;
+            this.button_EditEquipment.Text = "Редактировать";
+            this.button_EditEquipment.UseVisualStyleBackColor = true;
+            this.button_EditEquipment.Click += new System.EventHandler(this.button_EditEquipment_Click);
+            // 
+            // button_RemoveEquipment
+            // 
+            this.button_RemoveEquipment.Location = new System.Drawing.Point(424, 290);
+            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
+            this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_RemoveEquipment.TabIndex = 11;
+            this.button_RemoveEquipment.Text = "Удалить";
+            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
+            this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton_is_leasing);
+            this.groupBox1.Controls.Add(this.radioButton_is_debit);
+            this.groupBox1.Controls.Add(this.radioButton_all);
+            this.groupBox1.Location = new System.Drawing.Point(520, 99);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(300, 130);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Признак";
+            // 
+            // radioButton_all
+            // 
+            this.radioButton_all.AutoSize = true;
+            this.radioButton_all.Checked = true;
+            this.radioButton_all.Location = new System.Drawing.Point(16, 29);
+            this.radioButton_all.Name = "radioButton_all";
+            this.radioButton_all.Size = new System.Drawing.Size(52, 25);
+            this.radioButton_all.TabIndex = 0;
+            this.radioButton_all.TabStop = true;
+            this.radioButton_all.Text = "Все";
+            this.radioButton_all.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_is_debit
+            // 
+            this.radioButton_is_debit.AutoSize = true;
+            this.radioButton_is_debit.Location = new System.Drawing.Point(16, 60);
+            this.radioButton_is_debit.Name = "radioButton_is_debit";
+            this.radioButton_is_debit.Size = new System.Drawing.Size(89, 25);
+            this.radioButton_is_debit.TabIndex = 1;
+            this.radioButton_is_debit.Text = "Списано";
+            this.radioButton_is_debit.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_is_leasing
+            // 
+            this.radioButton_is_leasing.AutoSize = true;
+            this.radioButton_is_leasing.Location = new System.Drawing.Point(16, 91);
+            this.radioButton_is_leasing.Name = "radioButton_is_leasing";
+            this.radioButton_is_leasing.Size = new System.Drawing.Size(189, 25);
+            this.radioButton_is_leasing.TabIndex = 2;
+            this.radioButton_is_leasing.Text = "Приобретено в лизинг";
+            this.radioButton_is_leasing.UseVisualStyleBackColor = true;
+            // 
             // EquipmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -340,6 +390,8 @@ namespace OGM
             this.groupBox_Search.ResumeLayout(false);
             this.groupBox_Search.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -374,5 +426,9 @@ namespace OGM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton_is_debit;
+        private System.Windows.Forms.RadioButton radioButton_all;
+        private System.Windows.Forms.RadioButton radioButton_is_leasing;
     }
 }
