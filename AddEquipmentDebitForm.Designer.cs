@@ -29,6 +29,9 @@ namespace OGM {
 			this.button_AddAndClose = new System.Windows.Forms.Button();
 			this.button_Close = new System.Windows.Forms.Button();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
+			this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripMenuItem_File_ExitModule = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripMenuItem_File_ExitProg = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Add_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Find_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,9 +71,6 @@ namespace OGM {
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
-			this.ToolStripMenuItem_File_ExitModule = new System.Windows.Forms.ToolStripMenuItem();
-			this.ToolStripMenuItem_File_ExitProg = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Debit)).BeginInit();
 			this.groupBox.SuspendLayout();
@@ -134,6 +134,29 @@ namespace OGM {
 			this.menuStrip.Size = new System.Drawing.Size(884, 24);
 			this.menuStrip.TabIndex = 3;
 			this.menuStrip.Text = "menuStrip1";
+			// 
+			// ToolStripMenuItem_File
+			// 
+			this.ToolStripMenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_File_ExitModule,
+            this.ToolStripMenuItem_File_ExitProg});
+			this.ToolStripMenuItem_File.Name = "ToolStripMenuItem_File";
+			this.ToolStripMenuItem_File.Size = new System.Drawing.Size(48, 20);
+			this.ToolStripMenuItem_File.Text = "Файл";
+			// 
+			// ToolStripMenuItem_File_ExitModule
+			// 
+			this.ToolStripMenuItem_File_ExitModule.Name = "ToolStripMenuItem_File_ExitModule";
+			this.ToolStripMenuItem_File_ExitModule.Size = new System.Drawing.Size(193, 22);
+			this.ToolStripMenuItem_File_ExitModule.Text = "Выйти из модуля";
+			this.ToolStripMenuItem_File_ExitModule.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitModule_Click);
+			// 
+			// ToolStripMenuItem_File_ExitProg
+			// 
+			this.ToolStripMenuItem_File_ExitProg.Name = "ToolStripMenuItem_File_ExitProg";
+			this.ToolStripMenuItem_File_ExitProg.Size = new System.Drawing.Size(193, 22);
+			this.ToolStripMenuItem_File_ExitProg.Text = "Выйти из программы";
+			this.ToolStripMenuItem_File_ExitProg.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitProg_Click);
 			// 
 			// ToolStripMenuItem_EquipmentDebit
 			// 
@@ -548,29 +571,6 @@ namespace OGM {
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(878, 44);
 			this.tableLayoutPanel2.TabIndex = 12;
-			// 
-			// ToolStripMenuItem_File
-			// 
-			this.ToolStripMenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem_File_ExitModule,
-            this.ToolStripMenuItem_File_ExitProg});
-			this.ToolStripMenuItem_File.Name = "ToolStripMenuItem_File";
-			this.ToolStripMenuItem_File.Size = new System.Drawing.Size(48, 20);
-			this.ToolStripMenuItem_File.Text = "Файл";
-			// 
-			// ToolStripMenuItem_File_ExitModule
-			// 
-			this.ToolStripMenuItem_File_ExitModule.Name = "ToolStripMenuItem_File_ExitModule";
-			this.ToolStripMenuItem_File_ExitModule.Size = new System.Drawing.Size(193, 22);
-			this.ToolStripMenuItem_File_ExitModule.Text = "Выйти из модуля";
-			this.ToolStripMenuItem_File_ExitModule.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitModule_Click);
-			// 
-			// ToolStripMenuItem_File_ExitProg
-			// 
-			this.ToolStripMenuItem_File_ExitProg.Name = "ToolStripMenuItem_File_ExitProg";
-			this.ToolStripMenuItem_File_ExitProg.Size = new System.Drawing.Size(193, 22);
-			this.ToolStripMenuItem_File_ExitProg.Text = "Выйти из программы";
-			this.ToolStripMenuItem_File_ExitProg.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitProg_Click);
 			// 
 			// AddEquipmentDebitForm
 			// 
