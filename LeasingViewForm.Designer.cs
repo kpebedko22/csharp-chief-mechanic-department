@@ -39,7 +39,6 @@ namespace OGM {
             this.textBox_AddressDelivery = new System.Windows.Forms.TextBox();
             this.numericUpDown_PeriodOfUse = new System.Windows.Forms.NumericUpDown();
             this.label_PeriodOfUse = new System.Windows.Forms.Label();
-            this.dateTimePicker_DateDelivery = new System.Windows.Forms.DateTimePicker();
             this.label_DateDelivery = new System.Windows.Forms.Label();
             this.groupBox_Responsibility = new System.Windows.Forms.GroupBox();
             this.numericUpDown_PenaltyFee = new System.Windows.Forms.NumericUpDown();
@@ -57,11 +56,8 @@ namespace OGM {
             this.label_DaysForFirstPayment = new System.Windows.Forms.Label();
             this.groupBox_Leaser = new System.Windows.Forms.GroupBox();
             this.label_Leaser = new System.Windows.Forms.Label();
-            this.comboBox_Leaser = new System.Windows.Forms.ComboBox();
             this.groupBox_Seller = new System.Windows.Forms.GroupBox();
             this.label_Seller = new System.Windows.Forms.Label();
-            this.comboBox_Seller = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker_DateConclusion = new System.Windows.Forms.DateTimePicker();
             this.label_Date = new System.Windows.Forms.Label();
             this.textBox_LeasingNum = new System.Windows.Forms.TextBox();
             this.label_LeasingNum = new System.Windows.Forms.Label();
@@ -74,6 +70,18 @@ namespace OGM {
             this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox_lessee = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label_DateEnd = new System.Windows.Forms.Label();
+            this.textBox_Lessee = new System.Windows.Forms.TextBox();
+            this.textBox_Seller = new System.Windows.Forms.TextBox();
+            this.textBox_Leaser = new System.Windows.Forms.TextBox();
+            this.textBox_Date = new System.Windows.Forms.TextBox();
+            this.textBox_DateEnd = new System.Windows.Forms.TextBox();
+            this.textBox_DateDelivery = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -92,6 +100,7 @@ namespace OGM {
             this.groupBox_Seller.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox_lessee.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -118,7 +127,7 @@ namespace OGM {
             // ToolStripMenuItem_Export_File
             // 
             this.ToolStripMenuItem_Export_File.Name = "ToolStripMenuItem_Export_File";
-            this.ToolStripMenuItem_Export_File.Size = new System.Drawing.Size(180, 24);
+            this.ToolStripMenuItem_Export_File.Size = new System.Drawing.Size(134, 24);
             this.ToolStripMenuItem_Export_File.Text = "Экспорт";
             this.ToolStripMenuItem_Export_File.Click += new System.EventHandler(this.ToolStripMenuItem_Export_File_Click);
             // 
@@ -156,7 +165,7 @@ namespace OGM {
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.786611F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.21339F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(884, 631);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(884, 731);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // label_LeasingContractNumber
@@ -164,7 +173,7 @@ namespace OGM {
             this.label_LeasingContractNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_LeasingContractNumber.AutoSize = true;
             this.label_LeasingContractNumber.Font = new System.Drawing.Font("Segoe WP", 14F, System.Drawing.FontStyle.Bold);
-            this.label_LeasingContractNumber.Location = new System.Drawing.Point(341, 14);
+            this.label_LeasingContractNumber.Location = new System.Drawing.Point(341, 19);
             this.label_LeasingContractNumber.Name = "label_LeasingContractNumber";
             this.label_LeasingContractNumber.Size = new System.Drawing.Size(202, 26);
             this.label_LeasingContractNumber.TabIndex = 0;
@@ -177,40 +186,43 @@ namespace OGM {
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(3, 58);
+            this.tabControl.Location = new System.Drawing.Point(3, 67);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(878, 570);
+            this.tabControl.Size = new System.Drawing.Size(878, 661);
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox_DateEnd);
+            this.tabPage1.Controls.Add(this.textBox_Date);
+            this.tabPage1.Controls.Add(this.label_DateEnd);
+            this.tabPage1.Controls.Add(this.groupBox_lessee);
             this.tabPage1.Controls.Add(this.groupBox_Equipment_info);
             this.tabPage1.Controls.Add(this.groupBox_Responsibility);
             this.tabPage1.Controls.Add(this.groupBox_Deadlines);
             this.tabPage1.Controls.Add(this.groupBox_Leaser);
             this.tabPage1.Controls.Add(this.groupBox_Seller);
-            this.tabPage1.Controls.Add(this.dateTimePicker_DateConclusion);
             this.tabPage1.Controls.Add(this.label_Date);
             this.tabPage1.Controls.Add(this.textBox_LeasingNum);
             this.tabPage1.Controls.Add(this.label_LeasingNum);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(870, 536);
+            this.tabPage1.Size = new System.Drawing.Size(870, 627);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Основная информация";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox_Equipment_info
             // 
+            this.groupBox_Equipment_info.Controls.Add(this.textBox_DateDelivery);
             this.groupBox_Equipment_info.Controls.Add(this.label_AddressDelivery);
             this.groupBox_Equipment_info.Controls.Add(this.textBox_AddressDelivery);
             this.groupBox_Equipment_info.Controls.Add(this.numericUpDown_PeriodOfUse);
             this.groupBox_Equipment_info.Controls.Add(this.label_PeriodOfUse);
-            this.groupBox_Equipment_info.Controls.Add(this.dateTimePicker_DateDelivery);
             this.groupBox_Equipment_info.Controls.Add(this.label_DateDelivery);
-            this.groupBox_Equipment_info.Location = new System.Drawing.Point(24, 378);
+            this.groupBox_Equipment_info.Location = new System.Drawing.Point(24, 493);
             this.groupBox_Equipment_info.Name = "groupBox_Equipment_info";
             this.groupBox_Equipment_info.Size = new System.Drawing.Size(820, 128);
             this.groupBox_Equipment_info.TabIndex = 21;
@@ -228,16 +240,15 @@ namespace OGM {
             // 
             // textBox_AddressDelivery
             // 
-            this.textBox_AddressDelivery.Enabled = false;
             this.textBox_AddressDelivery.Location = new System.Drawing.Point(158, 80);
             this.textBox_AddressDelivery.Name = "textBox_AddressDelivery";
+            this.textBox_AddressDelivery.ReadOnly = true;
             this.textBox_AddressDelivery.Size = new System.Drawing.Size(638, 29);
-            this.textBox_AddressDelivery.TabIndex = 33;
+            this.textBox_AddressDelivery.TabIndex = 14;
             this.textBox_AddressDelivery.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown_PeriodOfUse
             // 
-            this.numericUpDown_PeriodOfUse.Enabled = false;
             this.numericUpDown_PeriodOfUse.Location = new System.Drawing.Point(255, 32);
             this.numericUpDown_PeriodOfUse.Minimum = new decimal(new int[] {
             1,
@@ -245,8 +256,9 @@ namespace OGM {
             0,
             0});
             this.numericUpDown_PeriodOfUse.Name = "numericUpDown_PeriodOfUse";
+            this.numericUpDown_PeriodOfUse.ReadOnly = true;
             this.numericUpDown_PeriodOfUse.Size = new System.Drawing.Size(70, 29);
-            this.numericUpDown_PeriodOfUse.TabIndex = 31;
+            this.numericUpDown_PeriodOfUse.TabIndex = 12;
             this.numericUpDown_PeriodOfUse.Value = new decimal(new int[] {
             3,
             0,
@@ -258,26 +270,18 @@ namespace OGM {
             this.label_PeriodOfUse.AutoSize = true;
             this.label_PeriodOfUse.Location = new System.Drawing.Point(26, 36);
             this.label_PeriodOfUse.Name = "label_PeriodOfUse";
-            this.label_PeriodOfUse.Size = new System.Drawing.Size(223, 21);
+            this.label_PeriodOfUse.Size = new System.Drawing.Size(216, 21);
             this.label_PeriodOfUse.TabIndex = 35;
-            this.label_PeriodOfUse.Text = "Срок использования, в годах: ";
-            // 
-            // dateTimePicker_DateDelivery
-            // 
-            this.dateTimePicker_DateDelivery.Enabled = false;
-            this.dateTimePicker_DateDelivery.Location = new System.Drawing.Point(620, 30);
-            this.dateTimePicker_DateDelivery.Name = "dateTimePicker_DateDelivery";
-            this.dateTimePicker_DateDelivery.Size = new System.Drawing.Size(176, 29);
-            this.dateTimePicker_DateDelivery.TabIndex = 32;
+            this.label_PeriodOfUse.Text = "Срок использования, в годах";
             // 
             // label_DateDelivery
             // 
             this.label_DateDelivery.AutoSize = true;
             this.label_DateDelivery.Location = new System.Drawing.Point(446, 34);
             this.label_DateDelivery.Name = "label_DateDelivery";
-            this.label_DateDelivery.Size = new System.Drawing.Size(116, 21);
+            this.label_DateDelivery.Size = new System.Drawing.Size(113, 21);
             this.label_DateDelivery.TabIndex = 34;
-            this.label_DateDelivery.Text = "Дата поставки:";
+            this.label_DateDelivery.Text = "Дата поставки";
             // 
             // groupBox_Responsibility
             // 
@@ -287,7 +291,7 @@ namespace OGM {
             this.groupBox_Responsibility.Controls.Add(this.numericUpDown_Penalty);
             this.groupBox_Responsibility.Controls.Add(this.label_MaxPenalty);
             this.groupBox_Responsibility.Controls.Add(this.label_Penalty);
-            this.groupBox_Responsibility.Location = new System.Drawing.Point(444, 168);
+            this.groupBox_Responsibility.Location = new System.Drawing.Point(444, 283);
             this.groupBox_Responsibility.Name = "groupBox_Responsibility";
             this.groupBox_Responsibility.Size = new System.Drawing.Size(400, 200);
             this.groupBox_Responsibility.TabIndex = 20;
@@ -297,71 +301,71 @@ namespace OGM {
             // numericUpDown_PenaltyFee
             // 
             this.numericUpDown_PenaltyFee.DecimalPlaces = 2;
-            this.numericUpDown_PenaltyFee.Enabled = false;
-            this.numericUpDown_PenaltyFee.Location = new System.Drawing.Point(226, 142);
+            this.numericUpDown_PenaltyFee.Location = new System.Drawing.Point(304, 142);
             this.numericUpDown_PenaltyFee.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
             0,
             0});
             this.numericUpDown_PenaltyFee.Name = "numericUpDown_PenaltyFee";
-            this.numericUpDown_PenaltyFee.Size = new System.Drawing.Size(150, 29);
-            this.numericUpDown_PenaltyFee.TabIndex = 28;
+            this.numericUpDown_PenaltyFee.ReadOnly = true;
+            this.numericUpDown_PenaltyFee.Size = new System.Drawing.Size(90, 29);
+            this.numericUpDown_PenaltyFee.TabIndex = 11;
             // 
             // label_PenaltyFee
             // 
             this.label_PenaltyFee.AutoSize = true;
             this.label_PenaltyFee.Location = new System.Drawing.Point(27, 144);
             this.label_PenaltyFee.Name = "label_PenaltyFee";
-            this.label_PenaltyFee.Size = new System.Drawing.Size(136, 21);
+            this.label_PenaltyFee.Size = new System.Drawing.Size(133, 21);
             this.label_PenaltyFee.TabIndex = 26;
-            this.label_PenaltyFee.Text = "Неустойка, в руб.:";
+            this.label_PenaltyFee.Text = "Неустойка, в руб.";
             // 
             // numericUpDown_MaxPenalty
             // 
             this.numericUpDown_MaxPenalty.DecimalPlaces = 2;
-            this.numericUpDown_MaxPenalty.Enabled = false;
             this.numericUpDown_MaxPenalty.Increment = new decimal(new int[] {
             5,
             0,
             0,
             131072});
-            this.numericUpDown_MaxPenalty.Location = new System.Drawing.Point(226, 92);
+            this.numericUpDown_MaxPenalty.Location = new System.Drawing.Point(304, 86);
             this.numericUpDown_MaxPenalty.Name = "numericUpDown_MaxPenalty";
-            this.numericUpDown_MaxPenalty.Size = new System.Drawing.Size(150, 29);
-            this.numericUpDown_MaxPenalty.TabIndex = 9;
+            this.numericUpDown_MaxPenalty.ReadOnly = true;
+            this.numericUpDown_MaxPenalty.Size = new System.Drawing.Size(90, 29);
+            this.numericUpDown_MaxPenalty.TabIndex = 10;
             // 
             // numericUpDown_Penalty
             // 
             this.numericUpDown_Penalty.DecimalPlaces = 2;
-            this.numericUpDown_Penalty.Enabled = false;
             this.numericUpDown_Penalty.Increment = new decimal(new int[] {
             5,
             0,
             0,
             131072});
-            this.numericUpDown_Penalty.Location = new System.Drawing.Point(226, 42);
+            this.numericUpDown_Penalty.Location = new System.Drawing.Point(304, 44);
             this.numericUpDown_Penalty.Name = "numericUpDown_Penalty";
-            this.numericUpDown_Penalty.Size = new System.Drawing.Size(150, 29);
-            this.numericUpDown_Penalty.TabIndex = 8;
+            this.numericUpDown_Penalty.ReadOnly = true;
+            this.numericUpDown_Penalty.Size = new System.Drawing.Size(90, 29);
+            this.numericUpDown_Penalty.TabIndex = 9;
             // 
             // label_MaxPenalty
             // 
             this.label_MaxPenalty.AutoSize = true;
             this.label_MaxPenalty.Location = new System.Drawing.Point(27, 94);
             this.label_MaxPenalty.Name = "label_MaxPenalty";
-            this.label_MaxPenalty.Size = new System.Drawing.Size(189, 21);
+            this.label_MaxPenalty.Size = new System.Drawing.Size(186, 21);
             this.label_MaxPenalty.TabIndex = 21;
-            this.label_MaxPenalty.Text = "Максимальная пеня, в %:";
+            this.label_MaxPenalty.Text = "Максимальная пеня, в %";
             // 
             // label_Penalty
             // 
             this.label_Penalty.AutoSize = true;
             this.label_Penalty.Location = new System.Drawing.Point(27, 44);
             this.label_Penalty.Name = "label_Penalty";
-            this.label_Penalty.Size = new System.Drawing.Size(85, 21);
+            this.label_Penalty.Size = new System.Drawing.Size(78, 21);
             this.label_Penalty.TabIndex = 20;
-            this.label_Penalty.Text = "Пеня, в %: ";
+            this.label_Penalty.Text = "Пеня, в %";
             // 
             // groupBox_Deadlines
             // 
@@ -371,7 +375,7 @@ namespace OGM {
             this.groupBox_Deadlines.Controls.Add(this.numericUpDown_DaysForFirstPayment);
             this.groupBox_Deadlines.Controls.Add(this.label_DaysForReport);
             this.groupBox_Deadlines.Controls.Add(this.label_DaysForFirstPayment);
-            this.groupBox_Deadlines.Location = new System.Drawing.Point(24, 168);
+            this.groupBox_Deadlines.Location = new System.Drawing.Point(24, 283);
             this.groupBox_Deadlines.Name = "groupBox_Deadlines";
             this.groupBox_Deadlines.Size = new System.Drawing.Size(400, 200);
             this.groupBox_Deadlines.TabIndex = 19;
@@ -380,60 +384,60 @@ namespace OGM {
             // 
             // numericUpDown_DaysForForceMajeure
             // 
-            this.numericUpDown_DaysForForceMajeure.Enabled = false;
             this.numericUpDown_DaysForForceMajeure.Location = new System.Drawing.Point(304, 142);
             this.numericUpDown_DaysForForceMajeure.Name = "numericUpDown_DaysForForceMajeure";
+            this.numericUpDown_DaysForForceMajeure.ReadOnly = true;
             this.numericUpDown_DaysForForceMajeure.Size = new System.Drawing.Size(90, 29);
-            this.numericUpDown_DaysForForceMajeure.TabIndex = 7;
+            this.numericUpDown_DaysForForceMajeure.TabIndex = 8;
             // 
             // label_DaysForForceMajeure
             // 
             this.label_DaysForForceMajeure.AutoSize = true;
-            this.label_DaysForForceMajeure.Location = new System.Drawing.Point(26, 144);
+            this.label_DaysForForceMajeure.Location = new System.Drawing.Point(27, 144);
             this.label_DaysForForceMajeure.Name = "label_DaysForForceMajeure";
-            this.label_DaysForForceMajeure.Size = new System.Drawing.Size(166, 21);
+            this.label_DaysForForceMajeure.Size = new System.Drawing.Size(163, 21);
             this.label_DaysForForceMajeure.TabIndex = 20;
-            this.label_DaysForForceMajeure.Text = "Дней на форс-мажор:";
+            this.label_DaysForForceMajeure.Text = "Дней на форс-мажор";
             // 
             // numericUpDown_DaysForReport
             // 
-            this.numericUpDown_DaysForReport.Enabled = false;
             this.numericUpDown_DaysForReport.Location = new System.Drawing.Point(304, 92);
             this.numericUpDown_DaysForReport.Name = "numericUpDown_DaysForReport";
+            this.numericUpDown_DaysForReport.ReadOnly = true;
             this.numericUpDown_DaysForReport.Size = new System.Drawing.Size(90, 29);
-            this.numericUpDown_DaysForReport.TabIndex = 6;
+            this.numericUpDown_DaysForReport.TabIndex = 7;
             // 
             // numericUpDown_DaysForFirstPayment
             // 
-            this.numericUpDown_DaysForFirstPayment.Enabled = false;
             this.numericUpDown_DaysForFirstPayment.Location = new System.Drawing.Point(304, 42);
             this.numericUpDown_DaysForFirstPayment.Name = "numericUpDown_DaysForFirstPayment";
+            this.numericUpDown_DaysForFirstPayment.ReadOnly = true;
             this.numericUpDown_DaysForFirstPayment.Size = new System.Drawing.Size(90, 29);
-            this.numericUpDown_DaysForFirstPayment.TabIndex = 5;
+            this.numericUpDown_DaysForFirstPayment.TabIndex = 6;
             // 
             // label_DaysForReport
             // 
             this.label_DaysForReport.AutoSize = true;
             this.label_DaysForReport.Location = new System.Drawing.Point(26, 94);
             this.label_DaysForReport.Name = "label_DaysForReport";
-            this.label_DaysForReport.Size = new System.Drawing.Size(234, 21);
+            this.label_DaysForReport.Size = new System.Drawing.Size(231, 21);
             this.label_DaysForReport.TabIndex = 8;
-            this.label_DaysForReport.Text = "Дней для принятия претензий: ";
+            this.label_DaysForReport.Text = "Дней для принятия претензий ";
             // 
             // label_DaysForFirstPayment
             // 
             this.label_DaysForFirstPayment.AutoSize = true;
             this.label_DaysForFirstPayment.Location = new System.Drawing.Point(26, 44);
             this.label_DaysForFirstPayment.Name = "label_DaysForFirstPayment";
-            this.label_DaysForFirstPayment.Size = new System.Drawing.Size(178, 21);
+            this.label_DaysForFirstPayment.Size = new System.Drawing.Size(171, 21);
             this.label_DaysForFirstPayment.TabIndex = 7;
-            this.label_DaysForFirstPayment.Text = "Дней для 1-го платежа: ";
+            this.label_DaysForFirstPayment.Text = "Дней для 1-го платежа";
             // 
             // groupBox_Leaser
             // 
+            this.groupBox_Leaser.Controls.Add(this.textBox_Leaser);
             this.groupBox_Leaser.Controls.Add(this.label_Leaser);
-            this.groupBox_Leaser.Controls.Add(this.comboBox_Leaser);
-            this.groupBox_Leaser.Location = new System.Drawing.Point(444, 60);
+            this.groupBox_Leaser.Location = new System.Drawing.Point(444, 175);
             this.groupBox_Leaser.Name = "groupBox_Leaser";
             this.groupBox_Leaser.Size = new System.Drawing.Size(400, 96);
             this.groupBox_Leaser.TabIndex = 18;
@@ -445,24 +449,15 @@ namespace OGM {
             this.label_Leaser.AutoSize = true;
             this.label_Leaser.Location = new System.Drawing.Point(26, 44);
             this.label_Leaser.Name = "label_Leaser";
-            this.label_Leaser.Size = new System.Drawing.Size(112, 21);
+            this.label_Leaser.Size = new System.Drawing.Size(105, 21);
             this.label_Leaser.TabIndex = 2;
-            this.label_Leaser.Text = "Организация: ";
-            // 
-            // comboBox_Leaser
-            // 
-            this.comboBox_Leaser.Enabled = false;
-            this.comboBox_Leaser.FormattingEnabled = true;
-            this.comboBox_Leaser.Location = new System.Drawing.Point(144, 40);
-            this.comboBox_Leaser.Name = "comboBox_Leaser";
-            this.comboBox_Leaser.Size = new System.Drawing.Size(250, 29);
-            this.comboBox_Leaser.TabIndex = 4;
+            this.label_Leaser.Text = "Организация";
             // 
             // groupBox_Seller
             // 
+            this.groupBox_Seller.Controls.Add(this.textBox_Seller);
             this.groupBox_Seller.Controls.Add(this.label_Seller);
-            this.groupBox_Seller.Controls.Add(this.comboBox_Seller);
-            this.groupBox_Seller.Location = new System.Drawing.Point(24, 60);
+            this.groupBox_Seller.Location = new System.Drawing.Point(24, 175);
             this.groupBox_Seller.Name = "groupBox_Seller";
             this.groupBox_Seller.Size = new System.Drawing.Size(400, 96);
             this.groupBox_Seller.TabIndex = 17;
@@ -474,53 +469,36 @@ namespace OGM {
             this.label_Seller.AutoSize = true;
             this.label_Seller.Location = new System.Drawing.Point(26, 44);
             this.label_Seller.Name = "label_Seller";
-            this.label_Seller.Size = new System.Drawing.Size(112, 21);
+            this.label_Seller.Size = new System.Drawing.Size(105, 21);
             this.label_Seller.TabIndex = 0;
-            this.label_Seller.Text = "Организация: ";
-            // 
-            // comboBox_Seller
-            // 
-            this.comboBox_Seller.Enabled = false;
-            this.comboBox_Seller.FormattingEnabled = true;
-            this.comboBox_Seller.Location = new System.Drawing.Point(144, 40);
-            this.comboBox_Seller.Name = "comboBox_Seller";
-            this.comboBox_Seller.Size = new System.Drawing.Size(250, 29);
-            this.comboBox_Seller.TabIndex = 3;
-            // 
-            // dateTimePicker_DateConclusion
-            // 
-            this.dateTimePicker_DateConclusion.Enabled = false;
-            this.dateTimePicker_DateConclusion.Font = new System.Drawing.Font("Segoe WP", 12.25F);
-            this.dateTimePicker_DateConclusion.Location = new System.Drawing.Point(600, 16);
-            this.dateTimePicker_DateConclusion.Name = "dateTimePicker_DateConclusion";
-            this.dateTimePicker_DateConclusion.Size = new System.Drawing.Size(238, 29);
-            this.dateTimePicker_DateConclusion.TabIndex = 15;
+            this.label_Seller.Text = "Организация";
             // 
             // label_Date
             // 
             this.label_Date.AutoSize = true;
             this.label_Date.Font = new System.Drawing.Font("Segoe WP", 12.25F);
-            this.label_Date.Location = new System.Drawing.Point(442, 16);
+            this.label_Date.Location = new System.Drawing.Point(446, 19);
             this.label_Date.Name = "label_Date";
-            this.label_Date.Size = new System.Drawing.Size(152, 22);
+            this.label_Date.Size = new System.Drawing.Size(148, 22);
             this.label_Date.TabIndex = 16;
-            this.label_Date.Text = "Дата заключения:";
+            this.label_Date.Text = "Дата заключения";
             // 
             // textBox_LeasingNum
             // 
-            this.textBox_LeasingNum.Enabled = false;
             this.textBox_LeasingNum.Font = new System.Drawing.Font("Segoe WP", 12.25F);
             this.textBox_LeasingNum.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBox_LeasingNum.Location = new System.Drawing.Point(168, 16);
             this.textBox_LeasingNum.Name = "textBox_LeasingNum";
+            this.textBox_LeasingNum.ReadOnly = true;
             this.textBox_LeasingNum.Size = new System.Drawing.Size(250, 29);
-            this.textBox_LeasingNum.TabIndex = 14;
+            this.textBox_LeasingNum.TabIndex = 0;
+            this.textBox_LeasingNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label_LeasingNum
             // 
             this.label_LeasingNum.AutoSize = true;
             this.label_LeasingNum.Font = new System.Drawing.Font("Segoe WP", 12.25F);
-            this.label_LeasingNum.Location = new System.Drawing.Point(20, 16);
+            this.label_LeasingNum.Location = new System.Drawing.Point(20, 19);
             this.label_LeasingNum.Name = "label_LeasingNum";
             this.label_LeasingNum.Size = new System.Drawing.Size(142, 22);
             this.label_LeasingNum.TabIndex = 13;
@@ -532,7 +510,7 @@ namespace OGM {
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(870, 536);
+            this.tabPage2.Size = new System.Drawing.Size(870, 627);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Спецификация";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -552,8 +530,9 @@ namespace OGM {
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(864, 530);
+            this.dataGridView1.Size = new System.Drawing.Size(864, 621);
             this.dataGridView1.TabIndex = 22;
             // 
             // Column_NameEquipment
@@ -598,7 +577,7 @@ namespace OGM {
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(870, 536);
+            this.tabPage3.Size = new System.Drawing.Size(870, 627);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Данные для экспорта";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -613,11 +592,131 @@ namespace OGM {
             this.tabPage4.Text = "Шаблон документа";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBox_lessee
+            // 
+            this.groupBox_lessee.Controls.Add(this.textBox_Lessee);
+            this.groupBox_lessee.Controls.Add(this.label3);
+            this.groupBox_lessee.Controls.Add(this.label4);
+            this.groupBox_lessee.Controls.Add(this.label5);
+            this.groupBox_lessee.Controls.Add(this.label6);
+            this.groupBox_lessee.Location = new System.Drawing.Point(24, 97);
+            this.groupBox_lessee.Name = "groupBox_lessee";
+            this.groupBox_lessee.Size = new System.Drawing.Size(820, 72);
+            this.groupBox_lessee.TabIndex = 22;
+            this.groupBox_lessee.TabStop = false;
+            this.groupBox_lessee.Text = "Лизингополучатель";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(99, 203);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 21);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "ИНН: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(72, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 21);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Телефон: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 21);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Наименование: ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 21);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Организация";
+            // 
+            // label_DateEnd
+            // 
+            this.label_DateEnd.AutoSize = true;
+            this.label_DateEnd.Font = new System.Drawing.Font("Segoe WP", 12.25F);
+            this.label_DateEnd.Location = new System.Drawing.Point(456, 65);
+            this.label_DateEnd.Name = "label_DateEnd";
+            this.label_DateEnd.Size = new System.Drawing.Size(138, 22);
+            this.label_DateEnd.TabIndex = 31;
+            this.label_DateEnd.Text = "Дата окончания";
+            // 
+            // textBox_Lessee
+            // 
+            this.textBox_Lessee.Location = new System.Drawing.Point(137, 32);
+            this.textBox_Lessee.Name = "textBox_Lessee";
+            this.textBox_Lessee.ReadOnly = true;
+            this.textBox_Lessee.Size = new System.Drawing.Size(677, 29);
+            this.textBox_Lessee.TabIndex = 8;
+            this.textBox_Lessee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_Seller
+            // 
+            this.textBox_Seller.Location = new System.Drawing.Point(137, 41);
+            this.textBox_Seller.Name = "textBox_Seller";
+            this.textBox_Seller.ReadOnly = true;
+            this.textBox_Seller.Size = new System.Drawing.Size(257, 29);
+            this.textBox_Seller.TabIndex = 9;
+            this.textBox_Seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_Leaser
+            // 
+            this.textBox_Leaser.Location = new System.Drawing.Point(137, 41);
+            this.textBox_Leaser.Name = "textBox_Leaser";
+            this.textBox_Leaser.ReadOnly = true;
+            this.textBox_Leaser.Size = new System.Drawing.Size(239, 29);
+            this.textBox_Leaser.TabIndex = 10;
+            this.textBox_Leaser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_Date
+            // 
+            this.textBox_Date.Font = new System.Drawing.Font("Segoe WP", 12.25F);
+            this.textBox_Date.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox_Date.Location = new System.Drawing.Point(600, 16);
+            this.textBox_Date.Name = "textBox_Date";
+            this.textBox_Date.ReadOnly = true;
+            this.textBox_Date.Size = new System.Drawing.Size(244, 29);
+            this.textBox_Date.TabIndex = 32;
+            this.textBox_Date.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_DateEnd
+            // 
+            this.textBox_DateEnd.Font = new System.Drawing.Font("Segoe WP", 12.25F);
+            this.textBox_DateEnd.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox_DateEnd.Location = new System.Drawing.Point(600, 62);
+            this.textBox_DateEnd.Name = "textBox_DateEnd";
+            this.textBox_DateEnd.ReadOnly = true;
+            this.textBox_DateEnd.Size = new System.Drawing.Size(244, 29);
+            this.textBox_DateEnd.TabIndex = 33;
+            this.textBox_DateEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_DateDelivery
+            // 
+            this.textBox_DateDelivery.Font = new System.Drawing.Font("Segoe WP", 12.25F);
+            this.textBox_DateDelivery.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox_DateDelivery.Location = new System.Drawing.Point(568, 31);
+            this.textBox_DateDelivery.Name = "textBox_DateDelivery";
+            this.textBox_DateDelivery.ReadOnly = true;
+            this.textBox_DateDelivery.Size = new System.Drawing.Size(228, 29);
+            this.textBox_DateDelivery.TabIndex = 37;
+            this.textBox_DateDelivery.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // LeasingViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.ClientSize = new System.Drawing.Size(884, 761);
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe WP", 12F);
@@ -653,6 +752,8 @@ namespace OGM {
             this.groupBox_Seller.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox_lessee.ResumeLayout(false);
+            this.groupBox_lessee.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -678,16 +779,13 @@ namespace OGM {
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Mesure;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_DateConclusion;
         private System.Windows.Forms.Label label_Date;
         private System.Windows.Forms.TextBox textBox_LeasingNum;
         private System.Windows.Forms.Label label_LeasingNum;
         private System.Windows.Forms.GroupBox groupBox_Leaser;
         private System.Windows.Forms.Label label_Leaser;
-        private System.Windows.Forms.ComboBox comboBox_Leaser;
         private System.Windows.Forms.GroupBox groupBox_Seller;
         private System.Windows.Forms.Label label_Seller;
-        private System.Windows.Forms.ComboBox comboBox_Seller;
         private System.Windows.Forms.GroupBox groupBox_Responsibility;
         private System.Windows.Forms.NumericUpDown numericUpDown_PenaltyFee;
         private System.Windows.Forms.Label label_PenaltyFee;
@@ -707,8 +805,19 @@ namespace OGM {
         private System.Windows.Forms.TextBox textBox_AddressDelivery;
         private System.Windows.Forms.NumericUpDown numericUpDown_PeriodOfUse;
         private System.Windows.Forms.Label label_PeriodOfUse;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_DateDelivery;
         private System.Windows.Forms.Label label_DateDelivery;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.GroupBox groupBox_lessee;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label_DateEnd;
+        private System.Windows.Forms.TextBox textBox_DateEnd;
+        private System.Windows.Forms.TextBox textBox_Date;
+        private System.Windows.Forms.TextBox textBox_Lessee;
+        private System.Windows.Forms.TextBox textBox_DateDelivery;
+        private System.Windows.Forms.TextBox textBox_Leaser;
+        private System.Windows.Forms.TextBox textBox_Seller;
     }
 }
