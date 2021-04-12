@@ -74,7 +74,7 @@ namespace OGM {
 			this.textBox_LeasingNum = new System.Windows.Forms.TextBox();
 			this.label_LeasingNum = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dataGridView_Data = new System.Windows.Forms.DataGridView();
 			this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_Cost_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,7 +112,7 @@ namespace OGM {
 			this.groupBox_Leaser.SuspendLayout();
 			this.groupBox_Seller.SuspendLayout();
 			this.tabPage2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).BeginInit();
 			this.tabPage3.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -643,7 +643,7 @@ namespace OGM {
 			// 
 			// tabPage2
 			// 
-			this.tabPage2.Controls.Add(this.dataGridView1);
+			this.tabPage2.Controls.Add(this.dataGridView_Data);
 			this.tabPage2.Location = new System.Drawing.Point(4, 30);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -652,25 +652,25 @@ namespace OGM {
 			this.tabPage2.Text = "Спецификация";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// dataGridView1
+			// dataGridView_Data
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.BackgroundColor = System.Drawing.Color.FloralWhite;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dataGridView_Data.AllowUserToAddRows = false;
+			this.dataGridView_Data.AllowUserToDeleteRows = false;
+			this.dataGridView_Data.BackgroundColor = System.Drawing.Color.FloralWhite;
+			this.dataGridView_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_NameEquipment,
             this.Column_Cost_1,
             this.Column_Amount,
             this.Column_Mesure,
             this.Column_Cost});
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(864, 626);
-			this.dataGridView1.TabIndex = 22;
+			this.dataGridView_Data.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView_Data.Location = new System.Drawing.Point(3, 3);
+			this.dataGridView_Data.Name = "dataGridView_Data";
+			this.dataGridView_Data.ReadOnly = true;
+			this.dataGridView_Data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridView_Data.Size = new System.Drawing.Size(864, 626);
+			this.dataGridView_Data.TabIndex = 22;
 			// 
 			// Column_NameEquipment
 			// 
@@ -827,6 +827,7 @@ namespace OGM {
 			this.button_Export.TabIndex = 4;
 			this.button_Export.Text = "Экспортировать";
 			this.button_Export.UseVisualStyleBackColor = true;
+			this.button_Export.Click += new System.EventHandler(this.button_Export_Click);
 			// 
 			// tabPage4
 			// 
@@ -890,7 +891,7 @@ namespace OGM {
 			this.groupBox_Seller.ResumeLayout(false);
 			this.groupBox_Seller.PerformLayout();
 			this.tabPage2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).EndInit();
 			this.tabPage3.ResumeLayout(false);
 			this.tabPage3.PerformLayout();
 			this.groupBox3.ResumeLayout(false);
@@ -918,7 +919,7 @@ namespace OGM {
 		private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Edit;
 		private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Edit_Edit;
 		private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Delete_Edit;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost_1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Amount;

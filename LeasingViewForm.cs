@@ -89,9 +89,9 @@ namespace OGM {
 
 			// заполняем таблицу
 			foreach (RowAttachmentSpecification row in rows)
-				dataGridView1.Rows.Add(row.EquipmentGroup.name, row.cost, row.amount, "шт.", row.amount * row.cost);
+				dataGridView_Data.Rows.Add(row.EquipmentGroup.name, row.cost, row.amount, "шт.", row.amount * row.cost);
 
-			dataGridView1.ClearSelection();
+			dataGridView_Data.ClearSelection();
 		}
 
 
@@ -162,5 +162,194 @@ namespace OGM {
 			GenerateTable();
 
 		}
+
+		private void button_Export_Click(object sender, EventArgs e) {
+			if (contract == null) {
+				MessageBox.Show("Что-то пошло не так и акта списания нет...");
+				return;
+			}
+
+			//if (debitEquipments.Count < 1) {
+			//	MessageBox.Show("Нет строк в акте списания. Отказ в экспорте...");
+			//	return;
+			//}
+
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+			saveFileDialog.Filter = "Документ Word (*.docx)|*.docx";
+			saveFileDialog.RestoreDirectory = true;
+
+			if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+				ExportDoc(saveFileDialog.FileName);
+			}
+		}
+
+		private void ExportDoc(string nameFileExport) {
+
+			OfficeExport.ExportData exportData = new OfficeExport.ExportData();
+
+			exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\leasing_contract_template.docx";
+			exportData.nameFileExport = nameFileExport;         // Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_number" + ActDebit.act_number + ".docx";
+			exportData.tableIndex = 3;                          // номер таблицы в доке
+			exportData.textToReplace = new List<string>() {
+				"[<номер_лизинга>]",						// 123
+				"[<шапка_город>]",							// г. Барнаул
+				"[<шапка_дата>]",							// «1» апрель 2021 г. 
+				"[<организация_лизингодатель>]",			// ООО "Хомячки"
+				"[<представитель_лизингодатель>]", 			// Хомяков Х.Х.
+				"[<организация_мы>]", 						// ООО "Хомячки2"
+				"[<представитель_мы>]", 					// Хомяков Х.Х.2
+				
+				"[<1.3_стоимость_оборудования>]",			// хз - пропись или цифры
+				"[<1.4_дата_поставки_оборудования>]", 		// «1» апрель 2021
+				
+				"[<2.2_срок_пользования_оборудованием>]", 	// 5 
+				
+				"[<3.1.1_дата_договора>]",					// «1» апрель 2021
+				"[<3.2.1_пункт_поставки>]",					// ну какой-то адрес
+				
+				"[<4.5_дней_для_первого_платежа>]",			// 10
+				
+				"[<5.1_пункт_поставки>]",					// дублирование п1.4
+				"[<5.4_срок_отказа>]",						// 3
+				
+				"[<6.1_пеня>]",								// 0,5
+				"[<6.1_макс_платеж>]",						// 5
+				"[<6.2_неустойка>]",						// хз - пропись или цифры
+				
+				"[<9.3_лизингодатель_юр_адрес_и_телефон>]",
+				"[<9.3_мы_юр_адрес_и_телефон>]",
+				
+				
+				"[<лизингодатель_юр_адрес>]",
+				"[<лизингодатель_почт_адрес>]",
+				"[<лизингодатель_телефон>]",
+				"[<лизингодатель_инн>]",
+				"[<лизингодатель_расчет_счет>]",
+				"[<лизингодатель_банк>]",
+				"[<лизингодатель_корресп_счет>]",
+				"[<лизингодатель_бик>]",
+				
+				"[<мы_юр_адрес>]",
+				"[<мы_почт_адрес>]",
+				"[<мы_телефон>]",
+				"[<мы_инн>]",
+				"[<мы_расчет_счет>]",
+				"[<мы_банк>]",
+				"[<мы_корресп_счет>]",
+				"[<мы_бик>]",
+				
+				"[<приложение_номер_договора>]",
+				"[<приложение_дата_договора>]",				//«1» апрель 2021 года
+				
+				"[<приложение_лизингодатель>]",
+				"[<приложение_лизингополучат>]"
+			};
+
+			//string rubles = new MoneyToStr("RUR", "RUS", "NUMBER").convertValue(Convert.ToDouble(ActDebitTotalCost));
+
+			//Organization organization = (Organization)comboBox_Organization.SelectedItem;
+
+			// тут какие-то текстбоксы видимо с формы
+			exportData.textReplaceWith = new List<string>() {
+				contract.contract_number,
+				"г. Барнаул",
+				DateToString.Translate(contract.date, "г."),
+				leaser.name,
+				textBox_FIO_Leaser.Text,
+				lessee.name,
+				textBox_FIO_Lessee.Text,
+
+				"15555,00",
+				DateToString.Translate(contract.date_delivery),
+
+				contract.period_of_use,
+
+				DateToString.Translate(contract.date),
+				contract.address_delivery,
+
+				contract.days_for_first_payment.ToString(),
+
+				contract.address_delivery,
+				contract.days_for_report.ToString(),
+
+				contract.penalty.ToString(),
+				contract.max_penalty.ToString(),
+				contract.penalty_fee.ToString(),
+
+				leaser.legal_address + " " + leaser.phone,
+				lessee.legal_address + " " + lessee.phone,
+
+				leaser.legal_address,
+				leaser.mailing_address,
+				leaser.phone,
+				leaser.INN,
+				leaser.payment_account,
+				leaser.bank,
+				leaser.correspondent_account,
+				leaser.BIK,
+
+				lessee.legal_address,
+				lessee.mailing_address,
+				lessee.phone,
+				lessee.INN,
+				lessee.payment_account,
+				lessee.bank,
+				lessee.correspondent_account,
+				lessee.BIK,
+
+				contract.contract_number,
+				DateToString.Translate(contract.date, "года"),
+
+				leaser.name,
+				lessee.name
+			};
+
+			// если надо открыть файл после экспорта автоматически
+			exportData.openFileExport = checkBox_OpenFileExport.Checked;
+
+			// и самый интересный момент - таблица
+			// количество строк с учетом что одна строка по умолчанию есть внутри шаблона
+			// какой столбик из datagridview в какой столбик в доке
+			// и еще есть столбцы по умолчанию
+			exportData.indicesDefaultValues = new List<int>() {
+				3	// наименование ед. измерения
+			};
+			exportData.valuesDefaultValues = new List<string>() {
+				"шт."	// наименование ед. измерения
+			};
+
+			exportData.indicesCustomValues = new List<int>() {
+				2,	// наименование оборудования
+				4	// кол-во
+			};
+
+			exportData.valuesCustomValues = new List<List<string>>();
+
+			foreach (DataGridViewRow row in dataGridView_Data.Rows) {
+
+				//string workshop = row.Cells[1].Value.ToString();
+				//string group = row.Cells[2].Value.ToString();
+				//string inventory = row.Cells[3].Value.ToString();
+				//string name = row.Cells[4].Value.ToString();
+				//string cost = row.Cells[5].Value.ToString();
+				//string reason = row.Cells[6].Value.ToString();
+				//
+				////group,	// группа оборудования
+				//
+				//exportData.valuesCustomValues.Add(
+				//	new List<string>() {
+				//		workshop,		// цех
+				//		group,			// группа оборудования
+				//		inventory,		// инвентарный номер
+				//		name,		// наименование
+				//		cost,		// остаточная стоимость
+				//		reason		// причина списания
+				//});
+			}
+
+			OfficeExport.Export(exportData);
+		}
+
 	}
 }

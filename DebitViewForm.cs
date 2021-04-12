@@ -18,8 +18,6 @@ namespace OGM {
 		private ActDebit ActDebit = null;
 		private List<DebitEquipment> debitEquipments = null;
 
-		//private double ActDebitTotalCost = 0;// 1556800.48;
-
 		private decimal ActDebitTotalCost = 0;
 
 		public DebitViewForm(ActDebit actDebit) {
