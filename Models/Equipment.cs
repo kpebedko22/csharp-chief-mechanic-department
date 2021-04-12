@@ -27,6 +27,9 @@ namespace OGM.Models
         public Decimal cost { get; set; }
         public int PK_Equipment_Group { get; set; }
 
+        public bool is_debit { get; set; }
+        public bool is_leasing { get; set; }
+
         public EquipmentGroup equipment_Group { get { return Program.db.EquipmentGroups.Find(PK_Equipment_Group); } }
 
         public int PK_Workshop 

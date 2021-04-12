@@ -21,6 +21,9 @@ namespace OGM.Models
 		[Key]
 		public int PK_Row_Attachment_Specification { get; set; }
 		public int amount { get; set; }
+
+		public decimal cost { get; set; }
+		
 		public int PK_Leasing_Contract { get; set; }
 		public int PK_Equipment_Group { get; set; }
 
