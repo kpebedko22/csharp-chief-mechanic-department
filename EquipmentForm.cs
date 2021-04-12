@@ -21,6 +21,8 @@ namespace OGM
             this.comboBox_Workshop.AutoCompleteMode = this.comboBox_GroupEquipment.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.comboBox_Workshop.AutoCompleteSource = this.comboBox_GroupEquipment.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
+            dataGridView.AutoGenerateColumns = false;
+
             dataGridView.Columns[0].DataPropertyName = "PK_Equipment";
             dataGridView.Columns[1].DataPropertyName = "name";
             dataGridView.Columns[2].DataPropertyName = "inventory_number";
@@ -30,6 +32,8 @@ namespace OGM
             dataGridView.Columns[6].DataPropertyName = "equipment_Group";
             dataGridView.Columns[7].DataPropertyName = "serial_number";
             dataGridView.Columns[8].DataPropertyName = "cost";
+            dataGridView.Columns[9].DataPropertyName = "is_debit";
+            dataGridView.Columns[10].DataPropertyName = "is_leasing";
         }
 
         private void button_AddEquipment_Click(object sender, EventArgs e)

@@ -346,6 +346,8 @@ namespace OGM
             {  
                 // 3 ячейка - это кол-во оборудования в строке
                 int amount = Convert.ToInt32(row.Cells[3].Value);
+                // 2 ячейка - это стоимость за ед.
+                decimal cost = Convert.ToDecimal(row.Cells[2].Value);
 
                 // 0 ячейка - это пк_группы оборудования
                 int pk_group = Convert.ToInt32(row.Cells[0].Value);
@@ -366,6 +368,7 @@ namespace OGM
 
                 RowAttachmentSpecification rowAttachmentSpecification = new RowAttachmentSpecification();
                 rowAttachmentSpecification.amount = amount;
+                rowAttachmentSpecification.cost = cost;
                 rowAttachmentSpecification.PK_Equipment_Group = pk_group;
                 rowAttachmentSpecification.PK_Leasing_Contract = leasingContract.PK_Leasing_Contract;
 

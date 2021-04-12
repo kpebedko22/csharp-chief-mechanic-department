@@ -106,9 +106,12 @@ namespace OGM
             new OrganizationForm().ShowDialog();
         }
 
-		private void dataGridView_DataSearch_CellClick(object sender, DataGridViewCellEventArgs e) {
+		private void dataGridView_DataSearch_CellClick(object sender, DataGridViewCellEventArgs e) 
+        {
+            if (e.RowIndex == -1) return;
 
-            if(e.ColumnIndex == 5)
+
+            if(e.ColumnIndex == 4)
             {
                 int PK_Leasing_Contract = Convert.ToInt32(this.dataGridView_DataSearch.Rows[e.RowIndex].Cells[0].Value);
                 LeasingContract leasingContract = Program.db.LeasingContracts.Find(PK_Leasing_Contract);

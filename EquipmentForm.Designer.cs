@@ -43,6 +43,9 @@ namespace OGM
             this.label_SerialNum = new System.Windows.Forms.Label();
             this.label_NameEquipment = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.button_AddEquipment = new System.Windows.Forms.Button();
+            this.button_EditEquipment = new System.Windows.Forms.Button();
+            this.button_RemoveEquipment = new System.Windows.Forms.Button();
             this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_InventoryNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +55,8 @@ namespace OGM
             this.Column_GroupEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_SerialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_AddEquipment = new System.Windows.Forms.Button();
-            this.button_EditEquipment = new System.Windows.Forms.Button();
-            this.button_RemoveEquipment = new System.Windows.Forms.Button();
+            this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox_Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -199,13 +201,45 @@ namespace OGM
             this.Column_PK_Group,
             this.Column_GroupEquipment,
             this.Column_SerialNum,
-            this.Column_Cost});
+            this.Column_Cost,
+            this.Column2,
+            this.Column1});
             this.dataGridView.Location = new System.Drawing.Point(12, 339);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(860, 310);
             this.dataGridView.TabIndex = 11;
+            // 
+            // button_AddEquipment
+            // 
+            this.button_AddEquipment.Location = new System.Drawing.Point(12, 290);
+            this.button_AddEquipment.Name = "button_AddEquipment";
+            this.button_AddEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_AddEquipment.TabIndex = 8;
+            this.button_AddEquipment.Text = "Добавить";
+            this.button_AddEquipment.UseVisualStyleBackColor = true;
+            this.button_AddEquipment.Click += new System.EventHandler(this.button_AddEquipment_Click);
+            // 
+            // button_EditEquipment
+            // 
+            this.button_EditEquipment.Location = new System.Drawing.Point(218, 290);
+            this.button_EditEquipment.Name = "button_EditEquipment";
+            this.button_EditEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_EditEquipment.TabIndex = 9;
+            this.button_EditEquipment.Text = "Редактировать";
+            this.button_EditEquipment.UseVisualStyleBackColor = true;
+            this.button_EditEquipment.Click += new System.EventHandler(this.button_EditEquipment_Click);
+            // 
+            // button_RemoveEquipment
+            // 
+            this.button_RemoveEquipment.Location = new System.Drawing.Point(424, 290);
+            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
+            this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_RemoveEquipment.TabIndex = 10;
+            this.button_RemoveEquipment.Text = "Удалить";
+            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
+            this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
             // 
             // Column_PK
             // 
@@ -271,35 +305,19 @@ namespace OGM
             this.Column_Cost.ReadOnly = true;
             this.Column_Cost.Visible = false;
             // 
-            // button_AddEquipment
+            // Column2
             // 
-            this.button_AddEquipment.Location = new System.Drawing.Point(12, 290);
-            this.button_AddEquipment.Name = "button_AddEquipment";
-            this.button_AddEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_AddEquipment.TabIndex = 8;
-            this.button_AddEquipment.Text = "Добавить";
-            this.button_AddEquipment.UseVisualStyleBackColor = true;
-            this.button_AddEquipment.Click += new System.EventHandler(this.button_AddEquipment_Click);
+            this.Column2.HeaderText = "Списано";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 80;
             // 
-            // button_EditEquipment
+            // Column1
             // 
-            this.button_EditEquipment.Location = new System.Drawing.Point(218, 290);
-            this.button_EditEquipment.Name = "button_EditEquipment";
-            this.button_EditEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_EditEquipment.TabIndex = 9;
-            this.button_EditEquipment.Text = "Редактировать";
-            this.button_EditEquipment.UseVisualStyleBackColor = true;
-            this.button_EditEquipment.Click += new System.EventHandler(this.button_EditEquipment_Click);
-            // 
-            // button_RemoveEquipment
-            // 
-            this.button_RemoveEquipment.Location = new System.Drawing.Point(424, 290);
-            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
-            this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_RemoveEquipment.TabIndex = 10;
-            this.button_RemoveEquipment.Text = "Удалить";
-            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
-            this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
+            this.Column1.HeaderText = "Лизинг";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 80;
             // 
             // EquipmentForm
             // 
@@ -354,5 +372,7 @@ namespace OGM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_GroupEquipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_SerialNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
     }
 }
