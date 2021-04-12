@@ -19,7 +19,7 @@ namespace OGM.Additions {
 
 			res += "«" + date.Day + "» ";
 			//DateTimeFormat.MonthGenitiveNames
-			res += CultureInfo.CurrentCulture.DateTimeFormat.MonthGenitiveNames[date.Month].ToLower();
+			res += CultureInfo.CurrentCulture.DateTimeFormat.MonthGenitiveNames[date.Month - 1].ToLower();
 
 			res += " " + date.Year;
 			
