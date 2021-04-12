@@ -371,7 +371,7 @@ namespace OGM
 
                 Program.db.RowsAttachmentSpecification.Add(rowAttachmentSpecification);
             }
-            Program.db.SaveChangesAsync();
+            Program.db.SaveChanges();
 
 
             MessageBox.Show("Договор за номером " + leasingContract.contract_number + " успешно создан!", "Успех!");

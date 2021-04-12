@@ -27,14 +27,6 @@ namespace OGM.Models {
 		public DateTime date { get; set; }
 
 
-		// нахуй это вообще тут???
-		public int PK_Equipment_Group { get; set; }
-
-		public EquipmentGroup EquipmentGroup {
-			get {
-				return Program.db.EquipmentGroups.Find(PK_Equipment_Group);
-			}
-		}
 
 		// когда будет тип строка акта списания
 		/*public List<DebitEquipment> GetDebitEquipment() {

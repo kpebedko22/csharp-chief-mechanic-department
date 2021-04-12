@@ -293,10 +293,6 @@ namespace OGM {
 				actDebit.act_number = textBox_ActNumber.Text;
 				actDebit.date = dateTimePicker_DateDebit.Value.Date;
 				
-				// тут должна быть группа, но нет...
-				// делаю дефолт потому что...
-				actDebit.PK_Equipment_Group = 1;
-				
 				
 				Program.db.ActDebits.Add(actDebit);
 				Program.db.SaveChanges();
