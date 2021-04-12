@@ -18,7 +18,9 @@ namespace OGM {
 		private ActDebit ActDebit = null;
 		private List<DebitEquipment> debitEquipments = null;
 
-		private double ActDebitTotalCost = 0;// 1556800.48;
+		//private double ActDebitTotalCost = 0;// 1556800.48;
+
+		private decimal ActDebitTotalCost = 0;
 
 		public DebitViewForm(ActDebit actDebit) {
 			InitializeComponent();
@@ -33,7 +35,7 @@ namespace OGM {
 			OpenTemplateDocument();
 
 			// выбрать все строки акта списания из БД
-			debitEquipments = Program.db.DebitEquipments.Where(b => b.PK_Aсt_Debit == ActDebit.PK_Aсt_Debit).ToList();
+			debitEquipments = ActDebit.GetDebitEquipments();
 
 			UpdateTable();
 
@@ -48,23 +50,20 @@ namespace OGM {
 			dataGridView_Data.AutoGenerateColumns = false;
 			dataGridView_Data.ReadOnly = true;
 
-			//dataGridView_Data.Columns[0].DataPropertyName = "PK_Organization";
-
-			//dataGridView_Data.Columns[1].DataPropertyName = "PK_Workshop";
-			//dataGridView_Data.Columns[2].DataPropertyName = "PK_Equipment_Group";
+			dataGridView_Data.Columns[1].DataPropertyName = "Workshop";
+			dataGridView_Data.Columns[2].DataPropertyName = "EquipmentGroup";
 			dataGridView_Data.Columns[3].DataPropertyName = "inventory_number";
-			//dataGridView_Data.Columns[4].DataPropertyName = "PK_Equipment";
-			//dataGridView_Data.Columns[5].DataPropertyName = "cost";
+			dataGridView_Data.Columns[4].DataPropertyName = "name";
+			dataGridView_Data.Columns[5].DataPropertyName = "cost";
 			dataGridView_Data.Columns[6].DataPropertyName = "ReasonDebit";
 
 			dataGridView_Data.DataSource = debitEquipments;
 
-			foreach (var item in debitEquipments) {
-				//dataGridView_Data.
-				//ActDebitTotalCost += item.cost;
+			foreach (DataGridViewRow row in dataGridView_Data.Rows) {
+				row.Cells[0].Value = row.Index + 1;
+
+				ActDebitTotalCost += Convert.ToDecimal(row.Cells[5].Value);
 			}
-
-
 		}
 
 		private void OpenTemplateDocument() {
@@ -81,7 +80,7 @@ namespace OGM {
 
 			OfficeExport.ExportData exportData = new OfficeExport.ExportData();
 
-			exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template3.docx";
+			exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template.docx";
 			exportData.nameFileExport = nameFileExport;			// Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_number" + ActDebit.act_number + ".docx";
 			exportData.tableIndex = 2;							// номер таблицы в доке
 			exportData.textToReplace = new List<string>() {
@@ -90,25 +89,23 @@ namespace OGM {
 				"[<дата_списания>]"                     ,
 				"[<номер_акта>]"                        ,
 				"[<сумма_списания_прописью_рубли>]"     ,
-				"[<сумма_списания_копейки>]"            ,
 				"[<фио_зам_ген_директор>]"              ,
 				"[<фио_нач_отд_закупок>]"               ,
 				"[<фио_инженер>]"                       ,
 				"[<фио_зам_главбух>]"
 			};
 
-			string rubles = NumToWord.Translate(Math.Floor(ActDebitTotalCost));
-			string pennys = (Math.Round(100 * (ActDebitTotalCost - Math.Floor(ActDebitTotalCost)))).ToString();
+			string rubles = new MoneyToStr("RUR", "RUS", "NUMBER").convertValue(Convert.ToDouble(ActDebitTotalCost));
 
+			Organization organization = Program.db.Organizations.Where(r => r.PK_Role == 1).FirstOrDefault();
 
 			// тут какие-то текстбоксы видимо с формы
 			exportData.textReplaceWith = new List<string>() {
-				 "----",												// название конторы
+				 organization.name,										// название конторы
 				 textBox_FIO_MainMechanic.Text,							// фио главного механика
 				 DateToString.Translate(ActDebit.date, "г."),			// дата как «___»________202_г.
 				 ActDebit.act_number.ToString(),						// номер акта
 				 rubles,												// сумма прописью - рубли
-				 pennys,												// сумма цифрами - копейки
 				 textBox_FIO_DeputyDirector.Text,						// фио зам.ген.директора
 				 textBox_FIO_HeadProcurement.Text,						// нач отдела закупок
 				 textBox_FIO_Engineer.Text,								// инженер
@@ -123,9 +120,9 @@ namespace OGM {
 			// какой столбик из datagridview в какой столбик в доке
 			// и еще есть столбцы по умолчанию
 			exportData.indicesDefaultValues = new List<int>() {
-				5,	// код по ОКЕИ ед. измерения
-				6,	// наименование ед. измерения
-				7	// количество
+				6,	// код по ОКЕИ ед. измерения
+				7,	// наименование ед. измерения
+				8	// количество
 			};
 			exportData.valuesDefaultValues = new List<string>() {
 				"796",	// код по ОКЕИ ед. измерения
@@ -135,21 +132,22 @@ namespace OGM {
 
 			exportData.indicesCustomValues = new List<int>() {
 				2,	// цех
-				3,	// инвентарный номер
-				4,	// наименование оборудования
-				8,	// остаточная стоимость
-				9	// причина списания
+				3,	// группа оборудования
+				4,	// инвентарный номер
+				5,	// наименование оборудования
+				9,	// остаточная стоимость
+				10	// причина списания
 			};
 
 			exportData.valuesCustomValues = new List<List<string>>();
 
 			foreach(DataGridViewRow row in dataGridView_Data.Rows) {
 
-				string workshop = "";// row.Cells[1].Value.ToString();
-				string group = "";// row.Cells[2].Value.ToString();
+				string workshop = row.Cells[1].Value.ToString();
+				string group = row.Cells[2].Value.ToString();
 				string inventory = row.Cells[3].Value.ToString();
-				string name = "";//row.Cells[4].Value.ToString();
-				string cost = "";//row.Cells[5].Value.ToString();
+				string name = row.Cells[4].Value.ToString();
+				string cost = row.Cells[5].Value.ToString();
 				string reason = row.Cells[6].Value.ToString();
 
 				//group,	// группа оборудования
@@ -157,6 +155,7 @@ namespace OGM {
 				exportData.valuesCustomValues.Add( 
 					new List<string>() {
 						workshop,		// цех
+						group,			// группа оборудования
 						inventory,		// инвентарный номер
 						name,		// наименование
 						cost,		// остаточная стоимость

@@ -41,6 +41,14 @@ namespace OGM {
 			this.dateTimePicker_DateDebit = new System.Windows.Forms.DateTimePicker();
 			this.label_DateDebit = new System.Windows.Forms.Label();
 			this.dataGridView_Debit = new System.Windows.Forms.DataGridView();
+			this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnPK_Equipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button_Delete = new System.Windows.Forms.Button();
 			this.label_Equipment = new System.Windows.Forms.Label();
@@ -55,15 +63,6 @@ namespace OGM {
 			this.checkBox_AllGroupDebit = new System.Windows.Forms.CheckBox();
 			this.comboBox_Workshop = new System.Windows.Forms.ComboBox();
 			this.label_Workshop = new System.Windows.Forms.Label();
-			this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnPK_Equipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.BG_Worker_OnLoad = new System.ComponentModel.BackgroundWorker();
 			this.menuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Debit)).BeginInit();
 			this.groupBox.SuspendLayout();
@@ -226,6 +225,60 @@ namespace OGM {
 			this.dataGridView_Debit.Size = new System.Drawing.Size(860, 272);
 			this.dataGridView_Debit.TabIndex = 11;
 			// 
+			// Column
+			// 
+			this.Column.HeaderText = "#";
+			this.Column.Name = "Column";
+			this.Column.ReadOnly = true;
+			this.Column.Width = 50;
+			// 
+			// ColumnWorkshop
+			// 
+			this.ColumnWorkshop.HeaderText = "Цех";
+			this.ColumnWorkshop.Name = "ColumnWorkshop";
+			this.ColumnWorkshop.ReadOnly = true;
+			// 
+			// ColumnGroup
+			// 
+			this.ColumnGroup.HeaderText = "Группа оборудования";
+			this.ColumnGroup.Name = "ColumnGroup";
+			this.ColumnGroup.ReadOnly = true;
+			this.ColumnGroup.Width = 120;
+			// 
+			// ColumnPK_Equipment
+			// 
+			this.ColumnPK_Equipment.HeaderText = "ПК оборудования";
+			this.ColumnPK_Equipment.Name = "ColumnPK_Equipment";
+			this.ColumnPK_Equipment.ReadOnly = true;
+			this.ColumnPK_Equipment.Visible = false;
+			// 
+			// ColumnInventoryNumber
+			// 
+			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
+			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
+			this.ColumnInventoryNumber.ReadOnly = true;
+			this.ColumnInventoryNumber.Width = 120;
+			// 
+			// ColumnName
+			// 
+			this.ColumnName.HeaderText = "Наименование оборудования";
+			this.ColumnName.Name = "ColumnName";
+			this.ColumnName.ReadOnly = true;
+			this.ColumnName.Width = 150;
+			// 
+			// ColumnCost
+			// 
+			this.ColumnCost.HeaderText = "Остаточная стоимость";
+			this.ColumnCost.Name = "ColumnCost";
+			this.ColumnCost.ReadOnly = true;
+			// 
+			// ColumnReasonDebit
+			// 
+			this.ColumnReasonDebit.HeaderText = "Причина списания";
+			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
+			this.ColumnReasonDebit.ReadOnly = true;
+			this.ColumnReasonDebit.Width = 200;
+			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -370,65 +423,6 @@ namespace OGM {
 			this.label_Workshop.TabIndex = 1;
 			this.label_Workshop.Text = "Цех";
 			// 
-			// Column
-			// 
-			this.Column.HeaderText = "#";
-			this.Column.Name = "Column";
-			this.Column.ReadOnly = true;
-			this.Column.Width = 50;
-			// 
-			// ColumnWorkshop
-			// 
-			this.ColumnWorkshop.HeaderText = "Цех";
-			this.ColumnWorkshop.Name = "ColumnWorkshop";
-			this.ColumnWorkshop.ReadOnly = true;
-			// 
-			// ColumnGroup
-			// 
-			this.ColumnGroup.HeaderText = "Группа оборудования";
-			this.ColumnGroup.Name = "ColumnGroup";
-			this.ColumnGroup.ReadOnly = true;
-			this.ColumnGroup.Width = 120;
-			// 
-			// ColumnPK_Equipment
-			// 
-			this.ColumnPK_Equipment.HeaderText = "ПК оборудования";
-			this.ColumnPK_Equipment.Name = "ColumnPK_Equipment";
-			this.ColumnPK_Equipment.ReadOnly = true;
-			this.ColumnPK_Equipment.Visible = false;
-			// 
-			// ColumnInventoryNumber
-			// 
-			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
-			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
-			this.ColumnInventoryNumber.ReadOnly = true;
-			this.ColumnInventoryNumber.Width = 120;
-			// 
-			// ColumnName
-			// 
-			this.ColumnName.HeaderText = "Наименование оборудования";
-			this.ColumnName.Name = "ColumnName";
-			this.ColumnName.ReadOnly = true;
-			this.ColumnName.Width = 150;
-			// 
-			// ColumnCost
-			// 
-			this.ColumnCost.HeaderText = "Остаточная стоимость";
-			this.ColumnCost.Name = "ColumnCost";
-			this.ColumnCost.ReadOnly = true;
-			// 
-			// ColumnReasonDebit
-			// 
-			this.ColumnReasonDebit.HeaderText = "Причина списания";
-			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
-			this.ColumnReasonDebit.ReadOnly = true;
-			this.ColumnReasonDebit.Width = 200;
-			// 
-			// BG_Worker_OnLoad
-			// 
-			this.BG_Worker_OnLoad.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BG_Worker_OnLoad_DoWork);
-			this.BG_Worker_OnLoad.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BG_Worker_OnLoad_RunWorkerCompleted);
-			// 
 			// AddEquipmentDebitForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -503,6 +497,5 @@ namespace OGM {
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCost;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReasonDebit;
-		private System.ComponentModel.BackgroundWorker BG_Worker_OnLoad;
 	}
 }

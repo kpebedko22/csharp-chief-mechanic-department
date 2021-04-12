@@ -39,5 +39,22 @@ namespace OGM.Models {
 			}
 		}
 
+		public int PK_Equipment_Group { get; set; }
+
+		public EquipmentGroup EquipmentGroup {
+			get {
+				return Program.db.EquipmentGroups.Find(PK_Equipment_Group);
+			}
+		}
+
+		public Workshop Workshop {
+			get {
+				return EquipmentGroup.workshop;
+			}
+		}
+
+		public string name { get; set; }
+
+		public decimal cost { get; set; }
 	}
 }

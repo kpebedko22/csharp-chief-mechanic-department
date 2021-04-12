@@ -150,6 +150,7 @@
       <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -186,6 +187,7 @@
       <DependentUpon>AddGroupEquipment.cs</DependentUpon>
     </Compile>
     <Compile Include="Additions\DateToString.cs" />
+    <Compile Include="Additions\MoneyToStr.cs" />
     <Compile Include="Additions\NumToWord.cs" />
     <Compile Include="Additions\OfficeExport.cs" />
     <Compile Include="AddLeasingForm.cs">

@@ -2,8 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OGM.Models {
 
@@ -26,11 +26,9 @@ namespace OGM.Models {
 		[Column(TypeName = "Date")]
 		public DateTime date { get; set; }
 
-
-
 		// когда будет тип строка акта списания
-		/*public List<DebitEquipment> GetDebitEquipment() {
-			return Program.db.DebitEquipment.Where(b => b.PK_Aсt_Debit == PK_Act_Debit).ToList();
-		}*/
+		public List<DebitEquipment> GetDebitEquipments() {
+			return Program.db.DebitEquipments.Where(b => b.PK_Aсt_Debit == PK_Aсt_Debit).ToList();
+		}
 	}
 }

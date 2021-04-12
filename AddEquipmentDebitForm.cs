@@ -50,9 +50,6 @@ namespace OGM {
 			EditingIndex = -1;
 		}
 
-		private List<Workshop> cmbWorkshops;
-		private List<ReasonDebit> cmbReasons;
-
 		public AddEquipmentDebitForm(Form owner) {
 			InitializeComponent();
 
@@ -61,19 +58,17 @@ namespace OGM {
 			dataGridView_Debit.AutoGenerateColumns = false;
 			dataGridView_Debit.ReadOnly = true;
 
-			//comboBox_Workshop.DataSource = Program.db.Workshops.ToList();
-			//comboBox_Workshop.SelectedIndex = -1;
-			//
-			//comboBox_ReasonDebit.DataSource = Program.db.ReasonDebits.ToList();
-			//comboBox_ReasonDebit.SelectedIndex = -1;
-
+			comboBox_Workshop.DataSource = Program.db.Workshops.ToList();
+			comboBox_Workshop.SelectedIndex = -1;
+			
+			comboBox_ReasonDebit.DataSource = Program.db.ReasonDebits.ToList();
+			comboBox_ReasonDebit.SelectedIndex = -1;
 
 			comboBox_Workshop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			comboBox_GroupEquipment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			comboBox_Equipment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			comboBox_ReasonDebit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 
-			BG_Worker_OnLoad.RunWorkerAsync();
 		}
 
 		private void AddEquipmentDebitForm_FormClosed(object sender, FormClosedEventArgs e) {
@@ -126,12 +121,12 @@ namespace OGM {
 
 			List<EquipmentGroup> list = Program.db.EquipmentGroups.Where(b => b.PK_Workshop == ((Workshop)comboBox_Workshop.SelectedItem).PK_Workshop).ToList();
 
-			if (list.Count < 1) {
-				comboBox_GroupEquipment.DataSource = null;
-				comboBox_GroupEquipment.SelectedItem = null;
-				comboBox_GroupEquipment.SelectedIndex = -1;
-				return;
-			}
+			//if (list.Count < 1) {
+			//	comboBox_GroupEquipment.DataSource = null;
+			//	comboBox_GroupEquipment.SelectedItem = null;
+			//	comboBox_GroupEquipment.SelectedIndex = -1;
+			//	return;
+			//}
 
 			comboBox_GroupEquipment.DataSource = list;
 			comboBox_GroupEquipment.SelectedIndex = -1;
@@ -147,12 +142,12 @@ namespace OGM {
 
 			List<Equipment> list = Program.db.Equipments.Where(b => b.PK_Equipment_Group == ((EquipmentGroup)comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group).ToList();
 			
-			if (list.Count < 1) {
-				comboBox_Equipment.DataSource = null;
-				comboBox_Equipment.SelectedItem = null;
-				comboBox_Equipment.SelectedIndex = -1;
-				return;
-			}
+			//if (list.Count < 1) {
+			//	comboBox_Equipment.DataSource = null;
+			//	comboBox_Equipment.SelectedItem = null;
+			//	comboBox_Equipment.SelectedIndex = -1;
+			//	return;
+			//}
 
 			comboBox_Equipment.DataSource = list;
 			comboBox_Equipment.DisplayMember = "inventory_number";
@@ -302,11 +297,14 @@ namespace OGM {
 
 				List <DebitEquipment> debits = new List<DebitEquipment>();
 
-				foreach (DataGridViewRow row in dataGridView_Debit.Rows) 
+				foreach (DataGridViewRow row in dataGridView_Debit.Rows)
 					debits.Add(new DebitEquipment {
-						inventory_number = row.Cells[3].Value.ToString(),
+						inventory_number = row.Cells[4].Value.ToString(),
 						PK_Reason_Debit = ((ReasonDebit)row.Cells[7].Value).PK_Reason_Debit,
-						PK_Aсt_Debit = PK
+						PK_Aсt_Debit = PK,
+						PK_Equipment_Group = ((EquipmentGroup)row.Cells[2].Value).PK_Equipment_Group,
+						name = row.Cells[5].Value.ToString(),
+						cost = (decimal)row.Cells[6].Value
 					});
 				
 
@@ -335,29 +333,5 @@ namespace OGM {
 		private void button_Add_Click(object sender, EventArgs e) {
 			AddActDebit();
 		}
-
-		
-
-		private void BG_Worker_OnLoad_DoWork(object sender, DoWorkEventArgs e) {
-			cmbWorkshops = Program.db.Workshops.ToList();
-			cmbReasons = Program.db.ReasonDebits.ToList();
-		}
-		private void BG_Worker_OnLoad_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
-			if (e.Error != null) { MessageBox.Show(e.Error.Message); return; }
-			else {
-				comboBox_Workshop.DataSource = cmbWorkshops;
-				comboBox_Workshop.SelectedIndex = -1;
-
-
-				Console.WriteLine(cmbReasons);
-				Console.WriteLine(cmbReasons[0]);
-				comboBox_ReasonDebit.DataSource = cmbReasons;
-				comboBox_ReasonDebit.SelectedIndex = -1;
-
-				cmbWorkshops.Clear();
-				cmbReasons.Clear();
-			}
-		}
-
 	}
 }
