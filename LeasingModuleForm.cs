@@ -193,5 +193,13 @@ namespace OGM
             this.comboBox_Leaser.DataSource = Program.db.Organizations.Where(org => org.PK_Role == 2).ToList();
             this.comboBox_Leaser.SelectedItem = null;
         }
-    }
+
+		private void ToolStripMenuItem_File_ExitModule_Click(object sender, EventArgs e) {
+            this.Close();
+		}
+
+		private void ToolStripMenuItem_File_ExitProg_Click(object sender, EventArgs e) {
+            Application.Exit();
+		}
+	}
 }
