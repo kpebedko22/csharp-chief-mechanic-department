@@ -166,15 +166,23 @@ namespace OGM
         {
             if (this.comboBox_Seller.SelectedItem == null || this.comboBox_Seller.SelectedIndex == -1)
             {
-                this.label_nameSeller.Text = "Наименование: ";
-                this.label_phoneSeller.Text = "Телефон: ";
-                this.label_INNSeller.Text = "ИНН: ";
+                //this.label_nameSeller.Text = "Наименование: ";
+                //this.label_phoneSeller.Text = "Телефон: ";
+                //this.label_INNSeller.Text = "ИНН: ";
+
+                this.label_nameSeller_value.Text = "...";
+                this.label_phoneSeller_value.Text = "...";
+                this.label_INNSeller_value.Text = "...";
             }    
             else
             {
-                this.label_nameSeller.Text = "Наименование: " + ((Organization)this.comboBox_Seller.SelectedItem).name;
-                this.label_phoneSeller.Text = "Телефон: " + ((Organization)this.comboBox_Seller.SelectedItem).phone;
-                this.label_INNSeller.Text = "ИНН: " + ((Organization)this.comboBox_Seller.SelectedItem).INN;
+                //this.label_nameSeller.Text = "Наименование: " + ((Organization)this.comboBox_Seller.SelectedItem).name;
+                //this.label_phoneSeller.Text = "Телефон: " + ((Organization)this.comboBox_Seller.SelectedItem).phone;
+                //this.label_INNSeller.Text = "ИНН: " + ((Organization)this.comboBox_Seller.SelectedItem).INN;
+
+                this.label_nameSeller_value.Text = ((Organization)this.comboBox_Seller.SelectedItem).name;
+                this.label_phoneSeller_value.Text = ((Organization)this.comboBox_Seller.SelectedItem).phone;
+                this.label_INNSeller_value.Text = ((Organization)this.comboBox_Seller.SelectedItem).INN;
             }
         }
 
@@ -182,15 +190,23 @@ namespace OGM
         {
             if (this.comboBox_Leaser.SelectedItem == null || this.comboBox_Leaser.SelectedIndex == -1)
             {
-                this.label_nameLeaser.Text = "Наименование: ";
-                this.label_phoneLeaser.Text = "Телефон: ";
-                this.label_INNLeaser.Text = "ИНН: ";
+                //this.label_nameLeaser.Text = "Наименование: ";
+                //this.label_phoneLeaser.Text = "Телефон: ";
+                //this.label_INNLeaser.Text = "ИНН: ";
+
+                this.label_nameLeaser_value.Text = "...";
+                this.label_phoneLeaser_value.Text = "...";
+                this.label_INNLeaser_value.Text = "...";
             }
             else
             {
-                this.label_nameLeaser.Text = "Наименование: " + ((Organization)this.comboBox_Leaser.SelectedItem).name;
-                this.label_phoneLeaser.Text = "Телефон: " + ((Organization)this.comboBox_Leaser.SelectedItem).phone;
-                this.label_INNLeaser.Text = "ИНН: " + ((Organization)this.comboBox_Leaser.SelectedItem).INN;
+                //this.label_nameLeaser.Text = "Наименование: " + ((Organization)this.comboBox_Leaser.SelectedItem).name;
+                //this.label_phoneLeaser.Text = "Телефон: " + ((Organization)this.comboBox_Leaser.SelectedItem).phone;
+                //this.label_INNLeaser.Text = "ИНН: " + ((Organization)this.comboBox_Leaser.SelectedItem).INN;
+
+                this.label_nameLeaser_value.Text = ((Organization)this.comboBox_Leaser.SelectedItem).name;
+                this.label_phoneLeaser_value.Text = ((Organization)this.comboBox_Leaser.SelectedItem).phone;
+                this.label_INNLeaser_value.Text = ((Organization)this.comboBox_Leaser.SelectedItem).INN;
             }
         }
 
@@ -588,5 +604,13 @@ namespace OGM
             e.Graphics.Clear(SystemColors.Window);
             base.OnPaint(e);
         }
-    }
+
+		private void ToolStripMenuItem_File_ExitModule_Click(object sender, EventArgs e) {
+            this.Close();
+		}
+
+		private void ToolStripMenuItem_File_ExitProg_Click(object sender, EventArgs e) {
+            Application.Exit();
+		}
+	}
 }
