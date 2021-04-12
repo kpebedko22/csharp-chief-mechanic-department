@@ -41,6 +41,7 @@ namespace OGM
             }
 
 
+
         public AddLeasingForm(Form owner)
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace OGM
 
             this.numericUpDown_PenaltyFee.Controls[0].Visible = false;
             this.numericUpDown_Cost.Controls[0].Visible = false;
+
 
             this.dateTimePicker_DateDelivery.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
             this.dateTimePicker_DateEnd.MinDate = this.dateTimePicker_DateEnd.Value.Date;
@@ -256,10 +258,34 @@ namespace OGM
 
         }
 
+        private void UpdatePeriodOfUse()
+        {
+            DateTime start = this.dateTimePicker_DateConclusion.Value.Date;
+            DateTime end = this.dateTimePicker_DateEnd.Value.Date;
+
+            string result = "";
+
+            int years = end.Year - start.Year;
+            int months = end.Month - start.Month;
+
+            if (months < 0)
+            {
+                years--;
+                months = 12 + months;
+            }
+
+            result = years.ToString() + "," + months.ToString();
+
+            this.textBox_PeriodOfUse.Text = result;
+
+        }
+
         private void dateTimePicker_DateConclusion_ValueChanged(object sender, EventArgs e)
         {
             this.dateTimePicker_DateDelivery.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
             this.dateTimePicker_DateEnd.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
+
+            UpdatePeriodOfUse();
         }
 
         private bool ShowMessage(String msg)
@@ -539,6 +565,28 @@ namespace OGM
             this.comboBox_Equipment.DataSource = groups;
             this.comboBox_Equipment.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
             this.comboBox_Equipment.SelectedItem = group;
+        }
+
+        private void dateTimePicker_DateEnd_ValueChanged(object sender, EventArgs e)
+        {
+            UpdatePeriodOfUse();
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown_Cost_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.Clear(SystemColors.Window);
+            base.OnPaint(e);
+        }
+
+        private void numericUpDown_PenaltyFee_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.Clear(SystemColors.Window);
+            base.OnPaint(e);
         }
     }
 }

@@ -35,6 +35,12 @@ namespace OGM
             this.textBox_LeasingNum = new System.Windows.Forms.TextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage_MainInfo = new System.Windows.Forms.TabPage();
+            this.groupBox_lessee = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox_lessee = new System.Windows.Forms.ComboBox();
             this.groupBox_Responsibility = new System.Windows.Forms.GroupBox();
             this.numericUpDown_PenaltyFee = new System.Windows.Forms.NumericUpDown();
             this.pictureBox_PenaltyFee = new System.Windows.Forms.PictureBox();
@@ -65,6 +71,7 @@ namespace OGM
             this.label_Seller = new System.Windows.Forms.Label();
             this.comboBox_Seller = new System.Windows.Forms.ComboBox();
             this.tabPage_Equipment = new System.Windows.Forms.TabPage();
+            this.textBox_PeriodOfUse = new System.Windows.Forms.TextBox();
             this.label_AddressDelivery = new System.Windows.Forms.Label();
             this.groupBox_RowOfTable = new System.Windows.Forms.GroupBox();
             this.numericUpDown_Cost = new System.Windows.Forms.NumericUpDown();
@@ -103,19 +110,14 @@ namespace OGM
             this.организацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.причинаСписанияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button_AddAndClose = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button_Add = new System.Windows.Forms.Button();
             this.dateTimePicker_DateEnd = new System.Windows.Forms.DateTimePicker();
             this.label_DateEnd = new System.Windows.Forms.Label();
-            this.groupBox_lessee = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox_lessee = new System.Windows.Forms.ComboBox();
-            this.textBox_PeriodOfUse = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button_Add = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tabControl.SuspendLayout();
             this.tabPage_MainInfo.SuspendLayout();
+            this.groupBox_lessee.SuspendLayout();
             this.groupBox_Responsibility.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PenaltyFee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PenaltyFee)).BeginInit();
@@ -134,7 +136,7 @@ namespace OGM
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip.SuspendLayout();
-            this.groupBox_lessee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_LeasingNum
@@ -163,6 +165,7 @@ namespace OGM
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(860, 599);
             this.tabControl.TabIndex = 2;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPage_MainInfo
             // 
@@ -178,6 +181,64 @@ namespace OGM
             this.tabPage_MainInfo.TabIndex = 0;
             this.tabPage_MainInfo.Text = "Основная информация";
             this.tabPage_MainInfo.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_lessee
+            // 
+            this.groupBox_lessee.Controls.Add(this.label3);
+            this.groupBox_lessee.Controls.Add(this.label4);
+            this.groupBox_lessee.Controls.Add(this.label5);
+            this.groupBox_lessee.Controls.Add(this.label6);
+            this.groupBox_lessee.Controls.Add(this.comboBox_lessee);
+            this.groupBox_lessee.Location = new System.Drawing.Point(16, 12);
+            this.groupBox_lessee.Name = "groupBox_lessee";
+            this.groupBox_lessee.Size = new System.Drawing.Size(820, 72);
+            this.groupBox_lessee.TabIndex = 9;
+            this.groupBox_lessee.TabStop = false;
+            this.groupBox_lessee.Text = "Лизингополучатель";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(99, 203);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 21);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "ИНН: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(72, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 21);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Телефон: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 21);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Наименование: ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 21);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Организация";
+            // 
+            // comboBox_lessee
+            // 
+            this.comboBox_lessee.FormattingEnabled = true;
+            this.comboBox_lessee.Location = new System.Drawing.Point(144, 28);
+            this.comboBox_lessee.Name = "comboBox_lessee";
+            this.comboBox_lessee.Size = new System.Drawing.Size(670, 29);
+            this.comboBox_lessee.TabIndex = 3;
             // 
             // groupBox_Responsibility
             // 
@@ -209,6 +270,7 @@ namespace OGM
             this.numericUpDown_PenaltyFee.Name = "numericUpDown_PenaltyFee";
             this.numericUpDown_PenaltyFee.Size = new System.Drawing.Size(150, 29);
             this.numericUpDown_PenaltyFee.TabIndex = 28;
+            this.numericUpDown_PenaltyFee.Paint += new System.Windows.Forms.PaintEventHandler(this.numericUpDown_PenaltyFee_Paint);
             // 
             // pictureBox_PenaltyFee
             // 
@@ -388,6 +450,7 @@ namespace OGM
             // 
             // groupBox_Leaser
             // 
+            this.groupBox_Leaser.Controls.Add(this.numericUpDown1);
             this.groupBox_Leaser.Controls.Add(this.label_INNLeaser);
             this.groupBox_Leaser.Controls.Add(this.label_phoneLeaser);
             this.groupBox_Leaser.Controls.Add(this.label_nameLeaser);
@@ -522,6 +585,15 @@ namespace OGM
             this.tabPage_Equipment.Text = "Оборудование";
             this.tabPage_Equipment.UseVisualStyleBackColor = true;
             // 
+            // textBox_PeriodOfUse
+            // 
+            this.textBox_PeriodOfUse.Location = new System.Drawing.Point(291, 22);
+            this.textBox_PeriodOfUse.Name = "textBox_PeriodOfUse";
+            this.textBox_PeriodOfUse.Size = new System.Drawing.Size(70, 29);
+            this.textBox_PeriodOfUse.TabIndex = 31;
+            this.textBox_PeriodOfUse.Text = "3";
+            this.textBox_PeriodOfUse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label_AddressDelivery
             // 
             this.label_AddressDelivery.AutoSize = true;
@@ -554,6 +626,7 @@ namespace OGM
             // numericUpDown_Cost
             // 
             this.numericUpDown_Cost.DecimalPlaces = 2;
+            this.numericUpDown_Cost.InterceptArrowKeys = false;
             this.numericUpDown_Cost.Location = new System.Drawing.Point(293, 137);
             this.numericUpDown_Cost.Maximum = new decimal(new int[] {
             999999999,
@@ -563,6 +636,7 @@ namespace OGM
             this.numericUpDown_Cost.Name = "numericUpDown_Cost";
             this.numericUpDown_Cost.Size = new System.Drawing.Size(249, 29);
             this.numericUpDown_Cost.TabIndex = 18;
+            this.numericUpDown_Cost.Paint += new System.Windows.Forms.PaintEventHandler(this.numericUpDown_Cost_Paint);
             // 
             // label1
             // 
@@ -858,6 +932,23 @@ namespace OGM
             this.button_AddAndClose.UseVisualStyleBackColor = true;
             this.button_AddAndClose.Click += new System.EventHandler(this.button_AddAndClose_Click);
             // 
+            // dateTimePicker_DateEnd
+            // 
+            this.dateTimePicker_DateEnd.Location = new System.Drawing.Point(555, 70);
+            this.dateTimePicker_DateEnd.Name = "dateTimePicker_DateEnd";
+            this.dateTimePicker_DateEnd.Size = new System.Drawing.Size(200, 29);
+            this.dateTimePicker_DateEnd.TabIndex = 28;
+            this.dateTimePicker_DateEnd.ValueChanged += new System.EventHandler(this.dateTimePicker_DateEnd_ValueChanged);
+            // 
+            // label_DateEnd
+            // 
+            this.label_DateEnd.AutoSize = true;
+            this.label_DateEnd.Location = new System.Drawing.Point(420, 76);
+            this.label_DateEnd.Name = "label_DateEnd";
+            this.label_DateEnd.Size = new System.Drawing.Size(126, 21);
+            this.label_DateEnd.TabIndex = 29;
+            this.label_DateEnd.Text = "Дата окончания";
+            // 
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
@@ -882,88 +973,12 @@ namespace OGM
             this.button_Add.UseVisualStyleBackColor = true;
             this.button_Add.Click += new System.EventHandler(this.button_Add_Click);
             // 
-            // dateTimePicker_DateEnd
+            // numericUpDown1
             // 
-            this.dateTimePicker_DateEnd.Location = new System.Drawing.Point(555, 70);
-            this.dateTimePicker_DateEnd.Name = "dateTimePicker_DateEnd";
-            this.dateTimePicker_DateEnd.Size = new System.Drawing.Size(200, 29);
-            this.dateTimePicker_DateEnd.TabIndex = 28;
-            // 
-            // label_DateEnd
-            // 
-            this.label_DateEnd.AutoSize = true;
-            this.label_DateEnd.Location = new System.Drawing.Point(420, 76);
-            this.label_DateEnd.Name = "label_DateEnd";
-            this.label_DateEnd.Size = new System.Drawing.Size(126, 21);
-            this.label_DateEnd.TabIndex = 29;
-            this.label_DateEnd.Text = "Дата окончания";
-            // 
-            // groupBox_lessee
-            // 
-            this.groupBox_lessee.Controls.Add(this.label3);
-            this.groupBox_lessee.Controls.Add(this.label4);
-            this.groupBox_lessee.Controls.Add(this.label5);
-            this.groupBox_lessee.Controls.Add(this.label6);
-            this.groupBox_lessee.Controls.Add(this.comboBox_lessee);
-            this.groupBox_lessee.Location = new System.Drawing.Point(16, 12);
-            this.groupBox_lessee.Name = "groupBox_lessee";
-            this.groupBox_lessee.Size = new System.Drawing.Size(820, 72);
-            this.groupBox_lessee.TabIndex = 9;
-            this.groupBox_lessee.TabStop = false;
-            this.groupBox_lessee.Text = "Лизингополучатель";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(99, 203);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "ИНН: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(72, 151);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 21);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Телефон: ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 101);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 21);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Наименование: ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 21);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Организация";
-            // 
-            // comboBox_lessee
-            // 
-            this.comboBox_lessee.FormattingEnabled = true;
-            this.comboBox_lessee.Location = new System.Drawing.Point(144, 28);
-            this.comboBox_lessee.Name = "comboBox_lessee";
-            this.comboBox_lessee.Size = new System.Drawing.Size(670, 29);
-            this.comboBox_lessee.TabIndex = 3;
-            // 
-            // textBox_PeriodOfUse
-            // 
-            this.textBox_PeriodOfUse.Location = new System.Drawing.Point(291, 22);
-            this.textBox_PeriodOfUse.Name = "textBox_PeriodOfUse";
-            this.textBox_PeriodOfUse.Size = new System.Drawing.Size(70, 29);
-            this.textBox_PeriodOfUse.TabIndex = 31;
-            this.textBox_PeriodOfUse.Text = "3";
-            this.textBox_PeriodOfUse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown1.Location = new System.Drawing.Point(406, 337);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 29);
+            this.numericUpDown1.TabIndex = 12;
             // 
             // AddLeasingForm
             // 
@@ -992,6 +1007,8 @@ namespace OGM
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddLeasingForm_FormClosed);
             this.tabControl.ResumeLayout(false);
             this.tabPage_MainInfo.ResumeLayout(false);
+            this.groupBox_lessee.ResumeLayout(false);
+            this.groupBox_lessee.PerformLayout();
             this.groupBox_Responsibility.ResumeLayout(false);
             this.groupBox_Responsibility.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PenaltyFee)).EndInit();
@@ -1017,8 +1034,7 @@ namespace OGM
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.groupBox_lessee.ResumeLayout(false);
-            this.groupBox_lessee.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1109,5 +1125,6 @@ namespace OGM
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox_lessee;
         private System.Windows.Forms.TextBox textBox_PeriodOfUse;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
