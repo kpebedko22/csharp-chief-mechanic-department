@@ -82,6 +82,14 @@ namespace OGM {
             this.textBox_Date = new System.Windows.Forms.TextBox();
             this.textBox_DateEnd = new System.Windows.Forms.TextBox();
             this.textBox_DateDelivery = new System.Windows.Forms.TextBox();
+            this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button_Export = new System.Windows.Forms.Button();
+            this.textBox_FIO_HeadProcurement = new System.Windows.Forms.TextBox();
+            this.textBox_FIO_DeputyDirector = new System.Windows.Forms.TextBox();
+            this.textBox_FIO_MainMechanic = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -100,6 +108,7 @@ namespace OGM {
             this.groupBox_Seller.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.groupBox_lessee.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -574,6 +583,14 @@ namespace OGM {
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.checkBox_OpenFileExport);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.button_Export);
+            this.tabPage3.Controls.Add(this.textBox_FIO_HeadProcurement);
+            this.tabPage3.Controls.Add(this.textBox_FIO_DeputyDirector);
+            this.tabPage3.Controls.Add(this.textBox_FIO_MainMechanic);
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -587,7 +604,7 @@ namespace OGM {
             this.tabPage4.Location = new System.Drawing.Point(4, 30);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(870, 536);
+            this.tabPage4.Size = new System.Drawing.Size(870, 627);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Шаблон документа";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -712,6 +729,75 @@ namespace OGM {
             this.textBox_DateDelivery.TabIndex = 37;
             this.textBox_DateDelivery.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // checkBox_OpenFileExport
+            // 
+            this.checkBox_OpenFileExport.AutoSize = true;
+            this.checkBox_OpenFileExport.Checked = true;
+            this.checkBox_OpenFileExport.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_OpenFileExport.Location = new System.Drawing.Point(85, 576);
+            this.checkBox_OpenFileExport.Name = "checkBox_OpenFileExport";
+            this.checkBox_OpenFileExport.Size = new System.Drawing.Size(350, 25);
+            this.checkBox_OpenFileExport.TabIndex = 18;
+            this.checkBox_OpenFileExport.Text = "Открыть документ по завершению экспорта";
+            this.checkBox_OpenFileExport.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(87, 145);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(245, 21);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Начальник отдела закупок, ФИО";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(80, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(253, 21);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Заместитель ген. директора, ФИО";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(155, 39);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(178, 21);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Главный механик, ФИО";
+            // 
+            // button_Export
+            // 
+            this.button_Export.Location = new System.Drawing.Point(563, 573);
+            this.button_Export.Name = "button_Export";
+            this.button_Export.Size = new System.Drawing.Size(200, 29);
+            this.button_Export.TabIndex = 17;
+            this.button_Export.Text = "Экспортировать";
+            this.button_Export.UseVisualStyleBackColor = true;
+            // 
+            // textBox_FIO_HeadProcurement
+            // 
+            this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(339, 141);
+            this.textBox_FIO_HeadProcurement.Name = "textBox_FIO_HeadProcurement";
+            this.textBox_FIO_HeadProcurement.Size = new System.Drawing.Size(250, 29);
+            this.textBox_FIO_HeadProcurement.TabIndex = 14;
+            // 
+            // textBox_FIO_DeputyDirector
+            // 
+            this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(339, 88);
+            this.textBox_FIO_DeputyDirector.Name = "textBox_FIO_DeputyDirector";
+            this.textBox_FIO_DeputyDirector.Size = new System.Drawing.Size(250, 29);
+            this.textBox_FIO_DeputyDirector.TabIndex = 8;
+            // 
+            // textBox_FIO_MainMechanic
+            // 
+            this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(339, 35);
+            this.textBox_FIO_MainMechanic.Name = "textBox_FIO_MainMechanic";
+            this.textBox_FIO_MainMechanic.Size = new System.Drawing.Size(250, 29);
+            this.textBox_FIO_MainMechanic.TabIndex = 7;
+            // 
             // LeasingViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -752,6 +838,8 @@ namespace OGM {
             this.groupBox_Seller.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.groupBox_lessee.ResumeLayout(false);
             this.groupBox_lessee.PerformLayout();
             this.ResumeLayout(false);
@@ -819,5 +907,13 @@ namespace OGM {
         private System.Windows.Forms.TextBox textBox_DateDelivery;
         private System.Windows.Forms.TextBox textBox_Leaser;
         private System.Windows.Forms.TextBox textBox_Seller;
+        private System.Windows.Forms.CheckBox checkBox_OpenFileExport;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button_Export;
+        private System.Windows.Forms.TextBox textBox_FIO_HeadProcurement;
+        private System.Windows.Forms.TextBox textBox_FIO_DeputyDirector;
+        private System.Windows.Forms.TextBox textBox_FIO_MainMechanic;
     }
 }

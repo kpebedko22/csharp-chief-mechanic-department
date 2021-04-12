@@ -120,7 +120,7 @@ namespace OGM {
 			this.numericUpDown_PenaltyFee.Value = contract.penalty_fee;
 
 			// об оборудовании
-			this.numericUpDown_PeriodOfUse.Value = contract.period_of_use;
+			this.numericUpDown_PeriodOfUse.Text = contract.period_of_use;
 			this.textBox_DateDelivery.Text = DateToString.Translate(this.contract.date, "г.");
 			this.textBox_AddressDelivery.Text = contract.address_delivery;
 

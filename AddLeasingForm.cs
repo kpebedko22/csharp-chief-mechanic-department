@@ -300,7 +300,7 @@ namespace OGM
             if (String.IsNullOrWhiteSpace(this.numericUpDown_PenaltyFee.Text))
                 return ShowMessage("Укажите неустойку, в руб.!");
 
-            if (String.IsNullOrWhiteSpace(this.numericUpDown_PeriodOfUse.Text))
+            if (String.IsNullOrWhiteSpace(this.textBox_PeriodOfUse.Text))
                 return ShowMessage("Укажите срок использования оборудования!");
 
             if (String.IsNullOrWhiteSpace(this.textBox_AddressDelivery.Text))
@@ -327,7 +327,7 @@ namespace OGM
             leasingContract.date = this.dateTimePicker_DateConclusion.Value.Date;
             leasingContract.date_end = this.dateTimePicker_DateEnd.Value.Date;
             leasingContract.date_delivery  = this.dateTimePicker_DateConclusion.Value.Date;
-            leasingContract.period_of_use = (int)this.numericUpDown_PeriodOfUse.Value;
+            leasingContract.period_of_use = this.textBox_PeriodOfUse.Text;
             leasingContract.address_delivery = this.textBox_AddressDelivery.Text;
             leasingContract.days_for_first_payment = (int)this.numericUpDown_DaysForFirstPayment.Value;
             leasingContract.days_for_report = (int)this.numericUpDown_DaysForReport.Value;
@@ -420,7 +420,7 @@ namespace OGM
                 this.numericUpDown_MaxPenalty.Value = 5;
                 this.numericUpDown_PenaltyFee.Value = 0;
 
-                this.numericUpDown_PeriodOfUse.Value = 3;
+                this.textBox_PeriodOfUse.Text = "3";
 
                 this.comboBox_Workshop.SelectedItem = null;
                 this.comboBox_Equipment.SelectedItem = null;

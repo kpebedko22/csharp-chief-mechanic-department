@@ -86,7 +86,6 @@ namespace OGM
             this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Mesure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numericUpDown_PeriodOfUse = new System.Windows.Forms.NumericUpDown();
             this.label_PeriodOfUse = new System.Windows.Forms.Label();
             this.dateTimePicker_DateDelivery = new System.Windows.Forms.DateTimePicker();
             this.label_DateDelivery = new System.Windows.Forms.Label();
@@ -114,6 +113,7 @@ namespace OGM
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox_lessee = new System.Windows.Forms.ComboBox();
+            this.textBox_PeriodOfUse = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabPage_MainInfo.SuspendLayout();
             this.groupBox_Responsibility.SuspendLayout();
@@ -133,7 +133,6 @@ namespace OGM
             this.groupBox_RowOfTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.groupBox_lessee.SuspendLayout();
             this.SuspendLayout();
@@ -507,11 +506,11 @@ namespace OGM
             // 
             // tabPage_Equipment
             // 
+            this.tabPage_Equipment.Controls.Add(this.textBox_PeriodOfUse);
             this.tabPage_Equipment.Controls.Add(this.label_AddressDelivery);
             this.tabPage_Equipment.Controls.Add(this.groupBox_RowOfTable);
             this.tabPage_Equipment.Controls.Add(this.textBox_AddressDelivery);
             this.tabPage_Equipment.Controls.Add(this.dataGridView1);
-            this.tabPage_Equipment.Controls.Add(this.numericUpDown_PeriodOfUse);
             this.tabPage_Equipment.Controls.Add(this.label_PeriodOfUse);
             this.tabPage_Equipment.Controls.Add(this.dateTimePicker_DateDelivery);
             this.tabPage_Equipment.Controls.Add(this.label_DateDelivery);
@@ -725,23 +724,6 @@ namespace OGM
             this.Column_Cost.HeaderText = "Стоимость";
             this.Column_Cost.Name = "Column_Cost";
             this.Column_Cost.ReadOnly = true;
-            // 
-            // numericUpDown_PeriodOfUse
-            // 
-            this.numericUpDown_PeriodOfUse.Location = new System.Drawing.Point(298, 21);
-            this.numericUpDown_PeriodOfUse.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_PeriodOfUse.Name = "numericUpDown_PeriodOfUse";
-            this.numericUpDown_PeriodOfUse.Size = new System.Drawing.Size(70, 29);
-            this.numericUpDown_PeriodOfUse.TabIndex = 12;
-            this.numericUpDown_PeriodOfUse.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
             // 
             // label_PeriodOfUse
             // 
@@ -974,6 +956,15 @@ namespace OGM
             this.comboBox_lessee.Size = new System.Drawing.Size(670, 29);
             this.comboBox_lessee.TabIndex = 3;
             // 
+            // textBox_PeriodOfUse
+            // 
+            this.textBox_PeriodOfUse.Location = new System.Drawing.Point(291, 22);
+            this.textBox_PeriodOfUse.Name = "textBox_PeriodOfUse";
+            this.textBox_PeriodOfUse.Size = new System.Drawing.Size(70, 29);
+            this.textBox_PeriodOfUse.TabIndex = 31;
+            this.textBox_PeriodOfUse.Text = "3";
+            this.textBox_PeriodOfUse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // AddLeasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -1024,7 +1015,6 @@ namespace OGM
             this.groupBox_RowOfTable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.groupBox_lessee.ResumeLayout(false);
@@ -1069,7 +1059,6 @@ namespace OGM
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button_RemoveEquipment;
         private System.Windows.Forms.Button button_AddRowEquipment;
-        private System.Windows.Forms.NumericUpDown numericUpDown_PeriodOfUse;
         private System.Windows.Forms.Label label_PeriodOfUse;
         private System.Windows.Forms.DateTimePicker dateTimePicker_DateDelivery;
         private System.Windows.Forms.Label label_DateDelivery;
@@ -1119,5 +1108,6 @@ namespace OGM
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox_lessee;
+        private System.Windows.Forms.TextBox textBox_PeriodOfUse;
     }
 }
