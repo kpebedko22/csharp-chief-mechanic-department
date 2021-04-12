@@ -34,7 +34,17 @@ namespace OGM {
             this.label_LeasingContractNumber = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox_DateEnd = new System.Windows.Forms.TextBox();
+            this.textBox_Date = new System.Windows.Forms.TextBox();
+            this.label_DateEnd = new System.Windows.Forms.Label();
+            this.groupBox_lessee = new System.Windows.Forms.GroupBox();
+            this.textBox_Lessee = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox_Equipment_info = new System.Windows.Forms.GroupBox();
+            this.textBox_DateDelivery = new System.Windows.Forms.TextBox();
             this.label_AddressDelivery = new System.Windows.Forms.Label();
             this.textBox_AddressDelivery = new System.Windows.Forms.TextBox();
             this.numericUpDown_PeriodOfUse = new System.Windows.Forms.NumericUpDown();
@@ -55,8 +65,10 @@ namespace OGM {
             this.label_DaysForReport = new System.Windows.Forms.Label();
             this.label_DaysForFirstPayment = new System.Windows.Forms.Label();
             this.groupBox_Leaser = new System.Windows.Forms.GroupBox();
+            this.textBox_Leaser = new System.Windows.Forms.TextBox();
             this.label_Leaser = new System.Windows.Forms.Label();
             this.groupBox_Seller = new System.Windows.Forms.GroupBox();
+            this.textBox_Seller = new System.Windows.Forms.TextBox();
             this.label_Seller = new System.Windows.Forms.Label();
             this.label_Date = new System.Windows.Forms.Label();
             this.textBox_LeasingNum = new System.Windows.Forms.TextBox();
@@ -69,31 +81,24 @@ namespace OGM {
             this.Column_Mesure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox_lessee = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label_DateEnd = new System.Windows.Forms.Label();
-            this.textBox_Lessee = new System.Windows.Forms.TextBox();
-            this.textBox_Seller = new System.Windows.Forms.TextBox();
-            this.textBox_Leaser = new System.Windows.Forms.TextBox();
-            this.textBox_Date = new System.Windows.Forms.TextBox();
-            this.textBox_DateEnd = new System.Windows.Forms.TextBox();
-            this.textBox_DateDelivery = new System.Windows.Forms.TextBox();
             this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button_Export = new System.Windows.Forms.Button();
-            this.textBox_FIO_HeadProcurement = new System.Windows.Forms.TextBox();
-            this.textBox_FIO_DeputyDirector = new System.Windows.Forms.TextBox();
-            this.textBox_FIO_MainMechanic = new System.Windows.Forms.TextBox();
+            this.textBox_FIO_Seller = new System.Windows.Forms.TextBox();
+            this.textBox_FIO_Leaser = new System.Windows.Forms.TextBox();
+            this.textBox_FIO_Lessee = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox_lessee.SuspendLayout();
             this.groupBox_Equipment_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).BeginInit();
             this.groupBox_Responsibility.SuspendLayout();
@@ -109,7 +114,10 @@ namespace OGM {
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.groupBox_lessee.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -223,6 +231,97 @@ namespace OGM {
             this.tabPage1.Text = "Основная информация";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBox_DateEnd
+            // 
+            this.textBox_DateEnd.Font = new System.Drawing.Font("Segoe WP", 12.25F);
+            this.textBox_DateEnd.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox_DateEnd.Location = new System.Drawing.Point(600, 62);
+            this.textBox_DateEnd.Name = "textBox_DateEnd";
+            this.textBox_DateEnd.ReadOnly = true;
+            this.textBox_DateEnd.Size = new System.Drawing.Size(244, 29);
+            this.textBox_DateEnd.TabIndex = 33;
+            this.textBox_DateEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_Date
+            // 
+            this.textBox_Date.Font = new System.Drawing.Font("Segoe WP", 12.25F);
+            this.textBox_Date.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox_Date.Location = new System.Drawing.Point(600, 16);
+            this.textBox_Date.Name = "textBox_Date";
+            this.textBox_Date.ReadOnly = true;
+            this.textBox_Date.Size = new System.Drawing.Size(244, 29);
+            this.textBox_Date.TabIndex = 32;
+            this.textBox_Date.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label_DateEnd
+            // 
+            this.label_DateEnd.AutoSize = true;
+            this.label_DateEnd.Font = new System.Drawing.Font("Segoe WP", 12.25F);
+            this.label_DateEnd.Location = new System.Drawing.Point(456, 65);
+            this.label_DateEnd.Name = "label_DateEnd";
+            this.label_DateEnd.Size = new System.Drawing.Size(138, 22);
+            this.label_DateEnd.TabIndex = 31;
+            this.label_DateEnd.Text = "Дата окончания";
+            // 
+            // groupBox_lessee
+            // 
+            this.groupBox_lessee.Controls.Add(this.textBox_Lessee);
+            this.groupBox_lessee.Controls.Add(this.label3);
+            this.groupBox_lessee.Controls.Add(this.label4);
+            this.groupBox_lessee.Controls.Add(this.label5);
+            this.groupBox_lessee.Controls.Add(this.label6);
+            this.groupBox_lessee.Location = new System.Drawing.Point(24, 97);
+            this.groupBox_lessee.Name = "groupBox_lessee";
+            this.groupBox_lessee.Size = new System.Drawing.Size(820, 72);
+            this.groupBox_lessee.TabIndex = 22;
+            this.groupBox_lessee.TabStop = false;
+            this.groupBox_lessee.Text = "Лизингополучатель";
+            // 
+            // textBox_Lessee
+            // 
+            this.textBox_Lessee.Location = new System.Drawing.Point(137, 32);
+            this.textBox_Lessee.Name = "textBox_Lessee";
+            this.textBox_Lessee.ReadOnly = true;
+            this.textBox_Lessee.Size = new System.Drawing.Size(677, 29);
+            this.textBox_Lessee.TabIndex = 8;
+            this.textBox_Lessee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(99, 203);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 21);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "ИНН: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(72, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 21);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Телефон: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 21);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Наименование: ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 21);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Организация";
+            // 
             // groupBox_Equipment_info
             // 
             this.groupBox_Equipment_info.Controls.Add(this.textBox_DateDelivery);
@@ -237,6 +336,17 @@ namespace OGM {
             this.groupBox_Equipment_info.TabIndex = 21;
             this.groupBox_Equipment_info.TabStop = false;
             this.groupBox_Equipment_info.Text = "Об оборудовании";
+            // 
+            // textBox_DateDelivery
+            // 
+            this.textBox_DateDelivery.Font = new System.Drawing.Font("Segoe WP", 12.25F);
+            this.textBox_DateDelivery.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox_DateDelivery.Location = new System.Drawing.Point(568, 31);
+            this.textBox_DateDelivery.Name = "textBox_DateDelivery";
+            this.textBox_DateDelivery.ReadOnly = true;
+            this.textBox_DateDelivery.Size = new System.Drawing.Size(228, 29);
+            this.textBox_DateDelivery.TabIndex = 37;
+            this.textBox_DateDelivery.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label_AddressDelivery
             // 
@@ -453,6 +563,15 @@ namespace OGM {
             this.groupBox_Leaser.TabStop = false;
             this.groupBox_Leaser.Text = "Лизингодатель";
             // 
+            // textBox_Leaser
+            // 
+            this.textBox_Leaser.Location = new System.Drawing.Point(137, 41);
+            this.textBox_Leaser.Name = "textBox_Leaser";
+            this.textBox_Leaser.ReadOnly = true;
+            this.textBox_Leaser.Size = new System.Drawing.Size(239, 29);
+            this.textBox_Leaser.TabIndex = 10;
+            this.textBox_Leaser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label_Leaser
             // 
             this.label_Leaser.AutoSize = true;
@@ -472,6 +591,15 @@ namespace OGM {
             this.groupBox_Seller.TabIndex = 17;
             this.groupBox_Seller.TabStop = false;
             this.groupBox_Seller.Text = "Продавец";
+            // 
+            // textBox_Seller
+            // 
+            this.textBox_Seller.Location = new System.Drawing.Point(137, 41);
+            this.textBox_Seller.Name = "textBox_Seller";
+            this.textBox_Seller.ReadOnly = true;
+            this.textBox_Seller.Size = new System.Drawing.Size(257, 29);
+            this.textBox_Seller.TabIndex = 9;
+            this.textBox_Seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label_Seller
             // 
@@ -549,6 +677,7 @@ namespace OGM {
             this.Column_NameEquipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column_NameEquipment.HeaderText = "Наименование";
             this.Column_NameEquipment.Name = "Column_NameEquipment";
+            this.Column_NameEquipment.ReadOnly = true;
             this.Column_NameEquipment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column_NameEquipment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -557,6 +686,7 @@ namespace OGM {
             this.Column_Cost_1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column_Cost_1.HeaderText = "Стоимость за единицу";
             this.Column_Cost_1.Name = "Column_Cost_1";
+            this.Column_Cost_1.ReadOnly = true;
             // 
             // Column_Amount
             // 
@@ -583,14 +713,11 @@ namespace OGM {
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.checkBox_OpenFileExport);
-            this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.button_Export);
-            this.tabPage3.Controls.Add(this.textBox_FIO_HeadProcurement);
-            this.tabPage3.Controls.Add(this.textBox_FIO_DeputyDirector);
-            this.tabPage3.Controls.Add(this.textBox_FIO_MainMechanic);
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -598,136 +725,6 @@ namespace OGM {
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Данные для экспорта";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 30);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(870, 627);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Шаблон документа";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox_lessee
-            // 
-            this.groupBox_lessee.Controls.Add(this.textBox_Lessee);
-            this.groupBox_lessee.Controls.Add(this.label3);
-            this.groupBox_lessee.Controls.Add(this.label4);
-            this.groupBox_lessee.Controls.Add(this.label5);
-            this.groupBox_lessee.Controls.Add(this.label6);
-            this.groupBox_lessee.Location = new System.Drawing.Point(24, 97);
-            this.groupBox_lessee.Name = "groupBox_lessee";
-            this.groupBox_lessee.Size = new System.Drawing.Size(820, 72);
-            this.groupBox_lessee.TabIndex = 22;
-            this.groupBox_lessee.TabStop = false;
-            this.groupBox_lessee.Text = "Лизингополучатель";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(99, 203);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "ИНН: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(72, 151);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 21);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Телефон: ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 101);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 21);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Наименование: ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 21);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Организация";
-            // 
-            // label_DateEnd
-            // 
-            this.label_DateEnd.AutoSize = true;
-            this.label_DateEnd.Font = new System.Drawing.Font("Segoe WP", 12.25F);
-            this.label_DateEnd.Location = new System.Drawing.Point(456, 65);
-            this.label_DateEnd.Name = "label_DateEnd";
-            this.label_DateEnd.Size = new System.Drawing.Size(138, 22);
-            this.label_DateEnd.TabIndex = 31;
-            this.label_DateEnd.Text = "Дата окончания";
-            // 
-            // textBox_Lessee
-            // 
-            this.textBox_Lessee.Location = new System.Drawing.Point(137, 32);
-            this.textBox_Lessee.Name = "textBox_Lessee";
-            this.textBox_Lessee.ReadOnly = true;
-            this.textBox_Lessee.Size = new System.Drawing.Size(677, 29);
-            this.textBox_Lessee.TabIndex = 8;
-            this.textBox_Lessee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_Seller
-            // 
-            this.textBox_Seller.Location = new System.Drawing.Point(137, 41);
-            this.textBox_Seller.Name = "textBox_Seller";
-            this.textBox_Seller.ReadOnly = true;
-            this.textBox_Seller.Size = new System.Drawing.Size(257, 29);
-            this.textBox_Seller.TabIndex = 9;
-            this.textBox_Seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_Leaser
-            // 
-            this.textBox_Leaser.Location = new System.Drawing.Point(137, 41);
-            this.textBox_Leaser.Name = "textBox_Leaser";
-            this.textBox_Leaser.ReadOnly = true;
-            this.textBox_Leaser.Size = new System.Drawing.Size(239, 29);
-            this.textBox_Leaser.TabIndex = 10;
-            this.textBox_Leaser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_Date
-            // 
-            this.textBox_Date.Font = new System.Drawing.Font("Segoe WP", 12.25F);
-            this.textBox_Date.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox_Date.Location = new System.Drawing.Point(600, 16);
-            this.textBox_Date.Name = "textBox_Date";
-            this.textBox_Date.ReadOnly = true;
-            this.textBox_Date.Size = new System.Drawing.Size(244, 29);
-            this.textBox_Date.TabIndex = 32;
-            this.textBox_Date.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_DateEnd
-            // 
-            this.textBox_DateEnd.Font = new System.Drawing.Font("Segoe WP", 12.25F);
-            this.textBox_DateEnd.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox_DateEnd.Location = new System.Drawing.Point(600, 62);
-            this.textBox_DateEnd.Name = "textBox_DateEnd";
-            this.textBox_DateEnd.ReadOnly = true;
-            this.textBox_DateEnd.Size = new System.Drawing.Size(244, 29);
-            this.textBox_DateEnd.TabIndex = 33;
-            this.textBox_DateEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_DateDelivery
-            // 
-            this.textBox_DateDelivery.Font = new System.Drawing.Font("Segoe WP", 12.25F);
-            this.textBox_DateDelivery.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox_DateDelivery.Location = new System.Drawing.Point(568, 31);
-            this.textBox_DateDelivery.Name = "textBox_DateDelivery";
-            this.textBox_DateDelivery.ReadOnly = true;
-            this.textBox_DateDelivery.Size = new System.Drawing.Size(228, 29);
-            this.textBox_DateDelivery.TabIndex = 37;
-            this.textBox_DateDelivery.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // checkBox_OpenFileExport
             // 
@@ -737,66 +734,119 @@ namespace OGM {
             this.checkBox_OpenFileExport.Location = new System.Drawing.Point(85, 576);
             this.checkBox_OpenFileExport.Name = "checkBox_OpenFileExport";
             this.checkBox_OpenFileExport.Size = new System.Drawing.Size(350, 25);
-            this.checkBox_OpenFileExport.TabIndex = 18;
+            this.checkBox_OpenFileExport.TabIndex = 3;
             this.checkBox_OpenFileExport.Text = "Открыть документ по завершению экспорта";
             this.checkBox_OpenFileExport.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(87, 145);
+            this.label7.Location = new System.Drawing.Point(31, 48);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(245, 21);
+            this.label7.Size = new System.Drawing.Size(46, 21);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Начальник отдела закупок, ФИО";
+            this.label7.Text = "ФИО";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(80, 92);
+            this.label8.Location = new System.Drawing.Point(31, 46);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(253, 21);
+            this.label8.Size = new System.Drawing.Size(46, 21);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Заместитель ген. директора, ФИО";
+            this.label8.Text = "ФИО";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(155, 39);
+            this.label9.Location = new System.Drawing.Point(31, 47);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(178, 21);
+            this.label9.Size = new System.Drawing.Size(46, 21);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Главный механик, ФИО";
+            this.label9.Text = "ФИО";
             // 
             // button_Export
             // 
             this.button_Export.Location = new System.Drawing.Point(563, 573);
             this.button_Export.Name = "button_Export";
             this.button_Export.Size = new System.Drawing.Size(200, 29);
-            this.button_Export.TabIndex = 17;
+            this.button_Export.TabIndex = 4;
             this.button_Export.Text = "Экспортировать";
             this.button_Export.UseVisualStyleBackColor = true;
             // 
-            // textBox_FIO_HeadProcurement
+            // textBox_FIO_Seller
             // 
-            this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(339, 141);
-            this.textBox_FIO_HeadProcurement.Name = "textBox_FIO_HeadProcurement";
-            this.textBox_FIO_HeadProcurement.Size = new System.Drawing.Size(250, 29);
-            this.textBox_FIO_HeadProcurement.TabIndex = 14;
+            this.textBox_FIO_Seller.Location = new System.Drawing.Point(92, 44);
+            this.textBox_FIO_Seller.Name = "textBox_FIO_Seller";
+            this.textBox_FIO_Seller.Size = new System.Drawing.Size(710, 29);
+            this.textBox_FIO_Seller.TabIndex = 2;
             // 
-            // textBox_FIO_DeputyDirector
+            // textBox_FIO_Leaser
             // 
-            this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(339, 88);
-            this.textBox_FIO_DeputyDirector.Name = "textBox_FIO_DeputyDirector";
-            this.textBox_FIO_DeputyDirector.Size = new System.Drawing.Size(250, 29);
-            this.textBox_FIO_DeputyDirector.TabIndex = 8;
+            this.textBox_FIO_Leaser.Location = new System.Drawing.Point(92, 43);
+            this.textBox_FIO_Leaser.Name = "textBox_FIO_Leaser";
+            this.textBox_FIO_Leaser.Size = new System.Drawing.Size(710, 29);
+            this.textBox_FIO_Leaser.TabIndex = 1;
             // 
-            // textBox_FIO_MainMechanic
+            // textBox_FIO_Lessee
             // 
-            this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(339, 35);
-            this.textBox_FIO_MainMechanic.Name = "textBox_FIO_MainMechanic";
-            this.textBox_FIO_MainMechanic.Size = new System.Drawing.Size(250, 29);
-            this.textBox_FIO_MainMechanic.TabIndex = 7;
+            this.textBox_FIO_Lessee.Location = new System.Drawing.Point(92, 44);
+            this.textBox_FIO_Lessee.Name = "textBox_FIO_Lessee";
+            this.textBox_FIO_Lessee.Size = new System.Drawing.Size(710, 29);
+            this.textBox_FIO_Lessee.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.richTextBox1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 30);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(870, 627);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Шаблон документа";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox_FIO_Lessee);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Location = new System.Drawing.Point(23, 35);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(825, 100);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Лизингополучатель";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox_FIO_Leaser);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Location = new System.Drawing.Point(23, 159);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(825, 100);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Лизингодатель";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.textBox_FIO_Seller);
+            this.groupBox3.Location = new System.Drawing.Point(23, 289);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(825, 100);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Продавец";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(864, 621);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
             // 
             // LeasingViewForm
             // 
@@ -819,6 +869,8 @@ namespace OGM {
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox_lessee.ResumeLayout(false);
+            this.groupBox_lessee.PerformLayout();
             this.groupBox_Equipment_info.ResumeLayout(false);
             this.groupBox_Equipment_info.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PeriodOfUse)).EndInit();
@@ -840,8 +892,13 @@ namespace OGM {
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.groupBox_lessee.ResumeLayout(false);
-            this.groupBox_lessee.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -912,8 +969,12 @@ namespace OGM {
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button_Export;
-        private System.Windows.Forms.TextBox textBox_FIO_HeadProcurement;
-        private System.Windows.Forms.TextBox textBox_FIO_DeputyDirector;
-        private System.Windows.Forms.TextBox textBox_FIO_MainMechanic;
+        private System.Windows.Forms.TextBox textBox_FIO_Seller;
+        private System.Windows.Forms.TextBox textBox_FIO_Leaser;
+        private System.Windows.Forms.TextBox textBox_FIO_Lessee;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
