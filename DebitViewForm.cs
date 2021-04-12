@@ -43,6 +43,11 @@ namespace OGM {
 			textBox_ActNumber.Text = ActDebit.act_number;
 			dateTimePicker_ActDate.Value = ActDebit.date;
 			textBox_ActTotalPrice.Text = ActDebitTotalCost.ToString();
+
+
+			comboBox_Organization.DataSource = Program.db.Organizations.Where(b => b.PK_Role == 1).ToList();
+			comboBox_Organization.SelectedIndex = -1;
+			comboBox_Organization.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 		}
 
 		private void UpdateTable() {
@@ -97,7 +102,7 @@ namespace OGM {
 
 			string rubles = new MoneyToStr("RUR", "RUS", "NUMBER").convertValue(Convert.ToDouble(ActDebitTotalCost));
 
-			Organization organization = Program.db.Organizations.Where(r => r.PK_Role == 1).FirstOrDefault();
+			Organization organization = (Organization)comboBox_Organization.SelectedItem;
 
 			// тут какие-то текстбоксы видимо с формы
 			exportData.textReplaceWith = new List<string>() {
@@ -186,6 +191,10 @@ namespace OGM {
 			if (saveFileDialog.ShowDialog() == DialogResult.OK) {
 				ExportDoc(saveFileDialog.FileName);
 			}
+		}
+
+		private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e) {
+			tabControl.SelectedTab = tabControl.TabPages[1];
 		}
 	}
 }

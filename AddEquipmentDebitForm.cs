@@ -119,14 +119,8 @@ namespace OGM {
 				return;
 			}
 
-			List<EquipmentGroup> list = Program.db.EquipmentGroups.Where(b => b.PK_Workshop == ((Workshop)comboBox_Workshop.SelectedItem).PK_Workshop).ToList();
-
-			//if (list.Count < 1) {
-			//	comboBox_GroupEquipment.DataSource = null;
-			//	comboBox_GroupEquipment.SelectedItem = null;
-			//	comboBox_GroupEquipment.SelectedIndex = -1;
-			//	return;
-			//}
+			List<EquipmentGroup> list = Program.db.EquipmentGroups.Where(
+				b => b.PK_Workshop == ((Workshop)comboBox_Workshop.SelectedItem).PK_Workshop).ToList();
 
 			comboBox_GroupEquipment.DataSource = list;
 			comboBox_GroupEquipment.SelectedIndex = -1;
@@ -140,14 +134,10 @@ namespace OGM {
 				return;
 			}
 
-			List<Equipment> list = Program.db.Equipments.Where(b => b.PK_Equipment_Group == ((EquipmentGroup)comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group).ToList();
-			
-			//if (list.Count < 1) {
-			//	comboBox_Equipment.DataSource = null;
-			//	comboBox_Equipment.SelectedItem = null;
-			//	comboBox_Equipment.SelectedIndex = -1;
-			//	return;
-			//}
+			List<Equipment> list = Program.db.Equipments.Where(
+				b => b.PK_Equipment_Group == ((EquipmentGroup)comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group &&
+				b.is_debit == false &&
+				b.is_leasing == false).ToList();
 
 			comboBox_Equipment.DataSource = list;
 			comboBox_Equipment.DisplayMember = "inventory_number";
@@ -159,7 +149,7 @@ namespace OGM {
 
 		private void button_Debit_Click(object sender, EventArgs e) {
 
-			if (!CheckBeforeAddingToTable()) { MessageBox.Show("Не все поля заполнены"); return; }
+			if (!CheckBeforeAddingToTable()) { return; }
 
 			// если редактирование строки
 			if (EditingMode) {
@@ -182,7 +172,8 @@ namespace OGM {
 			// если чекбокс тру - списываем все оборудование из группы
 			if (checkBox_AllGroupDebit.Checked) {
 				foreach(Equipment item in comboBox_Equipment.Items)
-					AddToTable(item);
+					if (!IsEquipmentInTable(item))
+						AddToTable(item);
 			}
 			// иначе только одно выбранное
 			else {
@@ -235,21 +226,40 @@ namespace OGM {
 
 		private bool CheckBeforeAddingToTable() {
 
+			bool MSG(string msg) {
+				MessageBox.Show(msg, "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+
 			// если не выбран цех
-			if (comboBox_Workshop.SelectedIndex == -1) return false;
+			if (comboBox_Workshop.SelectedIndex == -1) return MSG("Поле \"Цех\" не выбрано");
 
 			// если не выбрана группа
-			if (comboBox_GroupEquipment.SelectedIndex == -1) return false;
-			
+			if (comboBox_GroupEquipment.SelectedIndex == -1) return MSG("Поле \"Группа оборудования\" не выбрано");
+
 			// если не выбрано "списать всю группу" и не выбрано оборудование
-			if (!checkBox_AllGroupDebit.Checked && comboBox_Equipment.SelectedIndex == -1) return false;
+			if (!checkBox_AllGroupDebit.Checked && comboBox_Equipment.SelectedIndex == -1) return MSG("Поле \"Оборудование\" не выбрано");
 
 			// если не выбрана причина списания
-			if (comboBox_ReasonDebit.SelectedIndex == -1) return false;
+			if (comboBox_ReasonDebit.SelectedIndex == -1) return MSG("Поле \"Причина списания\" не выбрано");
 
-			// можно здесь проверять что такое оборудование уже есть в таблице на списание
+			// если списание одного оборудования, то чек что его нет в таблице 
+			if (!checkBox_AllGroupDebit.Checked) {
+				if (IsEquipmentInTable((Equipment)comboBox_Equipment.SelectedItem))
+					return MSG("Данное оборудование уже выбрано для списания");
+			}
 
 			return true;
+		}
+
+		private bool IsEquipmentInTable(Equipment equipment) {
+			int PK = equipment.PK_Equipment;
+
+			foreach (DataGridViewRow row in dataGridView_Debit.Rows)
+				if (Convert.ToInt32(row.Cells[3].Value) == PK)
+					return true;
+
+			return false;
 		}
 
 		private void AddToTable(Equipment equipment) {
@@ -257,7 +267,7 @@ namespace OGM {
 						dataGridView_Debit.Rows.Count + 1,
 						comboBox_Workshop.SelectedItem,
 						comboBox_GroupEquipment.SelectedItem,
-						equipment,
+						equipment.PK_Equipment,
 						equipment.inventory_number,
 						equipment.name,
 						equipment.cost,
@@ -297,7 +307,7 @@ namespace OGM {
 
 				List <DebitEquipment> debits = new List<DebitEquipment>();
 
-				foreach (DataGridViewRow row in dataGridView_Debit.Rows)
+				foreach (DataGridViewRow row in dataGridView_Debit.Rows) {
 					debits.Add(new DebitEquipment {
 						inventory_number = row.Cells[4].Value.ToString(),
 						PK_Reason_Debit = ((ReasonDebit)row.Cells[7].Value).PK_Reason_Debit,
@@ -306,7 +316,9 @@ namespace OGM {
 						name = row.Cells[5].Value.ToString(),
 						cost = (decimal)row.Cells[6].Value
 					});
-				
+
+					Program.db.Equipments.Find(Convert.ToInt32(row.Cells[3].Value)).is_debit = true;
+				}
 
 				Program.db.DebitEquipments.AddRange(debits);
 				Program.db.SaveChanges();
@@ -318,8 +330,6 @@ namespace OGM {
 				MessageBox.Show(e.Message);
 				return false;
 			}
-
-			
 		}
 
 		private void button_Close_Click(object sender, EventArgs e) {

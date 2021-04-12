@@ -36,13 +36,6 @@ namespace OGM {
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.dataGridView_Data = new System.Windows.Forms.DataGridView();
-			this.ColumnIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnEquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -65,6 +58,15 @@ namespace OGM {
 			this.textBox_FIO_MainMechanic = new System.Windows.Forms.TextBox();
 			this.tabPageDoc = new System.Windows.Forms.TabPage();
 			this.richTextBox_ActDebit = new System.Windows.Forms.RichTextBox();
+			this.comboBox_Organization = new System.Windows.Forms.ComboBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.ColumnIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnEquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
 			this.tabControl.SuspendLayout();
@@ -99,8 +101,9 @@ namespace OGM {
 			// ToolStripMenuItem_Export_File
 			// 
 			this.ToolStripMenuItem_Export_File.Name = "ToolStripMenuItem_Export_File";
-			this.ToolStripMenuItem_Export_File.Size = new System.Drawing.Size(119, 22);
+			this.ToolStripMenuItem_Export_File.Size = new System.Drawing.Size(180, 22);
 			this.ToolStripMenuItem_Export_File.Text = "Экспорт";
+			this.ToolStripMenuItem_Export_File.Click += new System.EventHandler(this.ToolStripMenuItem_Export_File_Click);
 			// 
 			// ToolStripMenuItem_Edit
 			// 
@@ -210,56 +213,6 @@ namespace OGM {
 			this.dataGridView_Data.Size = new System.Drawing.Size(758, 284);
 			this.dataGridView_Data.TabIndex = 1;
 			// 
-			// ColumnIndex
-			// 
-			this.ColumnIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.ColumnIndex.HeaderText = "#";
-			this.ColumnIndex.MinimumWidth = 50;
-			this.ColumnIndex.Name = "ColumnIndex";
-			this.ColumnIndex.ReadOnly = true;
-			// 
-			// ColumnWorkshop
-			// 
-			this.ColumnWorkshop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnWorkshop.HeaderText = "Цех";
-			this.ColumnWorkshop.Name = "ColumnWorkshop";
-			this.ColumnWorkshop.ReadOnly = true;
-			// 
-			// ColumnGroup
-			// 
-			this.ColumnGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnGroup.HeaderText = "Группа оборудования";
-			this.ColumnGroup.Name = "ColumnGroup";
-			this.ColumnGroup.ReadOnly = true;
-			// 
-			// ColumnInventoryNumber
-			// 
-			this.ColumnInventoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
-			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
-			this.ColumnInventoryNumber.ReadOnly = true;
-			// 
-			// ColumnEquipmentName
-			// 
-			this.ColumnEquipmentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnEquipmentName.HeaderText = "Наименование оборудования";
-			this.ColumnEquipmentName.Name = "ColumnEquipmentName";
-			this.ColumnEquipmentName.ReadOnly = true;
-			// 
-			// ColumnCost
-			// 
-			this.ColumnCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnCost.HeaderText = "Остаточная стоимость";
-			this.ColumnCost.Name = "ColumnCost";
-			this.ColumnCost.ReadOnly = true;
-			// 
-			// ColumnReasonDebit
-			// 
-			this.ColumnReasonDebit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnReasonDebit.HeaderText = "Причина списания";
-			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
-			this.ColumnReasonDebit.ReadOnly = true;
-			// 
 			// tableLayoutPanel2
 			// 
 			this.tableLayoutPanel2.ColumnCount = 5;
@@ -346,6 +299,8 @@ namespace OGM {
 			// 
 			// tabPageExportData
 			// 
+			this.tabPageExportData.Controls.Add(this.label9);
+			this.tabPageExportData.Controls.Add(this.comboBox_Organization);
 			this.tabPageExportData.Controls.Add(this.checkBox_OpenFileExport);
 			this.tabPageExportData.Controls.Add(this.label5);
 			this.tabPageExportData.Controls.Add(this.label4);
@@ -370,7 +325,7 @@ namespace OGM {
 			this.checkBox_OpenFileExport.AutoSize = true;
 			this.checkBox_OpenFileExport.Checked = true;
 			this.checkBox_OpenFileExport.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox_OpenFileExport.Location = new System.Drawing.Point(34, 333);
+			this.checkBox_OpenFileExport.Location = new System.Drawing.Point(23, 334);
 			this.checkBox_OpenFileExport.Name = "checkBox_OpenFileExport";
 			this.checkBox_OpenFileExport.Size = new System.Drawing.Size(350, 25);
 			this.checkBox_OpenFileExport.TabIndex = 6;
@@ -380,7 +335,7 @@ namespace OGM {
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(19, 244);
+			this.label5.Location = new System.Drawing.Point(19, 284);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(291, 21);
 			this.label5.TabIndex = 2;
@@ -389,7 +344,7 @@ namespace OGM {
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(190, 191);
+			this.label4.Location = new System.Drawing.Point(190, 232);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(120, 21);
 			this.label4.TabIndex = 2;
@@ -398,7 +353,7 @@ namespace OGM {
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(64, 138);
+			this.label3.Location = new System.Drawing.Point(64, 180);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(246, 21);
 			this.label3.TabIndex = 2;
@@ -407,7 +362,7 @@ namespace OGM {
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(57, 85);
+			this.label2.Location = new System.Drawing.Point(57, 128);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(253, 21);
 			this.label2.TabIndex = 2;
@@ -416,7 +371,7 @@ namespace OGM {
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(132, 32);
+			this.label1.Location = new System.Drawing.Point(132, 76);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(178, 21);
 			this.label1.TabIndex = 2;
@@ -424,48 +379,48 @@ namespace OGM {
 			// 
 			// button_Export
 			// 
-			this.button_Export.Location = new System.Drawing.Point(512, 330);
+			this.button_Export.Location = new System.Drawing.Point(505, 331);
 			this.button_Export.Name = "button_Export";
 			this.button_Export.Size = new System.Drawing.Size(200, 29);
-			this.button_Export.TabIndex = 5;
+			this.button_Export.TabIndex = 7;
 			this.button_Export.Text = "Экспортировать";
 			this.button_Export.UseVisualStyleBackColor = true;
 			this.button_Export.Click += new System.EventHandler(this.button_Export_Click);
 			// 
 			// textBox_FIO_DeputyAccountant
 			// 
-			this.textBox_FIO_DeputyAccountant.Location = new System.Drawing.Point(316, 240);
+			this.textBox_FIO_DeputyAccountant.Location = new System.Drawing.Point(316, 281);
 			this.textBox_FIO_DeputyAccountant.Name = "textBox_FIO_DeputyAccountant";
 			this.textBox_FIO_DeputyAccountant.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_DeputyAccountant.TabIndex = 4;
+			this.textBox_FIO_DeputyAccountant.TabIndex = 5;
 			// 
 			// textBox_FIO_Engineer
 			// 
-			this.textBox_FIO_Engineer.Location = new System.Drawing.Point(316, 187);
+			this.textBox_FIO_Engineer.Location = new System.Drawing.Point(316, 229);
 			this.textBox_FIO_Engineer.Name = "textBox_FIO_Engineer";
 			this.textBox_FIO_Engineer.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_Engineer.TabIndex = 3;
+			this.textBox_FIO_Engineer.TabIndex = 4;
 			// 
 			// textBox_FIO_HeadProcurement
 			// 
-			this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(316, 134);
+			this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(316, 177);
 			this.textBox_FIO_HeadProcurement.Name = "textBox_FIO_HeadProcurement";
 			this.textBox_FIO_HeadProcurement.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_HeadProcurement.TabIndex = 2;
+			this.textBox_FIO_HeadProcurement.TabIndex = 3;
 			// 
 			// textBox_FIO_DeputyDirector
 			// 
-			this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(316, 81);
+			this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(316, 125);
 			this.textBox_FIO_DeputyDirector.Name = "textBox_FIO_DeputyDirector";
 			this.textBox_FIO_DeputyDirector.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_DeputyDirector.TabIndex = 1;
+			this.textBox_FIO_DeputyDirector.TabIndex = 2;
 			// 
 			// textBox_FIO_MainMechanic
 			// 
-			this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(316, 28);
+			this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(316, 73);
 			this.textBox_FIO_MainMechanic.Name = "textBox_FIO_MainMechanic";
 			this.textBox_FIO_MainMechanic.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_MainMechanic.TabIndex = 0;
+			this.textBox_FIO_MainMechanic.TabIndex = 1;
 			// 
 			// tabPageDoc
 			// 
@@ -489,6 +444,74 @@ namespace OGM {
 			this.richTextBox_ActDebit.Size = new System.Drawing.Size(764, 390);
 			this.richTextBox_ActDebit.TabIndex = 0;
 			this.richTextBox_ActDebit.Text = "";
+			// 
+			// comboBox_Organization
+			// 
+			this.comboBox_Organization.FormattingEnabled = true;
+			this.comboBox_Organization.Location = new System.Drawing.Point(316, 21);
+			this.comboBox_Organization.Name = "comboBox_Organization";
+			this.comboBox_Organization.Size = new System.Drawing.Size(250, 29);
+			this.comboBox_Organization.TabIndex = 0;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(205, 24);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(105, 21);
+			this.label9.TabIndex = 8;
+			this.label9.Text = "Организация";
+			// 
+			// ColumnIndex
+			// 
+			this.ColumnIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.ColumnIndex.HeaderText = "#";
+			this.ColumnIndex.MinimumWidth = 50;
+			this.ColumnIndex.Name = "ColumnIndex";
+			this.ColumnIndex.ReadOnly = true;
+			this.ColumnIndex.Visible = false;
+			// 
+			// ColumnWorkshop
+			// 
+			this.ColumnWorkshop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnWorkshop.HeaderText = "Цех";
+			this.ColumnWorkshop.Name = "ColumnWorkshop";
+			this.ColumnWorkshop.ReadOnly = true;
+			// 
+			// ColumnGroup
+			// 
+			this.ColumnGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnGroup.HeaderText = "Группа оборудования";
+			this.ColumnGroup.Name = "ColumnGroup";
+			this.ColumnGroup.ReadOnly = true;
+			// 
+			// ColumnInventoryNumber
+			// 
+			this.ColumnInventoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
+			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
+			this.ColumnInventoryNumber.ReadOnly = true;
+			// 
+			// ColumnEquipmentName
+			// 
+			this.ColumnEquipmentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnEquipmentName.HeaderText = "Наименование оборудования";
+			this.ColumnEquipmentName.Name = "ColumnEquipmentName";
+			this.ColumnEquipmentName.ReadOnly = true;
+			// 
+			// ColumnCost
+			// 
+			this.ColumnCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnCost.HeaderText = "Остаточная стоимость";
+			this.ColumnCost.Name = "ColumnCost";
+			this.ColumnCost.ReadOnly = true;
+			// 
+			// ColumnReasonDebit
+			// 
+			this.ColumnReasonDebit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnReasonDebit.HeaderText = "Причина списания";
+			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
+			this.ColumnReasonDebit.ReadOnly = true;
 			// 
 			// DebitViewForm
 			// 
@@ -556,6 +579,8 @@ namespace OGM {
 		private System.Windows.Forms.TextBox textBox_ActNumber;
 		private System.Windows.Forms.TextBox textBox_ActTotalPrice;
 		private System.Windows.Forms.DateTimePicker dateTimePicker_ActDate;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.ComboBox comboBox_Organization;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIndex;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnWorkshop;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGroup;
