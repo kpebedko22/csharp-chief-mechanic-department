@@ -87,9 +87,10 @@ namespace OGM
 			this.groupBox_Search.Controls.Add(this.flowLayoutPanel2);
 			this.groupBox_Search.Controls.Add(this.tableLayoutPanel2);
 			this.groupBox_Search.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox_Search.Location = new System.Drawing.Point(3, 3);
+			this.groupBox_Search.Location = new System.Drawing.Point(6, 6);
+			this.groupBox_Search.Margin = new System.Windows.Forms.Padding(6);
 			this.groupBox_Search.Name = "groupBox_Search";
-			this.groupBox_Search.Size = new System.Drawing.Size(978, 284);
+			this.groupBox_Search.Size = new System.Drawing.Size(972, 278);
 			this.groupBox_Search.TabIndex = 1;
 			this.groupBox_Search.TabStop = false;
 			this.groupBox_Search.Text = "Параметры поиска";
@@ -97,7 +98,7 @@ namespace OGM
 			// textBox_Bank
 			// 
 			this.textBox_Bank.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_Bank.Location = new System.Drawing.Point(682, 88);
+			this.textBox_Bank.Location = new System.Drawing.Point(678, 88);
 			this.textBox_Bank.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_Bank.Name = "textBox_Bank";
 			this.textBox_Bank.Size = new System.Drawing.Size(260, 29);
@@ -107,7 +108,7 @@ namespace OGM
 			// 
 			this.label_Bank.AutoSize = true;
 			this.label_Bank.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_Bank.Location = new System.Drawing.Point(625, 82);
+			this.label_Bank.Location = new System.Drawing.Point(621, 82);
 			this.label_Bank.Name = "label_Bank";
 			this.label_Bank.Size = new System.Drawing.Size(48, 41);
 			this.label_Bank.TabIndex = 21;
@@ -117,7 +118,7 @@ namespace OGM
 			// textBox_PostAddress
 			// 
 			this.textBox_PostAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_PostAddress.Location = new System.Drawing.Point(195, 129);
+			this.textBox_PostAddress.Location = new System.Drawing.Point(193, 129);
 			this.textBox_PostAddress.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_PostAddress.Name = "textBox_PostAddress";
 			this.textBox_PostAddress.Size = new System.Drawing.Size(260, 29);
@@ -127,7 +128,7 @@ namespace OGM
 			// 
 			this.label_PostAddress.AutoSize = true;
 			this.label_PostAddress.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_PostAddress.Location = new System.Drawing.Point(55, 123);
+			this.label_PostAddress.Location = new System.Drawing.Point(53, 123);
 			this.label_PostAddress.Name = "label_PostAddress";
 			this.label_PostAddress.Size = new System.Drawing.Size(131, 41);
 			this.label_PostAddress.TabIndex = 19;
@@ -137,7 +138,7 @@ namespace OGM
 			// textBox_BIK
 			// 
 			this.textBox_BIK.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_BIK.Location = new System.Drawing.Point(682, 170);
+			this.textBox_BIK.Location = new System.Drawing.Point(678, 170);
 			this.textBox_BIK.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_BIK.Name = "textBox_BIK";
 			this.textBox_BIK.Size = new System.Drawing.Size(260, 29);
@@ -147,7 +148,7 @@ namespace OGM
 			// 
 			this.button_ResetComboBoxRole.BackgroundImage = global::OGM.Properties.Resources.cancel;
 			this.button_ResetComboBoxRole.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button_ResetComboBoxRole.Location = new System.Drawing.Point(467, 47);
+			this.button_ResetComboBoxRole.Location = new System.Drawing.Point(465, 47);
 			this.button_ResetComboBoxRole.Margin = new System.Windows.Forms.Padding(6);
 			this.button_ResetComboBoxRole.Name = "button_ResetComboBoxRole";
 			this.button_ResetComboBoxRole.Size = new System.Drawing.Size(29, 29);
@@ -157,7 +158,7 @@ namespace OGM
 			// 
 			// button_ResetSearch
 			// 
-			this.button_ResetSearch.Location = new System.Drawing.Point(443, 3);
+			this.button_ResetSearch.Location = new System.Drawing.Point(437, 3);
 			this.button_ResetSearch.Name = "button_ResetSearch";
 			this.button_ResetSearch.Size = new System.Drawing.Size(260, 29);
 			this.button_ResetSearch.TabIndex = 10;
@@ -168,7 +169,7 @@ namespace OGM
 			// textBox_CorrespondentAccount
 			// 
 			this.textBox_CorrespondentAccount.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_CorrespondentAccount.Location = new System.Drawing.Point(682, 129);
+			this.textBox_CorrespondentAccount.Location = new System.Drawing.Point(678, 129);
 			this.textBox_CorrespondentAccount.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_CorrespondentAccount.Name = "textBox_CorrespondentAccount";
 			this.textBox_CorrespondentAccount.Size = new System.Drawing.Size(260, 29);
@@ -177,7 +178,7 @@ namespace OGM
 			// textBox_PaymentAccount
 			// 
 			this.textBox_PaymentAccount.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_PaymentAccount.Location = new System.Drawing.Point(682, 47);
+			this.textBox_PaymentAccount.Location = new System.Drawing.Point(678, 47);
 			this.textBox_PaymentAccount.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_PaymentAccount.Name = "textBox_PaymentAccount";
 			this.textBox_PaymentAccount.Size = new System.Drawing.Size(260, 29);
@@ -187,7 +188,7 @@ namespace OGM
 			// 
 			this.label_BIK.AutoSize = true;
 			this.label_BIK.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_BIK.Location = new System.Drawing.Point(630, 164);
+			this.label_BIK.Location = new System.Drawing.Point(626, 164);
 			this.label_BIK.Name = "label_BIK";
 			this.label_BIK.Size = new System.Drawing.Size(43, 41);
 			this.label_BIK.TabIndex = 13;
@@ -198,7 +199,7 @@ namespace OGM
 			// 
 			this.label_CorrespondentAccount.AutoSize = true;
 			this.label_CorrespondentAccount.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_CorrespondentAccount.Location = new System.Drawing.Point(535, 123);
+			this.label_CorrespondentAccount.Location = new System.Drawing.Point(531, 123);
 			this.label_CorrespondentAccount.Name = "label_CorrespondentAccount";
 			this.label_CorrespondentAccount.Size = new System.Drawing.Size(138, 41);
 			this.label_CorrespondentAccount.TabIndex = 12;
@@ -210,7 +211,7 @@ namespace OGM
 			// 
 			this.label_PaymentAccount.AutoSize = true;
 			this.label_PaymentAccount.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_PaymentAccount.Location = new System.Drawing.Point(549, 41);
+			this.label_PaymentAccount.Location = new System.Drawing.Point(545, 41);
 			this.label_PaymentAccount.Name = "label_PaymentAccount";
 			this.label_PaymentAccount.Size = new System.Drawing.Size(124, 41);
 			this.label_PaymentAccount.TabIndex = 11;
@@ -220,7 +221,7 @@ namespace OGM
 			// textBox_Phone
 			// 
 			this.textBox_Phone.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_Phone.Location = new System.Drawing.Point(195, 170);
+			this.textBox_Phone.Location = new System.Drawing.Point(193, 170);
 			this.textBox_Phone.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_Phone.Name = "textBox_Phone";
 			this.textBox_Phone.Size = new System.Drawing.Size(260, 29);
@@ -230,7 +231,7 @@ namespace OGM
 			// 
 			this.label_Phone.AutoSize = true;
 			this.label_Phone.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_Phone.Location = new System.Drawing.Point(73, 164);
+			this.label_Phone.Location = new System.Drawing.Point(71, 164);
 			this.label_Phone.Name = "label_Phone";
 			this.label_Phone.Size = new System.Drawing.Size(113, 41);
 			this.label_Phone.TabIndex = 9;
@@ -239,7 +240,7 @@ namespace OGM
 			// 
 			// button_Search
 			// 
-			this.button_Search.Location = new System.Drawing.Point(709, 3);
+			this.button_Search.Location = new System.Drawing.Point(703, 3);
 			this.button_Search.Name = "button_Search";
 			this.button_Search.Size = new System.Drawing.Size(260, 29);
 			this.button_Search.TabIndex = 10;
@@ -255,7 +256,7 @@ namespace OGM
             "Лизингодатель",
             "Лизингополучатель",
             "Продавец"});
-			this.comboBox_Role.Location = new System.Drawing.Point(195, 47);
+			this.comboBox_Role.Location = new System.Drawing.Point(193, 47);
 			this.comboBox_Role.Margin = new System.Windows.Forms.Padding(6);
 			this.comboBox_Role.Name = "comboBox_Role";
 			this.comboBox_Role.Size = new System.Drawing.Size(260, 29);
@@ -264,7 +265,7 @@ namespace OGM
 			// textBox_INN
 			// 
 			this.textBox_INN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_INN.Location = new System.Drawing.Point(682, 6);
+			this.textBox_INN.Location = new System.Drawing.Point(678, 6);
 			this.textBox_INN.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_INN.Name = "textBox_INN";
 			this.textBox_INN.Size = new System.Drawing.Size(260, 29);
@@ -273,7 +274,7 @@ namespace OGM
 			// textBox_LegalAddress
 			// 
 			this.textBox_LegalAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_LegalAddress.Location = new System.Drawing.Point(195, 88);
+			this.textBox_LegalAddress.Location = new System.Drawing.Point(193, 88);
 			this.textBox_LegalAddress.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_LegalAddress.Name = "textBox_LegalAddress";
 			this.textBox_LegalAddress.Size = new System.Drawing.Size(260, 29);
@@ -282,7 +283,7 @@ namespace OGM
 			// textBox_NameOrganiztion
 			// 
 			this.textBox_NameOrganiztion.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_NameOrganiztion.Location = new System.Drawing.Point(195, 6);
+			this.textBox_NameOrganiztion.Location = new System.Drawing.Point(193, 6);
 			this.textBox_NameOrganiztion.Margin = new System.Windows.Forms.Padding(6);
 			this.textBox_NameOrganiztion.Name = "textBox_NameOrganiztion";
 			this.textBox_NameOrganiztion.Size = new System.Drawing.Size(260, 29);
@@ -292,7 +293,7 @@ namespace OGM
 			// 
 			this.label_Role.AutoSize = true;
 			this.label_Role.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_Role.Location = new System.Drawing.Point(140, 41);
+			this.label_Role.Location = new System.Drawing.Point(138, 41);
 			this.label_Role.Name = "label_Role";
 			this.label_Role.Size = new System.Drawing.Size(46, 41);
 			this.label_Role.TabIndex = 3;
@@ -303,7 +304,7 @@ namespace OGM
 			// 
 			this.label_INN.AutoSize = true;
 			this.label_INN.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_INN.Location = new System.Drawing.Point(626, 0);
+			this.label_INN.Location = new System.Drawing.Point(622, 0);
 			this.label_INN.Name = "label_INN";
 			this.label_INN.Size = new System.Drawing.Size(47, 41);
 			this.label_INN.TabIndex = 2;
@@ -314,7 +315,7 @@ namespace OGM
 			// 
 			this.label_LegalAddress.AutoSize = true;
 			this.label_LegalAddress.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_LegalAddress.Location = new System.Drawing.Point(26, 82);
+			this.label_LegalAddress.Location = new System.Drawing.Point(24, 82);
 			this.label_LegalAddress.Name = "label_LegalAddress";
 			this.label_LegalAddress.Size = new System.Drawing.Size(160, 41);
 			this.label_LegalAddress.TabIndex = 1;
@@ -325,7 +326,7 @@ namespace OGM
 			// 
 			this.label_NameOrganiztion.AutoSize = true;
 			this.label_NameOrganiztion.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_NameOrganiztion.Location = new System.Drawing.Point(66, 0);
+			this.label_NameOrganiztion.Location = new System.Drawing.Point(64, 0);
 			this.label_NameOrganiztion.Name = "label_NameOrganiztion";
 			this.label_NameOrganiztion.Size = new System.Drawing.Size(120, 41);
 			this.label_NameOrganiztion.TabIndex = 0;
@@ -349,10 +350,11 @@ namespace OGM
             this.Column_CorrespondentAccount,
             this.Column_BIK});
 			this.dataGridView_DataSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView_DataSearch.Location = new System.Drawing.Point(3, 334);
+			this.dataGridView_DataSearch.Location = new System.Drawing.Point(6, 337);
+			this.dataGridView_DataSearch.Margin = new System.Windows.Forms.Padding(6);
 			this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
 			this.dataGridView_DataSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView_DataSearch.Size = new System.Drawing.Size(978, 324);
+			this.dataGridView_DataSearch.Size = new System.Drawing.Size(972, 318);
 			this.dataGridView_DataSearch.TabIndex = 14;
 			// 
 			// button_RemoveOrganization
@@ -533,7 +535,7 @@ namespace OGM
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(972, 256);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(966, 250);
 			this.tableLayoutPanel2.TabIndex = 22;
 			// 
 			// flowLayoutPanel2
@@ -543,9 +545,9 @@ namespace OGM
 			this.flowLayoutPanel2.Controls.Add(this.button_ResetSearch);
 			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 246);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 240);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(972, 35);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(966, 35);
 			this.flowLayoutPanel2.TabIndex = 23;
 			// 
 			// OrganizationForm
