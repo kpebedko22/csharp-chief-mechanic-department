@@ -41,6 +41,14 @@ namespace OGM {
 			this.dateTimePicker_DateDebit = new System.Windows.Forms.DateTimePicker();
 			this.label_DateDebit = new System.Windows.Forms.Label();
 			this.dataGridView_Debit = new System.Windows.Forms.DataGridView();
+			this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnPK_Equipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button_Delete = new System.Windows.Forms.Button();
 			this.label_Equipment = new System.Windows.Forms.Label();
@@ -50,32 +58,27 @@ namespace OGM {
 			this.comboBox_GroupEquipment = new System.Windows.Forms.ComboBox();
 			this.button_Add = new System.Windows.Forms.Button();
 			this.groupBox = new System.Windows.Forms.GroupBox();
-			this.button_Edit = new System.Windows.Forms.Button();
-			this.button_Debit = new System.Windows.Forms.Button();
+			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.label_Workshop = new System.Windows.Forms.Label();
 			this.checkBox_AllGroupDebit = new System.Windows.Forms.CheckBox();
 			this.comboBox_Workshop = new System.Windows.Forms.ComboBox();
-			this.label_Workshop = new System.Windows.Forms.Label();
+			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+			this.button_Debit = new System.Windows.Forms.Button();
+			this.button_Edit = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnWorkshop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnPK_Equipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnInventoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnReasonDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripMenuItem_File_ExitModule = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripMenuItem_File_ExitProg = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Debit)).BeginInit();
 			this.groupBox.SuspendLayout();
+			this.tableLayoutPanel3.SuspendLayout();
+			this.flowLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
-			this.flowLayoutPanel2.SuspendLayout();
-			this.tableLayoutPanel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label_ActNumber
@@ -123,6 +126,7 @@ namespace OGM {
 			// menuStrip
 			// 
 			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_File,
             this.ToolStripMenuItem_EquipmentDebit,
             this.ToolStripMenuItem_Handbooks});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -235,12 +239,70 @@ namespace OGM {
             this.ColumnCost,
             this.ColumnReasonDebit});
 			this.dataGridView_Debit.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView_Debit.Location = new System.Drawing.Point(3, 321);
+			this.dataGridView_Debit.Location = new System.Drawing.Point(3, 318);
 			this.dataGridView_Debit.Name = "dataGridView_Debit";
 			this.dataGridView_Debit.ReadOnly = true;
 			this.dataGridView_Debit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView_Debit.Size = new System.Drawing.Size(878, 262);
+			this.dataGridView_Debit.Size = new System.Drawing.Size(878, 266);
 			this.dataGridView_Debit.TabIndex = 11;
+			// 
+			// Column
+			// 
+			this.Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.Column.HeaderText = "#";
+			this.Column.Name = "Column";
+			this.Column.ReadOnly = true;
+			this.Column.Width = 50;
+			// 
+			// ColumnWorkshop
+			// 
+			this.ColumnWorkshop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnWorkshop.HeaderText = "Цех";
+			this.ColumnWorkshop.Name = "ColumnWorkshop";
+			this.ColumnWorkshop.ReadOnly = true;
+			// 
+			// ColumnGroup
+			// 
+			this.ColumnGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnGroup.HeaderText = "Группа оборудования";
+			this.ColumnGroup.Name = "ColumnGroup";
+			this.ColumnGroup.ReadOnly = true;
+			// 
+			// ColumnPK_Equipment
+			// 
+			this.ColumnPK_Equipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnPK_Equipment.HeaderText = "ПК оборудования";
+			this.ColumnPK_Equipment.Name = "ColumnPK_Equipment";
+			this.ColumnPK_Equipment.ReadOnly = true;
+			this.ColumnPK_Equipment.Visible = false;
+			// 
+			// ColumnInventoryNumber
+			// 
+			this.ColumnInventoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
+			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
+			this.ColumnInventoryNumber.ReadOnly = true;
+			// 
+			// ColumnName
+			// 
+			this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnName.HeaderText = "Наименование оборудования";
+			this.ColumnName.Name = "ColumnName";
+			this.ColumnName.ReadOnly = true;
+			// 
+			// ColumnCost
+			// 
+			this.ColumnCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnCost.HeaderText = "Остаточная стоимость";
+			this.ColumnCost.Name = "ColumnCost";
+			this.ColumnCost.ReadOnly = true;
+			// 
+			// ColumnReasonDebit
+			// 
+			this.ColumnReasonDebit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnReasonDebit.HeaderText = "Причина списания";
+			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
+			this.ColumnReasonDebit.ReadOnly = true;
 			// 
 			// label1
 			// 
@@ -335,30 +397,48 @@ namespace OGM {
 			this.groupBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox.Location = new System.Drawing.Point(3, 53);
 			this.groupBox.Name = "groupBox";
-			this.groupBox.Size = new System.Drawing.Size(878, 262);
+			this.groupBox.Size = new System.Drawing.Size(878, 259);
 			this.groupBox.TabIndex = 5;
 			this.groupBox.TabStop = false;
 			this.groupBox.Text = "Строка таблицы";
 			// 
-			// button_Edit
+			// tableLayoutPanel3
 			// 
-			this.button_Edit.Location = new System.Drawing.Point(209, 3);
-			this.button_Edit.Name = "button_Edit";
-			this.button_Edit.Size = new System.Drawing.Size(200, 32);
-			this.button_Edit.TabIndex = 9;
-			this.button_Edit.Text = "Редактировать";
-			this.button_Edit.UseVisualStyleBackColor = true;
-			this.button_Edit.Click += new System.EventHandler(this.button_Edit_Click);
+			this.tableLayoutPanel3.ColumnCount = 3;
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+			this.tableLayoutPanel3.Controls.Add(this.label_Workshop, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.label_GroupEquipment, 0, 1);
+			this.tableLayoutPanel3.Controls.Add(this.checkBox_AllGroupDebit, 2, 1);
+			this.tableLayoutPanel3.Controls.Add(this.label_Equipment, 0, 2);
+			this.tableLayoutPanel3.Controls.Add(this.comboBox_ReasonDebit, 1, 3);
+			this.tableLayoutPanel3.Controls.Add(this.label1, 0, 3);
+			this.tableLayoutPanel3.Controls.Add(this.comboBox_Equipment, 1, 2);
+			this.tableLayoutPanel3.Controls.Add(this.comboBox_GroupEquipment, 1, 1);
+			this.tableLayoutPanel3.Controls.Add(this.comboBox_Workshop, 1, 0);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 25);
+			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+			this.tableLayoutPanel3.RowCount = 5;
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(872, 193);
+			this.tableLayoutPanel3.TabIndex = 12;
 			// 
-			// button_Debit
+			// label_Workshop
 			// 
-			this.button_Debit.Location = new System.Drawing.Point(3, 3);
-			this.button_Debit.Name = "button_Debit";
-			this.button_Debit.Size = new System.Drawing.Size(200, 32);
-			this.button_Debit.TabIndex = 8;
-			this.button_Debit.Text = "Списать";
-			this.button_Debit.UseVisualStyleBackColor = true;
-			this.button_Debit.Click += new System.EventHandler(this.button_Debit_Click);
+			this.label_Workshop.AutoSize = true;
+			this.label_Workshop.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_Workshop.Location = new System.Drawing.Point(221, 0);
+			this.label_Workshop.Name = "label_Workshop";
+			this.label_Workshop.Size = new System.Drawing.Size(37, 41);
+			this.label_Workshop.TabIndex = 1;
+			this.label_Workshop.Text = "Цех";
+			this.label_Workshop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// checkBox_AllGroupDebit
 			// 
@@ -383,16 +463,37 @@ namespace OGM {
 			this.comboBox_Workshop.TabIndex = 3;
 			this.comboBox_Workshop.SelectedIndexChanged += new System.EventHandler(this.comboBox_Workshop_SelectedIndexChanged);
 			// 
-			// label_Workshop
+			// flowLayoutPanel2
 			// 
-			this.label_Workshop.AutoSize = true;
-			this.label_Workshop.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_Workshop.Location = new System.Drawing.Point(221, 0);
-			this.label_Workshop.Name = "label_Workshop";
-			this.label_Workshop.Size = new System.Drawing.Size(37, 41);
-			this.label_Workshop.TabIndex = 1;
-			this.label_Workshop.Text = "Цех";
-			this.label_Workshop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.flowLayoutPanel2.AutoSize = true;
+			this.flowLayoutPanel2.Controls.Add(this.button_Debit);
+			this.flowLayoutPanel2.Controls.Add(this.button_Edit);
+			this.flowLayoutPanel2.Controls.Add(this.button_Delete);
+			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 218);
+			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(872, 38);
+			this.flowLayoutPanel2.TabIndex = 11;
+			// 
+			// button_Debit
+			// 
+			this.button_Debit.Location = new System.Drawing.Point(3, 3);
+			this.button_Debit.Name = "button_Debit";
+			this.button_Debit.Size = new System.Drawing.Size(200, 32);
+			this.button_Debit.TabIndex = 8;
+			this.button_Debit.Text = "Списать";
+			this.button_Debit.UseVisualStyleBackColor = true;
+			this.button_Debit.Click += new System.EventHandler(this.button_Debit_Click);
+			// 
+			// button_Edit
+			// 
+			this.button_Edit.Location = new System.Drawing.Point(209, 3);
+			this.button_Edit.Name = "button_Edit";
+			this.button_Edit.Size = new System.Drawing.Size(200, 32);
+			this.button_Edit.TabIndex = 9;
+			this.button_Edit.Text = "Редактировать";
+			this.button_Edit.UseVisualStyleBackColor = true;
+			this.button_Edit.Click += new System.EventHandler(this.button_Edit_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -420,9 +521,9 @@ namespace OGM {
 			this.flowLayoutPanel1.Controls.Add(this.button_AddAndClose);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 589);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 590);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(878, 45);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(878, 44);
 			this.flowLayoutPanel1.TabIndex = 0;
 			// 
 			// tableLayoutPanel2
@@ -448,102 +549,28 @@ namespace OGM {
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(878, 44);
 			this.tableLayoutPanel2.TabIndex = 12;
 			// 
-			// Column
+			// ToolStripMenuItem_File
 			// 
-			this.Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.Column.HeaderText = "#";
-			this.Column.Name = "Column";
-			this.Column.ReadOnly = true;
-			this.Column.Width = 50;
+			this.ToolStripMenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_File_ExitModule,
+            this.ToolStripMenuItem_File_ExitProg});
+			this.ToolStripMenuItem_File.Name = "ToolStripMenuItem_File";
+			this.ToolStripMenuItem_File.Size = new System.Drawing.Size(48, 20);
+			this.ToolStripMenuItem_File.Text = "Файл";
 			// 
-			// ColumnWorkshop
+			// ToolStripMenuItem_File_ExitModule
 			// 
-			this.ColumnWorkshop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnWorkshop.HeaderText = "Цех";
-			this.ColumnWorkshop.Name = "ColumnWorkshop";
-			this.ColumnWorkshop.ReadOnly = true;
+			this.ToolStripMenuItem_File_ExitModule.Name = "ToolStripMenuItem_File_ExitModule";
+			this.ToolStripMenuItem_File_ExitModule.Size = new System.Drawing.Size(193, 22);
+			this.ToolStripMenuItem_File_ExitModule.Text = "Выйти из модуля";
+			this.ToolStripMenuItem_File_ExitModule.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitModule_Click);
 			// 
-			// ColumnGroup
+			// ToolStripMenuItem_File_ExitProg
 			// 
-			this.ColumnGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnGroup.HeaderText = "Группа оборудования";
-			this.ColumnGroup.Name = "ColumnGroup";
-			this.ColumnGroup.ReadOnly = true;
-			// 
-			// ColumnPK_Equipment
-			// 
-			this.ColumnPK_Equipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnPK_Equipment.HeaderText = "ПК оборудования";
-			this.ColumnPK_Equipment.Name = "ColumnPK_Equipment";
-			this.ColumnPK_Equipment.ReadOnly = true;
-			this.ColumnPK_Equipment.Visible = false;
-			// 
-			// ColumnInventoryNumber
-			// 
-			this.ColumnInventoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnInventoryNumber.HeaderText = "Инвентарный номер";
-			this.ColumnInventoryNumber.Name = "ColumnInventoryNumber";
-			this.ColumnInventoryNumber.ReadOnly = true;
-			// 
-			// ColumnName
-			// 
-			this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnName.HeaderText = "Наименование оборудования";
-			this.ColumnName.Name = "ColumnName";
-			this.ColumnName.ReadOnly = true;
-			// 
-			// ColumnCost
-			// 
-			this.ColumnCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnCost.HeaderText = "Остаточная стоимость";
-			this.ColumnCost.Name = "ColumnCost";
-			this.ColumnCost.ReadOnly = true;
-			// 
-			// ColumnReasonDebit
-			// 
-			this.ColumnReasonDebit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ColumnReasonDebit.HeaderText = "Причина списания";
-			this.ColumnReasonDebit.Name = "ColumnReasonDebit";
-			this.ColumnReasonDebit.ReadOnly = true;
-			// 
-			// flowLayoutPanel2
-			// 
-			this.flowLayoutPanel2.AutoSize = true;
-			this.flowLayoutPanel2.Controls.Add(this.button_Debit);
-			this.flowLayoutPanel2.Controls.Add(this.button_Edit);
-			this.flowLayoutPanel2.Controls.Add(this.button_Delete);
-			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 221);
-			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(872, 38);
-			this.flowLayoutPanel2.TabIndex = 11;
-			// 
-			// tableLayoutPanel3
-			// 
-			this.tableLayoutPanel3.ColumnCount = 3;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.tableLayoutPanel3.Controls.Add(this.label_Workshop, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.label_GroupEquipment, 0, 1);
-			this.tableLayoutPanel3.Controls.Add(this.checkBox_AllGroupDebit, 2, 1);
-			this.tableLayoutPanel3.Controls.Add(this.label_Equipment, 0, 2);
-			this.tableLayoutPanel3.Controls.Add(this.comboBox_ReasonDebit, 1, 3);
-			this.tableLayoutPanel3.Controls.Add(this.label1, 0, 3);
-			this.tableLayoutPanel3.Controls.Add(this.comboBox_Equipment, 1, 2);
-			this.tableLayoutPanel3.Controls.Add(this.comboBox_GroupEquipment, 1, 1);
-			this.tableLayoutPanel3.Controls.Add(this.comboBox_Workshop, 1, 0);
-			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 25);
-			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.RowCount = 5;
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(872, 196);
-			this.tableLayoutPanel3.TabIndex = 12;
+			this.ToolStripMenuItem_File_ExitProg.Name = "ToolStripMenuItem_File_ExitProg";
+			this.ToolStripMenuItem_File_ExitProg.Size = new System.Drawing.Size(193, 22);
+			this.ToolStripMenuItem_File_ExitProg.Text = "Выйти из программы";
+			this.ToolStripMenuItem_File_ExitProg.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitProg_Click);
 			// 
 			// AddEquipmentDebitForm
 			// 
@@ -556,6 +583,7 @@ namespace OGM {
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.MinimumSize = new System.Drawing.Size(900, 700);
 			this.Name = "AddEquipmentDebitForm";
+			this.ShowIcon = false;
 			this.Text = "Добавить новый акт списания оборудования";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddEquipmentDebitForm_FormClosed);
 			this.menuStrip.ResumeLayout(false);
@@ -563,13 +591,13 @@ namespace OGM {
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Debit)).EndInit();
 			this.groupBox.ResumeLayout(false);
 			this.groupBox.PerformLayout();
+			this.tableLayoutPanel3.ResumeLayout(false);
+			this.tableLayoutPanel3.PerformLayout();
+			this.flowLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
-			this.flowLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel3.ResumeLayout(false);
-			this.tableLayoutPanel3.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -621,5 +649,8 @@ namespace OGM {
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReasonDebit;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+		private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_File;
+		private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_File_ExitModule;
+		private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_File_ExitProg;
 	}
 }

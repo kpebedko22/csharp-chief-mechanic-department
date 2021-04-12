@@ -343,5 +343,13 @@ namespace OGM {
 		private void button_Add_Click(object sender, EventArgs e) {
 			AddActDebit();
 		}
+
+		private void ToolStripMenuItem_File_ExitModule_Click(object sender, EventArgs e) {
+			this.Close();
+		}
+
+		private void ToolStripMenuItem_File_ExitProg_Click(object sender, EventArgs e) {
+			Application.Exit();
+		}
 	}
 }

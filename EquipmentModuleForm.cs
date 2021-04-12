@@ -141,5 +141,13 @@ namespace OGM {
 				row.Cells[4].Value = "Просмотреть";
 			}
 		}
+
+		private void ToolStripMenuItem_File_ExitModule_Click(object sender, EventArgs e) {
+			this.Close();
+		}
+
+		private void ToolStripMenuItem_File_ExitProg_Click(object sender, EventArgs e) {
+			Application.Exit();
+		}
 	}
 }
