@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Word = Microsoft.Office.Interop.Word;
 
 using OGM.Additions;
 using OGM.Models;
@@ -22,6 +21,9 @@ namespace OGM {
 		private LeasingContract contract = null;
 
 		private decimal LeasingContractTotalCost = 0;
+
+		OfficeExport.ExportData exportData;
+		OfficeExport officeExport;
 
 		public LeasingViewForm(LeasingContract leasingContract = null)
 		{
@@ -73,13 +75,6 @@ namespace OGM {
 			contract = leasingContract;
 		}
 
-
-
-		private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e)
-		{
-			new ExportLeasingForm().ShowDialog();
-		}
-
 		private void GenerateTable()
 		{
 			// получаем из бд строки спецификации
@@ -98,8 +93,6 @@ namespace OGM {
 
 			dataGridView_Data.ClearSelection();
 		}
-
-
 
 		private void LeasingViewForm_Load(object sender, EventArgs e)
 		{
@@ -129,8 +122,6 @@ namespace OGM {
 			this.textBox_DateDelivery.Text = DateToString.Translate(this.contract.date, "г.");
 			this.textBox_AddressDelivery.Text = contract.address_delivery;
 
-
-
 			//// организации подгружаем через поиск связей ////
 			///
 			RelationshipOrganizationLeasingContract r_lessee = null;
@@ -143,8 +134,6 @@ namespace OGM {
 				r_seller = db.relationships_organization_leasing_contract.Where(r => r.PK_Leasing_Contract == contract.PK_Leasing_Contract && r.PK_Role == 3).FirstOrDefault();
 				r_leaser = db.relationships_organization_leasing_contract.Where(r => r.PK_Leasing_Contract == contract.PK_Leasing_Contract && r.PK_Role == 2).FirstOrDefault();
 			}
-
-
 
 			if (r_lessee != null)
 			{
@@ -162,10 +151,7 @@ namespace OGM {
 				this.textBox_Leaser.Text = leaser.name;
 			}
 
-
-
 			GenerateTable();
-
 		}
 
 		private void button_Export_Click(object sender, EventArgs e) {
@@ -185,13 +171,19 @@ namespace OGM {
 			saveFileDialog.RestoreDirectory = true;
 
 			if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+				button_Export.Enabled = false;
+
 				ExportDoc(saveFileDialog.FileName);
+
+				officeExport = new OfficeExport(exportData);
+				officeExport.ReplaceText();
+				BGWorker.RunWorkerAsync();
 			}
 		}
 
 		private void ExportDoc(string nameFileExport) {
 
-			OfficeExport.ExportData exportData = new OfficeExport.ExportData();
+			exportData = new OfficeExport.ExportData();
 
 			exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\leasing_contract_template.docx";
 			exportData.nameFileExport = nameFileExport;         // Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_number" + ActDebit.act_number + ".docx";
@@ -260,12 +252,10 @@ namespace OGM {
 
 			string rubles = new MoneyToStr("RUR", "RUS", "NUMBER").convertValue(Convert.ToDouble(LeasingContractTotalCost));
 
-			//Organization organization = (Organization)comboBox_Organization.SelectedItem;
-
 			// тут какие-то текстбоксы видимо с формы
 			exportData.textReplaceWith = new List<string>() {
 				contract.contract_number,
-				"г. Барнаул",
+				"г. " + textBox_City.Text,
 				DateToString.Translate(contract.date, "г."),
 				leaser.name,
 				textBox_FIO_Leaser.Text,
@@ -298,7 +288,6 @@ namespace OGM {
 
 				leaser.legal_address + " " + leaser.phone,
 				lessee.legal_address + " " + lessee.phone,
-
 
 				leaser.legal_address,
 				leaser.mailing_address,
@@ -362,26 +351,40 @@ namespace OGM {
 						cost_per_all
 				});
 			}
-
-			OfficeExport.Export(exportData);
 		}
 
-        private void numericUpDown_DaysForFirstPayment_Paint(object sender, PaintEventArgs e)
-        {
+        private void numericUpDown_DaysForFirstPayment_Paint(object sender, PaintEventArgs e) {
 			e.Graphics.Clear(SystemColors.Window);
 			base.OnPaint(e);
 		}
 
-		private void LeasingViewForm_ResizeBegin(object sender, EventArgs e)
-		{
+		private void LeasingViewForm_ResizeBegin(object sender, EventArgs e) {
 			SuspendLayout();
 		}
 
-		private void LeasingViewForm_ResizeEnd(object sender, EventArgs e)
-		{
+		private void LeasingViewForm_ResizeEnd(object sender, EventArgs e) {
 			ResumeLayout();
 		}
+		
+		private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e){
+			tabControl.SelectedTab = tabControl.TabPages[2];
+		}
 
+		private void BGWorker_DoWork(object sender, DoWorkEventArgs e) {
+			while (officeExport.HasNextRow) {
+				int percentage = officeExport.CurrentRow * 100 / officeExport.NumberRows;
+				officeExport.AddRowToTable();
+				BGWorker.ReportProgress(percentage);
+			}
+		}
 
+		private void BGWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) {
+			progressBar.Value = e.ProgressPercentage;
+		}
+
+		private void BGWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
+			button_Export.Enabled = true;
+			officeExport.Close();
+		}
 	}
 }

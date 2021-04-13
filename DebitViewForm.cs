@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
 
 using OGM.Models;
 using OGM.Additions;
@@ -19,6 +18,9 @@ namespace OGM {
 		private List<DebitEquipment> debitEquipments = null;
 
 		private decimal ActDebitTotalCost = 0;
+
+		OfficeExport.ExportData exportData;
+		OfficeExport officeExport;
 
 		public DebitViewForm(ActDebit actDebit) {
 			InitializeComponent();
@@ -84,7 +86,7 @@ namespace OGM {
 
 		private void ExportDoc(string nameFileExport) {
 
-			OfficeExport.ExportData exportData = new OfficeExport.ExportData();
+			exportData = new OfficeExport.ExportData();
 
 			exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template.docx";
 			exportData.nameFileExport = nameFileExport;			// Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_number" + ActDebit.act_number + ".docx";
@@ -104,10 +106,12 @@ namespace OGM {
 			string rubles = new MoneyToStr("RUR", "RUS", "NUMBER").convertValue(Convert.ToDouble(ActDebitTotalCost));
 
 			Organization organization = (Organization)comboBox_Organization.SelectedItem;
+			string temp = "";
+			if (organization != null) temp = organization.name;
 
 			// тут какие-то текстбоксы видимо с формы
 			exportData.textReplaceWith = new List<string>() {
-				 organization.name,										// название конторы
+				 temp,													// название конторы
 				 textBox_FIO_MainMechanic.Text,							// фио главного механика
 				 DateToString.Translate(ActDebit.date, "г."),			// дата как «___»________202_г.
 				 ActDebit.act_number.ToString(),						// номер акта
@@ -156,8 +160,6 @@ namespace OGM {
 				string cost = row.Cells[5].Value.ToString();
 				string reason = row.Cells[6].Value.ToString();
 
-				//group,	// группа оборудования
-
 				exportData.valuesCustomValues.Add( 
 					new List<string>() {
 						workshop,		// цех
@@ -168,8 +170,6 @@ namespace OGM {
 						reason		// причина списания
 				});
 			}
-
-			OfficeExport.Export(exportData);
 		}
 
 		private void button_Export_Click(object sender, EventArgs e) {
@@ -190,12 +190,35 @@ namespace OGM {
 			saveFileDialog.RestoreDirectory = true;
 
 			if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+				button_Export.Enabled = false;
+
 				ExportDoc(saveFileDialog.FileName);
+
+				officeExport = new OfficeExport(exportData);
+				officeExport.ReplaceText();
+				BGWorker.RunWorkerAsync();
 			}
 		}
 
 		private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e) {
 			tabControl.SelectedTab = tabControl.TabPages[1];
+		}
+
+		private void BGWorker_DoWork(object sender, DoWorkEventArgs e) {
+			while (officeExport.HasNextRow) {
+				int percentage = officeExport.CurrentRow * 100 / officeExport.NumberRows;
+				officeExport.AddRowToTable();
+				BGWorker.ReportProgress(percentage);
+			}
+		}
+
+		private void BGWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) {
+			progressBar.Value = e.ProgressPercentage;
+		}
+
+		private void BGWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
+			button_Export.Enabled = true;
+			officeExport.Close();
 		}
 	}
 }
