@@ -376,9 +376,9 @@ namespace OGM
             // 
             this.label_Seller.AutoSize = true;
             this.label_Seller.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_Seller.Location = new System.Drawing.Point(33, 0);
+            this.label_Seller.Location = new System.Drawing.Point(31, 0);
             this.label_Seller.Name = "label_Seller";
-            this.label_Seller.Size = new System.Drawing.Size(105, 33);
+            this.label_Seller.Size = new System.Drawing.Size(105, 41);
             this.label_Seller.TabIndex = 0;
             this.label_Seller.Text = "Организация";
             this.label_Seller.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -387,18 +387,18 @@ namespace OGM
             // 
             this.label_INNSeller.AutoSize = true;
             this.label_INNSeller.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_INNSeller.Location = new System.Drawing.Point(87, 105);
+            this.label_INNSeller.Location = new System.Drawing.Point(89, 113);
             this.label_INNSeller.Margin = new System.Windows.Forms.Padding(6);
             this.label_INNSeller.Name = "label_INNSeller";
-            this.label_INNSeller.Size = new System.Drawing.Size(48, 21);
+            this.label_INNSeller.Size = new System.Drawing.Size(44, 21);
             this.label_INNSeller.TabIndex = 7;
-            this.label_INNSeller.Text = "ИНН ";
+            this.label_INNSeller.Text = "ИНН";
             this.label_INNSeller.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox_Seller
             // 
             this.comboBox_Seller.FormattingEnabled = true;
-            this.comboBox_Seller.Location = new System.Drawing.Point(151, 6);
+            this.comboBox_Seller.Location = new System.Drawing.Point(150, 6);
             this.comboBox_Seller.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox_Seller.Name = "comboBox_Seller";
             this.comboBox_Seller.Size = new System.Drawing.Size(250, 29);
@@ -409,31 +409,31 @@ namespace OGM
             // 
             this.label_phoneSeller.AutoSize = true;
             this.label_phoneSeller.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_phoneSeller.Location = new System.Drawing.Point(60, 72);
+            this.label_phoneSeller.Location = new System.Drawing.Point(62, 80);
             this.label_phoneSeller.Margin = new System.Windows.Forms.Padding(6);
             this.label_phoneSeller.Name = "label_phoneSeller";
-            this.label_phoneSeller.Size = new System.Drawing.Size(75, 21);
+            this.label_phoneSeller.Size = new System.Drawing.Size(71, 21);
             this.label_phoneSeller.TabIndex = 6;
-            this.label_phoneSeller.Text = "Телефон ";
+            this.label_phoneSeller.Text = "Телефон";
             this.label_phoneSeller.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_nameSeller
             // 
             this.label_nameSeller.AutoSize = true;
             this.label_nameSeller.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_nameSeller.Location = new System.Drawing.Point(14, 39);
+            this.label_nameSeller.Location = new System.Drawing.Point(16, 47);
             this.label_nameSeller.Margin = new System.Windows.Forms.Padding(6);
             this.label_nameSeller.Name = "label_nameSeller";
-            this.label_nameSeller.Size = new System.Drawing.Size(121, 21);
+            this.label_nameSeller.Size = new System.Drawing.Size(117, 21);
             this.label_nameSeller.TabIndex = 5;
-            this.label_nameSeller.Text = "Наименование ";
+            this.label_nameSeller.Text = "Наименование";
             this.label_nameSeller.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_nameSeller_value
             // 
             this.label_nameSeller_value.AutoSize = true;
             this.label_nameSeller_value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_nameSeller_value.Location = new System.Drawing.Point(148, 33);
+            this.label_nameSeller_value.Location = new System.Drawing.Point(147, 41);
             this.label_nameSeller_value.Name = "label_nameSeller_value";
             this.label_nameSeller_value.Size = new System.Drawing.Size(19, 33);
             this.label_nameSeller_value.TabIndex = 8;
@@ -444,7 +444,7 @@ namespace OGM
             // 
             this.label_phoneSeller_value.AutoSize = true;
             this.label_phoneSeller_value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_phoneSeller_value.Location = new System.Drawing.Point(148, 66);
+            this.label_phoneSeller_value.Location = new System.Drawing.Point(147, 74);
             this.label_phoneSeller_value.Name = "label_phoneSeller_value";
             this.label_phoneSeller_value.Size = new System.Drawing.Size(19, 33);
             this.label_phoneSeller_value.TabIndex = 9;
@@ -455,7 +455,7 @@ namespace OGM
             // 
             this.label_INNSeller_value.AutoSize = true;
             this.label_INNSeller_value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_INNSeller_value.Location = new System.Drawing.Point(148, 99);
+            this.label_INNSeller_value.Location = new System.Drawing.Point(147, 107);
             this.label_INNSeller_value.Name = "label_INNSeller_value";
             this.label_INNSeller_value.Size = new System.Drawing.Size(19, 33);
             this.label_INNSeller_value.TabIndex = 10;
@@ -667,9 +667,9 @@ namespace OGM
             // 
             this.label_Leaser.AutoSize = true;
             this.label_Leaser.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_Leaser.Location = new System.Drawing.Point(33, 0);
+            this.label_Leaser.Location = new System.Drawing.Point(31, 0);
             this.label_Leaser.Name = "label_Leaser";
-            this.label_Leaser.Size = new System.Drawing.Size(105, 33);
+            this.label_Leaser.Size = new System.Drawing.Size(105, 41);
             this.label_Leaser.TabIndex = 2;
             this.label_Leaser.Text = "Организация";
             this.label_Leaser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -678,18 +678,18 @@ namespace OGM
             // 
             this.label_nameLeaser.AutoSize = true;
             this.label_nameLeaser.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_nameLeaser.Location = new System.Drawing.Point(14, 39);
+            this.label_nameLeaser.Location = new System.Drawing.Point(16, 47);
             this.label_nameLeaser.Margin = new System.Windows.Forms.Padding(6);
             this.label_nameLeaser.Name = "label_nameLeaser";
-            this.label_nameLeaser.Size = new System.Drawing.Size(121, 21);
+            this.label_nameLeaser.Size = new System.Drawing.Size(117, 21);
             this.label_nameLeaser.TabIndex = 8;
-            this.label_nameLeaser.Text = "Наименование ";
+            this.label_nameLeaser.Text = "Наименование";
             this.label_nameLeaser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox_Leaser
             // 
             this.comboBox_Leaser.FormattingEnabled = true;
-            this.comboBox_Leaser.Location = new System.Drawing.Point(151, 6);
+            this.comboBox_Leaser.Location = new System.Drawing.Point(150, 6);
             this.comboBox_Leaser.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox_Leaser.Name = "comboBox_Leaser";
             this.comboBox_Leaser.Size = new System.Drawing.Size(250, 29);
@@ -700,31 +700,31 @@ namespace OGM
             // 
             this.label_INNLeaser.AutoSize = true;
             this.label_INNLeaser.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_INNLeaser.Location = new System.Drawing.Point(87, 105);
+            this.label_INNLeaser.Location = new System.Drawing.Point(89, 113);
             this.label_INNLeaser.Margin = new System.Windows.Forms.Padding(6);
             this.label_INNLeaser.Name = "label_INNLeaser";
-            this.label_INNLeaser.Size = new System.Drawing.Size(48, 21);
+            this.label_INNLeaser.Size = new System.Drawing.Size(44, 21);
             this.label_INNLeaser.TabIndex = 10;
-            this.label_INNLeaser.Text = "ИНН ";
+            this.label_INNLeaser.Text = "ИНН";
             this.label_INNLeaser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_phoneLeaser
             // 
             this.label_phoneLeaser.AutoSize = true;
             this.label_phoneLeaser.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_phoneLeaser.Location = new System.Drawing.Point(60, 72);
+            this.label_phoneLeaser.Location = new System.Drawing.Point(62, 80);
             this.label_phoneLeaser.Margin = new System.Windows.Forms.Padding(6);
             this.label_phoneLeaser.Name = "label_phoneLeaser";
-            this.label_phoneLeaser.Size = new System.Drawing.Size(75, 21);
+            this.label_phoneLeaser.Size = new System.Drawing.Size(71, 21);
             this.label_phoneLeaser.TabIndex = 9;
-            this.label_phoneLeaser.Text = "Телефон ";
+            this.label_phoneLeaser.Text = "Телефон";
             this.label_phoneLeaser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_nameLeaser_value
             // 
             this.label_nameLeaser_value.AutoSize = true;
             this.label_nameLeaser_value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_nameLeaser_value.Location = new System.Drawing.Point(148, 33);
+            this.label_nameLeaser_value.Location = new System.Drawing.Point(147, 41);
             this.label_nameLeaser_value.Name = "label_nameLeaser_value";
             this.label_nameLeaser_value.Size = new System.Drawing.Size(19, 33);
             this.label_nameLeaser_value.TabIndex = 11;
@@ -735,7 +735,7 @@ namespace OGM
             // 
             this.label_phoneLeaser_value.AutoSize = true;
             this.label_phoneLeaser_value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_phoneLeaser_value.Location = new System.Drawing.Point(148, 66);
+            this.label_phoneLeaser_value.Location = new System.Drawing.Point(147, 74);
             this.label_phoneLeaser_value.Name = "label_phoneLeaser_value";
             this.label_phoneLeaser_value.Size = new System.Drawing.Size(19, 33);
             this.label_phoneLeaser_value.TabIndex = 12;
@@ -746,7 +746,7 @@ namespace OGM
             // 
             this.label_INNLeaser_value.AutoSize = true;
             this.label_INNLeaser_value.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_INNLeaser_value.Location = new System.Drawing.Point(148, 99);
+            this.label_INNLeaser_value.Location = new System.Drawing.Point(147, 107);
             this.label_INNLeaser_value.Name = "label_INNLeaser_value";
             this.label_INNLeaser_value.Size = new System.Drawing.Size(19, 33);
             this.label_INNLeaser_value.TabIndex = 13;

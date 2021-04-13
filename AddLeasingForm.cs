@@ -48,6 +48,8 @@ namespace OGM
 
             Owner = owner;
 
+            this.WindowState = FormWindowState.Maximized;
+
             this.numericUpDown_PenaltyFee.Controls[0].Visible = false;
             this.numericUpDown_Cost.Controls[0].Visible = false;
 

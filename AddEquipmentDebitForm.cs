@@ -54,6 +54,7 @@ namespace OGM {
 			InitializeComponent();
 
 			Owner = owner;
+			this.WindowState = FormWindowState.Maximized;
 
 			dataGridView_Debit.AutoGenerateColumns = false;
 			dataGridView_Debit.ReadOnly = true;

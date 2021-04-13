@@ -20,6 +20,7 @@ namespace OGM {
 			InitializeComponent();
 
 			Owner = owner;
+			this.WindowState = FormWindowState.Maximized;
 
 			dataGridView_DataSearch.Columns[1].DataPropertyName = "PK_Aсt_Debit";
 			dataGridView_DataSearch.Columns[2].DataPropertyName = "act_number";
