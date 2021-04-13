@@ -43,8 +43,8 @@ namespace OGM {
 			this.textBox_AddressDelivery.BackColor = this.textBox_LeasingNum.BackColor = Color.White;
 			this.textBox_AddressDelivery.ForeColor = this.textBox_LeasingNum.ForeColor = Color.Black;
 
-			this.textBox_Date.BackColor = this.textBox_DateEnd.BackColor = this.textBox_DateDelivery.BackColor = Color.White;			
-			this.textBox_Date.ForeColor = this.textBox_DateEnd.ForeColor = this.textBox_DateDelivery.ForeColor = Color.Black;			
+			this.textBox_Date.BackColor = this.textBox_DateEnd.BackColor = this.textBox_DateDelivery.BackColor = Color.White;
+			this.textBox_Date.ForeColor = this.textBox_DateEnd.ForeColor = this.textBox_DateDelivery.ForeColor = Color.Black;
 
 			numericUpDown_DaysForFirstPayment.BackColor = Color.White;
 			numericUpDown_DaysForForceMajeure.BackColor = Color.White;
@@ -199,40 +199,40 @@ namespace OGM {
 			exportData.textToReplace = new List<string>() {
 				"[<номер_лизинга>]",						// 123
 				"[<шапка_город>]",							// г. Барнаул
-				"[<шапка_дата>]",							// «1» апрель 2021 г. 
+				"[<шапка_дата>]",							// «1» апрель 2021 г.
 				"[<организация_лизингодатель>]",			// ООО "Хомячки"
 				"[<представитель_лизингодатель>]", 			// Хомяков Х.Х.
 				"[<организация_мы>]", 						// ООО "Хомячки2"
 				"[<представитель_мы>]", 					// Хомяков Х.Х.2
-				
+
 				"[<1.3_стоимость_оборудования>]",			// хз - пропись или цифры
 				"[<1.4_дата_поставки_оборудования>]", 		// «1» апрель 2021
-				
+
 				"[<2.2_срок_пользования_оборудованием>]", 	// 5 лет, 11 месяцев
 				"[<2.3_дата_окончания_договора>]",			// «1» апреля 2021 года
 
 				"[<3.1.1_дата_договора>]",					// «1» апрель 2021
 				"[<3.2.1_пункт_поставки>]",					// ну какой-то адрес
-				
+
 				"[<4.1_лизингодатель_расчетный_счет>]",
 				"[<4.1_лизингодатель_банк>]",
 				"[<4.1_лизингодатель_бик>]",
 
 				"[<4.4_дней_для_первого_платежа>]",			// 10
-				
+
 				"[<5.1_пункт_поставки>]",					// дублирование п1.4
 				"[<5.4_срок_отказа>]",						// 3
-				
+
 				"[<6.1_пеня>]",								// 0,5
 				"[<6.1_макс_платеж>]",						// 5
 				"[<6.2_неустойка>]",						// хз - пропись или цифры
-				
+
 				"[<7.1_дней_форс_мажора>]",
 
 				"[<9.3_лизингодатель_юр_адрес_и_телефон>]",
 				"[<9.3_мы_юр_адрес_и_телефон>]",
-				
-				
+
+
 				"[<лизингодатель_юр_адрес>]",
 				"[<лизингодатель_почт_адрес>]",
 				"[<лизингодатель_телефон>]",
@@ -241,7 +241,7 @@ namespace OGM {
 				"[<лизингодатель_банк>]",
 				"[<лизингодатель_корресп_счет>]",
 				"[<лизингодатель_бик>]",
-				
+
 				"[<мы_юр_адрес>]",
 				"[<мы_почт_адрес>]",
 				"[<мы_телефон>]",
@@ -250,10 +250,10 @@ namespace OGM {
 				"[<мы_банк>]",
 				"[<мы_корресп_счет>]",
 				"[<мы_бик>]",
-				
+
 				"[<приложение_номер_договора>]",
 				"[<приложение_дата_договора>]",				//«1» апрель 2021 года
-				
+
 				"[<приложение_лизингодатель>]",
 				"[<приложение_лизингополучат>]"
 			};
@@ -375,4 +375,12 @@ namespace OGM {
 
 
     }
+		private void LeasingViewForm_ResizeBegin(object sender, EventArgs e) {
+			SuspendLayout();
+		}
+
+		private void LeasingViewForm_ResizeEnd(object sender, EventArgs e) {
+			ResumeLayout();
+		}
+	}
 }
