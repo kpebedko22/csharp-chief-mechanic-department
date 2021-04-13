@@ -21,6 +21,8 @@ namespace OGM {
 		private Organization seller = null;
 		private LeasingContract contract = null;
 
+		private decimal LeasingContractTotalCost = 0;
+
 		public LeasingViewForm(LeasingContract leasingContract = null)
 		{
 			InitializeComponent();
@@ -313,7 +315,7 @@ namespace OGM {
 			// какой столбик из datagridview в какой столбик в доке
 			// и еще есть столбцы по умолчанию
 			exportData.indicesDefaultValues = new List<int>() {
-				3	// наименование ед. измерения
+				5	// наименование ед. измерения
 			};
 			exportData.valuesDefaultValues = new List<string>() {
 				"шт."	// наименование ед. измерения
@@ -321,7 +323,9 @@ namespace OGM {
 
 			exportData.indicesCustomValues = new List<int>() {
 				2,	// наименование оборудования
-				4	// кол-во
+				3,	// стоимость за ед.
+				4,	// кол-во
+				6	// стоимость
 			};
 
 			exportData.valuesCustomValues = new List<List<string>>();
