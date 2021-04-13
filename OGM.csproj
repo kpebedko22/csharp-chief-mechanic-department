@@ -186,6 +186,7 @@
     <Compile Include="AddGroupEquipment.Designer.cs">
       <DependentUpon>AddGroupEquipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Additions\ConvertYearsMonths.cs" />
     <Compile Include="Additions\DateToString.cs" />
     <Compile Include="Additions\MoneyToStr.cs" />
     <Compile Include="Additions\NumToWord.cs" />
