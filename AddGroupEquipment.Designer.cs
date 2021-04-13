@@ -77,6 +77,7 @@ namespace OGM
             // 
             this.textBox_Cipher.Location = new System.Drawing.Point(202, 65);
             this.textBox_Cipher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox_Cipher.MaxLength = 99;
             this.textBox_Cipher.Name = "textBox_Cipher";
             this.textBox_Cipher.Size = new System.Drawing.Size(370, 29);
             this.textBox_Cipher.TabIndex = 27;
@@ -85,6 +86,7 @@ namespace OGM
             // 
             this.textBox_NameEquipment.Location = new System.Drawing.Point(202, 20);
             this.textBox_NameEquipment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox_NameEquipment.MaxLength = 249;
             this.textBox_NameEquipment.Name = "textBox_NameEquipment";
             this.textBox_NameEquipment.Size = new System.Drawing.Size(370, 29);
             this.textBox_NameEquipment.TabIndex = 26;

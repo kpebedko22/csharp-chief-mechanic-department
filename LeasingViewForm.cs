@@ -372,15 +372,16 @@ namespace OGM {
 			base.OnPaint(e);
 		}
 
-
-
-    }
-		private void LeasingViewForm_ResizeBegin(object sender, EventArgs e) {
+		private void LeasingViewForm_ResizeBegin(object sender, EventArgs e)
+		{
 			SuspendLayout();
 		}
 
-		private void LeasingViewForm_ResizeEnd(object sender, EventArgs e) {
+		private void LeasingViewForm_ResizeEnd(object sender, EventArgs e)
+		{
 			ResumeLayout();
 		}
+
+
 	}
 }

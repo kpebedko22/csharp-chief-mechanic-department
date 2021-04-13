@@ -97,6 +97,7 @@ namespace OGM {
             // 
             this.textBox_ActNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_ActNumber.Location = new System.Drawing.Point(192, 3);
+            this.textBox_ActNumber.MaxLength = 19;
             this.textBox_ActNumber.Name = "textBox_ActNumber";
             this.textBox_ActNumber.Size = new System.Drawing.Size(150, 29);
             this.textBox_ActNumber.TabIndex = 1;

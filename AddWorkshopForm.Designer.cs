@@ -43,6 +43,7 @@ namespace OGM
             // textBox_Email
             // 
             this.textBox_Email.Location = new System.Drawing.Point(202, 110);
+            this.textBox_Email.MaxLength = 49;
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.Size = new System.Drawing.Size(370, 29);
             this.textBox_Email.TabIndex = 14;
@@ -50,6 +51,7 @@ namespace OGM
             // textBox_PhoneWorkshop
             // 
             this.textBox_PhoneWorkshop.Location = new System.Drawing.Point(202, 65);
+            this.textBox_PhoneWorkshop.MaxLength = 19;
             this.textBox_PhoneWorkshop.Name = "textBox_PhoneWorkshop";
             this.textBox_PhoneWorkshop.Size = new System.Drawing.Size(370, 29);
             this.textBox_PhoneWorkshop.TabIndex = 13;
@@ -57,6 +59,7 @@ namespace OGM
             // textBox_NameWorkshop
             // 
             this.textBox_NameWorkshop.Location = new System.Drawing.Point(202, 20);
+            this.textBox_NameWorkshop.MaxLength = 249;
             this.textBox_NameWorkshop.Name = "textBox_NameWorkshop";
             this.textBox_NameWorkshop.Size = new System.Drawing.Size(370, 29);
             this.textBox_NameWorkshop.TabIndex = 12;

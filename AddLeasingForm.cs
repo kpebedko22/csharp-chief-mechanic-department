@@ -57,6 +57,7 @@ namespace OGM
             this.dateTimePicker_DateDelivery.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
             this.dateTimePicker_DateEnd.MinDate = this.dateTimePicker_DateEnd.Value.Date;
             this.dateTimePicker_DateEnd.Value = this.dateTimePicker_DateEnd.Value.AddYears(3);
+            this.dateTimePicker_DateEnd.MaxDate = this.dateTimePicker_DateConclusion.Value.Date.AddYears(100);
 
 
             this.comboBox_lessee.AutoCompleteMode = this.comboBox_Leaser.AutoCompleteMode = this.comboBox_Seller.AutoCompleteMode = this.comboBox_Equipment.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -302,6 +303,7 @@ namespace OGM
         {
             this.dateTimePicker_DateDelivery.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
             this.dateTimePicker_DateEnd.MinDate = this.dateTimePicker_DateConclusion.Value.Date;
+            this.dateTimePicker_DateEnd.MaxDate = this.dateTimePicker_DateConclusion.Value.Date.AddYears(100);
 
             UpdatePeriodOfUse();
         }

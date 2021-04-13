@@ -75,6 +75,7 @@ namespace OGM
             // 
             this.textBox_CipherReasonDebit.Location = new System.Drawing.Point(201, 14);
             this.textBox_CipherReasonDebit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox_CipherReasonDebit.MaxLength = 19;
             this.textBox_CipherReasonDebit.Name = "textBox_CipherReasonDebit";
             this.textBox_CipherReasonDebit.Size = new System.Drawing.Size(370, 29);
             this.textBox_CipherReasonDebit.TabIndex = 1;
@@ -83,6 +84,7 @@ namespace OGM
             // 
             this.textBox_NameReasonDebit.Location = new System.Drawing.Point(202, 62);
             this.textBox_NameReasonDebit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox_NameReasonDebit.MaxLength = 149;
             this.textBox_NameReasonDebit.Name = "textBox_NameReasonDebit";
             this.textBox_NameReasonDebit.Size = new System.Drawing.Size(370, 29);
             this.textBox_NameReasonDebit.TabIndex = 2;

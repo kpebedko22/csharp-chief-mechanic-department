@@ -194,6 +194,7 @@ namespace OGM
             // 
             this.textBox_LeasingNum.Location = new System.Drawing.Point(203, 6);
             this.textBox_LeasingNum.Margin = new System.Windows.Forms.Padding(6);
+            this.textBox_LeasingNum.MaxLength = 99;
             this.textBox_LeasingNum.Name = "textBox_LeasingNum";
             this.textBox_LeasingNum.Size = new System.Drawing.Size(150, 29);
             this.textBox_LeasingNum.TabIndex = 1;
@@ -508,8 +509,8 @@ namespace OGM
             this.numericUpDown_PenaltyFee.Location = new System.Drawing.Point(245, 88);
             this.numericUpDown_PenaltyFee.Margin = new System.Windows.Forms.Padding(6);
             this.numericUpDown_PenaltyFee.Maximum = new decimal(new int[] {
-            -1486618625,
-            232830643,
+            999999999,
+            0,
             0,
             0});
             this.numericUpDown_PenaltyFee.Name = "numericUpDown_PenaltyFee";
@@ -1105,8 +1106,8 @@ namespace OGM
             this.numericUpDown_Cost.Location = new System.Drawing.Point(390, 129);
             this.numericUpDown_Cost.Margin = new System.Windows.Forms.Padding(6);
             this.numericUpDown_Cost.Maximum = new decimal(new int[] {
-            999999999,
-            0,
+            -1530494977,
+            232830,
             0,
             0});
             this.numericUpDown_Cost.Name = "numericUpDown_Cost";
@@ -1129,6 +1130,7 @@ namespace OGM
             // 
             this.textBox_Amount.Location = new System.Drawing.Point(390, 88);
             this.textBox_Amount.Margin = new System.Windows.Forms.Padding(6);
+            this.textBox_Amount.MaxLength = 4;
             this.textBox_Amount.Name = "textBox_Amount";
             this.textBox_Amount.Size = new System.Drawing.Size(250, 29);
             this.textBox_Amount.TabIndex = 17;
@@ -1170,6 +1172,7 @@ namespace OGM
             // textBox_PeriodOfUse
             // 
             this.textBox_PeriodOfUse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_PeriodOfUse.Enabled = false;
             this.textBox_PeriodOfUse.Location = new System.Drawing.Point(317, 6);
             this.textBox_PeriodOfUse.Margin = new System.Windows.Forms.Padding(6);
             this.textBox_PeriodOfUse.Name = "textBox_PeriodOfUse";
@@ -1232,6 +1235,7 @@ namespace OGM
             this.textBox_AddressDelivery.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_AddressDelivery.Location = new System.Drawing.Point(226, 6);
             this.textBox_AddressDelivery.Margin = new System.Windows.Forms.Padding(6);
+            this.textBox_AddressDelivery.MaxLength = 299;
             this.textBox_AddressDelivery.Name = "textBox_AddressDelivery";
             this.textBox_AddressDelivery.Size = new System.Drawing.Size(538, 29);
             this.textBox_AddressDelivery.TabIndex = 14;

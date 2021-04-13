@@ -83,6 +83,7 @@ namespace OGM
             // textBox_InventoryNum
             // 
             this.textBox_InventoryNum.Location = new System.Drawing.Point(202, 197);
+            this.textBox_InventoryNum.MaxLength = 99;
             this.textBox_InventoryNum.Name = "textBox_InventoryNum";
             this.textBox_InventoryNum.Size = new System.Drawing.Size(370, 29);
             this.textBox_InventoryNum.TabIndex = 5;
@@ -90,6 +91,7 @@ namespace OGM
             // textBox_SerialNum
             // 
             this.textBox_SerialNum.Location = new System.Drawing.Point(202, 153);
+            this.textBox_SerialNum.MaxLength = 99;
             this.textBox_SerialNum.Name = "textBox_SerialNum";
             this.textBox_SerialNum.Size = new System.Drawing.Size(370, 29);
             this.textBox_SerialNum.TabIndex = 4;
@@ -97,6 +99,7 @@ namespace OGM
             // textBox_NameEquipment
             // 
             this.textBox_NameEquipment.Location = new System.Drawing.Point(202, 108);
+            this.textBox_NameEquipment.MaxLength = 249;
             this.textBox_NameEquipment.Name = "textBox_NameEquipment";
             this.textBox_NameEquipment.Size = new System.Drawing.Size(370, 29);
             this.textBox_NameEquipment.TabIndex = 3;
