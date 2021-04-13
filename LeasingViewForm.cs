@@ -27,6 +27,9 @@ namespace OGM {
 		{
 			InitializeComponent();
 
+			this.DoubleBuffered = true;
+			SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
 			// удаляю стрелочки для numeric
 			numericUpDown_DaysForFirstPayment.Controls.RemoveAt(0);
 			numericUpDown_DaysForForceMajeure.Controls.RemoveAt(0);
@@ -205,12 +208,17 @@ namespace OGM {
 				"[<1.3_стоимость_оборудования>]",			// хз - пропись или цифры
 				"[<1.4_дата_поставки_оборудования>]", 		// «1» апрель 2021
 				
-				"[<2.2_срок_пользования_оборудованием>]", 	// 5 
-				
+				"[<2.2_срок_пользования_оборудованием>]", 	// 5 лет, 11 месяцев
+				"[<2.3_дата_окончания_договора>]",			// «1» апреля 2021 года
+
 				"[<3.1.1_дата_договора>]",					// «1» апрель 2021
 				"[<3.2.1_пункт_поставки>]",					// ну какой-то адрес
 				
-				"[<4.5_дней_для_первого_платежа>]",			// 10
+				"[<4.1_лизингодатель_расчетный_счет>]",
+				"[<4.1_лизингодатель_банк>]",
+				"[<4.1_лизингодатель_бик>]",
+
+				"[<4.4_дней_для_первого_платежа>]",			// 10
 				
 				"[<5.1_пункт_поставки>]",					// дублирование п1.4
 				"[<5.4_срок_отказа>]",						// 3
@@ -219,6 +227,8 @@ namespace OGM {
 				"[<6.1_макс_платеж>]",						// 5
 				"[<6.2_неустойка>]",						// хз - пропись или цифры
 				
+				"[<7.1_дней_форс_мажора>]",
+
 				"[<9.3_лизингодатель_юр_адрес_и_телефон>]",
 				"[<9.3_мы_юр_адрес_и_телефон>]",
 				
@@ -248,7 +258,7 @@ namespace OGM {
 				"[<приложение_лизингополучат>]"
 			};
 
-			//string rubles = new MoneyToStr("RUR", "RUS", "NUMBER").convertValue(Convert.ToDouble(ActDebitTotalCost));
+			string rubles = new MoneyToStr("RUR", "RUS", "NUMBER").convertValue(Convert.ToDouble(LeasingContractTotalCost));
 
 			//Organization organization = (Organization)comboBox_Organization.SelectedItem;
 
@@ -262,13 +272,18 @@ namespace OGM {
 				lessee.name,
 				textBox_FIO_Lessee.Text,
 
-				"15555,00",
+				rubles,
 				DateToString.Translate(contract.date_delivery),
 
-				contract.period_of_use,
+				ConvertYearsMonths.Translate(contract.period_of_use),
+				DateToString.Translate(contract.date_end, "года"),
 
 				DateToString.Translate(contract.date),
 				contract.address_delivery,
+
+				leaser.payment_account,
+				leaser.bank,
+				leaser.BIK,
 
 				contract.days_for_first_payment.ToString(),
 
@@ -279,8 +294,11 @@ namespace OGM {
 				contract.max_penalty.ToString(),
 				contract.penalty_fee.ToString(),
 
+				contract.days_for_force_majeure.ToString(),
+
 				leaser.legal_address + " " + leaser.phone,
 				lessee.legal_address + " " + lessee.phone,
+
 
 				leaser.legal_address,
 				leaser.mailing_address,
@@ -303,8 +321,8 @@ namespace OGM {
 				contract.contract_number,
 				DateToString.Translate(contract.date, "года"),
 
-				leaser.name,
-				lessee.name
+				leaser.name + " " + textBox_FIO_Leaser.Text,
+				lessee.name + " " + textBox_FIO_Lessee.Text
 			};
 
 			// если надо открыть файл после экспорта автоматически
@@ -331,25 +349,18 @@ namespace OGM {
 			exportData.valuesCustomValues = new List<List<string>>();
 
 			foreach (DataGridViewRow row in dataGridView_Data.Rows) {
+				string name = row.Cells[0].Value.ToString();
+				string cost_per_one = row.Cells[1].Value.ToString();
+				string amount = row.Cells[2].Value.ToString();
+				string cost_per_all = row.Cells[4].Value.ToString();
 
-				//string workshop = row.Cells[1].Value.ToString();
-				//string group = row.Cells[2].Value.ToString();
-				//string inventory = row.Cells[3].Value.ToString();
-				//string name = row.Cells[4].Value.ToString();
-				//string cost = row.Cells[5].Value.ToString();
-				//string reason = row.Cells[6].Value.ToString();
-				//
-				////group,	// группа оборудования
-				//
-				//exportData.valuesCustomValues.Add(
-				//	new List<string>() {
-				//		workshop,		// цех
-				//		group,			// группа оборудования
-				//		inventory,		// инвентарный номер
-				//		name,		// наименование
-				//		cost,		// остаточная стоимость
-				//		reason		// причина списания
-				//});
+				exportData.valuesCustomValues.Add(
+					new List<string>() {
+						name,
+						cost_per_one,
+						amount,
+						cost_per_all
+				});
 			}
 
 			OfficeExport.Export(exportData);
