@@ -27,6 +27,9 @@ namespace OGM {
 		{
 			InitializeComponent();
 
+			this.DoubleBuffered = true;
+			SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
 			// удаляю стрелочки для numeric
 			numericUpDown_DaysForFirstPayment.Controls.RemoveAt(0);
 			numericUpDown_DaysForForceMajeure.Controls.RemoveAt(0);
@@ -206,7 +209,8 @@ namespace OGM {
 				"[<1.4_дата_поставки_оборудования>]", 		// «1» апрель 2021
 				
 				"[<2.2_срок_пользования_оборудованием>]", 	// 5 лет, 11 месяцев
-				
+				"[<2.3_дата_окончания_договора>]",			// «1» апреля 2021 года
+
 				"[<3.1.1_дата_договора>]",					// «1» апрель 2021
 				"[<3.2.1_пункт_поставки>]",					// ну какой-то адрес
 				
@@ -271,7 +275,8 @@ namespace OGM {
 				rubles,
 				DateToString.Translate(contract.date_delivery),
 
-				contract.period_of_use,
+				ConvertYearsMonths.Translate(contract.period_of_use),
+				DateToString.Translate(contract.date_end, "года"),
 
 				DateToString.Translate(contract.date),
 				contract.address_delivery,

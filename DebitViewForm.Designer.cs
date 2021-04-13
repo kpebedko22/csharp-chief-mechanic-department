@@ -51,24 +51,24 @@ namespace OGM {
 			this.textBox_ActTotalPrice = new System.Windows.Forms.TextBox();
 			this.dateTimePicker_ActDate = new System.Windows.Forms.DateTimePicker();
 			this.tabPageExportData = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.label9 = new System.Windows.Forms.Label();
 			this.comboBox_Organization = new System.Windows.Forms.ComboBox();
-			this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
+			this.textBox_FIO_DeputyDirector = new System.Windows.Forms.TextBox();
+			this.textBox_FIO_HeadProcurement = new System.Windows.Forms.TextBox();
+			this.textBox_FIO_Engineer = new System.Windows.Forms.TextBox();
+			this.textBox_FIO_DeputyAccountant = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.textBox_FIO_MainMechanic = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.button_Export = new System.Windows.Forms.Button();
-			this.textBox_FIO_DeputyAccountant = new System.Windows.Forms.TextBox();
-			this.textBox_FIO_Engineer = new System.Windows.Forms.TextBox();
-			this.textBox_FIO_HeadProcurement = new System.Windows.Forms.TextBox();
-			this.textBox_FIO_DeputyDirector = new System.Windows.Forms.TextBox();
-			this.textBox_FIO_MainMechanic = new System.Windows.Forms.TextBox();
+			this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
 			this.tabPageDoc = new System.Windows.Forms.TabPage();
 			this.richTextBox_ActDebit = new System.Windows.Forms.RichTextBox();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
 			this.tabControl.SuspendLayout();
@@ -77,9 +77,9 @@ namespace OGM {
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tabPageExportData.SuspendLayout();
-			this.tabPageDoc.SuspendLayout();
-			this.flowLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
+			this.flowLayoutPanel1.SuspendLayout();
+			this.tabPageDoc.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -121,13 +121,13 @@ namespace OGM {
 			// ToolStripMenuItem_Edit_Edit
 			// 
 			this.ToolStripMenuItem_Edit_Edit.Name = "ToolStripMenuItem_Edit_Edit";
-			this.ToolStripMenuItem_Edit_Edit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Edit_Edit.Size = new System.Drawing.Size(163, 22);
 			this.ToolStripMenuItem_Edit_Edit.Text = "Редактирование";
 			// 
 			// ToolStripMenuItem_Delete_Edit
 			// 
 			this.ToolStripMenuItem_Delete_Edit.Name = "ToolStripMenuItem_Delete_Edit";
-			this.ToolStripMenuItem_Delete_Edit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Delete_Edit.Size = new System.Drawing.Size(163, 22);
 			this.ToolStripMenuItem_Delete_Edit.Text = "Удаление";
 			// 
 			// tableLayoutPanel
@@ -363,178 +363,6 @@ namespace OGM {
 			this.tabPageExportData.Text = "Данные для экспорта";
 			this.tabPageExportData.UseVisualStyleBackColor = true;
 			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label9.Location = new System.Drawing.Point(291, 39);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(105, 47);
-			this.label9.TabIndex = 8;
-			this.label9.Text = "Организация";
-			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// comboBox_Organization
-			// 
-			this.comboBox_Organization.FormattingEnabled = true;
-			this.comboBox_Organization.Location = new System.Drawing.Point(408, 48);
-			this.comboBox_Organization.Margin = new System.Windows.Forms.Padding(9);
-			this.comboBox_Organization.Name = "comboBox_Organization";
-			this.comboBox_Organization.Size = new System.Drawing.Size(250, 29);
-			this.comboBox_Organization.TabIndex = 0;
-			// 
-			// checkBox_OpenFileExport
-			// 
-			this.checkBox_OpenFileExport.AutoSize = true;
-			this.checkBox_OpenFileExport.Checked = true;
-			this.checkBox_OpenFileExport.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox_OpenFileExport.Location = new System.Drawing.Point(211, 3);
-			this.checkBox_OpenFileExport.Name = "checkBox_OpenFileExport";
-			this.checkBox_OpenFileExport.Size = new System.Drawing.Size(350, 25);
-			this.checkBox_OpenFileExport.TabIndex = 6;
-			this.checkBox_OpenFileExport.Text = "Открыть документ по завершению экспорта";
-			this.checkBox_OpenFileExport.UseVisualStyleBackColor = true;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label5.Location = new System.Drawing.Point(105, 274);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(291, 47);
-			this.label5.TabIndex = 2;
-			this.label5.Text = "Заместитель главного бухгалтера, ФИО";
-			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label4.Location = new System.Drawing.Point(276, 227);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(120, 47);
-			this.label4.TabIndex = 2;
-			this.label4.Text = "Инженер, ФИО";
-			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label3.Location = new System.Drawing.Point(150, 180);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(246, 47);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "Начальник отдела закупок, ФИО";
-			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label2.Location = new System.Drawing.Point(143, 133);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(253, 47);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "Заместитель ген. директора, ФИО";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label1.Location = new System.Drawing.Point(218, 86);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(178, 47);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "Главный механик, ФИО";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// button_Export
-			// 
-			this.button_Export.Location = new System.Drawing.Point(567, 3);
-			this.button_Export.Name = "button_Export";
-			this.button_Export.Size = new System.Drawing.Size(200, 29);
-			this.button_Export.TabIndex = 7;
-			this.button_Export.Text = "Экспортировать";
-			this.button_Export.UseVisualStyleBackColor = true;
-			this.button_Export.Click += new System.EventHandler(this.button_Export_Click);
-			// 
-			// textBox_FIO_DeputyAccountant
-			// 
-			this.textBox_FIO_DeputyAccountant.Location = new System.Drawing.Point(408, 283);
-			this.textBox_FIO_DeputyAccountant.Margin = new System.Windows.Forms.Padding(9);
-			this.textBox_FIO_DeputyAccountant.Name = "textBox_FIO_DeputyAccountant";
-			this.textBox_FIO_DeputyAccountant.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_DeputyAccountant.TabIndex = 5;
-			// 
-			// textBox_FIO_Engineer
-			// 
-			this.textBox_FIO_Engineer.Location = new System.Drawing.Point(408, 236);
-			this.textBox_FIO_Engineer.Margin = new System.Windows.Forms.Padding(9);
-			this.textBox_FIO_Engineer.Name = "textBox_FIO_Engineer";
-			this.textBox_FIO_Engineer.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_Engineer.TabIndex = 4;
-			// 
-			// textBox_FIO_HeadProcurement
-			// 
-			this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(408, 189);
-			this.textBox_FIO_HeadProcurement.Margin = new System.Windows.Forms.Padding(9);
-			this.textBox_FIO_HeadProcurement.Name = "textBox_FIO_HeadProcurement";
-			this.textBox_FIO_HeadProcurement.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_HeadProcurement.TabIndex = 3;
-			// 
-			// textBox_FIO_DeputyDirector
-			// 
-			this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(408, 142);
-			this.textBox_FIO_DeputyDirector.Margin = new System.Windows.Forms.Padding(9);
-			this.textBox_FIO_DeputyDirector.Name = "textBox_FIO_DeputyDirector";
-			this.textBox_FIO_DeputyDirector.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_DeputyDirector.TabIndex = 2;
-			// 
-			// textBox_FIO_MainMechanic
-			// 
-			this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(408, 95);
-			this.textBox_FIO_MainMechanic.Margin = new System.Windows.Forms.Padding(9);
-			this.textBox_FIO_MainMechanic.Name = "textBox_FIO_MainMechanic";
-			this.textBox_FIO_MainMechanic.Size = new System.Drawing.Size(250, 29);
-			this.textBox_FIO_MainMechanic.TabIndex = 1;
-			// 
-			// tabPageDoc
-			// 
-			this.tabPageDoc.Controls.Add(this.richTextBox_ActDebit);
-			this.tabPageDoc.Location = new System.Drawing.Point(4, 30);
-			this.tabPageDoc.Name = "tabPageDoc";
-			this.tabPageDoc.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageDoc.Size = new System.Drawing.Size(770, 396);
-			this.tabPageDoc.TabIndex = 0;
-			this.tabPageDoc.Text = "Шаблон документа";
-			this.tabPageDoc.UseVisualStyleBackColor = true;
-			// 
-			// richTextBox_ActDebit
-			// 
-			this.richTextBox_ActDebit.BackColor = System.Drawing.Color.White;
-			this.richTextBox_ActDebit.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.richTextBox_ActDebit.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.richTextBox_ActDebit.Location = new System.Drawing.Point(3, 3);
-			this.richTextBox_ActDebit.Name = "richTextBox_ActDebit";
-			this.richTextBox_ActDebit.ReadOnly = true;
-			this.richTextBox_ActDebit.Size = new System.Drawing.Size(764, 390);
-			this.richTextBox_ActDebit.TabIndex = 0;
-			this.richTextBox_ActDebit.Text = "";
-			// 
-			// flowLayoutPanel1
-			// 
-			this.flowLayoutPanel1.AutoSize = true;
-			this.flowLayoutPanel1.Controls.Add(this.button_Export);
-			this.flowLayoutPanel1.Controls.Add(this.checkBox_OpenFileExport);
-			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 361);
-			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 35);
-			this.flowLayoutPanel1.TabIndex = 10;
-			// 
 			// tableLayoutPanel3
 			// 
 			this.tableLayoutPanel3.ColumnCount = 4;
@@ -569,6 +397,178 @@ namespace OGM {
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(770, 361);
 			this.tableLayoutPanel3.TabIndex = 11;
 			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label9.Location = new System.Drawing.Point(291, 43);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(105, 39);
+			this.label9.TabIndex = 8;
+			this.label9.Text = "Организация";
+			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// comboBox_Organization
+			// 
+			this.comboBox_Organization.FormattingEnabled = true;
+			this.comboBox_Organization.Location = new System.Drawing.Point(408, 52);
+			this.comboBox_Organization.Margin = new System.Windows.Forms.Padding(9);
+			this.comboBox_Organization.Name = "comboBox_Organization";
+			this.comboBox_Organization.Size = new System.Drawing.Size(250, 29);
+			this.comboBox_Organization.TabIndex = 0;
+			// 
+			// textBox_FIO_DeputyDirector
+			// 
+			this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(408, 138);
+			this.textBox_FIO_DeputyDirector.Margin = new System.Windows.Forms.Padding(9);
+			this.textBox_FIO_DeputyDirector.Name = "textBox_FIO_DeputyDirector";
+			this.textBox_FIO_DeputyDirector.Size = new System.Drawing.Size(250, 29);
+			this.textBox_FIO_DeputyDirector.TabIndex = 2;
+			// 
+			// textBox_FIO_HeadProcurement
+			// 
+			this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(408, 185);
+			this.textBox_FIO_HeadProcurement.Margin = new System.Windows.Forms.Padding(9);
+			this.textBox_FIO_HeadProcurement.Name = "textBox_FIO_HeadProcurement";
+			this.textBox_FIO_HeadProcurement.Size = new System.Drawing.Size(250, 29);
+			this.textBox_FIO_HeadProcurement.TabIndex = 3;
+			// 
+			// textBox_FIO_Engineer
+			// 
+			this.textBox_FIO_Engineer.Location = new System.Drawing.Point(408, 232);
+			this.textBox_FIO_Engineer.Margin = new System.Windows.Forms.Padding(9);
+			this.textBox_FIO_Engineer.Name = "textBox_FIO_Engineer";
+			this.textBox_FIO_Engineer.Size = new System.Drawing.Size(250, 29);
+			this.textBox_FIO_Engineer.TabIndex = 4;
+			// 
+			// textBox_FIO_DeputyAccountant
+			// 
+			this.textBox_FIO_DeputyAccountant.Location = new System.Drawing.Point(408, 279);
+			this.textBox_FIO_DeputyAccountant.Margin = new System.Windows.Forms.Padding(9);
+			this.textBox_FIO_DeputyAccountant.Name = "textBox_FIO_DeputyAccountant";
+			this.textBox_FIO_DeputyAccountant.Size = new System.Drawing.Size(250, 29);
+			this.textBox_FIO_DeputyAccountant.TabIndex = 5;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label5.Location = new System.Drawing.Point(105, 270);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(291, 47);
+			this.label5.TabIndex = 2;
+			this.label5.Text = "Заместитель главного бухгалтера, ФИО";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// textBox_FIO_MainMechanic
+			// 
+			this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(408, 91);
+			this.textBox_FIO_MainMechanic.Margin = new System.Windows.Forms.Padding(9);
+			this.textBox_FIO_MainMechanic.Name = "textBox_FIO_MainMechanic";
+			this.textBox_FIO_MainMechanic.Size = new System.Drawing.Size(250, 29);
+			this.textBox_FIO_MainMechanic.TabIndex = 1;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label4.Location = new System.Drawing.Point(276, 223);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(120, 47);
+			this.label4.TabIndex = 2;
+			this.label4.Text = "Инженер, ФИО";
+			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label1.Location = new System.Drawing.Point(218, 82);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(178, 47);
+			this.label1.TabIndex = 2;
+			this.label1.Text = "Главный механик, ФИО";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label3.Location = new System.Drawing.Point(150, 176);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(246, 47);
+			this.label3.TabIndex = 2;
+			this.label3.Text = "Начальник отдела закупок, ФИО";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label2.Location = new System.Drawing.Point(143, 129);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(253, 47);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Заместитель ген. директора, ФИО";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.AutoSize = true;
+			this.flowLayoutPanel1.Controls.Add(this.button_Export);
+			this.flowLayoutPanel1.Controls.Add(this.checkBox_OpenFileExport);
+			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 361);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 35);
+			this.flowLayoutPanel1.TabIndex = 10;
+			// 
+			// button_Export
+			// 
+			this.button_Export.Location = new System.Drawing.Point(567, 3);
+			this.button_Export.Name = "button_Export";
+			this.button_Export.Size = new System.Drawing.Size(200, 29);
+			this.button_Export.TabIndex = 7;
+			this.button_Export.Text = "Экспортировать";
+			this.button_Export.UseVisualStyleBackColor = true;
+			this.button_Export.Click += new System.EventHandler(this.button_Export_Click);
+			// 
+			// checkBox_OpenFileExport
+			// 
+			this.checkBox_OpenFileExport.AutoSize = true;
+			this.checkBox_OpenFileExport.Checked = true;
+			this.checkBox_OpenFileExport.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox_OpenFileExport.Location = new System.Drawing.Point(211, 3);
+			this.checkBox_OpenFileExport.Name = "checkBox_OpenFileExport";
+			this.checkBox_OpenFileExport.Size = new System.Drawing.Size(350, 25);
+			this.checkBox_OpenFileExport.TabIndex = 6;
+			this.checkBox_OpenFileExport.Text = "Открыть документ по завершению экспорта";
+			this.checkBox_OpenFileExport.UseVisualStyleBackColor = true;
+			// 
+			// tabPageDoc
+			// 
+			this.tabPageDoc.Controls.Add(this.richTextBox_ActDebit);
+			this.tabPageDoc.Location = new System.Drawing.Point(4, 30);
+			this.tabPageDoc.Name = "tabPageDoc";
+			this.tabPageDoc.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageDoc.Size = new System.Drawing.Size(770, 396);
+			this.tabPageDoc.TabIndex = 0;
+			this.tabPageDoc.Text = "Шаблон документа";
+			this.tabPageDoc.UseVisualStyleBackColor = true;
+			// 
+			// richTextBox_ActDebit
+			// 
+			this.richTextBox_ActDebit.BackColor = System.Drawing.Color.White;
+			this.richTextBox_ActDebit.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.richTextBox_ActDebit.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.richTextBox_ActDebit.Location = new System.Drawing.Point(3, 3);
+			this.richTextBox_ActDebit.Name = "richTextBox_ActDebit";
+			this.richTextBox_ActDebit.ReadOnly = true;
+			this.richTextBox_ActDebit.Size = new System.Drawing.Size(764, 390);
+			this.richTextBox_ActDebit.TabIndex = 0;
+			this.richTextBox_ActDebit.Text = "";
+			// 
 			// DebitViewForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -594,11 +594,11 @@ namespace OGM {
 			this.tableLayoutPanel2.PerformLayout();
 			this.tabPageExportData.ResumeLayout(false);
 			this.tabPageExportData.PerformLayout();
-			this.tabPageDoc.ResumeLayout(false);
-			this.flowLayoutPanel1.ResumeLayout(false);
-			this.flowLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.tableLayoutPanel3.PerformLayout();
+			this.flowLayoutPanel1.ResumeLayout(false);
+			this.flowLayoutPanel1.PerformLayout();
+			this.tabPageDoc.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

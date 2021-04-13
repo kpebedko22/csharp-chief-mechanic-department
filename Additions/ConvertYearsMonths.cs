@@ -15,7 +15,6 @@ namespace OGM.Additions
 
             string[] splited = str.Split(',');
 
-
             int years = Convert.ToInt32(splited[0]);
             int months = Convert.ToInt32(splited[1]);
 

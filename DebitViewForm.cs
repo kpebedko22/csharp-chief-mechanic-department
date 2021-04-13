@@ -23,6 +23,9 @@ namespace OGM {
 		public DebitViewForm(ActDebit actDebit) {
 			InitializeComponent();
 
+			this.DoubleBuffered = true;
+			SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
 			// сохраняем текущий акт списания в переменную формы
 			ActDebit = actDebit;
 
