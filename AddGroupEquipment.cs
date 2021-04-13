@@ -70,7 +70,25 @@ namespace OGM
 
                 int PK_Workshop = -1;
                 if (comboBox1.SelectedItem != null && comboBox1.SelectedIndex != -1)
+                {
                     PK_Workshop = ((Workshop)this.comboBox1.SelectedItem).PK_Workshop;
+
+
+                    string[] temp = ((Workshop)comboBox1.SelectedItem).name.Split();
+
+                    string workshop_short_name = "";
+
+                    try
+                    {
+                        foreach (string item in temp)
+                            workshop_short_name += item.ToUpper()[0];
+                    }
+                    catch { }
+                    
+
+                    newEquipmentGroup.сipher = workshop_short_name + "-" + newEquipmentGroup.сipher;
+
+                }
 
 
                 if (PK_Workshop != -1)
