@@ -366,5 +366,13 @@ namespace OGM {
 			OfficeExport.Export(exportData);
 		}
 
-	}
+        private void numericUpDown_DaysForFirstPayment_Paint(object sender, PaintEventArgs e)
+        {
+			e.Graphics.Clear(SystemColors.Window);
+			base.OnPaint(e);
+		}
+
+
+
+    }
 }
