@@ -20,6 +20,11 @@ namespace OGM {
 			textBox_Password.Text = "admin";
 		}
 
+		public bool is_fullscreen()
+        {
+			return this.checkBox_FullScreen.Checked;
+        }
+
 		private void button_LogIn_Click(object sender, EventArgs e) {
 			panel_Login.Visible = false;
 			panel_ChooseModel.Visible = true;

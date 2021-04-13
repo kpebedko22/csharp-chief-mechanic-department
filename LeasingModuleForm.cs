@@ -25,8 +25,8 @@ namespace OGM
             InitializeComponent();
 
             Owner = owner;
+            if (((LogInForm)owner).is_fullscreen()) this.WindowState = FormWindowState.Maximized;
 
-            
 
             this.comboBox_Leaser.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.comboBox_Leaser.AutoCompleteSource = AutoCompleteSource.CustomSource;

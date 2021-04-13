@@ -55,6 +55,8 @@ namespace OGM {
 
 			Owner = owner;
 
+			if (((LogInForm)owner).is_fullscreen())	this.WindowState = FormWindowState.Maximized;
+
 			dataGridView_Debit.AutoGenerateColumns = false;
 			dataGridView_Debit.ReadOnly = true;
 
