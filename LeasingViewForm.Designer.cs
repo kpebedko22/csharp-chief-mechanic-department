@@ -1154,6 +1154,8 @@ namespace OGM {
 			this.ShowIcon = false;
 			this.Text = "Просмотр договора лизинга";
 			this.Load += new System.EventHandler(this.LeasingViewForm_Load);
+			this.ResizeBegin += new System.EventHandler(this.LeasingViewForm_ResizeBegin);
+			this.ResizeEnd += new System.EventHandler(this.LeasingViewForm_ResizeEnd);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.tableLayoutPanel.ResumeLayout(false);
