@@ -34,8 +34,6 @@ namespace OGM {
 			// выводим лейбл формы
 			label_ActDebitNum.Text = "Акт списания оборудования №" + ActDebit.act_number;
 
-			// загрузка документа в таб "шаблон документа"
-			OpenTemplateDocument();
 
 			// выбрать все строки акта списания из БД
 			debitEquipments = ActDebit.GetDebitEquipments();
@@ -74,15 +72,7 @@ namespace OGM {
 			}
 		}
 
-		private void OpenTemplateDocument() {
-			try {
-				string path = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template.rtf";
-				richTextBox_ActDebit.LoadFile(path);
-			}
-			catch (Exception e) {
-				MessageBox.Show(e.Message);
-			}
-		}
+
 
 		private void ExportDoc(string nameFileExport) {
 
