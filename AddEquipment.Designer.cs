@@ -42,6 +42,9 @@ namespace OGM
             this.label_NameEquipment = new System.Windows.Forms.Label();
             this.button_AddEquipmentAndClose = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDown_Cost = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox_Workshop
@@ -56,15 +59,15 @@ namespace OGM
             // label_Workshop
             // 
             this.label_Workshop.AutoSize = true;
-            this.label_Workshop.Location = new System.Drawing.Point(152, 21);
+            this.label_Workshop.Location = new System.Drawing.Point(152, 22);
             this.label_Workshop.Name = "label_Workshop";
-            this.label_Workshop.Size = new System.Drawing.Size(40, 21);
+            this.label_Workshop.Size = new System.Drawing.Size(37, 21);
             this.label_Workshop.TabIndex = 20;
-            this.label_Workshop.Text = "Цех:";
+            this.label_Workshop.Text = "Цех";
             // 
             // button_AddEquipment
             // 
-            this.button_AddEquipment.Location = new System.Drawing.Point(12, 270);
+            this.button_AddEquipment.Location = new System.Drawing.Point(12, 296);
             this.button_AddEquipment.Name = "button_AddEquipment";
             this.button_AddEquipment.Size = new System.Drawing.Size(180, 29);
             this.button_AddEquipment.TabIndex = 6;
@@ -107,42 +110,42 @@ namespace OGM
             // label_GroupEquipment
             // 
             this.label_GroupEquipment.AutoSize = true;
-            this.label_GroupEquipment.Location = new System.Drawing.Point(133, 66);
+            this.label_GroupEquipment.Location = new System.Drawing.Point(128, 66);
             this.label_GroupEquipment.Name = "label_GroupEquipment";
-            this.label_GroupEquipment.Size = new System.Drawing.Size(64, 21);
+            this.label_GroupEquipment.Size = new System.Drawing.Size(61, 21);
             this.label_GroupEquipment.TabIndex = 14;
-            this.label_GroupEquipment.Text = "Группа:";
+            this.label_GroupEquipment.Text = "Группа";
             // 
             // label_InventoryNum
             // 
             this.label_InventoryNum.AutoSize = true;
-            this.label_InventoryNum.Location = new System.Drawing.Point(34, 201);
+            this.label_InventoryNum.Location = new System.Drawing.Point(30, 201);
             this.label_InventoryNum.Name = "label_InventoryNum";
-            this.label_InventoryNum.Size = new System.Drawing.Size(162, 21);
+            this.label_InventoryNum.Size = new System.Drawing.Size(159, 21);
             this.label_InventoryNum.TabIndex = 13;
-            this.label_InventoryNum.Text = "Инвентарный номер:";
+            this.label_InventoryNum.Text = "Инвентарный номер";
             // 
             // label_SerialNum
             // 
             this.label_SerialNum.AutoSize = true;
-            this.label_SerialNum.Location = new System.Drawing.Point(59, 157);
+            this.label_SerialNum.Location = new System.Drawing.Point(55, 157);
             this.label_SerialNum.Name = "label_SerialNum";
-            this.label_SerialNum.Size = new System.Drawing.Size(137, 21);
+            this.label_SerialNum.Size = new System.Drawing.Size(134, 21);
             this.label_SerialNum.TabIndex = 12;
-            this.label_SerialNum.Text = "Серийный номер:";
+            this.label_SerialNum.Text = "Серийный номер";
             // 
             // label_NameEquipment
             // 
             this.label_NameEquipment.AutoSize = true;
-            this.label_NameEquipment.Location = new System.Drawing.Point(76, 112);
+            this.label_NameEquipment.Location = new System.Drawing.Point(72, 112);
             this.label_NameEquipment.Name = "label_NameEquipment";
-            this.label_NameEquipment.Size = new System.Drawing.Size(120, 21);
+            this.label_NameEquipment.Size = new System.Drawing.Size(117, 21);
             this.label_NameEquipment.TabIndex = 11;
-            this.label_NameEquipment.Text = "Наименование:";
+            this.label_NameEquipment.Text = "Наименование";
             // 
             // button_AddEquipmentAndClose
             // 
-            this.button_AddEquipmentAndClose.Location = new System.Drawing.Point(202, 270);
+            this.button_AddEquipmentAndClose.Location = new System.Drawing.Point(202, 296);
             this.button_AddEquipmentAndClose.Name = "button_AddEquipmentAndClose";
             this.button_AddEquipmentAndClose.Size = new System.Drawing.Size(180, 29);
             this.button_AddEquipmentAndClose.TabIndex = 7;
@@ -152,7 +155,7 @@ namespace OGM
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(392, 270);
+            this.button_Cancel.Location = new System.Drawing.Point(392, 296);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(180, 29);
             this.button_Cancel.TabIndex = 8;
@@ -160,11 +163,35 @@ namespace OGM
             this.button_Cancel.UseVisualStyleBackColor = true;
             this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(102, 249);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 21);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Стоимость";
+            // 
+            // numericUpDown_Cost
+            // 
+            this.numericUpDown_Cost.DecimalPlaces = 2;
+            this.numericUpDown_Cost.Location = new System.Drawing.Point(202, 245);
+            this.numericUpDown_Cost.Maximum = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
+            this.numericUpDown_Cost.Name = "numericUpDown_Cost";
+            this.numericUpDown_Cost.Size = new System.Drawing.Size(370, 29);
+            this.numericUpDown_Cost.TabIndex = 23;
+            // 
             // AddEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 311);
+            this.ClientSize = new System.Drawing.Size(584, 337);
+            this.Controls.Add(this.numericUpDown_Cost);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_AddEquipmentAndClose);
             this.Controls.Add(this.comboBox_Workshop);
@@ -185,6 +212,8 @@ namespace OGM
             this.MinimizeBox = false;
             this.Name = "AddEquipment";
             this.Text = "Справочник - Добавить оборудование";
+            this.Load += new System.EventHandler(this.AddEquipment_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +234,7 @@ namespace OGM
         private System.Windows.Forms.Label label_NameEquipment;
         private System.Windows.Forms.Button button_AddEquipmentAndClose;
         private System.Windows.Forms.Button button_Cancel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_Cost;
     }
 }

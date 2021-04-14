@@ -89,7 +89,7 @@ namespace OGM
             if (String.IsNullOrWhiteSpace(this.textBox_SerialNum.Text)) this.textBox_SerialNum.Text = "";
 
 
-            List<Equipment> equipments = Program.db.Equipments.ToList();
+            List<Equipment> equipments = Program.db.Equipments.OrderBy(b => b.inventory_number).ToList();
             List<Equipment> equipmentsResult = new List<Equipment>();
 
             int PK_Workshop = -1;

@@ -53,6 +53,7 @@ namespace OGM
                 this.textBox_NameEquipment.Text = equipment.name;
                 this.textBox_InventoryNum.Text = equipment.inventory_number;
                 this.textBox_SerialNum.Text = equipment.serial_number;
+                this.numericUpDown_Cost.Value = equipment.cost;
 
                 Workshop workshop = Program.db.Workshops.Find(equipment.PK_Workshop);
                 this.comboBox_Workshop.SelectedItem = workshop;
@@ -92,6 +93,7 @@ namespace OGM
                 newEquipment.inventory_number = this.textBox_InventoryNum.Text;
                 newEquipment.serial_number = this.textBox_SerialNum.Text;
                 newEquipment.PK_Equipment_Group = ((EquipmentGroup)this.comboBox_GroupEquipment.SelectedItem).PK_Equipment_Group;
+                newEquipment.cost = this.numericUpDown_Cost.Value;
 
                 Program.db.Equipments.Add(newEquipment);
                 MessageBox.Show("Успешно добавлено!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -106,6 +108,7 @@ namespace OGM
                 this.EditEquipment.name = this.textBox_NameEquipment.Text;
                 this.EditEquipment.inventory_number = this.textBox_InventoryNum.Text;
                 this.EditEquipment.serial_number = this.textBox_SerialNum.Text;
+                this.EditEquipment.cost = this.numericUpDown_Cost.Value;
 
                 // Workshop workshop = ((Workshop)this.comboBox_Workshop.SelectedItem);
                 EquipmentGroup equipmentGroup = ((EquipmentGroup)this.comboBox_GroupEquipment.SelectedItem);
@@ -159,6 +162,11 @@ namespace OGM
                 this.comboBox_GroupEquipment.Text = "";
                 this.comboBox_GroupEquipment.SelectedIndex = -1;
             }
+        }
+
+        private void AddEquipment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
