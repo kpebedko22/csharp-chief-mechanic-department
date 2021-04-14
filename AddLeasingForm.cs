@@ -426,7 +426,9 @@ namespace OGM
                     equipment.inventory_number = "ЛИЗ-" + leasingContract.contract_number + "-" + count.ToString();
                     equipment.cost = this.numericUpDown_Cost.Value;
                     equipment.PK_Equipment_Group = pk_group;
-                    equipment.serial_number = " "; 
+                    equipment.serial_number = " ";
+                    equipment.is_debit = false;
+                    equipment.is_leasing = true;
 
                     Program.db.Equipments.Add(equipment);
 

@@ -219,6 +219,8 @@ namespace OGM {
             // checkBox_FullScreen
             // 
             this.checkBox_FullScreen.AutoSize = true;
+            this.checkBox_FullScreen.Checked = true;
+            this.checkBox_FullScreen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_FullScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBox_FullScreen.Location = new System.Drawing.Point(449, 3);
             this.checkBox_FullScreen.Margin = new System.Windows.Forms.Padding(240, 3, 3, 3);
@@ -365,8 +367,8 @@ namespace OGM {
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 361);
-            this.Controls.Add(this.panel_Login);
             this.Controls.Add(this.panel_ChooseModel);
+            this.Controls.Add(this.panel_Login);
             this.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

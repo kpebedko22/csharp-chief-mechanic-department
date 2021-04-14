@@ -151,7 +151,7 @@ namespace OGM {
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(884, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(884, 20);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -198,13 +198,13 @@ namespace OGM {
             this.tableLayoutPanel.Controls.Add(this.label_LeasingContractNumber, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.tabControl, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 25);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 16);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.786611F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.21339F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(884, 686);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(884, 694);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // label_LeasingContractNumber
@@ -227,7 +227,7 @@ namespace OGM {
             this.tabControl.Location = new System.Drawing.Point(3, 63);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(878, 620);
+            this.tabControl.Size = new System.Drawing.Size(878, 628);
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -236,7 +236,7 @@ namespace OGM {
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(870, 586);
+            this.tabPage1.Size = new System.Drawing.Size(870, 594);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Основная информация";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@ namespace OGM {
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(864, 580);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(864, 588);
             this.tableLayoutPanel12.TabIndex = 36;
             // 
             // tableLayoutPanel7
@@ -1225,7 +1225,7 @@ namespace OGM {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 711);
+            this.ClientSize = new System.Drawing.Size(1105, 888);
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe WP", 12F);

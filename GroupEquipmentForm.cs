@@ -145,7 +145,7 @@ namespace OGM
 
 
             // применим удаление
-            foreach (var workshop in EquipmentGroupsForRemove)
+            foreach (var workshop in EquipmentGroupsForRemove) 
                 Program.db.Remove(workshop);
 
             Program.db.SaveChanges();

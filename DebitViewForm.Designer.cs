@@ -89,7 +89,7 @@ namespace OGM {
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(784, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 20);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -136,13 +136,13 @@ namespace OGM {
             this.tableLayoutPanel.Controls.Add(this.label_ActDebitNum, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.tabControl, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 25);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 16);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.Size = new System.Drawing.Size(784, 486);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(784, 494);
             this.tableLayoutPanel.TabIndex = 2;
             // 
             // label_ActDebitNum
@@ -164,7 +164,7 @@ namespace OGM {
             this.tabControl.Location = new System.Drawing.Point(3, 53);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(778, 430);
+            this.tabControl.Size = new System.Drawing.Size(778, 438);
             this.tabControl.TabIndex = 1;
             // 
             // tabPage2
@@ -173,7 +173,7 @@ namespace OGM {
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(770, 396);
+            this.tabPage2.Size = new System.Drawing.Size(770, 404);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Спецификация";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@ namespace OGM {
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(764, 390);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(764, 398);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dataGridView_Data
@@ -212,7 +212,7 @@ namespace OGM {
             this.dataGridView_Data.Location = new System.Drawing.Point(3, 103);
             this.dataGridView_Data.Name = "dataGridView_Data";
             this.dataGridView_Data.ReadOnly = true;
-            this.dataGridView_Data.Size = new System.Drawing.Size(758, 284);
+            this.dataGridView_Data.Size = new System.Drawing.Size(758, 292);
             this.dataGridView_Data.TabIndex = 1;
             // 
             // ColumnIndex
@@ -572,7 +572,7 @@ namespace OGM {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 511);
+            this.ClientSize = new System.Drawing.Size(980, 638);
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
