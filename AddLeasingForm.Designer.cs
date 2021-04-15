@@ -87,12 +87,6 @@ namespace OGM
             this.tabPage_Equipment = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column_PK_Equipment_Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Cost_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Mesure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_RowOfTable = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_AddRowEquipment = new System.Windows.Forms.Button();
@@ -139,6 +133,12 @@ namespace OGM
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.Column_PK_Equipment_Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Cost_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Mesure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabPage_MainInfo.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -922,49 +922,6 @@ namespace OGM
             this.dataGridView1.Size = new System.Drawing.Size(858, 213);
             this.dataGridView1.TabIndex = 21;
             // 
-            // Column_PK_Equipment_Group
-            // 
-            this.Column_PK_Equipment_Group.HeaderText = "ПК_Группы_Оборудования";
-            this.Column_PK_Equipment_Group.Name = "Column_PK_Equipment_Group";
-            this.Column_PK_Equipment_Group.Visible = false;
-            // 
-            // Column_NameEquipment
-            // 
-            this.Column_NameEquipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column_NameEquipment.HeaderText = "Наименование";
-            this.Column_NameEquipment.Name = "Column_NameEquipment";
-            this.Column_NameEquipment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column_NameEquipment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column_Cost_1
-            // 
-            this.Column_Cost_1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column_Cost_1.HeaderText = "Стоимость за единицу";
-            this.Column_Cost_1.Name = "Column_Cost_1";
-            // 
-            // Column_Amount
-            // 
-            this.Column_Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column_Amount.HeaderText = "Количество";
-            this.Column_Amount.Name = "Column_Amount";
-            this.Column_Amount.ReadOnly = true;
-            this.Column_Amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column_Amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column_Mesure
-            // 
-            this.Column_Mesure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column_Mesure.HeaderText = "Ед. измерения";
-            this.Column_Mesure.Name = "Column_Mesure";
-            this.Column_Mesure.ReadOnly = true;
-            // 
-            // Column_Cost
-            // 
-            this.Column_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column_Cost.HeaderText = "Стоимость";
-            this.Column_Cost.Name = "Column_Cost";
-            this.Column_Cost.ReadOnly = true;
-            // 
             // groupBox_RowOfTable
             // 
             this.groupBox_RowOfTable.Controls.Add(this.flowLayoutPanel2);
@@ -1049,7 +1006,7 @@ namespace OGM
             // comboBox_Workshop
             // 
             this.comboBox_Workshop.FormattingEnabled = true;
-            this.comboBox_Workshop.Location = new System.Drawing.Point(390, 6);
+            this.comboBox_Workshop.Location = new System.Drawing.Point(370, 6);
             this.comboBox_Workshop.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox_Workshop.Name = "comboBox_Workshop";
             this.comboBox_Workshop.Size = new System.Drawing.Size(250, 29);
@@ -1059,7 +1016,7 @@ namespace OGM
             // comboBox_Equipment
             // 
             this.comboBox_Equipment.FormattingEnabled = true;
-            this.comboBox_Equipment.Location = new System.Drawing.Point(390, 47);
+            this.comboBox_Equipment.Location = new System.Drawing.Point(370, 47);
             this.comboBox_Equipment.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox_Equipment.Name = "comboBox_Equipment";
             this.comboBox_Equipment.Size = new System.Drawing.Size(250, 29);
@@ -1070,18 +1027,18 @@ namespace OGM
             // 
             this.label_Cost.AutoSize = true;
             this.label_Cost.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_Cost.Location = new System.Drawing.Point(209, 123);
+            this.label_Cost.Location = new System.Drawing.Point(229, 123);
             this.label_Cost.Name = "label_Cost";
-            this.label_Cost.Size = new System.Drawing.Size(172, 41);
+            this.label_Cost.Size = new System.Drawing.Size(132, 41);
             this.label_Cost.TabIndex = 26;
-            this.label_Cost.Text = "Стоимость за единицу";
+            this.label_Cost.Text = "Цена за единицу";
             this.label_Cost.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(344, 0);
+            this.label1.Location = new System.Drawing.Point(324, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 41);
             this.label1.TabIndex = 28;
@@ -1092,7 +1049,7 @@ namespace OGM
             // 
             this.label_Amount.AutoSize = true;
             this.label_Amount.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_Amount.Location = new System.Drawing.Point(288, 82);
+            this.label_Amount.Location = new System.Drawing.Point(268, 82);
             this.label_Amount.Name = "label_Amount";
             this.label_Amount.Size = new System.Drawing.Size(93, 41);
             this.label_Amount.TabIndex = 24;
@@ -1103,7 +1060,7 @@ namespace OGM
             // 
             this.numericUpDown_Cost.DecimalPlaces = 2;
             this.numericUpDown_Cost.InterceptArrowKeys = false;
-            this.numericUpDown_Cost.Location = new System.Drawing.Point(390, 129);
+            this.numericUpDown_Cost.Location = new System.Drawing.Point(370, 129);
             this.numericUpDown_Cost.Margin = new System.Windows.Forms.Padding(6);
             this.numericUpDown_Cost.Maximum = new decimal(new int[] {
             -1530494977,
@@ -1119,7 +1076,7 @@ namespace OGM
             // 
             this.label_Equipment.AutoSize = true;
             this.label_Equipment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_Equipment.Location = new System.Drawing.Point(264, 41);
+            this.label_Equipment.Location = new System.Drawing.Point(244, 41);
             this.label_Equipment.Name = "label_Equipment";
             this.label_Equipment.Size = new System.Drawing.Size(117, 41);
             this.label_Equipment.TabIndex = 24;
@@ -1128,7 +1085,7 @@ namespace OGM
             // 
             // textBox_Amount
             // 
-            this.textBox_Amount.Location = new System.Drawing.Point(390, 88);
+            this.textBox_Amount.Location = new System.Drawing.Point(370, 88);
             this.textBox_Amount.Margin = new System.Windows.Forms.Padding(6);
             this.textBox_Amount.MaxLength = 4;
             this.textBox_Amount.Name = "textBox_Amount";
@@ -1474,6 +1431,49 @@ namespace OGM
             this.tableLayoutPanel9.Size = new System.Drawing.Size(878, 94);
             this.tableLayoutPanel9.TabIndex = 3;
             // 
+            // Column_PK_Equipment_Group
+            // 
+            this.Column_PK_Equipment_Group.HeaderText = "ПК_Группы_Оборудования";
+            this.Column_PK_Equipment_Group.Name = "Column_PK_Equipment_Group";
+            this.Column_PK_Equipment_Group.Visible = false;
+            // 
+            // Column_NameEquipment
+            // 
+            this.Column_NameEquipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_NameEquipment.HeaderText = "Наименование";
+            this.Column_NameEquipment.Name = "Column_NameEquipment";
+            this.Column_NameEquipment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_NameEquipment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column_Cost_1
+            // 
+            this.Column_Cost_1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_Cost_1.HeaderText = "Цена за единицу";
+            this.Column_Cost_1.Name = "Column_Cost_1";
+            // 
+            // Column_Amount
+            // 
+            this.Column_Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_Amount.HeaderText = "Количество";
+            this.Column_Amount.Name = "Column_Amount";
+            this.Column_Amount.ReadOnly = true;
+            this.Column_Amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_Amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column_Mesure
+            // 
+            this.Column_Mesure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_Mesure.HeaderText = "Ед. измерения";
+            this.Column_Mesure.Name = "Column_Mesure";
+            this.Column_Mesure.ReadOnly = true;
+            // 
+            // Column_Cost
+            // 
+            this.Column_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_Cost.HeaderText = "Стоимость";
+            this.Column_Cost.Name = "Column_Cost";
+            this.Column_Cost.ReadOnly = true;
+            // 
             // AddLeasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -1614,12 +1614,6 @@ namespace OGM
         private System.Windows.Forms.Label label_AddressDelivery;
         private System.Windows.Forms.TextBox textBox_AddressDelivery;
         private System.Windows.Forms.NumericUpDown numericUpDown_Cost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK_Equipment_Group;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameEquipment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost_1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Mesure;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost;
         private System.Windows.Forms.DateTimePicker dateTimePicker_DateEnd;
         private System.Windows.Forms.Label label_DateEnd;
         private System.Windows.Forms.GroupBox groupBox_lessee;
@@ -1654,5 +1648,11 @@ namespace OGM
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-	}
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_PK_Equipment_Group;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_NameEquipment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Mesure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost;
+    }
 }
