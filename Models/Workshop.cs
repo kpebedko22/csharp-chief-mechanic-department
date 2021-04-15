@@ -30,7 +30,6 @@ namespace OGM.Models
         {
             using (OGMContext db = new OGMContext())
             {
-
                 if (db.EquipmentGroups.Where(g => g.PK_Workshop == PK_Workshop).Count() > 0)
                     return true;
                 return false;

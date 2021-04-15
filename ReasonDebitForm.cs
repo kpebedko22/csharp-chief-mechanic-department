@@ -127,14 +127,33 @@ namespace OGM
             // запрос подтверждения
             if (MessageBox.Show("Вы действительно хотите удалить выбранные причны списания? Данное действие нельзя будет отменить!", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
-                        
+
+
+            // Оставим в списке те, которые можно удалить
+            List<ReasonDebit> good_list = new List<ReasonDebit>();
+            bool check = false; // флаг - имеются записи, которые не будут удалены
+            foreach (var item in reasonDebitsForRemove)
+                if (item.is_there_any_row() == false)
+                    good_list.Add(item);
+                else
+                    check = true;
+
+
+            // запрос подтверждения
+            if (good_list.Count() > 0 && check)
+            {
+                if (MessageBox.Show("Среди выбранных причин списания есть те, которые невозможно удалить, т.к. имеется списанное оборудование с такими причинами. \n\nУдалить причины списания из справочника, которые не вызвали такого конфликта?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
+            else if (good_list.Count() == 0 && check)
+                MessageBox.Show("Невозможно выполнить удаление. Имеется списанное оборудования с выбранными причинами списания!");
+
 
             // применим удаление
-            foreach (var reason in reasonDebitsForRemove)
+            foreach (var reason in good_list)
                 Program.db.Remove(reason);
 
             Program.db.SaveChanges();
-
 
             this.button_Search.PerformClick();
 

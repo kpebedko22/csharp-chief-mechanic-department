@@ -24,6 +24,16 @@ namespace OGM.Models {
 
         public string name { get; set; }
 
+        public bool is_there_any_row()
+        {
+            using (OGMContext db = new OGMContext())
+            {
+                if (db.DebitEquipments.Where(d => d.PK_Reason_Debit == PK_Reason_Debit).Count() > 0)
+                    return true;
+                return false;
+            }
+        }
+
         public override string ToString() {
             return name;
         }
