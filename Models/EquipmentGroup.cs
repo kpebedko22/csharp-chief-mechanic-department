@@ -27,6 +27,19 @@ namespace OGM.Models
 
         public Workshop workshop { get { return Program.db.Workshops.Find(PK_Workshop); } }
 
+        public bool is_there_relationships()
+        {
+            using (OGMContext db = new OGMContext())
+            {
+                if (db.Equipments.Where(g => g.PK_Equipment_Group == PK_Equipment_Group).Count() > 0
+                   || db.RowsAttachmentSpecification.Where(g => g.PK_Equipment_Group == PK_Equipment_Group).Count() > 0
+                   || db.DebitEquipments.Where(g => g.PK_Equipment_Group == PK_Equipment_Group).Count() > 0)
+                    return true;
+                return false;
+            }
+
+        }
+
         public override string ToString()
         {
             return name;

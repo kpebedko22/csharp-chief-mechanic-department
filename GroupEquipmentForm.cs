@@ -144,9 +144,32 @@ namespace OGM
                 return;
 
 
+
+
+            // Оставим в списке те, которые можно удалить
+            List<EquipmentGroup> good_list = new List<EquipmentGroup>();
+            bool check = false; // флаг - имеются записи, которые не будут удалены
+            foreach (var item in EquipmentGroupsForRemove)
+                if (item.is_there_relationships() == false)
+                    good_list.Add(item);
+                else
+                    check = true;
+
+
+            // запрос подтверждения
+            if (good_list.Count() > 0 && check)
+            {
+                if (MessageBox.Show("Среди выбранных групп оборудования есть те, которые невозможно удалить! \n\nПричины могут быть следующие\n в группе имеется в себе оборудование;\n группа указана хотя бы в одном акте списания;\n группа указана хотя бы в одном договоре лизинга. \nУдалить группы оборудования, которые не вызвали такого конфликта?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
+            else if (good_list.Count() == 0 && check)
+                MessageBox.Show("Невозможно выполнить удаление.\n\nПричины могут быть следующие\n в группе имеется в себе оборудование;\n группа указана хотя бы в одном акте списания;\n группа указана хотя бы в одном договоре лизинга.");
+
+
             // применим удаление
-            foreach (var equipmentGroup in EquipmentGroupsForRemove)
+            foreach (var equipmentGroup in good_list)
                 Program.db.Remove(equipmentGroup);
+
 
             Program.db.SaveChanges();
 
