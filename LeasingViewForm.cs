@@ -168,10 +168,10 @@ namespace OGM {
 			//	return;
 			//}
 
-			SaveFileDialog saveFileDialog = new SaveFileDialog();
-
-			saveFileDialog.Filter = "Документ Word (*.docx)|*.docx";
-			saveFileDialog.RestoreDirectory = true;
+			SaveFileDialog saveFileDialog = new SaveFileDialog {
+				Filter = "Документ Word (*.docx)|*.docx",
+				RestoreDirectory = true
+			};
 
 			if (saveFileDialog.ShowDialog() == DialogResult.OK) {
 				button_Export.Enabled = false;
@@ -361,18 +361,17 @@ namespace OGM {
 			base.OnPaint(e);
 		}
 
+		/* Для ресайза окна, чтоб не лагало */
 		private void LeasingViewForm_ResizeBegin(object sender, EventArgs e) {
 			SuspendLayout();
 		}
-
 		private void LeasingViewForm_ResizeEnd(object sender, EventArgs e) {
 			ResumeLayout();
 		}
-		
-		private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e){
-			tabControl.SelectedTab = tabControl.TabPages[2];
-		}
+		/* END Для ресайза окна, чтоб не лагало */
 
+
+		/* Ассинхронный экспорт через BGWorker */
 		private void BGWorker_DoWork(object sender, DoWorkEventArgs e) {
 			while (officeExport.HasNextRow) {
 				int percentage = officeExport.CurrentRow * 100 / officeExport.NumberRows;
@@ -380,14 +379,22 @@ namespace OGM {
 				BGWorker.ReportProgress(percentage);
 			}
 		}
-
 		private void BGWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) {
 			progressBar.Value = e.ProgressPercentage;
 		}
-
 		private void BGWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
 			button_Export.Enabled = true;
 			officeExport.Close();
 		}
+		/* END Ассинхронный экспорт через BGWorker */
+
+		/* Меню */
+		private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e){
+			tabControl.SelectedTab = tabControl.TabPages[2];
+		}
+		private void ToolStripMenuItem_Exit_File_Click(object sender, EventArgs e) {
+			this.Close();
+		}
+		/* END Меню */
 	}
 }

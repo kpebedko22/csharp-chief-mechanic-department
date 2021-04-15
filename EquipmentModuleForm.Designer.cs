@@ -26,6 +26,9 @@ namespace OGM {
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
+			this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripMenuItem_File_ExitModule = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripMenuItem_File_ExitProg = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Add_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Find_EquipmentDebit = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,31 +39,28 @@ namespace OGM {
 			this.ToolStripMenuItem_Organization_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_ReasonDebit_Handbook = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox_Search = new System.Windows.Forms.GroupBox();
-			this.button_ResetSearch = new System.Windows.Forms.Button();
-			this.pictureBox_Info = new System.Windows.Forms.PictureBox();
-			this.button_Search = new System.Windows.Forms.Button();
-			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label_ActNumber = new System.Windows.Forms.Label();
-			this.dateTimePicker_DateDebit = new System.Windows.Forms.DateTimePicker();
+			this.pictureBox_Info = new System.Windows.Forms.PictureBox();
+			this.button_ResetSearch = new System.Windows.Forms.Button();
 			this.label_DateDebit = new System.Windows.Forms.Label();
+			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
+			this.button_Search = new System.Windows.Forms.Button();
+			this.dateTimePicker_DateDebit = new System.Windows.Forms.DateTimePicker();
 			this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
 			this.dataGridView_DataSearch = new System.Windows.Forms.DataGridView();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.ColumnNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnActNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnView = new System.Windows.Forms.DataGridViewLinkColumn();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
-			this.ToolStripMenuItem_File_ExitModule = new System.Windows.Forms.ToolStripMenuItem();
-			this.ToolStripMenuItem_File_ExitProg = new System.Windows.Forms.ToolStripMenuItem();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.menuStrip.SuspendLayout();
 			this.groupBox_Search.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip
@@ -75,6 +75,29 @@ namespace OGM {
 			this.menuStrip.TabIndex = 0;
 			this.menuStrip.Text = "menuStrip1";
 			// 
+			// ToolStripMenuItem_File
+			// 
+			this.ToolStripMenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_File_ExitModule,
+            this.ToolStripMenuItem_File_ExitProg});
+			this.ToolStripMenuItem_File.Name = "ToolStripMenuItem_File";
+			this.ToolStripMenuItem_File.Size = new System.Drawing.Size(48, 20);
+			this.ToolStripMenuItem_File.Text = "Файл";
+			// 
+			// ToolStripMenuItem_File_ExitModule
+			// 
+			this.ToolStripMenuItem_File_ExitModule.Name = "ToolStripMenuItem_File_ExitModule";
+			this.ToolStripMenuItem_File_ExitModule.Size = new System.Drawing.Size(193, 22);
+			this.ToolStripMenuItem_File_ExitModule.Text = "Выйти из модуля";
+			this.ToolStripMenuItem_File_ExitModule.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitModule_Click);
+			// 
+			// ToolStripMenuItem_File_ExitProg
+			// 
+			this.ToolStripMenuItem_File_ExitProg.Name = "ToolStripMenuItem_File_ExitProg";
+			this.ToolStripMenuItem_File_ExitProg.Size = new System.Drawing.Size(193, 22);
+			this.ToolStripMenuItem_File_ExitProg.Text = "Выйти из программы";
+			this.ToolStripMenuItem_File_ExitProg.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitProg_Click);
+			// 
 			// ToolStripMenuItem_EquipmentDebit
 			// 
 			this.ToolStripMenuItem_EquipmentDebit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -87,14 +110,14 @@ namespace OGM {
 			// ToolStripMenuItem_Add_EquipmentDebit
 			// 
 			this.ToolStripMenuItem_Add_EquipmentDebit.Name = "ToolStripMenuItem_Add_EquipmentDebit";
-			this.ToolStripMenuItem_Add_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Add_EquipmentDebit.Size = new System.Drawing.Size(126, 22);
 			this.ToolStripMenuItem_Add_EquipmentDebit.Text = "Добавить";
 			this.ToolStripMenuItem_Add_EquipmentDebit.Click += new System.EventHandler(this.ToolStripMenuItem_Add_EquipmentDebit_Click);
 			// 
 			// ToolStripMenuItem_Find_EquipmentDebit
 			// 
 			this.ToolStripMenuItem_Find_EquipmentDebit.Name = "ToolStripMenuItem_Find_EquipmentDebit";
-			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(126, 22);
 			this.ToolStripMenuItem_Find_EquipmentDebit.Text = "Найти";
 			// 
 			// ToolStripMenuItem_Handbooks
@@ -155,22 +178,48 @@ namespace OGM {
 			this.groupBox_Search.TabStop = false;
 			this.groupBox_Search.Text = "Параметры поиска акта (-ов)";
 			// 
-			// button_ResetSearch
+			// tableLayoutPanel2
 			// 
-			this.button_ResetSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button_ResetSearch.Location = new System.Drawing.Point(486, 47);
-			this.button_ResetSearch.Margin = new System.Windows.Forms.Padding(6);
-			this.button_ResetSearch.Name = "button_ResetSearch";
-			this.button_ResetSearch.Size = new System.Drawing.Size(300, 29);
-			this.button_ResetSearch.TabIndex = 3;
-			this.button_ResetSearch.Text = "Сбросить параметры поиска";
-			this.button_ResetSearch.UseVisualStyleBackColor = true;
-			this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
+			this.tableLayoutPanel2.ColumnCount = 7;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.85714F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.Controls.Add(this.label_ActNumber, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.pictureBox_Info, 6, 0);
+			this.tableLayoutPanel2.Controls.Add(this.button_ResetSearch, 4, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label_DateDebit, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_ActNumber, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.button_Search, 4, 0);
+			this.tableLayoutPanel2.Controls.Add(this.dateTimePicker_DateDebit, 2, 1);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 25);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 3;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(872, 116);
+			this.tableLayoutPanel2.TabIndex = 6;
+			// 
+			// label_ActNumber
+			// 
+			this.label_ActNumber.AutoSize = true;
+			this.label_ActNumber.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_ActNumber.Location = new System.Drawing.Point(82, 0);
+			this.label_ActNumber.Name = "label_ActNumber";
+			this.label_ActNumber.Size = new System.Drawing.Size(93, 41);
+			this.label_ActNumber.TabIndex = 2;
+			this.label_ActNumber.Text = "Номер акта";
+			this.label_ActNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// pictureBox_Info
 			// 
 			this.pictureBox_Info.Image = global::OGM.Properties.Resources.info;
-			this.pictureBox_Info.Location = new System.Drawing.Point(852, 3);
+			this.pictureBox_Info.Location = new System.Drawing.Point(851, 3);
 			this.pictureBox_Info.Name = "pictureBox_Info";
 			this.pictureBox_Info.Size = new System.Drawing.Size(16, 16);
 			this.pictureBox_Info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,10 +228,41 @@ namespace OGM {
 			this.toolTip_Info.SetToolTip(this.pictureBox_Info, "Поля необязательны к заполнению.\r\nВы можете выбрать только интересующие Вас парам" +
         "етры.");
 			// 
+			// button_ResetSearch
+			// 
+			this.button_ResetSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.button_ResetSearch.Location = new System.Drawing.Point(484, 47);
+			this.button_ResetSearch.Margin = new System.Windows.Forms.Padding(6);
+			this.button_ResetSearch.Name = "button_ResetSearch";
+			this.button_ResetSearch.Size = new System.Drawing.Size(300, 29);
+			this.button_ResetSearch.TabIndex = 3;
+			this.button_ResetSearch.Text = "Сбросить параметры поиска";
+			this.button_ResetSearch.UseVisualStyleBackColor = true;
+			this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
+			// 
+			// label_DateDebit
+			// 
+			this.label_DateDebit.AutoSize = true;
+			this.label_DateDebit.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_DateDebit.Location = new System.Drawing.Point(61, 41);
+			this.label_DateDebit.Name = "label_DateDebit";
+			this.label_DateDebit.Size = new System.Drawing.Size(114, 41);
+			this.label_DateDebit.TabIndex = 0;
+			this.label_DateDebit.Text = "Дата списания";
+			this.label_DateDebit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// textBox_ActNumber
+			// 
+			this.textBox_ActNumber.Location = new System.Drawing.Point(184, 6);
+			this.textBox_ActNumber.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_ActNumber.Name = "textBox_ActNumber";
+			this.textBox_ActNumber.Size = new System.Drawing.Size(200, 29);
+			this.textBox_ActNumber.TabIndex = 0;
+			// 
 			// button_Search
 			// 
 			this.button_Search.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button_Search.Location = new System.Drawing.Point(486, 6);
+			this.button_Search.Location = new System.Drawing.Point(484, 6);
 			this.button_Search.Margin = new System.Windows.Forms.Padding(6);
 			this.button_Search.Name = "button_Search";
 			this.button_Search.Size = new System.Drawing.Size(300, 29);
@@ -191,45 +271,15 @@ namespace OGM {
 			this.button_Search.UseVisualStyleBackColor = true;
 			this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
 			// 
-			// textBox_ActNumber
-			// 
-			this.textBox_ActNumber.Location = new System.Drawing.Point(187, 6);
-			this.textBox_ActNumber.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_ActNumber.Name = "textBox_ActNumber";
-			this.textBox_ActNumber.Size = new System.Drawing.Size(200, 29);
-			this.textBox_ActNumber.TabIndex = 0;
-			// 
-			// label_ActNumber
-			// 
-			this.label_ActNumber.AutoSize = true;
-			this.label_ActNumber.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_ActNumber.Location = new System.Drawing.Point(82, 0);
-			this.label_ActNumber.Name = "label_ActNumber";
-			this.label_ActNumber.Size = new System.Drawing.Size(96, 41);
-			this.label_ActNumber.TabIndex = 2;
-			this.label_ActNumber.Text = "Номер акта";
-			this.label_ActNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
 			// dateTimePicker_DateDebit
 			// 
 			this.dateTimePicker_DateDebit.Checked = false;
-			this.dateTimePicker_DateDebit.Location = new System.Drawing.Point(187, 47);
+			this.dateTimePicker_DateDebit.Location = new System.Drawing.Point(184, 47);
 			this.dateTimePicker_DateDebit.Margin = new System.Windows.Forms.Padding(6);
 			this.dateTimePicker_DateDebit.Name = "dateTimePicker_DateDebit";
 			this.dateTimePicker_DateDebit.ShowCheckBox = true;
 			this.dateTimePicker_DateDebit.Size = new System.Drawing.Size(200, 29);
 			this.dateTimePicker_DateDebit.TabIndex = 1;
-			// 
-			// label_DateDebit
-			// 
-			this.label_DateDebit.AutoSize = true;
-			this.label_DateDebit.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_DateDebit.Location = new System.Drawing.Point(61, 41);
-			this.label_DateDebit.Name = "label_DateDebit";
-			this.label_DateDebit.Size = new System.Drawing.Size(117, 41);
-			this.label_DateDebit.TabIndex = 0;
-			this.label_DateDebit.Text = "Дата списания";
-			this.label_DateDebit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// dataGridView_DataSearch
 			// 
@@ -247,22 +297,7 @@ namespace OGM {
 			this.dataGridView_DataSearch.Size = new System.Drawing.Size(878, 381);
 			this.dataGridView_DataSearch.TabIndex = 4;
 			this.dataGridView_DataSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DataSearch_CellClick);
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Controls.Add(this.dataGridView_DataSearch, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.groupBox_Search, 0, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 537);
-			this.tableLayoutPanel1.TabIndex = 5;
+			this.dataGridView_DataSearch.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_DataSearch_RowPostPaint);
 			// 
 			// ColumnNum
 			// 
@@ -297,55 +332,21 @@ namespace OGM {
 			this.ColumnView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.ColumnView.VisitedLinkColor = System.Drawing.Color.Blue;
 			// 
-			// tableLayoutPanel2
+			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel2.ColumnCount = 7;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.85714F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.label_ActNumber, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.pictureBox_Info, 6, 0);
-			this.tableLayoutPanel2.Controls.Add(this.button_ResetSearch, 4, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label_DateDebit, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_ActNumber, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.button_Search, 4, 0);
-			this.tableLayoutPanel2.Controls.Add(this.dateTimePicker_DateDebit, 2, 1);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 25);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 3;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(872, 116);
-			this.tableLayoutPanel2.TabIndex = 6;
-			// 
-			// ToolStripMenuItem_File
-			// 
-			this.ToolStripMenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem_File_ExitModule,
-            this.ToolStripMenuItem_File_ExitProg});
-			this.ToolStripMenuItem_File.Name = "ToolStripMenuItem_File";
-			this.ToolStripMenuItem_File.Size = new System.Drawing.Size(48, 20);
-			this.ToolStripMenuItem_File.Text = "Файл";
-			// 
-			// ToolStripMenuItem_File_ExitModule
-			// 
-			this.ToolStripMenuItem_File_ExitModule.Name = "ToolStripMenuItem_File_ExitModule";
-			this.ToolStripMenuItem_File_ExitModule.Size = new System.Drawing.Size(193, 22);
-			this.ToolStripMenuItem_File_ExitModule.Text = "Выйти из модуля";
-			this.ToolStripMenuItem_File_ExitModule.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitModule_Click);
-			// 
-			// ToolStripMenuItem_File_ExitProg
-			// 
-			this.ToolStripMenuItem_File_ExitProg.Name = "ToolStripMenuItem_File_ExitProg";
-			this.ToolStripMenuItem_File_ExitProg.Size = new System.Drawing.Size(193, 22);
-			this.ToolStripMenuItem_File_ExitProg.Text = "Выйти из программы";
-			this.ToolStripMenuItem_File_ExitProg.Click += new System.EventHandler(this.ToolStripMenuItem_File_ExitProg_Click);
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.Controls.Add(this.dataGridView_DataSearch, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.groupBox_Search, 0, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 537);
+			this.tableLayoutPanel1.TabIndex = 5;
 			// 
 			// EquipmentModuleForm
 			// 
@@ -361,17 +362,15 @@ namespace OGM {
 			this.Name = "EquipmentModuleForm";
 			this.ShowIcon = false;
 			this.Text = "Поиск актов списания оборудования";
-			this.Activated += new System.EventHandler(this.EquipmentModuleForm_Activated);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EquipmentModuleForm_FormClosed);
-			this.Load += new System.EventHandler(this.EquipmentModuleForm_Load);
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();
 			this.groupBox_Search.ResumeLayout(false);
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
