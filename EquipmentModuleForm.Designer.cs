@@ -110,14 +110,15 @@ namespace OGM {
 			// ToolStripMenuItem_Add_EquipmentDebit
 			// 
 			this.ToolStripMenuItem_Add_EquipmentDebit.Name = "ToolStripMenuItem_Add_EquipmentDebit";
-			this.ToolStripMenuItem_Add_EquipmentDebit.Size = new System.Drawing.Size(126, 22);
+			this.ToolStripMenuItem_Add_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
 			this.ToolStripMenuItem_Add_EquipmentDebit.Text = "Добавить";
 			this.ToolStripMenuItem_Add_EquipmentDebit.Click += new System.EventHandler(this.ToolStripMenuItem_Add_EquipmentDebit_Click);
 			// 
 			// ToolStripMenuItem_Find_EquipmentDebit
 			// 
+			this.ToolStripMenuItem_Find_EquipmentDebit.Enabled = false;
 			this.ToolStripMenuItem_Find_EquipmentDebit.Name = "ToolStripMenuItem_Find_EquipmentDebit";
-			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(126, 22);
+			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
 			this.ToolStripMenuItem_Find_EquipmentDebit.Text = "Найти";
 			// 
 			// ToolStripMenuItem_Handbooks

@@ -1307,15 +1307,16 @@ namespace OGM
 			// 
 			// добавитьToolStripMenuItem
 			// 
+			this.добавитьToolStripMenuItem.Enabled = false;
 			this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-			this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+			this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.добавитьToolStripMenuItem.Text = "Добавить";
 			this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
 			// 
 			// найтиToolStripMenuItem
 			// 
 			this.найтиToolStripMenuItem.Name = "найтиToolStripMenuItem";
-			this.найтиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+			this.найтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.найтиToolStripMenuItem.Text = "Найти";
 			this.найтиToolStripMenuItem.Click += new System.EventHandler(this.найтиToolStripMenuItem_Click);
 			// 
