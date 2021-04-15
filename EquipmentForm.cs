@@ -44,13 +44,26 @@ namespace OGM
 
         private void Equipment_Activated(object sender, EventArgs e)
         {
-            List<Equipment> equipments = Program.db.Equipments.ToList();
 
-            dataGridView.DataSource = equipments;
-            dataGridView.ClearSelection();
+            // сохраним выбор
+            Workshop selected_wrokshop = ((Workshop)this.comboBox_Workshop.SelectedItem);
+            EquipmentGroup selected_group = ((EquipmentGroup)this.comboBox_GroupEquipment.SelectedItem);
 
-            this.comboBox_Workshop.DataSource = Program.db.Workshops.ToList();
-            this.comboBox_Workshop.SelectedIndex = -1;
+            //List<Equipment> equipments = Program.db.Equipments.ToList();
+
+            //dataGridView.DataSource = equipments;
+            //dataGridView.ClearSelection();
+
+            List<Workshop> workshops = Program.db.Workshops.ToList();
+            this.comboBox_Workshop.DataSource = workshops;
+            if (selected_wrokshop != null && workshops.Contains(selected_wrokshop))
+                this.comboBox_Workshop.SelectedItem = selected_wrokshop;
+            else
+                this.comboBox_Workshop.SelectedItem = null;
+
+            this.comboBox_GroupEquipment.SelectedItem = selected_group;
+
+            this.button_Search.PerformClick();
         }
 
         private void comboBox_Workshop_SelectedIndexChanged(object sender, EventArgs e)

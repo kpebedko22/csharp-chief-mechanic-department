@@ -38,14 +38,24 @@ namespace OGM
 
         private void GroupEquipmentForm_Activated(object sender, EventArgs e)
         {
-            dataGridView_DataSearch.DataSource = Program.db.EquipmentGroups.ToList();
-            dataGridView_DataSearch.ClearSelection();
-
+            // сохраним выбор
+            Workshop selected_wrokshop = ((Workshop)this.comboBox_Workshop.SelectedItem);
             List<Workshop> workshops = Program.db.Workshops.ToList();
             this.comboBox_Workshop.DataSource = workshops;
+            // восстановим выбор
+            if (selected_wrokshop != null && workshops.Contains(selected_wrokshop))
+                this.comboBox_Workshop.SelectedItem = selected_wrokshop;
+            else
+                this.comboBox_Workshop.SelectedItem = null;
 
             this.comboBox_Workshop.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
-            this.comboBox_Workshop.SelectedItem = null;
+
+            if (selected_wrokshop == null)
+                dataGridView_DataSearch.DataSource = Program.db.EquipmentGroups.ToList();
+            else 
+                button_Search.PerformClick();
+
+            dataGridView_DataSearch.ClearSelection();
         }
 
         private void button_EditGroupEquipment_Click(object sender, EventArgs e)
