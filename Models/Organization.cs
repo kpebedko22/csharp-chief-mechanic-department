@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace OGM.Models {
 	public partial class OGMContext : DbContext {
@@ -34,6 +35,17 @@ namespace OGM.Models {
 		public int PK_Role { get; set; }
 
 		public Role Role { get { return Program.db.Roles.Find(PK_Role); } }
+
+		public bool is_there_relationship()
+		{
+			using (OGMContext db = new OGMContext())
+			{
+
+				if (db.relationships_organization_leasing_contract.Where(r => r.PK_Organization == PK_Organization).Count() > 0)
+					return true;
+				return false;
+			}
+		}
 
 		public override string ToString() { return name; }
 	}

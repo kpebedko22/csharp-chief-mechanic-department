@@ -144,7 +144,7 @@ namespace OGM {
                 new AddOrganizationForm(organization).ShowDialog();
         }
 
-		private void button_RemoveOrganization_Click(object sender, EventArgs e) {
+        private void button_RemoveOrganization_Click(object sender, EventArgs e) {
             List<Organization> organizations = new List<Organization>();
 
             int PK = -1;
@@ -166,9 +166,30 @@ namespace OGM {
             if (MessageBox.Show("Вы действительно хотите удалить выбранные организации из справочника? Данное действие нельзя будет отменить!", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            // применим удаление
+
+            // Оставим в списке те, которые можно удалить
+            List<Organization> good_list = new List<Organization>();
+            bool check = false; // флаг - имеются записи, которые не будут удалены
             foreach (var item in organizations)
-                Program.db.Remove(item);
+                if (item.is_there_relationship() == false)
+                    good_list.Add(item);
+                else
+                    check = true;
+
+
+            // запрос подтверждения
+            if (good_list.Count() > 0 && check)
+            {
+                if (MessageBox.Show("Среди выбранных организаций есть те, которые невозможно удалить, т.к. с ними уже составлен договор. \n\nУдалить организации, которые не вызвали такого конфликта?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
+            else if (good_list.Count() == 0 && check)
+                MessageBox.Show("Невозможно выполнить удаление. С выбранными организациями заключен как минимум один договор лизинга!");
+
+
+                // применим удаление
+                foreach (var item in good_list)
+                    Program.db.Remove(item);
 
             Program.db.SaveChanges();
 

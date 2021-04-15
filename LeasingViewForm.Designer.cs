@@ -100,8 +100,6 @@ namespace OGM {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_Export = new System.Windows.Forms.Button();
             this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Cost_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
