@@ -160,6 +160,7 @@ namespace OGM
             this.textBox_NameEquipment.Text = "";
             this.textBox_InventoryNum.Text = "";
             this.textBox_SerialNum.Text = "";
+            this.radioButton_all.Checked = true;
 
             List<Equipment> equipments = Program.db.Equipments.ToList();
             dataGridView.DataSource = equipments;
