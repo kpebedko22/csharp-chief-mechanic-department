@@ -64,11 +64,11 @@ namespace OGM {
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_Export = new System.Windows.Forms.Button();
             this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
-            this.tabPageDoc = new System.Windows.Forms.TabPage();
-            this.richTextBox_ActDebit = new System.Windows.Forms.RichTextBox();
+            this.BGWorker = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -79,7 +79,6 @@ namespace OGM {
             this.tabPageExportData.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.tabPageDoc.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -90,7 +89,7 @@ namespace OGM {
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(784, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 20);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,13 +136,13 @@ namespace OGM {
             this.tableLayoutPanel.Controls.Add(this.label_ActDebitNum, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.tabControl, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 25);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 16);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.Size = new System.Drawing.Size(784, 486);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(784, 494);
             this.tableLayoutPanel.TabIndex = 2;
             // 
             // label_ActDebitNum
@@ -161,12 +160,11 @@ namespace OGM {
             // 
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPageExportData);
-            this.tabControl.Controls.Add(this.tabPageDoc);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(3, 53);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(778, 430);
+            this.tabControl.Size = new System.Drawing.Size(778, 438);
             this.tabControl.TabIndex = 1;
             // 
             // tabPage2
@@ -175,7 +173,7 @@ namespace OGM {
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(770, 396);
+            this.tabPage2.Size = new System.Drawing.Size(770, 404);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Спецификация";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -193,7 +191,7 @@ namespace OGM {
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(764, 390);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(764, 398);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dataGridView_Data
@@ -214,7 +212,7 @@ namespace OGM {
             this.dataGridView_Data.Location = new System.Drawing.Point(3, 103);
             this.dataGridView_Data.Name = "dataGridView_Data";
             this.dataGridView_Data.ReadOnly = true;
-            this.dataGridView_Data.Size = new System.Drawing.Size(758, 284);
+            this.dataGridView_Data.Size = new System.Drawing.Size(758, 292);
             this.dataGridView_Data.TabIndex = 1;
             // 
             // ColumnIndex
@@ -382,10 +380,11 @@ namespace OGM {
             this.tableLayoutPanel3.Controls.Add(this.label1, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.label3, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.label2, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.progressBar, 1, 7);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 8;
+            this.tableLayoutPanel3.RowCount = 9;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -393,6 +392,7 @@ namespace OGM {
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(770, 361);
             this.tableLayoutPanel3.TabIndex = 11;
@@ -401,7 +401,7 @@ namespace OGM {
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label9.Location = new System.Drawing.Point(292, 43);
+            this.label9.Location = new System.Drawing.Point(292, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(105, 39);
             this.label9.TabIndex = 8;
@@ -411,7 +411,7 @@ namespace OGM {
             // comboBox_Organization
             // 
             this.comboBox_Organization.FormattingEnabled = true;
-            this.comboBox_Organization.Location = new System.Drawing.Point(409, 52);
+            this.comboBox_Organization.Location = new System.Drawing.Point(409, 35);
             this.comboBox_Organization.Margin = new System.Windows.Forms.Padding(9);
             this.comboBox_Organization.Name = "comboBox_Organization";
             this.comboBox_Organization.Size = new System.Drawing.Size(250, 29);
@@ -419,7 +419,7 @@ namespace OGM {
             // 
             // textBox_FIO_DeputyDirector
             // 
-            this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(409, 138);
+            this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(409, 121);
             this.textBox_FIO_DeputyDirector.Margin = new System.Windows.Forms.Padding(9);
             this.textBox_FIO_DeputyDirector.MaxLength = 250;
             this.textBox_FIO_DeputyDirector.Name = "textBox_FIO_DeputyDirector";
@@ -428,7 +428,7 @@ namespace OGM {
             // 
             // textBox_FIO_HeadProcurement
             // 
-            this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(409, 185);
+            this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(409, 168);
             this.textBox_FIO_HeadProcurement.Margin = new System.Windows.Forms.Padding(9);
             this.textBox_FIO_HeadProcurement.MaxLength = 250;
             this.textBox_FIO_HeadProcurement.Name = "textBox_FIO_HeadProcurement";
@@ -437,7 +437,7 @@ namespace OGM {
             // 
             // textBox_FIO_Engineer
             // 
-            this.textBox_FIO_Engineer.Location = new System.Drawing.Point(409, 232);
+            this.textBox_FIO_Engineer.Location = new System.Drawing.Point(409, 215);
             this.textBox_FIO_Engineer.Margin = new System.Windows.Forms.Padding(9);
             this.textBox_FIO_Engineer.MaxLength = 250;
             this.textBox_FIO_Engineer.Name = "textBox_FIO_Engineer";
@@ -446,7 +446,7 @@ namespace OGM {
             // 
             // textBox_FIO_DeputyAccountant
             // 
-            this.textBox_FIO_DeputyAccountant.Location = new System.Drawing.Point(409, 279);
+            this.textBox_FIO_DeputyAccountant.Location = new System.Drawing.Point(409, 262);
             this.textBox_FIO_DeputyAccountant.Margin = new System.Windows.Forms.Padding(9);
             this.textBox_FIO_DeputyAccountant.MaxLength = 250;
             this.textBox_FIO_DeputyAccountant.Name = "textBox_FIO_DeputyAccountant";
@@ -457,7 +457,7 @@ namespace OGM {
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Location = new System.Drawing.Point(105, 270);
+            this.label5.Location = new System.Drawing.Point(105, 253);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(292, 47);
             this.label5.TabIndex = 2;
@@ -466,7 +466,7 @@ namespace OGM {
             // 
             // textBox_FIO_MainMechanic
             // 
-            this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(409, 91);
+            this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(409, 74);
             this.textBox_FIO_MainMechanic.Margin = new System.Windows.Forms.Padding(9);
             this.textBox_FIO_MainMechanic.MaxLength = 250;
             this.textBox_FIO_MainMechanic.Name = "textBox_FIO_MainMechanic";
@@ -477,7 +477,7 @@ namespace OGM {
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(277, 223);
+            this.label4.Location = new System.Drawing.Point(277, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 47);
             this.label4.TabIndex = 2;
@@ -488,7 +488,7 @@ namespace OGM {
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(219, 82);
+            this.label1.Location = new System.Drawing.Point(219, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 47);
             this.label1.TabIndex = 2;
@@ -499,7 +499,7 @@ namespace OGM {
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(152, 176);
+            this.label3.Location = new System.Drawing.Point(152, 159);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(245, 47);
             this.label3.TabIndex = 2;
@@ -510,12 +510,22 @@ namespace OGM {
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(144, 129);
+            this.label2.Location = new System.Drawing.Point(144, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(253, 47);
             this.label2.TabIndex = 2;
             this.label2.Text = "Заместитель ген. директора, ФИО";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // progressBar
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.progressBar, 2);
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar.Location = new System.Drawing.Point(108, 306);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(6);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(554, 23);
+            this.progressBar.TabIndex = 9;
             // 
             // flowLayoutPanel1
             // 
@@ -551,34 +561,18 @@ namespace OGM {
             this.checkBox_OpenFileExport.Text = "Открыть документ по завершению экспорта";
             this.checkBox_OpenFileExport.UseVisualStyleBackColor = true;
             // 
-            // tabPageDoc
+            // BGWorker
             // 
-            this.tabPageDoc.Controls.Add(this.richTextBox_ActDebit);
-            this.tabPageDoc.Location = new System.Drawing.Point(4, 30);
-            this.tabPageDoc.Name = "tabPageDoc";
-            this.tabPageDoc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDoc.Size = new System.Drawing.Size(770, 396);
-            this.tabPageDoc.TabIndex = 0;
-            this.tabPageDoc.Text = "Шаблон документа";
-            this.tabPageDoc.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox_ActDebit
-            // 
-            this.richTextBox_ActDebit.BackColor = System.Drawing.Color.White;
-            this.richTextBox_ActDebit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_ActDebit.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox_ActDebit.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox_ActDebit.Name = "richTextBox_ActDebit";
-            this.richTextBox_ActDebit.ReadOnly = true;
-            this.richTextBox_ActDebit.Size = new System.Drawing.Size(764, 390);
-            this.richTextBox_ActDebit.TabIndex = 0;
-            this.richTextBox_ActDebit.Text = "";
+            this.BGWorker.WorkerReportsProgress = true;
+            this.BGWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGWorker_DoWork);
+            this.BGWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGWorker_ProgressChanged);
+            this.BGWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGWorker_RunWorkerCompleted);
             // 
             // DebitViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 511);
+            this.ClientSize = new System.Drawing.Size(980, 638);
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -603,7 +597,6 @@ namespace OGM {
             this.tableLayoutPanel3.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.tabPageDoc.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -620,8 +613,6 @@ namespace OGM {
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
 		private System.Windows.Forms.Label label_ActDebitNum;
 		private System.Windows.Forms.TabControl tabControl;
-		private System.Windows.Forms.TabPage tabPageDoc;
-		private System.Windows.Forms.RichTextBox richTextBox_ActDebit;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.TabPage tabPageExportData;
 		private System.Windows.Forms.TextBox textBox_FIO_MainMechanic;
@@ -656,5 +647,7 @@ namespace OGM {
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReasonDebit;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+		private System.Windows.Forms.ProgressBar progressBar;
+		private System.ComponentModel.BackgroundWorker BGWorker;
 	}
 }

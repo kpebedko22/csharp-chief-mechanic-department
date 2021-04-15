@@ -1219,6 +1219,7 @@ namespace OGM
             // 
             // menuStrip
             // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_File,
             this.лизингToolStripMenuItem,

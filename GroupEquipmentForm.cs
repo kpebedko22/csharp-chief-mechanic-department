@@ -20,13 +20,13 @@ namespace OGM
 
             this.comboBox_Workshop.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.comboBox_Workshop.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            
+
 
             dataGridView_DataSearch.Columns[0].DataPropertyName = "PK_Equipment_Group";
             dataGridView_DataSearch.Columns[1].DataPropertyName = "name";
             dataGridView_DataSearch.Columns[2].DataPropertyName = "сipher";
             dataGridView_DataSearch.Columns[3].DataPropertyName = "PK_Workshop";
-            dataGridView_DataSearch.Columns[4].DataPropertyName = "Workshop";            
+            dataGridView_DataSearch.Columns[4].DataPropertyName = "Workshop";
         }
 
         private void button_AddGroupEquipment_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace OGM
 
             List<Workshop> workshops = Program.db.Workshops.ToList();
             this.comboBox_Workshop.DataSource = workshops;
-            
+
             this.comboBox_Workshop.AutoCompleteCustomSource.AddRange(workshops.Select(i => i.name).ToArray());
             this.comboBox_Workshop.SelectedItem = null;
         }
@@ -55,7 +55,7 @@ namespace OGM
             {
                 PK_Group_Equipment = Convert.ToInt32(dataGridView_DataSearch.SelectedRows[0].Cells[0].Value);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Выбранная запись отсутствует в таблице!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -94,7 +94,7 @@ namespace OGM
                     else
                         tableresult.Add(item);
                 }
-            
+
 
             dataGridView_DataSearch.DataSource = tableresult;
             dataGridView_DataSearch.ClearSelection();
@@ -113,7 +113,7 @@ namespace OGM
 
         private void button_RemoveGroupEquipment_Click(object sender, EventArgs e)
         {
-            // сформируем список для удаления 
+            // сформируем список для удаления
             // заранее - потому что messagebox, который отвечает за подтверждение удаления (ниже)
             // вызывает событие Activated, что обновляет таблицу
             // из-за этого selectedrows сбрасывается...
