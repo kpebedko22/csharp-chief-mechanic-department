@@ -187,9 +187,9 @@ namespace OGM {
                 MessageBox.Show("Невозможно выполнить удаление. С выбранными организациями заключен как минимум один договор лизинга!");
 
 
-                // применим удаление
-                foreach (var item in good_list)
-                    Program.db.Remove(item);
+            // применим удаление
+            foreach (var item in good_list)
+                Program.db.Remove(item);
 
             Program.db.SaveChanges();
 

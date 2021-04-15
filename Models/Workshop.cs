@@ -26,6 +26,17 @@ namespace OGM.Models
         public string phone_number { get; set; }
         public string email { get; set; }
 
+        public bool is_there_group()
+        {
+            using (OGMContext db = new OGMContext())
+            {
+
+                if (db.EquipmentGroups.Where(g => g.PK_Workshop == PK_Workshop).Count() > 0)
+                    return true;
+                return false;
+            }
+        }
+
         public override string ToString()
         {
             return name;

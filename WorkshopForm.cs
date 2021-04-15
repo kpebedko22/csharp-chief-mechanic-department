@@ -127,8 +127,28 @@ namespace OGM
                 return;
 
 
+            // Оставим в списке те, которые можно удалить
+            List<Workshop> good_list = new List<Workshop>();
+            bool check = false; // флаг - имеются записи, которые не будут удалены
+            foreach (var item in workshopsForRemove)
+                if (item.is_there_group() == false)
+                    good_list.Add(item);
+                else
+                    check = true;
+
+
+            // запрос подтверждения
+            if (good_list.Count() > 0 && check)
+            {
+                if (MessageBox.Show("Среди выбранных цехов есть те, которые невозможно удалить, т.к. имеются группы оборудования для данных цехов. \n\nУдалить цеха, которые не вызвали такого конфликта?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
+            else if (good_list.Count() == 0 && check)
+                MessageBox.Show("Невозможно выполнить удаление. В выбранных цехах имеются группы оборудования!");
+
+
             // применим удаление
-            foreach (var workshop in workshopsForRemove)
+            foreach (var workshop in good_list)
                 Program.db.Remove(workshop);
 
             Program.db.SaveChanges();
