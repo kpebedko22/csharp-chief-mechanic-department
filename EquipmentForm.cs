@@ -221,8 +221,29 @@ namespace OGM
                 return;
 
 
+            // нельзя удалять оборудование, которое приобретено в лизинг!
+            // Оставим в списке те, которые можно удалить
+            List<Equipment> good_list = new List<Equipment>();
+            bool check = false; // флаг - имеются записи, которые не будут удалены
+            foreach (var item in EquipmentForRemove)
+                if (item.is_leasing == false)
+                    good_list.Add(item);
+                else
+                    check = true;
+
+
+            // запрос подтверждения
+            if (good_list.Count() > 0 && check)
+            {
+                if (MessageBox.Show("Среди выбранного оборудования есть приобритённое в лизинг! Такое оборудование нельзя удалить! \n\nУдалить оборудование, которое не вызвало такого конфликта?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
+            else if (good_list.Count() == 0 && check)
+                MessageBox.Show("Невозможно выполнить удаление. Выбранное оборудование приобретено в лизинг!");
+
+
             // применим удаление
-            foreach (var equipment in EquipmentForRemove)
+            foreach (var equipment in good_list)
                 Program.db.Remove(equipment);
 
             Program.db.SaveChanges();
