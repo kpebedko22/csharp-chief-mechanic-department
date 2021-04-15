@@ -88,8 +88,11 @@ namespace OGM {
 				return;
 
 			// заполняем таблицу
-			foreach (RowAttachmentSpecification row in rows)
+			foreach (RowAttachmentSpecification row in rows) {
 				dataGridView_Data.Rows.Add(row.EquipmentGroup.name, row.cost, row.amount, "шт.", row.amount * row.cost);
+
+				LeasingContractTotalCost += row.amount * row.cost;
+			}
 
 			dataGridView_Data.ClearSelection();
 		}
