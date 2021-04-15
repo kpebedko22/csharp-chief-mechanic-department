@@ -13,15 +13,18 @@ namespace OGM {
 		public LogInForm() {
 			InitializeComponent();
 
-			panel_Login.Visible = true;
-			panel_ChooseModel.Visible = false;
+			// если логин и пароль
+			//panel_Login.Visible = true;
+			//panel_ChooseModel.Visible = false;
+			//textBox_Login.Text = "admin";
+			//textBox_Password.Text = "admin";
 
-			textBox_Login.Text = "admin";
-			textBox_Password.Text = "admin";
+			panel_Login.Visible = false;
+			panel_ChooseModel.Visible = true;
+			this.Text = "Выбор модуля";
 		}
 
-		public bool is_fullscreen()
-        {
+		public bool is_fullscreen() {
 			return this.checkBox_FullScreen.Checked;
         }
 
@@ -30,41 +33,42 @@ namespace OGM {
 			panel_ChooseModel.Visible = true;
 		}
 
-		private void button_Leasing_Click(object sender, EventArgs e) {
-			AddLeasingForm form = new AddLeasingForm(this);
-			this.Hide();
-			form.Visible = true;
-		}
-
-		private void button_Equipment_Click(object sender, EventArgs e) {
-			AddEquipmentDebitForm form = new AddEquipmentDebitForm(this);
-			this.Hide();
-			form.Visible = true;
-		}
 
 		private void button_LogOut_Click(object sender, EventArgs e) {
-			panel_Login.Visible = true;
-			panel_ChooseModel.Visible = false;
+			// если есть логин и пароль
+			//panel_Login.Visible = true;
+			//panel_ChooseModel.Visible = false;
+
+			this.Close();
 		}
 
 		private void button_Exit_Click(object sender, EventArgs e) {
 			this.Close();
 		}
 
+		/* Работа по модулям */
+		private void button_Leasing_Click(object sender, EventArgs e) {
+			AddLeasingForm form = new AddLeasingForm(this);
+			this.Hide();
+			form.Visible = true;
+		}
+		private void button_Equipment_Click(object sender, EventArgs e) {
+			AddEquipmentDebitForm form = new AddEquipmentDebitForm(this);
+			this.Hide();
+			form.Visible = true;
+		}
 		private void button_LeasingSearch_Click(object sender, EventArgs e) {
 			// открытие формы LeasingModuleForm
 			LeasingModuleForm form = new LeasingModuleForm(this);
-			//AddLeasingForm form = new AddLeasingForm(this);
 			this.Hide();
 			form.Visible = true;
 		}
-
 		private void button_EquipmentSearch_Click(object sender, EventArgs e) {
 			// открытие формы EquipmentModuleForm
 			EquipmentModuleForm form = new EquipmentModuleForm(this);
-			//AddEquipmentDebitForm form = new AddEquipmentDebitForm(this);
 			this.Hide();
 			form.Visible = true;
 		}
+		/* END Работа по модулям */
 	}
 }

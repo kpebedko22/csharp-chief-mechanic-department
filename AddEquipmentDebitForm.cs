@@ -24,31 +24,6 @@ namespace OGM {
 		private ReasonDebit reasonSaved = null;
 		private bool stateAllSaved = false;
 
-		private void SaveBeforeEdit() {
-			workshopSaved = (Workshop)comboBox_Workshop.SelectedItem;
-			groupSaved = (EquipmentGroup)comboBox_GroupEquipment.SelectedItem;
-			equipmentSaved = (Equipment)comboBox_Equipment.SelectedItem;
-			reasonSaved = (ReasonDebit)comboBox_ReasonDebit.SelectedItem;
-
-			stateAllSaved = checkBox_AllGroupDebit.Checked;
-		}
-
-		private void RestoreEdit() {
-			comboBox_Workshop.SelectedItem = workshopSaved;
-			comboBox_GroupEquipment.SelectedItem = groupSaved;
-			comboBox_Equipment.SelectedItem = equipmentSaved;
-			comboBox_ReasonDebit.SelectedItem = reasonSaved;
-
-			checkBox_AllGroupDebit.Enabled = true;
-			checkBox_AllGroupDebit.Checked = stateAllSaved;
-
-			button_Debit.Text = "Списать";
-			button_Delete.Text = "Удалить";
-
-			stateAllSaved = false;
-			EditingMode = false;
-			EditingIndex = -1;
-		}
 
 		public AddEquipmentDebitForm(Form owner) {
 			InitializeComponent();
@@ -74,44 +49,15 @@ namespace OGM {
 		}
 
 		private void AddEquipmentDebitForm_FormClosed(object sender, FormClosedEventArgs e) {
-			if (showOwner)
-				Owner.Visible = true;
+			if (showOwner) Owner.Visible = true;
 		}
 
-		private void ToolStripMenuItem_Equipment_Handbook_Click(object sender, EventArgs e) {
-			new EquipmentForm().ShowDialog();
-		}
-
-		private void ToolStripMenuItem_GroupEquipment_Handbook_Click(object sender, EventArgs e) {
-			new GroupEquipmentForm().ShowDialog();
-		}
-
-		private void ToolStripMenuItem_Workshop_Handbook_Click(object sender, EventArgs e) {
-			new WorkshopForm().ShowDialog();
-		}
-
-		private void ToolStripMenuItem_Organization_Handbook_Click(object sender, EventArgs e) {
-			new OrganizationForm().ShowDialog();
-		}
-
-		private void ToolStripMenuItem_ReasonDebit_Handbook_Click(object sender, EventArgs e) {
-			new ReasonDebitForm().ShowDialog();
-		}
-
-        private void checkBox_AllGroupDebit_CheckedChanged(object sender, EventArgs e) {
+		private void checkBox_AllGroupDebit_CheckedChanged(object sender, EventArgs e) {
 			comboBox_Equipment.Enabled = !checkBox_AllGroupDebit.Checked;
 			button_Debit.Text = checkBox_AllGroupDebit.Checked ? "Списать всю группу" : "Списать";
 		}
 
-		private void ToolStripMenuItem_Find_EquipmentDebit_Click(object sender, EventArgs e) {
-			showOwner = false;
-
-			EquipmentModuleForm form = new EquipmentModuleForm(Owner);
-			this.Close();
-			form.Visible = true;
-		}
-
-		/* Все работатет */
+		/* Загрузка данных в комбобоксы */
 		private void comboBox_Workshop_SelectedIndexChanged(object sender, EventArgs e) {
 
 			if (comboBox_Workshop.SelectedItem == null || comboBox_Workshop.SelectedIndex == -1) {
@@ -145,10 +91,10 @@ namespace OGM {
 			comboBox_Equipment.DisplayMember = "inventory_number";
 			comboBox_Equipment.SelectedIndex = -1;
 		}
-		/* End Все работатет */
+		/* End Загрузка данных в комбобоксы */
 
 
-
+		/* Кнопки связанные со строками акта списания */
 		private void button_Debit_Click(object sender, EventArgs e) {
 
 			if (!CheckBeforeAddingToTable()) { return; }
@@ -159,11 +105,12 @@ namespace OGM {
 
 				dataGridView_Debit.Rows[EditingIndex].Cells[1].Value = comboBox_Workshop.SelectedItem;
 				dataGridView_Debit.Rows[EditingIndex].Cells[2].Value = comboBox_GroupEquipment.SelectedItem;
-				dataGridView_Debit.Rows[EditingIndex].Cells[3].Value = equipment;
+				dataGridView_Debit.Rows[EditingIndex].Cells[3].Value = equipment.PK_Equipment;
 				dataGridView_Debit.Rows[EditingIndex].Cells[4].Value = equipment.inventory_number;
 				dataGridView_Debit.Rows[EditingIndex].Cells[5].Value = equipment.name;
 				dataGridView_Debit.Rows[EditingIndex].Cells[6].Value = equipment.cost;
 				dataGridView_Debit.Rows[EditingIndex].Cells[7].Value = comboBox_ReasonDebit.SelectedItem;
+				dataGridView_Debit.Rows[EditingIndex].Cells[8].Value = equipment;
 
 				RestoreEdit();
 				return;
@@ -185,7 +132,6 @@ namespace OGM {
 			// отключить выделение в таблице
 			dataGridView_Debit.ClearSelection();
 		}
-
 		private void button_Delete_Click(object sender, EventArgs e) {
 			// отмена изменения строки таблицы
 			if (EditingMode) {
@@ -198,7 +144,6 @@ namespace OGM {
 
 			UpdateIndicesInTable();
 		}
-		
 		private void button_Edit_Click(object sender, EventArgs e) {
 
 			if (dataGridView_Debit.SelectedRows.Count < 1) {
@@ -215,15 +160,19 @@ namespace OGM {
 			if (checkBox_AllGroupDebit.Checked) checkBox_AllGroupDebit.Checked = false;
 			checkBox_AllGroupDebit.Enabled = false;
 
+			comboBox_Workshop.Enabled = false;
+			comboBox_GroupEquipment.Enabled = false;
+			comboBox_Equipment.Enabled = false;
+
 			comboBox_Workshop.SelectedItem = row.Cells[1].Value;
 			comboBox_GroupEquipment.SelectedItem = row.Cells[2].Value;
-			comboBox_Equipment.SelectedItem = row.Cells[3].Value;
+			comboBox_Equipment.SelectedItem = row.Cells[8].Value;
 			comboBox_ReasonDebit.SelectedItem = row.Cells[7].Value;
 
 			button_Debit.Text = "Применить";
 			button_Delete.Text = "Отменить";
 		}
-
+		/* END Кнопки связанные со строками акта списания */
 
 
 		private bool CheckBeforeAddingToTable() {
@@ -247,8 +196,9 @@ namespace OGM {
 
 			// если списание одного оборудования, то чек что его нет в таблице 
 			if (!checkBox_AllGroupDebit.Checked) {
-				if (IsEquipmentInTable((Equipment)comboBox_Equipment.SelectedItem))
-					return MSG("Данное оборудование уже выбрано для списания");
+				if (!EditingMode)
+					if (IsEquipmentInTable((Equipment)comboBox_Equipment.SelectedItem))
+						return MSG("Данное оборудование уже выбрано для списания");
 			}
 
 			return true;
@@ -273,7 +223,8 @@ namespace OGM {
 						equipment.inventory_number,
 						equipment.name,
 						equipment.cost,
-						comboBox_ReasonDebit.SelectedItem
+						comboBox_ReasonDebit.SelectedItem,
+						equipment
 					);
 		}
 
@@ -286,26 +237,24 @@ namespace OGM {
 			try {
 				// проверка на заполнение
 				if (String.IsNullOrWhiteSpace(textBox_ActNumber.Text)) {
-					MessageBox.Show("Чтобы добавить или изменить запись заполните все поля!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show("Номер акта не указан!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					return false;
 				}
 
 				if (dataGridView_Debit.Rows.Count < 1) {
-					MessageBox.Show("Чтобы добавить или изменить запись заполните все поля!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show("Не выбрано оборудование для списания!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					return false;
 				}
 
-				ActDebit actDebit = new ActDebit();
-				
-				actDebit.act_number = textBox_ActNumber.Text;
-				actDebit.date = dateTimePicker_DateDebit.Value.Date;
-				
-				
+				ActDebit actDebit = new ActDebit {
+					act_number = textBox_ActNumber.Text,
+					date = dateTimePicker_DateDebit.Value.Date
+				};
+
 				Program.db.ActDebits.Add(actDebit);
 				Program.db.SaveChanges();
 				
 				int PK = actDebit.PK_Aсt_Debit;
-
 
 				List <DebitEquipment> debits = new List<DebitEquipment>();
 
@@ -325,33 +274,105 @@ namespace OGM {
 				Program.db.DebitEquipments.AddRange(debits);
 				Program.db.SaveChanges();
 
+				MessageBox.Show("Акт списания оборудования № " + actDebit.act_number + " успешно создан!", "Успех!");
 				return true;
 			}
 			catch (Exception e) {
-
 				MessageBox.Show(e.Message);
 				return false;
 			}
 		}
 
+		/* Для редактирования строки акта */
+		private void SaveBeforeEdit() {
+			workshopSaved = (Workshop)comboBox_Workshop.SelectedItem;
+			groupSaved = (EquipmentGroup)comboBox_GroupEquipment.SelectedItem;
+			equipmentSaved = (Equipment)comboBox_Equipment.SelectedItem;
+			reasonSaved = (ReasonDebit)comboBox_ReasonDebit.SelectedItem;
+
+			stateAllSaved = checkBox_AllGroupDebit.Checked;
+		}
+		private void RestoreEdit() {
+			comboBox_Workshop.SelectedItem = workshopSaved;
+			comboBox_GroupEquipment.SelectedItem = groupSaved;
+			comboBox_Equipment.SelectedItem = equipmentSaved;
+			comboBox_ReasonDebit.SelectedItem = reasonSaved;
+
+			checkBox_AllGroupDebit.Enabled = true;
+			checkBox_AllGroupDebit.Checked = stateAllSaved;
+
+			comboBox_Equipment.Enabled = !checkBox_AllGroupDebit.Checked;
+
+			comboBox_Workshop.Enabled = true;
+			comboBox_GroupEquipment.Enabled = true;
+
+			button_Debit.Text = "Списать";
+			button_Delete.Text = "Удалить";
+
+			stateAllSaved = false;
+			EditingMode = false;
+			EditingIndex = -1;
+		}
+		/* END Для редактирования строки акта */
+
+		/* Кнопки связанные с актом */
 		private void button_Close_Click(object sender, EventArgs e) {
 			this.Close();
 		}
-
 		private void button_AddAndClose_Click(object sender, EventArgs e) {
-			if (AddActDebit()) this.Close();
+			button_AddAndClose.Enabled = false;
+			if (AddActDebit()) {
+				button_AddAndClose.Enabled = true;
+				this.Close(); 
+			}
+			button_AddAndClose.Enabled = true;
 		}
-
 		private void button_Add_Click(object sender, EventArgs e) {
-			AddActDebit();
+			button_Add.Enabled = false;
+			if (AddActDebit())
+				RestoreForm();
+			button_Add.Enabled = true;
+		}
+		/* END Кнопки связанные с актом */
+
+		private void RestoreForm() {
+			textBox_ActNumber.Text = "";
+			dateTimePicker_DateDebit.Value = DateTime.Now;
+			dataGridView_Debit.Rows.Clear();
+
+			comboBox_ReasonDebit.SelectedIndex = -1;
+			comboBox_Workshop.SelectedIndex = -1;
 		}
 
+		/* Меню */
 		private void ToolStripMenuItem_File_ExitModule_Click(object sender, EventArgs e) {
 			this.Close();
 		}
-
 		private void ToolStripMenuItem_File_ExitProg_Click(object sender, EventArgs e) {
 			Application.Exit();
 		}
+		private void ToolStripMenuItem_Equipment_Handbook_Click(object sender, EventArgs e) {
+			new EquipmentForm().ShowDialog();
+		}
+		private void ToolStripMenuItem_GroupEquipment_Handbook_Click(object sender, EventArgs e) {
+			new GroupEquipmentForm().ShowDialog();
+		}
+		private void ToolStripMenuItem_Workshop_Handbook_Click(object sender, EventArgs e) {
+			new WorkshopForm().ShowDialog();
+		}
+		private void ToolStripMenuItem_Organization_Handbook_Click(object sender, EventArgs e) {
+			new OrganizationForm().ShowDialog();
+		}
+		private void ToolStripMenuItem_ReasonDebit_Handbook_Click(object sender, EventArgs e) {
+			new ReasonDebitForm().ShowDialog();
+		}
+		private void ToolStripMenuItem_Find_EquipmentDebit_Click(object sender, EventArgs e) {
+			showOwner = false;
+
+			EquipmentModuleForm form = new EquipmentModuleForm(Owner);
+			this.Close();
+			form.Visible = true;
+		}
+		/* END Меню */
 	}
 }
