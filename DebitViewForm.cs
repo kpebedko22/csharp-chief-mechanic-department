@@ -39,12 +39,9 @@ namespace OGM {
 			debitEquipments = ActDebit.GetDebitEquipments();
 
 			UpdateTable();
-
-			//
 			textBox_ActNumber.Text = ActDebit.act_number;
 			dateTimePicker_ActDate.Value = ActDebit.date;
 			textBox_ActTotalPrice.Text = ActDebitTotalCost.ToString();
-
 
 			comboBox_Organization.DataSource = Program.db.Organizations.Where(b => b.PK_Role == 1).ToList();
 			comboBox_Organization.SelectedIndex = -1;
@@ -174,10 +171,10 @@ namespace OGM {
 				return;
 			}
 
-			SaveFileDialog saveFileDialog = new SaveFileDialog();
-
-			saveFileDialog.Filter = "Документ Word (*.docx)|*.docx";
-			saveFileDialog.RestoreDirectory = true;
+			SaveFileDialog saveFileDialog = new SaveFileDialog {
+				Filter = "Документ Word (*.docx)|*.docx",
+				RestoreDirectory = true
+			};
 
 			if (saveFileDialog.ShowDialog() == DialogResult.OK) {
 				button_Export.Enabled = false;
@@ -190,10 +187,8 @@ namespace OGM {
 			}
 		}
 
-		private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e) {
-			tabControl.SelectedTab = tabControl.TabPages[1];
-		}
 
+		/* Ассинхронный экспорт через BGWorker */
 		private void BGWorker_DoWork(object sender, DoWorkEventArgs e) {
 			while (officeExport.HasNextRow) {
 				int percentage = officeExport.CurrentRow * 100 / officeExport.NumberRows;
@@ -201,14 +196,22 @@ namespace OGM {
 				BGWorker.ReportProgress(percentage);
 			}
 		}
-
 		private void BGWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) {
 			progressBar.Value = e.ProgressPercentage;
 		}
-
 		private void BGWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
 			button_Export.Enabled = true;
 			officeExport.Close();
 		}
+		/* END Ассинхронный экспорт через BGWorker */
+
+		/* Меню */
+		private void ToolStripMenuItem_Export_File_Click(object sender, EventArgs e) {
+			tabControl.SelectedTab = tabControl.TabPages[1];
+		}
+		private void ToolStripMenuItem_Exit_File_Click(object sender, EventArgs e) {
+			this.Close();
+		}
+		/* END Меню */
 	}
 }

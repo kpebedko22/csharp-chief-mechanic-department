@@ -22,12 +22,17 @@ namespace OGM {
 			Owner = owner;
 			if (((LogInForm)owner).is_fullscreen()) this.WindowState = FormWindowState.Maximized;
 
+			dataGridView_DataSearch.AutoGenerateColumns = false;
+			dataGridView_DataSearch.ReadOnly = true;
+
 			dataGridView_DataSearch.Columns[1].DataPropertyName = "PK_Aсt_Debit";
 			dataGridView_DataSearch.Columns[2].DataPropertyName = "act_number";
 			dataGridView_DataSearch.Columns[3].DataPropertyName = "date";
-			SetIndexNums();
-
+			
 			dateTimePicker_DateDebit.Checked = false;
+
+			UpdateTable();
+			//SetIndexNums();
 		}
 
 		private void EquipmentModuleForm_FormClosed(object sender, FormClosedEventArgs e) {
@@ -69,78 +74,51 @@ namespace OGM {
 
 			// если нажали на ссылку в 4 столбце
 			if (e.ColumnIndex == 4) {
-
-				//Console.WriteLine(e.RowIndex);
-
-				//Console.WriteLine(dataGridView_DataSearch.Rows[e.RowIndex].Cells[1].Value);
-
 				// берем первичный ключ акта в скрытом столбце (столбец 1)
 				int PK_ActDebit = Convert.ToInt32(dataGridView_DataSearch[1, e.RowIndex].Value);
-				//Console.WriteLine(PK_ActDebit);
 				ActDebit actDebit = Program.db.ActDebits.Find(PK_ActDebit);
-
-				if (actDebit != null)
-					new DebitViewForm(actDebit).ShowDialog();
+				if (actDebit != null) new DebitViewForm(actDebit).ShowDialog();
 			}
 		}
 
 
-		private void updateTable() {
-			dataGridView_DataSearch.DataSource = Program.db.ActDebits.ToList();
-			SetIndexNums();
-		}
-
-		private void EquipmentModuleForm_Load(object sender, EventArgs e) {
-			dataGridView_DataSearch.AutoGenerateColumns = false;
-			dataGridView_DataSearch.ReadOnly = true;
-		}
-
-		private void EquipmentModuleForm_Activated(object sender, EventArgs e) {
-			button_Search.PerformClick();
-			dataGridView_DataSearch.ClearSelection();
+		private void UpdateTable() {
+			using (OGMContext db = new OGMContext()) 
+				dataGridView_DataSearch.DataSource = db.ActDebits.ToList();
 		}
 
 		private void button_Search_Click(object sender, EventArgs e) {
-			List<ActDebit> actDebits = Program.db.ActDebits.ToList();
 
-			List<ActDebit> actDebitsResult = new List<ActDebit>();
+			using (OGMContext db = new OGMContext()) {
+				List<ActDebit> actDebits = db.ActDebits.ToList();
+				List<ActDebit> actDebitsResult = new List<ActDebit>();
 
-			// вопрос с датой - как она тут хранится
-			foreach (var item in actDebits) {
-				if (!item.act_number.ToLower().Contains(textBox_ActNumber.Text.ToLower()))
-					continue;
-
-				Console.WriteLine(item.date.Date);
-				Console.WriteLine(dateTimePicker_DateDebit.Value.Date);
-
-				if (dateTimePicker_DateDebit.Checked)
-					if (item.date.Date != dateTimePicker_DateDebit.Value.Date)
+				foreach (var item in actDebits) {
+					if (!item.act_number.ToLower().Contains(textBox_ActNumber.Text.ToLower()))
 						continue;
 
-				actDebitsResult.Add(item);
-			}
+					if (dateTimePicker_DateDebit.Checked)
+						if (item.date.Date != dateTimePicker_DateDebit.Value.Date)
+							continue;
 
-			dataGridView_DataSearch.DataSource = actDebitsResult;
-			SetIndexNums();
-			dataGridView_DataSearch.ClearSelection();
-			textBox_ActNumber.Focus();
+					actDebitsResult.Add(item);
+				}
+
+				dataGridView_DataSearch.DataSource = actDebitsResult;
+				dataGridView_DataSearch.ClearSelection();
+				textBox_ActNumber.Focus();
+			}
 		}
 
 		private void button_ResetSearch_Click(object sender, EventArgs e) {
 			textBox_ActNumber.Text = "";
+			
 			dateTimePicker_DateDebit.Value = DateTime.Now;
+			dateTimePicker_DateDebit.Checked = false;
 
-			updateTable();
+			UpdateTable();
 			dataGridView_DataSearch.ClearSelection();
 			textBox_ActNumber.Focus();
-		}
-
-		private void SetIndexNums() {
-			foreach(DataGridViewRow row in dataGridView_DataSearch.Rows) {
-				row.Cells[0].Value = row.Cells[0].RowIndex + 1;
-
-				row.Cells[4].Value = "Просмотреть";
-			}
 		}
 
 		private void ToolStripMenuItem_File_ExitModule_Click(object sender, EventArgs e) {
@@ -149,6 +127,14 @@ namespace OGM {
 
 		private void ToolStripMenuItem_File_ExitProg_Click(object sender, EventArgs e) {
 			Application.Exit();
+		}
+
+		private void dataGridView_DataSearch_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e) {
+
+			if (e.RowIndex == -1) return;
+
+			((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value = e.RowIndex + 1;
+			((DataGridView)sender).Rows[e.RowIndex].Cells[4].Value = "Просмотреть";
 		}
 	}
 }
