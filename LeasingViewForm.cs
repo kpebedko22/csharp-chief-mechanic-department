@@ -188,7 +188,9 @@ namespace OGM {
 
 			exportData = new OfficeExport.ExportData();
 
-			exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\leasing_contract_template.docx";
+			//exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\leasing_contract_template.docx";
+			exportData.nameFileTemplate = Application.StartupPath + "\\resources\\docs\\leasing_contract_template.docx";
+
 			exportData.nameFileExport = nameFileExport;         // Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_number" + ActDebit.act_number + ".docx";
 			exportData.tableIndex = 3;                          // номер таблицы в доке
 			exportData.textToReplace = new List<string>() {

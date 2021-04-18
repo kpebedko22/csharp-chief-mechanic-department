@@ -18,7 +18,6 @@ namespace OGM.Models
         public OGMContext()
         {
 
-
             try
             {
                 Database.EnsureCreated();
@@ -31,12 +30,12 @@ namespace OGM.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL(
+            optionsBuilder.UseMySQL(Program.config
                 //"server=37.59.55.185;user=ZQ73KRwNC8;password=m6PnNvjtXJ;database=ZQ73KRwNC8;" // беплатная удалённая бд
                 //"server=37.59.55.185;user=MCa5jNxFbz;password=oOrPyOCyBq;database=MCa5jNxFbz;" // беплатная удалённая бд 2
                 //"server=25.36.221.15;user=application2;password=Qwerty_1;database=zq73krwnc8;" // пк
                 //"server=25.17.110.171;user=application2;password=Qwerty_1;database=zq73krwnc8;" // ноут
-                "server=25.17.110.171;user=application2;password=Qwerty_1;database=test_long_db;" // ноут test long db
+                //"server=25.17.110.171;user=application2;password=Qwerty_1;database=test_long_db;" // ноут test long db
             );
         }
 

@@ -295,6 +295,7 @@ namespace OGM
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddOrganizationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Справочник - Добавить организацию";
             this.ResumeLayout(false);
             this.PerformLayout();

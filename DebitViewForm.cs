@@ -75,7 +75,9 @@ namespace OGM {
 
 			exportData = new OfficeExport.ExportData();
 
-			exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template.docx";
+			//exportData.nameFileTemplate = Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_template.docx";
+			exportData.nameFileTemplate = Application.StartupPath + "\\resources\\docs\\act_debit_template.docx";
+
 			exportData.nameFileExport = nameFileExport;			// Application.StartupPath + "\\..\\..\\resources\\docs\\act_debit_number" + ActDebit.act_number + ".docx";
 			exportData.tableIndex = 2;							// номер таблицы в доке
 			exportData.textToReplace = new List<string>() {

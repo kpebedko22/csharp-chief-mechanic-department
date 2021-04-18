@@ -141,6 +141,7 @@ namespace OGM
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddWorkshopForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Справочник - Добавить цех";
             this.ResumeLayout(false);
             this.PerformLayout();

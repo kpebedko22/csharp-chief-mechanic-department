@@ -149,6 +149,7 @@ namespace OGM
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddGroupEquipment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Справочник - Добавить группу оборудования";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGM", "OGM.csproj", "{76EFAEEF-ECA6-4DEF-B3B6-5BC46D925326}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Система Лизинг и списание оборудования", "Система Лизинг и списание оборудования\Система Лизинг и списание оборудования.vdproj", "{1B37DFF8-27DD-400F-8D09-0CDC98B5566F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{76EFAEEF-ECA6-4DEF-B3B6-5BC46D925326}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76EFAEEF-ECA6-4DEF-B3B6-5BC46D925326}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76EFAEEF-ECA6-4DEF-B3B6-5BC46D925326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B37DFF8-27DD-400F-8D09-0CDC98B5566F}.Debug|Any CPU.ActiveCfg = Debug
+		{1B37DFF8-27DD-400F-8D09-0CDC98B5566F}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

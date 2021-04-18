@@ -375,6 +375,7 @@ namespace OGM {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LogInForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
             this.panel_Login.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);

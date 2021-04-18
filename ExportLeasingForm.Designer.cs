@@ -317,6 +317,7 @@ namespace OGM
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ExportLeasingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Подготовка к экспорту договора лизинга";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ExportLeasingForm_FormClosing);
             this.groupBox_Leaser.ResumeLayout(false);
