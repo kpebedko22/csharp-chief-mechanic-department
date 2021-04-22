@@ -51,11 +51,6 @@ namespace OGM
             this.comboBox_Workshop = new System.Windows.Forms.ComboBox();
             this.comboBox_GroupEquipment = new System.Windows.Forms.ComboBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.button_AddEquipment = new System.Windows.Forms.Button();
-            this.button_EditEquipment = new System.Windows.Forms.Button();
-            this.button_RemoveEquipment = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_NameEquipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_InventoryNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +62,12 @@ namespace OGM
             this.Column_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.button_AddEquipment = new System.Windows.Forms.Button();
+            this.button_EditEquipment = new System.Windows.Forms.Button();
+            this.button_RemoveEquipment = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button_show_act_contract = new System.Windows.Forms.Button();
             this.groupBox_Search.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -373,64 +374,7 @@ namespace OGM
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(972, 308);
             this.dataGridView.TabIndex = 12;
-            // 
-            // button_AddEquipment
-            // 
-            this.button_AddEquipment.Location = new System.Drawing.Point(3, 3);
-            this.button_AddEquipment.Name = "button_AddEquipment";
-            this.button_AddEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_AddEquipment.TabIndex = 9;
-            this.button_AddEquipment.Text = "Добавить";
-            this.button_AddEquipment.UseVisualStyleBackColor = true;
-            this.button_AddEquipment.Click += new System.EventHandler(this.button_AddEquipment_Click);
-            // 
-            // button_EditEquipment
-            // 
-            this.button_EditEquipment.Location = new System.Drawing.Point(209, 3);
-            this.button_EditEquipment.Name = "button_EditEquipment";
-            this.button_EditEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_EditEquipment.TabIndex = 10;
-            this.button_EditEquipment.Text = "Редактировать";
-            this.button_EditEquipment.UseVisualStyleBackColor = true;
-            this.button_EditEquipment.Click += new System.EventHandler(this.button_EditEquipment_Click);
-            // 
-            // button_RemoveEquipment
-            // 
-            this.button_RemoveEquipment.Location = new System.Drawing.Point(415, 3);
-            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
-            this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 29);
-            this.button_RemoveEquipment.TabIndex = 11;
-            this.button_RemoveEquipment.Text = "Удалить";
-            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
-            this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox_Search, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 661);
-            this.tableLayoutPanel1.TabIndex = 13;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.button_AddEquipment);
-            this.flowLayoutPanel1.Controls.Add(this.button_EditEquipment);
-            this.flowLayoutPanel1.Controls.Add(this.button_RemoveEquipment);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 303);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(618, 35);
-            this.flowLayoutPanel1.TabIndex = 14;
+            this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
             // Column_PK
             // 
@@ -509,6 +453,76 @@ namespace OGM
             this.Column1.ReadOnly = true;
             this.Column1.Width = 80;
             // 
+            // button_AddEquipment
+            // 
+            this.button_AddEquipment.Location = new System.Drawing.Point(3, 3);
+            this.button_AddEquipment.Name = "button_AddEquipment";
+            this.button_AddEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_AddEquipment.TabIndex = 9;
+            this.button_AddEquipment.Text = "Добавить";
+            this.button_AddEquipment.UseVisualStyleBackColor = true;
+            this.button_AddEquipment.Click += new System.EventHandler(this.button_AddEquipment_Click);
+            // 
+            // button_EditEquipment
+            // 
+            this.button_EditEquipment.Location = new System.Drawing.Point(209, 3);
+            this.button_EditEquipment.Name = "button_EditEquipment";
+            this.button_EditEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_EditEquipment.TabIndex = 10;
+            this.button_EditEquipment.Text = "Редактировать";
+            this.button_EditEquipment.UseVisualStyleBackColor = true;
+            this.button_EditEquipment.Click += new System.EventHandler(this.button_EditEquipment_Click);
+            // 
+            // button_RemoveEquipment
+            // 
+            this.button_RemoveEquipment.Location = new System.Drawing.Point(415, 3);
+            this.button_RemoveEquipment.Name = "button_RemoveEquipment";
+            this.button_RemoveEquipment.Size = new System.Drawing.Size(200, 29);
+            this.button_RemoveEquipment.TabIndex = 11;
+            this.button_RemoveEquipment.Text = "Удалить";
+            this.button_RemoveEquipment.UseVisualStyleBackColor = true;
+            this.button_RemoveEquipment.Click += new System.EventHandler(this.button_RemoveEquipment_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_Search, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 661);
+            this.tableLayoutPanel1.TabIndex = 13;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.button_AddEquipment);
+            this.flowLayoutPanel1.Controls.Add(this.button_EditEquipment);
+            this.flowLayoutPanel1.Controls.Add(this.button_RemoveEquipment);
+            this.flowLayoutPanel1.Controls.Add(this.button_show_act_contract);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 303);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(824, 35);
+            this.flowLayoutPanel1.TabIndex = 14;
+            // 
+            // button_show_act_contract
+            // 
+            this.button_show_act_contract.Location = new System.Drawing.Point(621, 3);
+            this.button_show_act_contract.Name = "button_show_act_contract";
+            this.button_show_act_contract.Size = new System.Drawing.Size(200, 29);
+            this.button_show_act_contract.TabIndex = 12;
+            this.button_show_act_contract.Text = "Перейти к договору";
+            this.button_show_act_contract.UseVisualStyleBackColor = true;
+            this.button_show_act_contract.Visible = false;
+            this.button_show_act_contract.Click += new System.EventHandler(this.button_show_act_contract_Click);
+            // 
             // EquipmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -578,5 +592,6 @@ namespace OGM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Cost;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.Button button_show_act_contract;
     }
 }

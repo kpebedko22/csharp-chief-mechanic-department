@@ -36,8 +36,8 @@ namespace OGM.Models
                 //"server=37.59.55.185;user=MCa5jNxFbz;password=oOrPyOCyBq;database=MCa5jNxFbz;" // беплатная удалённая бд 2
                 //"server=25.36.221.15;user=application2;password=Qwerty_1;database=zq73krwnc8;" // пк
                 //"server=25.17.110.171;user=application2;password=Qwerty_1;database=zq73krwnc8;" // ноут
-                "server=25.17.110.171;user=application2;password=Qwerty_1;database=test_long_db;" // ноут test long db
-                //"server=25.17.110.171;user=application2;password=Qwerty_1;database=generating_db;" // ноут test long db
+                //"server=25.17.110.171;user=application2;password=Qwerty_1;database=test_long_db;" // ноут test long db
+                "server=25.17.110.171;user=application2;password=Qwerty_1;database=generating_db;" // ноут test long db
             );
         }
 
