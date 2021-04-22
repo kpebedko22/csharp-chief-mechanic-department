@@ -248,9 +248,11 @@ namespace OGM
             this.textBox_ContractNumber.Text = "";
             this.dateTimePicker_DateContract_Start.Checked = false;
             this.dateTimePicker_DateContract_End.Checked = false;
+            this.radioButton_all.Checked = true;
 
             //updateTable(Program.db.LeasingContracts.ToList());
-            updateTable();
+            //updateTable();
+            dataGridView_DataSearch.DataSource = null;
 
         }
 

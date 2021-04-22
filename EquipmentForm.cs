@@ -44,7 +44,7 @@ namespace OGM
 
         private void Equipment_Activated(object sender, EventArgs e)
         {
-
+            
             // сохраним выбор
             Workshop selected_wrokshop = ((Workshop)this.comboBox_Workshop.SelectedItem);
             EquipmentGroup selected_group = ((EquipmentGroup)this.comboBox_GroupEquipment.SelectedItem);
@@ -63,7 +63,8 @@ namespace OGM
 
             this.comboBox_GroupEquipment.SelectedItem = selected_group;
 
-            this.button_Search.PerformClick();
+            //this.button_Search.PerformClick();
+            
         }
 
         private void comboBox_Workshop_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,9 +163,10 @@ namespace OGM
             this.textBox_SerialNum.Text = "";
             this.radioButton_all.Checked = true;
 
-            List<Equipment> equipments = Program.db.Equipments.ToList();
-            dataGridView.DataSource = equipments;
-            dataGridView.ClearSelection();
+            //List<Equipment> equipments = Program.db.Equipments.ToList();
+            //dataGridView.DataSource = equipments;
+            dataGridView.DataSource = null;
+            //dataGridView.ClearSelection();
 
             this.comboBox_Workshop.Focus();
 
