@@ -29,6 +29,7 @@ namespace OGM
         /// </summary>
         private void InitializeComponent()
         {
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.button_RemoveEquipment = new System.Windows.Forms.Button();
 			this.button_EditEquipment = new System.Windows.Forms.Button();
 			this.button_AddEquipment = new System.Windows.Forms.Button();
@@ -38,22 +39,22 @@ namespace OGM
 			this.Column_Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox_Search = new System.Windows.Forms.GroupBox();
-			this.button_ResetSearch = new System.Windows.Forms.Button();
-			this.button_Search = new System.Windows.Forms.Button();
-			this.textBox_Email = new System.Windows.Forms.TextBox();
-			this.textBox_PhoneWorkshop = new System.Windows.Forms.TextBox();
-			this.textBox_NameWorkshop = new System.Windows.Forms.TextBox();
-			this.label_Email = new System.Windows.Forms.Label();
-			this.label_Phone = new System.Windows.Forms.Label();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label_Name = new System.Windows.Forms.Label();
+			this.button_ResetSearch = new System.Windows.Forms.Button();
+			this.label_Phone = new System.Windows.Forms.Label();
+			this.button_Search = new System.Windows.Forms.Button();
+			this.label_Email = new System.Windows.Forms.Label();
+			this.textBox_Email = new System.Windows.Forms.TextBox();
+			this.textBox_NameWorkshop = new System.Windows.Forms.TextBox();
+			this.textBox_PhoneWorkshop = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).BeginInit();
 			this.groupBox_Search.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_RemoveEquipment
@@ -88,6 +89,9 @@ namespace OGM
 			// 
 			// dataGridView_DataSearch
 			// 
+			this.dataGridView_DataSearch.AllowUserToAddRows = false;
+			this.dataGridView_DataSearch.AllowUserToDeleteRows = false;
+			this.dataGridView_DataSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dataGridView_DataSearch.BackgroundColor = System.Drawing.Color.FloralWhite;
 			this.dataGridView_DataSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_DataSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -100,6 +104,8 @@ namespace OGM
 			this.dataGridView_DataSearch.Margin = new System.Windows.Forms.Padding(6);
 			this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
 			this.dataGridView_DataSearch.ReadOnly = true;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
+			this.dataGridView_DataSearch.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView_DataSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView_DataSearch.Size = new System.Drawing.Size(872, 338);
 			this.dataGridView_DataSearch.TabIndex = 8;
@@ -144,6 +150,45 @@ namespace OGM
 			this.groupBox_Search.TabStop = false;
 			this.groupBox_Search.Text = "Параметры поиска";
 			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 6;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+			this.tableLayoutPanel2.Controls.Add(this.label_Name, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.button_ResetSearch, 4, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label_Phone, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.button_Search, 4, 0);
+			this.tableLayoutPanel2.Controls.Add(this.label_Email, 1, 2);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_Email, 2, 2);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_NameWorkshop, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_PhoneWorkshop, 2, 1);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 25);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 4;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(866, 130);
+			this.tableLayoutPanel2.TabIndex = 5;
+			// 
+			// label_Name
+			// 
+			this.label_Name.AutoSize = true;
+			this.label_Name.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_Name.Location = new System.Drawing.Point(76, 0);
+			this.label_Name.Name = "label_Name";
+			this.label_Name.Size = new System.Drawing.Size(120, 41);
+			this.label_Name.TabIndex = 0;
+			this.label_Name.Text = "Наименование:";
+			this.label_Name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// button_ResetSearch
 			// 
 			this.button_ResetSearch.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -155,6 +200,17 @@ namespace OGM
 			this.button_ResetSearch.Text = "Сбросить параметры поиска";
 			this.button_ResetSearch.UseVisualStyleBackColor = true;
 			this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
+			// 
+			// label_Phone
+			// 
+			this.label_Phone.AutoSize = true;
+			this.label_Phone.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_Phone.Location = new System.Drawing.Point(63, 41);
+			this.label_Phone.Name = "label_Phone";
+			this.label_Phone.Size = new System.Drawing.Size(133, 41);
+			this.label_Phone.TabIndex = 1;
+			this.label_Phone.Text = "Номер телефона:";
+			this.label_Phone.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// button_Search
 			// 
@@ -168,33 +224,6 @@ namespace OGM
 			this.button_Search.UseVisualStyleBackColor = true;
 			this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
 			// 
-			// textBox_Email
-			// 
-			this.textBox_Email.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_Email.Location = new System.Drawing.Point(205, 88);
-			this.textBox_Email.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_Email.Name = "textBox_Email";
-			this.textBox_Email.Size = new System.Drawing.Size(200, 29);
-			this.textBox_Email.TabIndex = 2;
-			// 
-			// textBox_PhoneWorkshop
-			// 
-			this.textBox_PhoneWorkshop.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_PhoneWorkshop.Location = new System.Drawing.Point(205, 47);
-			this.textBox_PhoneWorkshop.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_PhoneWorkshop.Name = "textBox_PhoneWorkshop";
-			this.textBox_PhoneWorkshop.Size = new System.Drawing.Size(200, 29);
-			this.textBox_PhoneWorkshop.TabIndex = 1;
-			// 
-			// textBox_NameWorkshop
-			// 
-			this.textBox_NameWorkshop.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_NameWorkshop.Location = new System.Drawing.Point(205, 6);
-			this.textBox_NameWorkshop.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_NameWorkshop.Name = "textBox_NameWorkshop";
-			this.textBox_NameWorkshop.Size = new System.Drawing.Size(200, 29);
-			this.textBox_NameWorkshop.TabIndex = 0;
-			// 
 			// label_Email
 			// 
 			this.label_Email.AutoSize = true;
@@ -206,27 +235,32 @@ namespace OGM
 			this.label_Email.Text = "E-mail:";
 			this.label_Email.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// label_Phone
+			// textBox_Email
 			// 
-			this.label_Phone.AutoSize = true;
-			this.label_Phone.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_Phone.Location = new System.Drawing.Point(63, 41);
-			this.label_Phone.Name = "label_Phone";
-			this.label_Phone.Size = new System.Drawing.Size(133, 41);
-			this.label_Phone.TabIndex = 1;
-			this.label_Phone.Text = "Номер телефона:";
-			this.label_Phone.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.textBox_Email.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_Email.Location = new System.Drawing.Point(205, 88);
+			this.textBox_Email.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_Email.Name = "textBox_Email";
+			this.textBox_Email.Size = new System.Drawing.Size(200, 29);
+			this.textBox_Email.TabIndex = 2;
 			// 
-			// label_Name
+			// textBox_NameWorkshop
 			// 
-			this.label_Name.AutoSize = true;
-			this.label_Name.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_Name.Location = new System.Drawing.Point(76, 0);
-			this.label_Name.Name = "label_Name";
-			this.label_Name.Size = new System.Drawing.Size(120, 41);
-			this.label_Name.TabIndex = 0;
-			this.label_Name.Text = "Наименование:";
-			this.label_Name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.textBox_NameWorkshop.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_NameWorkshop.Location = new System.Drawing.Point(205, 6);
+			this.textBox_NameWorkshop.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_NameWorkshop.Name = "textBox_NameWorkshop";
+			this.textBox_NameWorkshop.Size = new System.Drawing.Size(200, 29);
+			this.textBox_NameWorkshop.TabIndex = 0;
+			// 
+			// textBox_PhoneWorkshop
+			// 
+			this.textBox_PhoneWorkshop.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_PhoneWorkshop.Location = new System.Drawing.Point(205, 47);
+			this.textBox_PhoneWorkshop.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_PhoneWorkshop.Name = "textBox_PhoneWorkshop";
+			this.textBox_PhoneWorkshop.Size = new System.Drawing.Size(200, 29);
+			this.textBox_PhoneWorkshop.TabIndex = 1;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -256,34 +290,6 @@ namespace OGM
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(618, 35);
 			this.flowLayoutPanel1.TabIndex = 14;
 			// 
-			// tableLayoutPanel2
-			// 
-			this.tableLayoutPanel2.ColumnCount = 6;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.tableLayoutPanel2.Controls.Add(this.label_Name, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.button_ResetSearch, 4, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label_Phone, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.button_Search, 4, 0);
-			this.tableLayoutPanel2.Controls.Add(this.label_Email, 1, 2);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_Email, 2, 2);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_NameWorkshop, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_PhoneWorkshop, 2, 1);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 25);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 4;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(866, 130);
-			this.tableLayoutPanel2.TabIndex = 5;
-			// 
 			// WorkshopForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -299,11 +305,11 @@ namespace OGM
 			this.Activated += new System.EventHandler(this.WorkshopForm_Activated);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).EndInit();
 			this.groupBox_Search.ResumeLayout(false);
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
 			this.ResumeLayout(false);
 
         }

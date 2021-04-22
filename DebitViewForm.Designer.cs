@@ -24,6 +24,7 @@ namespace OGM {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Export_File = new System.Windows.Forms.ToolStripMenuItem();
@@ -182,6 +183,7 @@ namespace OGM {
 			// 
 			this.dataGridView_Data.AllowUserToAddRows = false;
 			this.dataGridView_Data.AllowUserToDeleteRows = false;
+			this.dataGridView_Data.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dataGridView_Data.BackgroundColor = System.Drawing.Color.FloralWhite;
 			this.dataGridView_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -196,6 +198,8 @@ namespace OGM {
 			this.dataGridView_Data.Location = new System.Drawing.Point(3, 103);
 			this.dataGridView_Data.Name = "dataGridView_Data";
 			this.dataGridView_Data.ReadOnly = true;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
+			this.dataGridView_Data.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView_Data.Size = new System.Drawing.Size(758, 434);
 			this.dataGridView_Data.TabIndex = 1;
 			// 
@@ -385,9 +389,9 @@ namespace OGM {
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label9.Location = new System.Drawing.Point(291, 101);
+			this.label9.Location = new System.Drawing.Point(291, 97);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(105, 39);
+			this.label9.Size = new System.Drawing.Size(105, 47);
 			this.label9.TabIndex = 8;
 			this.label9.Text = "Организация";
 			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -395,7 +399,7 @@ namespace OGM {
 			// comboBox_Organization
 			// 
 			this.comboBox_Organization.FormattingEnabled = true;
-			this.comboBox_Organization.Location = new System.Drawing.Point(408, 110);
+			this.comboBox_Organization.Location = new System.Drawing.Point(408, 106);
 			this.comboBox_Organization.Margin = new System.Windows.Forms.Padding(9);
 			this.comboBox_Organization.Name = "comboBox_Organization";
 			this.comboBox_Organization.Size = new System.Drawing.Size(250, 29);
@@ -403,7 +407,7 @@ namespace OGM {
 			// 
 			// textBox_FIO_DeputyDirector
 			// 
-			this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(408, 196);
+			this.textBox_FIO_DeputyDirector.Location = new System.Drawing.Point(408, 200);
 			this.textBox_FIO_DeputyDirector.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_FIO_DeputyDirector.MaxLength = 250;
 			this.textBox_FIO_DeputyDirector.Name = "textBox_FIO_DeputyDirector";
@@ -412,7 +416,7 @@ namespace OGM {
 			// 
 			// textBox_FIO_HeadProcurement
 			// 
-			this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(408, 243);
+			this.textBox_FIO_HeadProcurement.Location = new System.Drawing.Point(408, 247);
 			this.textBox_FIO_HeadProcurement.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_FIO_HeadProcurement.MaxLength = 250;
 			this.textBox_FIO_HeadProcurement.Name = "textBox_FIO_HeadProcurement";
@@ -421,7 +425,7 @@ namespace OGM {
 			// 
 			// textBox_FIO_Engineer
 			// 
-			this.textBox_FIO_Engineer.Location = new System.Drawing.Point(408, 290);
+			this.textBox_FIO_Engineer.Location = new System.Drawing.Point(408, 294);
 			this.textBox_FIO_Engineer.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_FIO_Engineer.MaxLength = 250;
 			this.textBox_FIO_Engineer.Name = "textBox_FIO_Engineer";
@@ -430,7 +434,7 @@ namespace OGM {
 			// 
 			// textBox_FIO_DeputyAccountant
 			// 
-			this.textBox_FIO_DeputyAccountant.Location = new System.Drawing.Point(408, 337);
+			this.textBox_FIO_DeputyAccountant.Location = new System.Drawing.Point(408, 341);
 			this.textBox_FIO_DeputyAccountant.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_FIO_DeputyAccountant.MaxLength = 250;
 			this.textBox_FIO_DeputyAccountant.Name = "textBox_FIO_DeputyAccountant";
@@ -441,7 +445,7 @@ namespace OGM {
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label5.Location = new System.Drawing.Point(105, 328);
+			this.label5.Location = new System.Drawing.Point(105, 332);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(291, 47);
 			this.label5.TabIndex = 2;
@@ -450,7 +454,7 @@ namespace OGM {
 			// 
 			// textBox_FIO_MainMechanic
 			// 
-			this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(408, 149);
+			this.textBox_FIO_MainMechanic.Location = new System.Drawing.Point(408, 153);
 			this.textBox_FIO_MainMechanic.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_FIO_MainMechanic.MaxLength = 250;
 			this.textBox_FIO_MainMechanic.Name = "textBox_FIO_MainMechanic";
@@ -461,7 +465,7 @@ namespace OGM {
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label4.Location = new System.Drawing.Point(276, 281);
+			this.label4.Location = new System.Drawing.Point(276, 285);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(120, 47);
 			this.label4.TabIndex = 2;
@@ -472,7 +476,7 @@ namespace OGM {
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label1.Location = new System.Drawing.Point(218, 140);
+			this.label1.Location = new System.Drawing.Point(218, 144);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(178, 47);
 			this.label1.TabIndex = 2;
@@ -483,7 +487,7 @@ namespace OGM {
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label3.Location = new System.Drawing.Point(150, 234);
+			this.label3.Location = new System.Drawing.Point(150, 238);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(246, 47);
 			this.label3.TabIndex = 2;
@@ -494,7 +498,7 @@ namespace OGM {
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label2.Location = new System.Drawing.Point(143, 187);
+			this.label2.Location = new System.Drawing.Point(143, 191);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(253, 47);
 			this.label2.TabIndex = 2;
@@ -505,7 +509,7 @@ namespace OGM {
 			// 
 			this.tableLayoutPanel3.SetColumnSpan(this.progressBar, 2);
 			this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.progressBar.Location = new System.Drawing.Point(108, 381);
+			this.progressBar.Location = new System.Drawing.Point(108, 385);
 			this.progressBar.Margin = new System.Windows.Forms.Padding(6);
 			this.progressBar.Name = "progressBar";
 			this.progressBar.Size = new System.Drawing.Size(554, 23);

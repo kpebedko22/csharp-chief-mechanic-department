@@ -25,6 +25,7 @@ namespace OGM {
 		/// </summary>
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_File_ExitModule = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +48,8 @@ namespace OGM {
 			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
 			this.button_Search = new System.Windows.Forms.Button();
 			this.dateTimePicker_DateDebit_From = new System.Windows.Forms.DateTimePicker();
+			this.label1 = new System.Windows.Forms.Label();
+			this.dateTimePicker_DateDebit_To = new System.Windows.Forms.DateTimePicker();
 			this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
 			this.dataGridView_DataSearch = new System.Windows.Forms.DataGridView();
 			this.ColumnNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,8 +58,6 @@ namespace OGM {
 			this.ColumnDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnView = new System.Windows.Forms.DataGridViewLinkColumn();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.dateTimePicker_DateDebit_To = new System.Windows.Forms.DateTimePicker();
 			this.menuStrip.SuspendLayout();
 			this.groupBox_Search.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -287,8 +288,31 @@ namespace OGM {
 			this.dateTimePicker_DateDebit_From.Size = new System.Drawing.Size(200, 29);
 			this.dateTimePicker_DateDebit_From.TabIndex = 1;
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label1.Location = new System.Drawing.Point(55, 82);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(136, 40);
+			this.label1.TabIndex = 6;
+			this.label1.Text = "Дата списания до";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// dateTimePicker_DateDebit_To
+			// 
+			this.dateTimePicker_DateDebit_To.Checked = false;
+			this.dateTimePicker_DateDebit_To.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dateTimePicker_DateDebit_To.Location = new System.Drawing.Point(200, 88);
+			this.dateTimePicker_DateDebit_To.Margin = new System.Windows.Forms.Padding(6);
+			this.dateTimePicker_DateDebit_To.Name = "dateTimePicker_DateDebit_To";
+			this.dateTimePicker_DateDebit_To.ShowCheckBox = true;
+			this.dateTimePicker_DateDebit_To.Size = new System.Drawing.Size(200, 29);
+			this.dateTimePicker_DateDebit_To.TabIndex = 7;
+			// 
 			// dataGridView_DataSearch
 			// 
+			this.dataGridView_DataSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dataGridView_DataSearch.BackgroundColor = System.Drawing.Color.FloralWhite;
 			this.dataGridView_DataSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_DataSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -300,6 +324,8 @@ namespace OGM {
 			this.dataGridView_DataSearch.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dataGridView_DataSearch.Location = new System.Drawing.Point(3, 203);
 			this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
+			this.dataGridView_DataSearch.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView_DataSearch.Size = new System.Drawing.Size(878, 331);
 			this.dataGridView_DataSearch.TabIndex = 4;
 			this.dataGridView_DataSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DataSearch_CellClick);
@@ -352,28 +378,6 @@ namespace OGM {
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 537);
 			this.tableLayoutPanel1.TabIndex = 5;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label1.Location = new System.Drawing.Point(55, 82);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(136, 40);
-			this.label1.TabIndex = 6;
-			this.label1.Text = "Дата списания до";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// dateTimePicker_DateDebit_To
-			// 
-			this.dateTimePicker_DateDebit_To.Checked = false;
-			this.dateTimePicker_DateDebit_To.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dateTimePicker_DateDebit_To.Location = new System.Drawing.Point(200, 88);
-			this.dateTimePicker_DateDebit_To.Margin = new System.Windows.Forms.Padding(6);
-			this.dateTimePicker_DateDebit_To.Name = "dateTimePicker_DateDebit_To";
-			this.dateTimePicker_DateDebit_To.ShowCheckBox = true;
-			this.dateTimePicker_DateDebit_To.Size = new System.Drawing.Size(200, 29);
-			this.dateTimePicker_DateDebit_To.TabIndex = 7;
 			// 
 			// EquipmentModuleForm
 			// 

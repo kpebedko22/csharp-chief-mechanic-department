@@ -30,37 +30,35 @@ namespace OGM
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.groupBox_Search = new System.Windows.Forms.GroupBox();
-			this.textBox_Bank = new System.Windows.Forms.TextBox();
-			this.label_Bank = new System.Windows.Forms.Label();
-			this.textBox_PostAddress = new System.Windows.Forms.TextBox();
-			this.label_PostAddress = new System.Windows.Forms.Label();
-			this.textBox_BIK = new System.Windows.Forms.TextBox();
-			this.button_ResetComboBoxRole = new System.Windows.Forms.Button();
-			this.button_ResetSearch = new System.Windows.Forms.Button();
-			this.textBox_CorrespondentAccount = new System.Windows.Forms.TextBox();
-			this.textBox_PaymentAccount = new System.Windows.Forms.TextBox();
-			this.label_BIK = new System.Windows.Forms.Label();
-			this.label_CorrespondentAccount = new System.Windows.Forms.Label();
-			this.label_PaymentAccount = new System.Windows.Forms.Label();
-			this.textBox_Phone = new System.Windows.Forms.TextBox();
-			this.label_Phone = new System.Windows.Forms.Label();
+			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			this.button_Search = new System.Windows.Forms.Button();
-			this.comboBox_Role = new System.Windows.Forms.ComboBox();
-			this.textBox_INN = new System.Windows.Forms.TextBox();
-			this.textBox_LegalAddress = new System.Windows.Forms.TextBox();
-			this.textBox_NameOrganiztion = new System.Windows.Forms.TextBox();
-			this.label_Role = new System.Windows.Forms.Label();
-			this.label_INN = new System.Windows.Forms.Label();
-			this.label_LegalAddress = new System.Windows.Forms.Label();
+			this.button_ResetSearch = new System.Windows.Forms.Button();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label_NameOrganiztion = new System.Windows.Forms.Label();
+			this.textBox_BIK = new System.Windows.Forms.TextBox();
+			this.textBox_Bank = new System.Windows.Forms.TextBox();
+			this.label_Role = new System.Windows.Forms.Label();
+			this.textBox_CorrespondentAccount = new System.Windows.Forms.TextBox();
+			this.label_Bank = new System.Windows.Forms.Label();
+			this.label_LegalAddress = new System.Windows.Forms.Label();
+			this.textBox_PostAddress = new System.Windows.Forms.TextBox();
+			this.textBox_PaymentAccount = new System.Windows.Forms.TextBox();
+			this.button_ResetComboBoxRole = new System.Windows.Forms.Button();
+			this.label_BIK = new System.Windows.Forms.Label();
+			this.textBox_INN = new System.Windows.Forms.TextBox();
+			this.label_PostAddress = new System.Windows.Forms.Label();
+			this.label_CorrespondentAccount = new System.Windows.Forms.Label();
+			this.label_Phone = new System.Windows.Forms.Label();
+			this.textBox_NameOrganiztion = new System.Windows.Forms.TextBox();
+			this.comboBox_Role = new System.Windows.Forms.ComboBox();
+			this.label_PaymentAccount = new System.Windows.Forms.Label();
+			this.textBox_LegalAddress = new System.Windows.Forms.TextBox();
+			this.textBox_Phone = new System.Windows.Forms.TextBox();
+			this.label_INN = new System.Windows.Forms.Label();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.dataGridView_DataSearch = new System.Windows.Forms.DataGridView();
-			this.button_RemoveOrganization = new System.Windows.Forms.Button();
-			this.button_EditOrganization = new System.Windows.Forms.Button();
-			this.button_AddOrganization = new System.Windows.Forms.Button();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.ColumnPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_NameOrganization = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,14 +70,17 @@ namespace OGM
 			this.Column_Bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_CorrespondentAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column_BIK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+			this.button_RemoveOrganization = new System.Windows.Forms.Button();
+			this.button_EditOrganization = new System.Windows.Forms.Button();
+			this.button_AddOrganization = new System.Windows.Forms.Button();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.groupBox_Search.SuspendLayout();
+			this.flowLayoutPanel2.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
-			this.flowLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox_Search
@@ -95,6 +96,104 @@ namespace OGM
 			this.groupBox_Search.TabStop = false;
 			this.groupBox_Search.Text = "Параметры поиска";
 			// 
+			// flowLayoutPanel2
+			// 
+			this.flowLayoutPanel2.AutoSize = true;
+			this.flowLayoutPanel2.Controls.Add(this.button_Search);
+			this.flowLayoutPanel2.Controls.Add(this.button_ResetSearch);
+			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 240);
+			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(966, 35);
+			this.flowLayoutPanel2.TabIndex = 23;
+			// 
+			// button_Search
+			// 
+			this.button_Search.Location = new System.Drawing.Point(703, 3);
+			this.button_Search.Name = "button_Search";
+			this.button_Search.Size = new System.Drawing.Size(260, 29);
+			this.button_Search.TabIndex = 10;
+			this.button_Search.Text = "Найти";
+			this.button_Search.UseVisualStyleBackColor = true;
+			this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
+			// 
+			// button_ResetSearch
+			// 
+			this.button_ResetSearch.Location = new System.Drawing.Point(437, 3);
+			this.button_ResetSearch.Name = "button_ResetSearch";
+			this.button_ResetSearch.Size = new System.Drawing.Size(260, 29);
+			this.button_ResetSearch.TabIndex = 10;
+			this.button_ResetSearch.Text = "Сбросить параметры поиска";
+			this.button_ResetSearch.UseVisualStyleBackColor = true;
+			this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 8;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+			this.tableLayoutPanel2.Controls.Add(this.label_NameOrganiztion, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_BIK, 6, 4);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_Bank, 6, 2);
+			this.tableLayoutPanel2.Controls.Add(this.label_Role, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_CorrespondentAccount, 6, 3);
+			this.tableLayoutPanel2.Controls.Add(this.label_Bank, 5, 2);
+			this.tableLayoutPanel2.Controls.Add(this.label_LegalAddress, 1, 2);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_PostAddress, 2, 3);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_PaymentAccount, 6, 1);
+			this.tableLayoutPanel2.Controls.Add(this.button_ResetComboBoxRole, 3, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label_BIK, 5, 4);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_INN, 6, 0);
+			this.tableLayoutPanel2.Controls.Add(this.label_PostAddress, 1, 3);
+			this.tableLayoutPanel2.Controls.Add(this.label_CorrespondentAccount, 5, 3);
+			this.tableLayoutPanel2.Controls.Add(this.label_Phone, 1, 4);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_NameOrganiztion, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.comboBox_Role, 2, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label_PaymentAccount, 5, 1);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_LegalAddress, 2, 2);
+			this.tableLayoutPanel2.Controls.Add(this.textBox_Phone, 2, 4);
+			this.tableLayoutPanel2.Controls.Add(this.label_INN, 5, 0);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 25);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 7;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(966, 250);
+			this.tableLayoutPanel2.TabIndex = 22;
+			// 
+			// label_NameOrganiztion
+			// 
+			this.label_NameOrganiztion.AutoSize = true;
+			this.label_NameOrganiztion.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_NameOrganiztion.Location = new System.Drawing.Point(64, 0);
+			this.label_NameOrganiztion.Name = "label_NameOrganiztion";
+			this.label_NameOrganiztion.Size = new System.Drawing.Size(120, 41);
+			this.label_NameOrganiztion.TabIndex = 0;
+			this.label_NameOrganiztion.Text = "Наименование:";
+			this.label_NameOrganiztion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// textBox_BIK
+			// 
+			this.textBox_BIK.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_BIK.Location = new System.Drawing.Point(678, 170);
+			this.textBox_BIK.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_BIK.Name = "textBox_BIK";
+			this.textBox_BIK.Size = new System.Drawing.Size(260, 29);
+			this.textBox_BIK.TabIndex = 9;
+			// 
 			// textBox_Bank
 			// 
 			this.textBox_Bank.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -103,6 +202,26 @@ namespace OGM
 			this.textBox_Bank.Name = "textBox_Bank";
 			this.textBox_Bank.Size = new System.Drawing.Size(260, 29);
 			this.textBox_Bank.TabIndex = 7;
+			// 
+			// label_Role
+			// 
+			this.label_Role.AutoSize = true;
+			this.label_Role.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_Role.Location = new System.Drawing.Point(138, 41);
+			this.label_Role.Name = "label_Role";
+			this.label_Role.Size = new System.Drawing.Size(46, 41);
+			this.label_Role.TabIndex = 3;
+			this.label_Role.Text = "Роль:";
+			this.label_Role.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// textBox_CorrespondentAccount
+			// 
+			this.textBox_CorrespondentAccount.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_CorrespondentAccount.Location = new System.Drawing.Point(678, 129);
+			this.textBox_CorrespondentAccount.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_CorrespondentAccount.Name = "textBox_CorrespondentAccount";
+			this.textBox_CorrespondentAccount.Size = new System.Drawing.Size(260, 29);
+			this.textBox_CorrespondentAccount.TabIndex = 8;
 			// 
 			// label_Bank
 			// 
@@ -115,6 +234,17 @@ namespace OGM
 			this.label_Bank.Text = "Банк:";
 			this.label_Bank.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
+			// label_LegalAddress
+			// 
+			this.label_LegalAddress.AutoSize = true;
+			this.label_LegalAddress.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_LegalAddress.Location = new System.Drawing.Point(24, 82);
+			this.label_LegalAddress.Name = "label_LegalAddress";
+			this.label_LegalAddress.Size = new System.Drawing.Size(160, 41);
+			this.label_LegalAddress.TabIndex = 1;
+			this.label_LegalAddress.Text = "Юридический адрес:";
+			this.label_LegalAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// textBox_PostAddress
 			// 
 			this.textBox_PostAddress.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -124,25 +254,14 @@ namespace OGM
 			this.textBox_PostAddress.Size = new System.Drawing.Size(260, 29);
 			this.textBox_PostAddress.TabIndex = 3;
 			// 
-			// label_PostAddress
+			// textBox_PaymentAccount
 			// 
-			this.label_PostAddress.AutoSize = true;
-			this.label_PostAddress.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_PostAddress.Location = new System.Drawing.Point(53, 123);
-			this.label_PostAddress.Name = "label_PostAddress";
-			this.label_PostAddress.Size = new System.Drawing.Size(131, 41);
-			this.label_PostAddress.TabIndex = 19;
-			this.label_PostAddress.Text = "Почтовый адрес:";
-			this.label_PostAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// textBox_BIK
-			// 
-			this.textBox_BIK.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_BIK.Location = new System.Drawing.Point(678, 170);
-			this.textBox_BIK.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_BIK.Name = "textBox_BIK";
-			this.textBox_BIK.Size = new System.Drawing.Size(260, 29);
-			this.textBox_BIK.TabIndex = 9;
+			this.textBox_PaymentAccount.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_PaymentAccount.Location = new System.Drawing.Point(678, 47);
+			this.textBox_PaymentAccount.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_PaymentAccount.Name = "textBox_PaymentAccount";
+			this.textBox_PaymentAccount.Size = new System.Drawing.Size(260, 29);
+			this.textBox_PaymentAccount.TabIndex = 6;
 			// 
 			// button_ResetComboBoxRole
 			// 
@@ -156,34 +275,6 @@ namespace OGM
 			this.button_ResetComboBoxRole.UseVisualStyleBackColor = true;
 			this.button_ResetComboBoxRole.Click += new System.EventHandler(this.button_ResetComboBoxRole_Click);
 			// 
-			// button_ResetSearch
-			// 
-			this.button_ResetSearch.Location = new System.Drawing.Point(437, 3);
-			this.button_ResetSearch.Name = "button_ResetSearch";
-			this.button_ResetSearch.Size = new System.Drawing.Size(260, 29);
-			this.button_ResetSearch.TabIndex = 10;
-			this.button_ResetSearch.Text = "Сбросить параметры поиска";
-			this.button_ResetSearch.UseVisualStyleBackColor = true;
-			this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
-			// 
-			// textBox_CorrespondentAccount
-			// 
-			this.textBox_CorrespondentAccount.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_CorrespondentAccount.Location = new System.Drawing.Point(678, 129);
-			this.textBox_CorrespondentAccount.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_CorrespondentAccount.Name = "textBox_CorrespondentAccount";
-			this.textBox_CorrespondentAccount.Size = new System.Drawing.Size(260, 29);
-			this.textBox_CorrespondentAccount.TabIndex = 8;
-			// 
-			// textBox_PaymentAccount
-			// 
-			this.textBox_PaymentAccount.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_PaymentAccount.Location = new System.Drawing.Point(678, 47);
-			this.textBox_PaymentAccount.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_PaymentAccount.Name = "textBox_PaymentAccount";
-			this.textBox_PaymentAccount.Size = new System.Drawing.Size(260, 29);
-			this.textBox_PaymentAccount.TabIndex = 6;
-			// 
 			// label_BIK
 			// 
 			this.label_BIK.AutoSize = true;
@@ -194,6 +285,26 @@ namespace OGM
 			this.label_BIK.TabIndex = 13;
 			this.label_BIK.Text = "БИК:";
 			this.label_BIK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// textBox_INN
+			// 
+			this.textBox_INN.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_INN.Location = new System.Drawing.Point(678, 6);
+			this.textBox_INN.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_INN.Name = "textBox_INN";
+			this.textBox_INN.Size = new System.Drawing.Size(260, 29);
+			this.textBox_INN.TabIndex = 5;
+			// 
+			// label_PostAddress
+			// 
+			this.label_PostAddress.AutoSize = true;
+			this.label_PostAddress.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_PostAddress.Location = new System.Drawing.Point(53, 123);
+			this.label_PostAddress.Name = "label_PostAddress";
+			this.label_PostAddress.Size = new System.Drawing.Size(131, 41);
+			this.label_PostAddress.TabIndex = 19;
+			this.label_PostAddress.Text = "Почтовый адрес:";
+			this.label_PostAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// label_CorrespondentAccount
 			// 
@@ -207,26 +318,6 @@ namespace OGM
 			this.label_CorrespondentAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.label_CorrespondentAccount, "Корреспондентский счёт");
 			// 
-			// label_PaymentAccount
-			// 
-			this.label_PaymentAccount.AutoSize = true;
-			this.label_PaymentAccount.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_PaymentAccount.Location = new System.Drawing.Point(545, 41);
-			this.label_PaymentAccount.Name = "label_PaymentAccount";
-			this.label_PaymentAccount.Size = new System.Drawing.Size(124, 41);
-			this.label_PaymentAccount.TabIndex = 11;
-			this.label_PaymentAccount.Text = "Расчётный счёт:";
-			this.label_PaymentAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// textBox_Phone
-			// 
-			this.textBox_Phone.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_Phone.Location = new System.Drawing.Point(193, 170);
-			this.textBox_Phone.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_Phone.Name = "textBox_Phone";
-			this.textBox_Phone.Size = new System.Drawing.Size(260, 29);
-			this.textBox_Phone.TabIndex = 4;
-			// 
 			// label_Phone
 			// 
 			this.label_Phone.AutoSize = true;
@@ -238,15 +329,14 @@ namespace OGM
 			this.label_Phone.Text = "Телефон/Факс:";
 			this.label_Phone.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// button_Search
+			// textBox_NameOrganiztion
 			// 
-			this.button_Search.Location = new System.Drawing.Point(703, 3);
-			this.button_Search.Name = "button_Search";
-			this.button_Search.Size = new System.Drawing.Size(260, 29);
-			this.button_Search.TabIndex = 10;
-			this.button_Search.Text = "Найти";
-			this.button_Search.UseVisualStyleBackColor = true;
-			this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
+			this.textBox_NameOrganiztion.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_NameOrganiztion.Location = new System.Drawing.Point(193, 6);
+			this.textBox_NameOrganiztion.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_NameOrganiztion.Name = "textBox_NameOrganiztion";
+			this.textBox_NameOrganiztion.Size = new System.Drawing.Size(260, 29);
+			this.textBox_NameOrganiztion.TabIndex = 0;
 			// 
 			// comboBox_Role
 			// 
@@ -262,14 +352,16 @@ namespace OGM
 			this.comboBox_Role.Size = new System.Drawing.Size(260, 29);
 			this.comboBox_Role.TabIndex = 1;
 			// 
-			// textBox_INN
+			// label_PaymentAccount
 			// 
-			this.textBox_INN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_INN.Location = new System.Drawing.Point(678, 6);
-			this.textBox_INN.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_INN.Name = "textBox_INN";
-			this.textBox_INN.Size = new System.Drawing.Size(260, 29);
-			this.textBox_INN.TabIndex = 5;
+			this.label_PaymentAccount.AutoSize = true;
+			this.label_PaymentAccount.Dock = System.Windows.Forms.DockStyle.Right;
+			this.label_PaymentAccount.Location = new System.Drawing.Point(545, 41);
+			this.label_PaymentAccount.Name = "label_PaymentAccount";
+			this.label_PaymentAccount.Size = new System.Drawing.Size(124, 41);
+			this.label_PaymentAccount.TabIndex = 11;
+			this.label_PaymentAccount.Text = "Расчётный счёт:";
+			this.label_PaymentAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// textBox_LegalAddress
 			// 
@@ -280,25 +372,14 @@ namespace OGM
 			this.textBox_LegalAddress.Size = new System.Drawing.Size(260, 29);
 			this.textBox_LegalAddress.TabIndex = 2;
 			// 
-			// textBox_NameOrganiztion
+			// textBox_Phone
 			// 
-			this.textBox_NameOrganiztion.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox_NameOrganiztion.Location = new System.Drawing.Point(193, 6);
-			this.textBox_NameOrganiztion.Margin = new System.Windows.Forms.Padding(6);
-			this.textBox_NameOrganiztion.Name = "textBox_NameOrganiztion";
-			this.textBox_NameOrganiztion.Size = new System.Drawing.Size(260, 29);
-			this.textBox_NameOrganiztion.TabIndex = 0;
-			// 
-			// label_Role
-			// 
-			this.label_Role.AutoSize = true;
-			this.label_Role.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_Role.Location = new System.Drawing.Point(138, 41);
-			this.label_Role.Name = "label_Role";
-			this.label_Role.Size = new System.Drawing.Size(46, 41);
-			this.label_Role.TabIndex = 3;
-			this.label_Role.Text = "Роль:";
-			this.label_Role.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.textBox_Phone.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox_Phone.Location = new System.Drawing.Point(193, 170);
+			this.textBox_Phone.Margin = new System.Windows.Forms.Padding(6);
+			this.textBox_Phone.Name = "textBox_Phone";
+			this.textBox_Phone.Size = new System.Drawing.Size(260, 29);
+			this.textBox_Phone.TabIndex = 4;
 			// 
 			// label_INN
 			// 
@@ -311,30 +392,11 @@ namespace OGM
 			this.label_INN.Text = "ИНН:";
 			this.label_INN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// label_LegalAddress
-			// 
-			this.label_LegalAddress.AutoSize = true;
-			this.label_LegalAddress.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_LegalAddress.Location = new System.Drawing.Point(24, 82);
-			this.label_LegalAddress.Name = "label_LegalAddress";
-			this.label_LegalAddress.Size = new System.Drawing.Size(160, 41);
-			this.label_LegalAddress.TabIndex = 1;
-			this.label_LegalAddress.Text = "Юридический адрес:";
-			this.label_LegalAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label_NameOrganiztion
-			// 
-			this.label_NameOrganiztion.AutoSize = true;
-			this.label_NameOrganiztion.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label_NameOrganiztion.Location = new System.Drawing.Point(64, 0);
-			this.label_NameOrganiztion.Name = "label_NameOrganiztion";
-			this.label_NameOrganiztion.Size = new System.Drawing.Size(120, 41);
-			this.label_NameOrganiztion.TabIndex = 0;
-			this.label_NameOrganiztion.Text = "Наименование:";
-			this.label_NameOrganiztion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
 			// dataGridView_DataSearch
 			// 
+			this.dataGridView_DataSearch.AllowUserToAddRows = false;
+			this.dataGridView_DataSearch.AllowUserToDeleteRows = false;
+			this.dataGridView_DataSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dataGridView_DataSearch.BackgroundColor = System.Drawing.Color.FloralWhite;
 			this.dataGridView_DataSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_DataSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -353,67 +415,12 @@ namespace OGM
 			this.dataGridView_DataSearch.Location = new System.Drawing.Point(6, 337);
 			this.dataGridView_DataSearch.Margin = new System.Windows.Forms.Padding(6);
 			this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
+			this.dataGridView_DataSearch.ReadOnly = true;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
+			this.dataGridView_DataSearch.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView_DataSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView_DataSearch.Size = new System.Drawing.Size(972, 318);
 			this.dataGridView_DataSearch.TabIndex = 14;
-			// 
-			// button_RemoveOrganization
-			// 
-			this.button_RemoveOrganization.Location = new System.Drawing.Point(415, 3);
-			this.button_RemoveOrganization.Name = "button_RemoveOrganization";
-			this.button_RemoveOrganization.Size = new System.Drawing.Size(200, 29);
-			this.button_RemoveOrganization.TabIndex = 13;
-			this.button_RemoveOrganization.Text = "Удалить";
-			this.button_RemoveOrganization.UseVisualStyleBackColor = true;
-			this.button_RemoveOrganization.Click += new System.EventHandler(this.button_RemoveOrganization_Click);
-			// 
-			// button_EditOrganization
-			// 
-			this.button_EditOrganization.Location = new System.Drawing.Point(209, 3);
-			this.button_EditOrganization.Name = "button_EditOrganization";
-			this.button_EditOrganization.Size = new System.Drawing.Size(200, 29);
-			this.button_EditOrganization.TabIndex = 12;
-			this.button_EditOrganization.Text = "Редактировать";
-			this.button_EditOrganization.UseVisualStyleBackColor = true;
-			this.button_EditOrganization.Click += new System.EventHandler(this.button_EditOrganization_Click);
-			// 
-			// button_AddOrganization
-			// 
-			this.button_AddOrganization.Location = new System.Drawing.Point(3, 3);
-			this.button_AddOrganization.Name = "button_AddOrganization";
-			this.button_AddOrganization.Size = new System.Drawing.Size(200, 29);
-			this.button_AddOrganization.TabIndex = 11;
-			this.button_AddOrganization.Text = "Добавить";
-			this.button_AddOrganization.UseVisualStyleBackColor = true;
-			this.button_AddOrganization.Click += new System.EventHandler(this.button_AddOrganization_Click);
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.dataGridView_DataSearch, 0, 2);
-			this.tableLayoutPanel1.Controls.Add(this.groupBox_Search, 0, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 3;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 290F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 661);
-			this.tableLayoutPanel1.TabIndex = 15;
-			// 
-			// flowLayoutPanel1
-			// 
-			this.flowLayoutPanel1.AutoSize = true;
-			this.flowLayoutPanel1.Controls.Add(this.button_AddOrganization);
-			this.flowLayoutPanel1.Controls.Add(this.button_EditOrganization);
-			this.flowLayoutPanel1.Controls.Add(this.button_RemoveOrganization);
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 293);
-			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(618, 35);
-			this.flowLayoutPanel1.TabIndex = 16;
 			// 
 			// ColumnPK
 			// 
@@ -492,63 +499,63 @@ namespace OGM
 			this.Column_BIK.Name = "Column_BIK";
 			this.Column_BIK.ReadOnly = true;
 			// 
-			// tableLayoutPanel2
+			// button_RemoveOrganization
 			// 
-			this.tableLayoutPanel2.ColumnCount = 8;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.tableLayoutPanel2.Controls.Add(this.label_NameOrganiztion, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_BIK, 6, 4);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_Bank, 6, 2);
-			this.tableLayoutPanel2.Controls.Add(this.label_Role, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_CorrespondentAccount, 6, 3);
-			this.tableLayoutPanel2.Controls.Add(this.label_Bank, 5, 2);
-			this.tableLayoutPanel2.Controls.Add(this.label_LegalAddress, 1, 2);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_PostAddress, 2, 3);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_PaymentAccount, 6, 1);
-			this.tableLayoutPanel2.Controls.Add(this.button_ResetComboBoxRole, 3, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label_BIK, 5, 4);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_INN, 6, 0);
-			this.tableLayoutPanel2.Controls.Add(this.label_PostAddress, 1, 3);
-			this.tableLayoutPanel2.Controls.Add(this.label_CorrespondentAccount, 5, 3);
-			this.tableLayoutPanel2.Controls.Add(this.label_Phone, 1, 4);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_NameOrganiztion, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.comboBox_Role, 2, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label_PaymentAccount, 5, 1);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_LegalAddress, 2, 2);
-			this.tableLayoutPanel2.Controls.Add(this.textBox_Phone, 2, 4);
-			this.tableLayoutPanel2.Controls.Add(this.label_INN, 5, 0);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 25);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 7;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(966, 250);
-			this.tableLayoutPanel2.TabIndex = 22;
+			this.button_RemoveOrganization.Location = new System.Drawing.Point(415, 3);
+			this.button_RemoveOrganization.Name = "button_RemoveOrganization";
+			this.button_RemoveOrganization.Size = new System.Drawing.Size(200, 29);
+			this.button_RemoveOrganization.TabIndex = 13;
+			this.button_RemoveOrganization.Text = "Удалить";
+			this.button_RemoveOrganization.UseVisualStyleBackColor = true;
+			this.button_RemoveOrganization.Click += new System.EventHandler(this.button_RemoveOrganization_Click);
 			// 
-			// flowLayoutPanel2
+			// button_EditOrganization
 			// 
-			this.flowLayoutPanel2.AutoSize = true;
-			this.flowLayoutPanel2.Controls.Add(this.button_Search);
-			this.flowLayoutPanel2.Controls.Add(this.button_ResetSearch);
-			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 240);
-			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(966, 35);
-			this.flowLayoutPanel2.TabIndex = 23;
+			this.button_EditOrganization.Location = new System.Drawing.Point(209, 3);
+			this.button_EditOrganization.Name = "button_EditOrganization";
+			this.button_EditOrganization.Size = new System.Drawing.Size(200, 29);
+			this.button_EditOrganization.TabIndex = 12;
+			this.button_EditOrganization.Text = "Редактировать";
+			this.button_EditOrganization.UseVisualStyleBackColor = true;
+			this.button_EditOrganization.Click += new System.EventHandler(this.button_EditOrganization_Click);
+			// 
+			// button_AddOrganization
+			// 
+			this.button_AddOrganization.Location = new System.Drawing.Point(3, 3);
+			this.button_AddOrganization.Name = "button_AddOrganization";
+			this.button_AddOrganization.Size = new System.Drawing.Size(200, 29);
+			this.button_AddOrganization.TabIndex = 11;
+			this.button_AddOrganization.Text = "Добавить";
+			this.button_AddOrganization.UseVisualStyleBackColor = true;
+			this.button_AddOrganization.Click += new System.EventHandler(this.button_AddOrganization_Click);
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.dataGridView_DataSearch, 0, 2);
+			this.tableLayoutPanel1.Controls.Add(this.groupBox_Search, 0, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 3;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 290F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 661);
+			this.tableLayoutPanel1.TabIndex = 15;
+			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.AutoSize = true;
+			this.flowLayoutPanel1.Controls.Add(this.button_AddOrganization);
+			this.flowLayoutPanel1.Controls.Add(this.button_EditOrganization);
+			this.flowLayoutPanel1.Controls.Add(this.button_RemoveOrganization);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 293);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(618, 35);
+			this.flowLayoutPanel1.TabIndex = 16;
 			// 
 			// OrganizationForm
 			// 
@@ -566,13 +573,13 @@ namespace OGM
 			this.Load += new System.EventHandler(this.OrganizationForm_Load);
 			this.groupBox_Search.ResumeLayout(false);
 			this.groupBox_Search.PerformLayout();
+			this.flowLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_DataSearch)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
-			this.flowLayoutPanel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }

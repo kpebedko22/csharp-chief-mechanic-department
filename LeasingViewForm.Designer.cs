@@ -24,9 +24,11 @@ namespace OGM {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
 			this.ToolStripMenuItem_Export_File = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripMenuItem_Exit_File = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.label_LeasingContractNumber = new System.Windows.Forms.Label();
 			this.tabControl = new System.Windows.Forms.TabControl();
@@ -103,7 +105,6 @@ namespace OGM {
 			this.button_Export = new System.Windows.Forms.Button();
 			this.checkBox_OpenFileExport = new System.Windows.Forms.CheckBox();
 			this.BGWorker = new System.ComponentModel.BackgroundWorker();
-			this.ToolStripMenuItem_Exit_File = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
 			this.tabControl.SuspendLayout();
@@ -164,9 +165,16 @@ namespace OGM {
 			// ToolStripMenuItem_Export_File
 			// 
 			this.ToolStripMenuItem_Export_File.Name = "ToolStripMenuItem_Export_File";
-			this.ToolStripMenuItem_Export_File.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Export_File.Size = new System.Drawing.Size(119, 22);
 			this.ToolStripMenuItem_Export_File.Text = "Экспорт";
 			this.ToolStripMenuItem_Export_File.Click += new System.EventHandler(this.ToolStripMenuItem_Export_File_Click);
+			// 
+			// ToolStripMenuItem_Exit_File
+			// 
+			this.ToolStripMenuItem_Exit_File.Name = "ToolStripMenuItem_Exit_File";
+			this.ToolStripMenuItem_Exit_File.Size = new System.Drawing.Size(119, 22);
+			this.ToolStripMenuItem_Exit_File.Text = "Выход";
+			this.ToolStripMenuItem_Exit_File.Click += new System.EventHandler(this.ToolStripMenuItem_Exit_File_Click);
 			// 
 			// tableLayoutPanel
 			// 
@@ -961,7 +969,7 @@ namespace OGM {
 			this.tabPage2.Location = new System.Drawing.Point(4, 30);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(870, 594);
+			this.tabPage2.Size = new System.Drawing.Size(1091, 748);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Спецификация";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -970,6 +978,7 @@ namespace OGM {
 			// 
 			this.dataGridView_Data.AllowUserToAddRows = false;
 			this.dataGridView_Data.AllowUserToDeleteRows = false;
+			this.dataGridView_Data.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dataGridView_Data.BackgroundColor = System.Drawing.Color.FloralWhite;
 			this.dataGridView_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -982,8 +991,10 @@ namespace OGM {
 			this.dataGridView_Data.Location = new System.Drawing.Point(3, 3);
 			this.dataGridView_Data.Name = "dataGridView_Data";
 			this.dataGridView_Data.ReadOnly = true;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
+			this.dataGridView_Data.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView_Data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView_Data.Size = new System.Drawing.Size(864, 588);
+			this.dataGridView_Data.Size = new System.Drawing.Size(1085, 742);
 			this.dataGridView_Data.TabIndex = 22;
 			// 
 			// Column_NameEquipment
@@ -1032,7 +1043,7 @@ namespace OGM {
 			this.tabPage3.Location = new System.Drawing.Point(4, 30);
 			this.tabPage3.Name = "tabPage3";
 			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(870, 594);
+			this.tabPage3.Size = new System.Drawing.Size(1091, 748);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "Данные для экспорта";
 			this.tabPage3.UseVisualStyleBackColor = true;
@@ -1064,14 +1075,14 @@ namespace OGM {
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 553);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1085, 707);
 			this.tableLayoutPanel1.TabIndex = 11;
 			// 
 			// label7
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label7.Location = new System.Drawing.Point(332, 165);
+			this.label7.Location = new System.Drawing.Point(443, 242);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(52, 47);
 			this.label7.TabIndex = 9;
@@ -1080,7 +1091,7 @@ namespace OGM {
 			// 
 			// textBox_FIO_Leaser
 			// 
-			this.textBox_FIO_Leaser.Location = new System.Drawing.Point(396, 268);
+			this.textBox_FIO_Leaser.Location = new System.Drawing.Point(507, 345);
 			this.textBox_FIO_Leaser.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_FIO_Leaser.MaxLength = 250;
 			this.textBox_FIO_Leaser.Name = "textBox_FIO_Leaser";
@@ -1089,7 +1100,7 @@ namespace OGM {
 			// 
 			// textBox_FIO_Seller
 			// 
-			this.textBox_FIO_Seller.Location = new System.Drawing.Point(396, 315);
+			this.textBox_FIO_Seller.Location = new System.Drawing.Point(507, 392);
 			this.textBox_FIO_Seller.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_FIO_Seller.MaxLength = 250;
 			this.textBox_FIO_Seller.Name = "textBox_FIO_Seller";
@@ -1098,7 +1109,7 @@ namespace OGM {
 			// 
 			// textBox_FIO_Lessee
 			// 
-			this.textBox_FIO_Lessee.Location = new System.Drawing.Point(396, 221);
+			this.textBox_FIO_Lessee.Location = new System.Drawing.Point(507, 298);
 			this.textBox_FIO_Lessee.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_FIO_Lessee.MaxLength = 250;
 			this.textBox_FIO_Lessee.Name = "textBox_FIO_Lessee";
@@ -1107,7 +1118,7 @@ namespace OGM {
 			// 
 			// textBox_City
 			// 
-			this.textBox_City.Location = new System.Drawing.Point(396, 174);
+			this.textBox_City.Location = new System.Drawing.Point(507, 251);
 			this.textBox_City.Margin = new System.Windows.Forms.Padding(9);
 			this.textBox_City.MaxLength = 100;
 			this.textBox_City.Name = "textBox_City";
@@ -1118,7 +1129,7 @@ namespace OGM {
 			// 
 			this.label10.AutoSize = true;
 			this.label10.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label10.Location = new System.Drawing.Point(111, 212);
+			this.label10.Location = new System.Drawing.Point(222, 289);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(273, 47);
 			this.label10.TabIndex = 8;
@@ -1129,7 +1140,7 @@ namespace OGM {
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label2.Location = new System.Drawing.Point(111, 259);
+			this.label2.Location = new System.Drawing.Point(222, 336);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(273, 47);
 			this.label2.TabIndex = 7;
@@ -1140,7 +1151,7 @@ namespace OGM {
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-			this.label1.Location = new System.Drawing.Point(147, 306);
+			this.label1.Location = new System.Drawing.Point(258, 383);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(237, 47);
 			this.label1.TabIndex = 6;
@@ -1151,7 +1162,7 @@ namespace OGM {
 			// 
 			this.tableLayoutPanel1.SetColumnSpan(this.progressBar, 2);
 			this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.progressBar.Location = new System.Drawing.Point(114, 359);
+			this.progressBar.Location = new System.Drawing.Point(225, 436);
 			this.progressBar.Margin = new System.Windows.Forms.Padding(6);
 			this.progressBar.Name = "progressBar";
 			this.progressBar.Size = new System.Drawing.Size(635, 23);
@@ -1164,14 +1175,14 @@ namespace OGM {
 			this.flowLayoutPanel1.Controls.Add(this.checkBox_OpenFileExport);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 556);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 710);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(864, 35);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(1085, 35);
 			this.flowLayoutPanel1.TabIndex = 5;
 			// 
 			// button_Export
 			// 
-			this.button_Export.Location = new System.Drawing.Point(661, 3);
+			this.button_Export.Location = new System.Drawing.Point(882, 3);
 			this.button_Export.Name = "button_Export";
 			this.button_Export.Size = new System.Drawing.Size(200, 29);
 			this.button_Export.TabIndex = 4;
@@ -1184,7 +1195,7 @@ namespace OGM {
 			this.checkBox_OpenFileExport.AutoSize = true;
 			this.checkBox_OpenFileExport.Checked = true;
 			this.checkBox_OpenFileExport.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox_OpenFileExport.Location = new System.Drawing.Point(305, 3);
+			this.checkBox_OpenFileExport.Location = new System.Drawing.Point(526, 3);
 			this.checkBox_OpenFileExport.Name = "checkBox_OpenFileExport";
 			this.checkBox_OpenFileExport.Size = new System.Drawing.Size(350, 25);
 			this.checkBox_OpenFileExport.TabIndex = 3;
@@ -1197,13 +1208,6 @@ namespace OGM {
 			this.BGWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGWorker_DoWork);
 			this.BGWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGWorker_ProgressChanged);
 			this.BGWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGWorker_RunWorkerCompleted);
-			// 
-			// ToolStripMenuItem_Exit_File
-			// 
-			this.ToolStripMenuItem_Exit_File.Name = "ToolStripMenuItem_Exit_File";
-			this.ToolStripMenuItem_Exit_File.Size = new System.Drawing.Size(180, 22);
-			this.ToolStripMenuItem_Exit_File.Text = "Выход";
-			this.ToolStripMenuItem_Exit_File.Click += new System.EventHandler(this.ToolStripMenuItem_Exit_File_Click);
 			// 
 			// LeasingViewForm
 			// 

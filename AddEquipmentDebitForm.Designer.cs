@@ -24,6 +24,7 @@ namespace OGM {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.label_ActNumber = new System.Windows.Forms.Label();
 			this.textBox_ActNumber = new System.Windows.Forms.TextBox();
 			this.button_AddAndClose = new System.Windows.Forms.Button();
@@ -253,6 +254,7 @@ namespace OGM {
 			// 
 			this.dataGridView_Debit.AllowUserToAddRows = false;
 			this.dataGridView_Debit.AllowUserToDeleteRows = false;
+			this.dataGridView_Debit.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dataGridView_Debit.BackgroundColor = System.Drawing.Color.FloralWhite;
 			this.dataGridView_Debit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView_Debit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -269,6 +271,8 @@ namespace OGM {
 			this.dataGridView_Debit.Location = new System.Drawing.Point(3, 318);
 			this.dataGridView_Debit.Name = "dataGridView_Debit";
 			this.dataGridView_Debit.ReadOnly = true;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
+			this.dataGridView_Debit.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView_Debit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView_Debit.Size = new System.Drawing.Size(878, 266);
 			this.dataGridView_Debit.TabIndex = 11;
