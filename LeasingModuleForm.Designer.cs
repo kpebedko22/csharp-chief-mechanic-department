@@ -221,15 +221,16 @@ namespace OGM
             // 
             // comboBox_before_end
             // 
+            this.comboBox_before_end.Enabled = false;
             this.comboBox_before_end.FormattingEnabled = true;
             this.comboBox_before_end.Items.AddRange(new object[] {
-            "Все",
-            "Менее недели",
-            "Менее месяца",
-            "Менее 3 месяцев",
-            "Менее 6 месяцев",
-            "Менее года"});
-            this.comboBox_before_end.Location = new System.Drawing.Point(160, 59);
+            "Не истекает",
+            "1 недели",
+            "1 месяца",
+            "3 месяцев",
+            "6 месяцев",
+            "1 года"});
+            this.comboBox_before_end.Location = new System.Drawing.Point(191, 57);
             this.comboBox_before_end.Name = "comboBox_before_end";
             this.comboBox_before_end.Size = new System.Drawing.Size(195, 29);
             this.comboBox_before_end.TabIndex = 3;
@@ -250,15 +251,16 @@ namespace OGM
             this.radioButton_before_end.AutoSize = true;
             this.radioButton_before_end.Location = new System.Drawing.Point(18, 59);
             this.radioButton_before_end.Name = "radioButton_before_end";
-            this.radioButton_before_end.Size = new System.Drawing.Size(130, 25);
+            this.radioButton_before_end.Size = new System.Drawing.Size(167, 25);
             this.radioButton_before_end.TabIndex = 1;
-            this.radioButton_before_end.TabStop = true;
-            this.radioButton_before_end.Text = "Действующий";
+            this.radioButton_before_end.Text = "Истекает в течение";
             this.radioButton_before_end.UseVisualStyleBackColor = true;
+            this.radioButton_before_end.CheckedChanged += new System.EventHandler(this.radioButton_before_end_CheckedChanged);
             // 
             // radioButton_all
             // 
             this.radioButton_all.AutoSize = true;
+            this.radioButton_all.Checked = true;
             this.radioButton_all.Location = new System.Drawing.Point(18, 28);
             this.radioButton_all.Name = "radioButton_all";
             this.radioButton_all.Size = new System.Drawing.Size(52, 25);

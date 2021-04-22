@@ -42,6 +42,9 @@ namespace OGM
             //dataGridView_DataSearch.Columns[3].DataPropertyName = "leaser";
             //dataGridView_DataSearch.Columns[4].DataPropertyName = "view";
 
+
+            this.comboBox_before_end.SelectedIndex = 0;
+            this.comboBox_before_end.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         }
 
 
@@ -152,6 +155,46 @@ namespace OGM
 
 
 
+            bool before_end = this.radioButton_before_end.Checked;
+            bool after_end = this.radioButton_after_end.Checked;
+
+            DateTime somedate = DateTime.Now.Date;
+
+            int index_before_end = this.comboBox_before_end.SelectedIndex;
+
+            // смещение даты
+            if (before_end)
+            {
+                switch (index_before_end)
+                {
+                    case 0:
+                        break;
+
+                    case 1:
+                        somedate = somedate.AddDays(7);
+                        break;
+
+                    case 2:
+                        somedate = somedate.AddMonths(1);
+                        break;
+
+                    case 3:
+                        somedate = somedate.AddMonths(3);
+                        break;
+
+                    case 4:
+                        somedate = somedate.AddMonths(6);
+                        break;
+
+                    case 5:
+                        somedate = somedate.AddYears(1);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
 
             foreach (var item in request)
             {
@@ -168,6 +211,23 @@ namespace OGM
 
                 if (PK_Leaser != -1)
                     if (item.PK_Organization != PK_Leaser)
+                        continue;
+
+                if (before_end)
+                {
+                    if ((item.date_end > somedate && index_before_end != -1 && index_before_end != 0) || item.date_end < DateTime.Now.Date)
+                        continue;
+                    else
+                    {
+                        if (index_before_end == 0)
+                            if (item.date_end < DateTime.Now.Date)
+                                continue;
+                    }
+                }
+
+
+                if (after_end)
+                    if (item.date_end >= somedate)
                         continue;
 
                 data.Rows.Add(item.PK_Leasing_Contract, item.contract_number, item.date, item.date_end, item.name);
@@ -211,5 +271,10 @@ namespace OGM
 		private void ToolStripMenuItem_File_ExitProg_Click(object sender, EventArgs e) {
             Application.Exit();
 		}
-	}
+
+        private void radioButton_before_end_CheckedChanged(object sender, EventArgs e)
+        {
+            this.comboBox_before_end.Enabled = this.radioButton_before_end.Checked;
+        }
+    }
 }
