@@ -115,7 +115,7 @@ namespace OGM
             if (e.RowIndex == -1) return;
 
 
-            if(e.ColumnIndex == 4)
+            if(e.ColumnIndex == 5)
             {
                 int PK_Leasing_Contract = Convert.ToInt32(this.dataGridView_DataSearch.Rows[e.RowIndex].Cells[0].Value);
                 LeasingContract leasingContract = Program.db.LeasingContracts.Find(PK_Leasing_Contract);
@@ -275,6 +275,50 @@ namespace OGM
         private void radioButton_before_end_CheckedChanged(object sender, EventArgs e)
         {
             this.comboBox_before_end.Enabled = this.radioButton_before_end.Checked;
+        }
+
+        private void dataGridView_DataSearch_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.dataGridView_DataSearch.SelectedRows.Count > 1 || this.dataGridView_DataSearch.SelectedRows.Count < 1)
+                this.button_leaser_info.Visible = false;
+            else
+                this.button_leaser_info.Visible = true;
+        }
+
+        private void button_leaser_info_Click(object sender, EventArgs e)
+        {
+            // выбираем строку
+            int PK_LeasingContract = -1;
+            try
+            {
+                PK_LeasingContract = Convert.ToInt32(dataGridView_DataSearch.SelectedRows[0].Cells[0].Value);
+
+                if (PK_LeasingContract == -1)
+                    throw new Exception();
+
+                RelationshipOrganizationLeasingContract r_leasingContract = null;
+                using (OGMContext db = new OGMContext()) 
+                {
+                    r_leasingContract = db.relationships_organization_leasing_contract
+                        .Where(r => r.PK_Role == 2 && r.PK_Leasing_Contract == PK_LeasingContract)
+                        .FirstOrDefault() ; 
+                }
+
+                if (r_leasingContract == null)
+                    throw new Exception();
+
+                new AddOrganizationForm(r_leasingContract.Organization, true).ShowDialog();
+            }
+            catch 
+            {
+                MessageBox.Show("Не удалось открыть информацию о лизингодателе", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+
+            
+
         }
     }
 }

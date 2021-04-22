@@ -70,6 +70,7 @@ namespace OGM
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Leaser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_View = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.button_leaser_info = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.groupBox_Search.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -185,6 +186,7 @@ namespace OGM
             // 
             // groupBox_Search
             // 
+            this.groupBox_Search.Controls.Add(this.button_leaser_info);
             this.groupBox_Search.Controls.Add(this.groupBox1);
             this.groupBox_Search.Controls.Add(this.textBox_ContractNumber);
             this.groupBox_Search.Controls.Add(this.dateTimePicker_DateContract_Start);
@@ -242,7 +244,6 @@ namespace OGM
             this.radioButton_after_end.Name = "radioButton_after_end";
             this.radioButton_after_end.Size = new System.Drawing.Size(70, 25);
             this.radioButton_after_end.TabIndex = 2;
-            this.radioButton_after_end.TabStop = true;
             this.radioButton_after_end.Text = "Истек";
             this.radioButton_after_end.UseVisualStyleBackColor = true;
             // 
@@ -352,7 +353,7 @@ namespace OGM
             // 
             // button_ResetSearch
             // 
-            this.button_ResetSearch.Location = new System.Drawing.Point(251, 200);
+            this.button_ResetSearch.Location = new System.Drawing.Point(22, 200);
             this.button_ResetSearch.Margin = new System.Windows.Forms.Padding(6);
             this.button_ResetSearch.Name = "button_ResetSearch";
             this.button_ResetSearch.Size = new System.Drawing.Size(300, 29);
@@ -363,7 +364,7 @@ namespace OGM
             // 
             // button_Search
             // 
-            this.button_Search.Location = new System.Drawing.Point(563, 200);
+            this.button_Search.Location = new System.Drawing.Point(334, 200);
             this.button_Search.Margin = new System.Windows.Forms.Padding(6);
             this.button_Search.Name = "button_Search";
             this.button_Search.Size = new System.Drawing.Size(300, 29);
@@ -403,6 +404,7 @@ namespace OGM
             this.dataGridView_DataSearch.Size = new System.Drawing.Size(872, 275);
             this.dataGridView_DataSearch.TabIndex = 5;
             this.dataGridView_DataSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DataSearch_CellClick);
+            this.dataGridView_DataSearch.SelectionChanged += new System.EventHandler(this.dataGridView_DataSearch_SelectionChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -468,6 +470,18 @@ namespace OGM
             this.Column_View.ReadOnly = true;
             this.Column_View.Text = "Просмотреть";
             this.Column_View.VisitedLinkColor = System.Drawing.Color.Blue;
+            // 
+            // button_leaser_info
+            // 
+            this.button_leaser_info.Location = new System.Drawing.Point(646, 200);
+            this.button_leaser_info.Margin = new System.Windows.Forms.Padding(6);
+            this.button_leaser_info.Name = "button_leaser_info";
+            this.button_leaser_info.Size = new System.Drawing.Size(217, 29);
+            this.button_leaser_info.TabIndex = 10;
+            this.button_leaser_info.Text = "Сведения о лизингодателе";
+            this.button_leaser_info.UseVisualStyleBackColor = true;
+            this.button_leaser_info.Visible = false;
+            this.button_leaser_info.Click += new System.EventHandler(this.button_leaser_info_Click);
             // 
             // LeasingModuleForm
             // 
@@ -542,5 +556,6 @@ namespace OGM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Leaser;
         private System.Windows.Forms.DataGridViewLinkColumn Column_View;
+        private System.Windows.Forms.Button button_leaser_info;
     }
 }
