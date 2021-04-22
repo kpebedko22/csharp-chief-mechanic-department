@@ -39,8 +39,16 @@ namespace OGM
             dataGridView_DataSearch.Columns[2].DataPropertyName = "Date";
             dataGridView_DataSearch.Columns[3].DataPropertyName = "date_end";
             dataGridView_DataSearch.Columns[4].DataPropertyName = "name";
+
+            //DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView_DataSearch.Columns[4];
+            //c.FlatStyle = FlatStyle.System;
+            //c.DefaultCellStyle.BackColor = Color.LightGray;
+
+           
+
             //dataGridView_DataSearch.Columns[3].DataPropertyName = "leaser";
             //dataGridView_DataSearch.Columns[4].DataPropertyName = "view";
+
 
 
             this.comboBox_before_end.SelectedIndex = 0;
@@ -48,11 +56,6 @@ namespace OGM
         }
 
 
-        private void SetTextLastColumn()
-        {
-            foreach (DataGridViewRow row in dataGridView_DataSearch.Rows)
-                row.Cells[5].Value = "Просмотреть";
-        }
 
 
         private void updateTable()
@@ -64,7 +67,6 @@ namespace OGM
                     .Where(r => r.PK_Role == 2);
 
                 dataGridView_DataSearch.DataSource = relationships.ToList();
-                SetTextLastColumn();
                 dataGridView_DataSearch.ClearSelection();
             }
 
@@ -114,6 +116,37 @@ namespace OGM
         {
             if (e.RowIndex == -1) return;
 
+            if (e.ColumnIndex == 4)
+            {
+                // выбираем строку
+                int PK_LeasingContract = -1;
+                try
+                {
+                    PK_LeasingContract = Convert.ToInt32(this.dataGridView_DataSearch.Rows[e.RowIndex].Cells[0].Value);
+
+                    if (PK_LeasingContract == -1)
+                        throw new Exception();
+
+                    RelationshipOrganizationLeasingContract r_leasingContract = null;
+                    using (OGMContext db = new OGMContext())
+                    {
+                        r_leasingContract = db.relationships_organization_leasing_contract
+                            .Where(r => r.PK_Role == 2 && r.PK_Leasing_Contract == PK_LeasingContract)
+                            .FirstOrDefault();
+                    }
+
+                    if (r_leasingContract == null)
+                        throw new Exception();
+
+                    new AddOrganizationForm(r_leasingContract.Organization, true).ShowDialog();
+                }
+                catch
+                {
+                    MessageBox.Show("Не удалось открыть информацию о лизингодателе", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
 
             if(e.ColumnIndex == 5)
             {
@@ -144,100 +177,102 @@ namespace OGM
             data.Columns.Add("date_end", typeof(DateTime));
             data.Columns.Add("name", typeof(string));
 
-            var request = Program.db.relationships_organization_leasing_contract
-                .Select(r => new { r.PK_Leasing_Contract, r.Leasing_Contract.contract_number, r.Leasing_Contract.date, r.Leasing_Contract.date_end, r.PK_Role, r.Organization.name, r.PK_Organization })
-                .Where(r => r.PK_Role == 2).ToList();
-
-
-            int PK_Leaser = -1;
-            if (this.comboBox_Leaser.SelectedIndex != -1 && this.comboBox_Leaser.SelectedItem != null)
-                PK_Leaser = ((Organization)this.comboBox_Leaser.SelectedItem).PK_Organization;
-
-
-
-            bool before_end = this.radioButton_before_end.Checked;
-            bool after_end = this.radioButton_after_end.Checked;
-
-            DateTime somedate = DateTime.Now.Date;
-
-            int index_before_end = this.comboBox_before_end.SelectedIndex;
-
-            // смещение даты
-            if (before_end)
+            using (OGMContext db = new OGMContext())
             {
-                switch (index_before_end)
-                {
-                    case 0:
-                        break;
 
-                    case 1:
-                        somedate = somedate.AddDays(7);
-                        break;
-
-                    case 2:
-                        somedate = somedate.AddMonths(1);
-                        break;
-
-                    case 3:
-                        somedate = somedate.AddMonths(3);
-                        break;
-
-                    case 4:
-                        somedate = somedate.AddMonths(6);
-                        break;
-
-                    case 5:
-                        somedate = somedate.AddYears(1);
-                        break;
-
-                    default:
-                        break;
-                }
-            }
+                var request = db.relationships_organization_leasing_contract
+                    .Select(r => new { r.PK_Leasing_Contract, r.Leasing_Contract.contract_number, r.Leasing_Contract.date, r.Leasing_Contract.date_end, r.PK_Role, r.Organization.name, r.PK_Organization })
+                    .Where(r => r.PK_Role == 2).ToList();
 
 
-            foreach (var item in request)
-            {
-                if (this.dateTimePicker_DateContract_Start.Checked)
-                    if (item.date < this.dateTimePicker_DateContract_Start.Value.Date)
-                        continue;
+                int PK_Leaser = -1;
+                if (this.comboBox_Leaser.SelectedIndex != -1 && this.comboBox_Leaser.SelectedItem != null)
+                    PK_Leaser = ((Organization)this.comboBox_Leaser.SelectedItem).PK_Organization;
 
-                if (this.dateTimePicker_DateContract_End.Checked)
-                    if (item.date > this.dateTimePicker_DateContract_End.Value.Date)
-                        continue;
 
-                if (item.contract_number.ToLower().Contains(this.textBox_ContractNumber.Text.ToLower()) == false)
-                    continue;
 
-                if (PK_Leaser != -1)
-                    if (item.PK_Organization != PK_Leaser)
-                        continue;
+                bool before_end = this.radioButton_before_end.Checked;
+                bool after_end = this.radioButton_after_end.Checked;
 
+                DateTime somedate = DateTime.Now.Date;
+
+                int index_before_end = this.comboBox_before_end.SelectedIndex;
+
+                // смещение даты
                 if (before_end)
                 {
-                    if ((item.date_end > somedate && index_before_end != -1 && index_before_end != 0) || item.date_end < DateTime.Now.Date)
-                        continue;
-                    else
+                    switch (index_before_end)
                     {
-                        if (index_before_end == 0)
-                            if (item.date_end < DateTime.Now.Date)
-                                continue;
+                        case 0:
+                            break;
+
+                        case 1:
+                            somedate = somedate.AddDays(7);
+                            break;
+
+                        case 2:
+                            somedate = somedate.AddMonths(1);
+                            break;
+
+                        case 3:
+                            somedate = somedate.AddMonths(3);
+                            break;
+
+                        case 4:
+                            somedate = somedate.AddMonths(6);
+                            break;
+
+                        case 5:
+                            somedate = somedate.AddYears(1);
+                            break;
+
+                        default:
+                            break;
                     }
                 }
 
 
-                if (after_end)
-                    if (item.date_end >= somedate)
+                foreach (var item in request)
+                {
+                    if (this.dateTimePicker_DateContract_Start.Checked)
+                        if (item.date < this.dateTimePicker_DateContract_Start.Value.Date)
+                            continue;
+
+                    if (this.dateTimePicker_DateContract_End.Checked)
+                        if (item.date > this.dateTimePicker_DateContract_End.Value.Date)
+                            continue;
+
+                    if (item.contract_number.ToLower().Contains(this.textBox_ContractNumber.Text.ToLower()) == false)
                         continue;
 
-                data.Rows.Add(item.PK_Leasing_Contract, item.contract_number, item.date, item.date_end, item.name);
+                    if (PK_Leaser != -1)
+                        if (item.PK_Organization != PK_Leaser)
+                            continue;
+
+                    if (before_end)
+                    {
+                        if ((item.date_end > somedate && index_before_end != -1 && index_before_end != 0) || item.date_end < DateTime.Now.Date)
+                            continue;
+                        else
+                        {
+                            if (index_before_end == 0)
+                                if (item.date_end < DateTime.Now.Date)
+                                    continue;
+                        }
+                    }
+
+
+                    if (after_end)
+                        if (item.date_end >= somedate)
+                            continue;
+
+                    data.Rows.Add(item.PK_Leasing_Contract, item.contract_number, item.date, item.date_end, item.name);
+                }
+
+
+                dataGridView_DataSearch.DataSource = data;
+                dataGridView_DataSearch.ClearSelection();
             }
-
-
-            dataGridView_DataSearch.DataSource = data;
-            SetTextLastColumn();
-            dataGridView_DataSearch.ClearSelection();
-
 
         }
 
@@ -279,48 +314,20 @@ namespace OGM
             this.comboBox_before_end.Enabled = this.radioButton_before_end.Checked;
         }
 
-        private void dataGridView_DataSearch_SelectionChanged(object sender, EventArgs e)
-        {
-            if (this.dataGridView_DataSearch.SelectedRows.Count > 1 || this.dataGridView_DataSearch.SelectedRows.Count < 1)
-                this.button_leaser_info.Visible = false;
-            else
-                this.button_leaser_info.Visible = true;
-        }
-
         private void button_leaser_info_Click(object sender, EventArgs e)
         {
-            // выбираем строку
-            int PK_LeasingContract = -1;
-            try
-            {
-                PK_LeasingContract = Convert.ToInt32(dataGridView_DataSearch.SelectedRows[0].Cells[0].Value);
 
-                if (PK_LeasingContract == -1)
-                    throw new Exception();
-
-                RelationshipOrganizationLeasingContract r_leasingContract = null;
-                using (OGMContext db = new OGMContext()) 
-                {
-                    r_leasingContract = db.relationships_organization_leasing_contract
-                        .Where(r => r.PK_Role == 2 && r.PK_Leasing_Contract == PK_LeasingContract)
-                        .FirstOrDefault() ; 
-                }
-
-                if (r_leasingContract == null)
-                    throw new Exception();
-
-                new AddOrganizationForm(r_leasingContract.Organization, true).ShowDialog();
-            }
-            catch 
-            {
-                MessageBox.Show("Не удалось открыть информацию о лизингодателе", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
 
 
             
 
+        }
+
+        private void dataGridView_DataSearch_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            ((DataGridView)sender).Rows[e.RowIndex].Cells[5].Value = "Просмотреть";
         }
     }
 }
