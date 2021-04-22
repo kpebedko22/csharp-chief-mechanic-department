@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 using OGM.Models;
 
@@ -72,6 +73,8 @@ namespace OGM
             // при выборе цеха нужно найти его первичный ключ цех
             // потом нужно найти все группы, принадлежащие данному цеху
 
+            System.Console.WriteLine("\n\n index = " + comboBox_Workshop.SelectedIndex.ToString());
+
             if (comboBox_Workshop.SelectedIndex != -1 && comboBox_Workshop.SelectedItem != null)
             {
 
@@ -102,9 +105,10 @@ namespace OGM
             if (String.IsNullOrWhiteSpace(this.textBox_NameEquipment.Text)) this.textBox_NameEquipment.Text = "";
             if (String.IsNullOrWhiteSpace(this.textBox_SerialNum.Text)) this.textBox_SerialNum.Text = "";
 
+            string inventory_num = this.textBox_InventoryNum.Text.ToLower();
+            string serial_num = this.textBox_SerialNum.Text.ToLower();
+            string name = this.textBox_NameEquipment.Text.ToLower();
 
-            List<Equipment> equipments = Program.db.Equipments.OrderBy(b => b.inventory_number).ToList();
-            List<Equipment> equipmentsResult = new List<Equipment>();
 
             int PK_Workshop = -1;
             if (((Workshop)comboBox_Workshop.SelectedItem) != null)
@@ -118,41 +122,103 @@ namespace OGM
             bool is_debit = this.radioButton_is_debit.Checked;
             bool is_leasing = this.radioButton_is_leasing.Checked;
 
-            foreach (Equipment item in equipments)
-                if (item.name.ToLower().Contains(this.textBox_NameEquipment.Text.ToLower())
-                    && item.inventory_number.ToLower().Contains(this.textBox_InventoryNum.Text.ToLower())
-                    && item.serial_number.ToLower().Contains(this.textBox_SerialNum.Text.ToLower()))
+            //bool searched = false; // был ли поиск по фильтрам?
+
+            // для ускорения поиска
+            IQueryable<Equipment> equipments = null;
+            List<Equipment> result = new List<Equipment>();
+
+            using (OGMContext db = new OGMContext())
+            {
+
+                if (PK_Workshop != -1 && PK_Equipment_Group != -1)
+                    equipments = db.Equipments.AsNoTracking().Where(eq =>
+                                                 eq.PK_Equipment_Group == PK_Equipment_Group
+                                                && eq.name.ToLower().Contains(name)
+                                                && eq.inventory_number.ToLower().Contains(inventory_num)
+                                                && eq.serial_number.ToLower().Contains(serial_num)).AsNoTracking();
+
+                else if (PK_Workshop != -1)
                 {
 
-                    bool is_good_row = true;
-                    if (PK_Workshop != -1)
-                        if (item.PK_Workshop != PK_Workshop)
-                            is_good_row = false;
+                    List<EquipmentGroup> groups = db.EquipmentGroups.Where(g => g.PK_Workshop == PK_Workshop).ToList();
+                    List<Equipment> result_for_workshop = new List<Equipment>();
 
-                    if (PK_Equipment_Group != -1)
-                        if (item.PK_Equipment_Group != PK_Equipment_Group)
-                            is_good_row = false;
+                    foreach (EquipmentGroup item in groups)
+                    {
+                        int pk = item.PK_Equipment_Group;
+                        List<Equipment> temp = db.Equipments.Where(eq => eq.PK_Equipment_Group == pk
+                                            && eq.name.ToLower().Contains(name)
+                                            && eq.inventory_number.ToLower().Contains(inventory_num)
+                                            && eq.serial_number.ToLower().Contains(serial_num)).ToList();
+   
+                        if (temp != null)
+                            foreach (Equipment eq in temp)
+                                result_for_workshop.Add(eq);
+                    }
 
-                    if (is_debit)
-                        if (item.is_debit == false)
-                            is_good_row = false;
-
-                    if (is_leasing)
-                        if (item.is_leasing == false)
-                            is_good_row = false;
-
-
-
-                    if (is_good_row)
-                        equipmentsResult.Add(item);
-
-                }
+                    equipments = result_for_workshop.AsQueryable();
                     
 
+                }
+                if (is_debit)
+                {
+                    if (equipments != null)
+                        equipments = equipments.AsNoTracking().Where(eq => eq.is_debit == true);
+                    else
+                        equipments = db.Equipments.AsNoTracking().Where(eq => eq.is_debit == true
+                                                    && eq.name.ToLower().Contains(name)
+                                                    && eq.inventory_number.ToLower().Contains(inventory_num)
+                                                    && eq.serial_number.ToLower().Contains(serial_num));
+                }
+                else if (is_leasing)
+                {
+                    if (equipments != null)
+                        equipments = equipments.Where(eq => eq.is_leasing == true);
+                    else
+                        equipments = db.Equipments.AsNoTracking().Where(eq => eq.is_leasing == true
+                                                    && eq.name.ToLower().Contains(name)
+                                                    && eq.inventory_number.ToLower().Contains(inventory_num)
+                                                    && eq.serial_number.ToLower().Contains(serial_num));
+                }
+                else if (equipments == null)
+                    equipments = db.Equipments.AsNoTracking().Where(eq =>
+                                   eq.name.ToLower().Contains(name)
+                                && eq.inventory_number.ToLower().Contains(inventory_num)
+                                && eq.serial_number.ToLower().Contains(serial_num));
 
-            dataGridView.DataSource = equipmentsResult;
-            dataGridView.ClearSelection();
+
+                if (equipments != null)
+                {
+                    dataGridView.DataSource = equipments.ToList();
+                    dataGridView.ClearSelection();
+                    if (equipments.Count() == 0)
+                        MessageBox.Show("Ничего не найдено!", "Ошибка!");
+
+                }
+                else 
+                {
+                    dataGridView.DataSource = null;
+                    MessageBox.Show("Ничего не найдено!", "Ошибка!");
+
+                }
+
+            }
+            
         }
+
+
+
+        private static async Task<List<Equipment>> GetEquipmentAsync(int PK_Workshop)
+        {
+            using (OGMContext db = new OGMContext())
+            {
+                
+            return await db.Equipments.Where(eq => eq.PK_Workshop == PK_Workshop).ToListAsync();
+            }
+
+        }
+
 
         private void button_ResetSearch_Click(object sender, EventArgs e)
         {
