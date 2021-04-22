@@ -108,7 +108,7 @@ namespace OGM {
 			this.label_LeasingContractNumber.Text += " " + contract.contract_number;
 			this.textBox_LeasingNum.Text = contract.contract_number;
 			this.textBox_Date.Text = DateToString.Translate(this.contract.date, "г.");
-			this.textBox_DateEnd.Text = DateToString.Translate(this.contract.date, "г.");
+			this.textBox_DateEnd.Text = DateToString.Translate(this.contract.date_end, "г.");
 
 			// сроки
 			this.numericUpDown_DaysForFirstPayment.Value = contract.days_for_first_payment;
@@ -122,7 +122,7 @@ namespace OGM {
 
 			// об оборудовании
 			this.numericUpDown_PeriodOfUse.Text = contract.period_of_use;
-			this.textBox_DateDelivery.Text = DateToString.Translate(this.contract.date, "г.");
+			this.textBox_DateDelivery.Text = DateToString.Translate(this.contract.date_delivery, "г.");
 			this.textBox_AddressDelivery.Text = contract.address_delivery;
 
 			//// организации подгружаем через поиск связей ////

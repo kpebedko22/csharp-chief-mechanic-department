@@ -18,7 +18,7 @@ namespace OGM
 
         private List<TextBox> textBoxesOnForm;
 
-        public AddOrganizationForm(Organization editOrganization=null) {
+        public AddOrganizationForm(Organization editOrganization=null, bool read_only=false) {
             InitializeComponent();
 
             comboBox_Role.DataSource = Program.db.Roles.ToList();
@@ -61,6 +61,20 @@ namespace OGM
                 this.button_AddAndClose.Text = "Изменить и закрыть";
 
                 EditOrganization = editOrganization;
+            }
+
+            if (read_only)
+            {
+
+                foreach (TextBox item in textBoxesOnForm)
+                    item.ReadOnly = true;
+
+                this.comboBox_Role.Enabled = false;
+
+                this.Text = "Справочник - Просмотреть организацию";
+                this.button_Add.Visible = false;
+                this.button_AddAndClose.Visible = false;
+                this.button_Close.Text = "Закрыть";
             }
         }
 

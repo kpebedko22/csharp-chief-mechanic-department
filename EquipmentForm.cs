@@ -44,7 +44,7 @@ namespace OGM
 
         private void Equipment_Activated(object sender, EventArgs e)
         {
-
+            
             // сохраним выбор
             Workshop selected_wrokshop = ((Workshop)this.comboBox_Workshop.SelectedItem);
             EquipmentGroup selected_group = ((EquipmentGroup)this.comboBox_GroupEquipment.SelectedItem);
@@ -63,7 +63,8 @@ namespace OGM
 
             this.comboBox_GroupEquipment.SelectedItem = selected_group;
 
-            this.button_Search.PerformClick();
+            //this.button_Search.PerformClick();
+            
         }
 
         private void comboBox_Workshop_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,9 +163,10 @@ namespace OGM
             this.textBox_SerialNum.Text = "";
             this.radioButton_all.Checked = true;
 
-            List<Equipment> equipments = Program.db.Equipments.ToList();
-            dataGridView.DataSource = equipments;
-            dataGridView.ClearSelection();
+            //List<Equipment> equipments = Program.db.Equipments.ToList();
+            //dataGridView.DataSource = equipments;
+            dataGridView.DataSource = null;
+            //dataGridView.ClearSelection();
 
             this.comboBox_Workshop.Focus();
 
@@ -250,6 +252,63 @@ namespace OGM
 
 
             this.button_Search.PerformClick();
+        }
+
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.dataGridView.SelectedRows.Count > 1 || this.dataGridView.SelectedRows.Count < 1)
+                this.button_show_act_contract.Visible = false;
+            else
+            {
+                this.button_show_act_contract.Visible = true;
+                if (Convert.ToBoolean(dataGridView.SelectedRows[0].Cells[9].Value) == true)
+                    this.button_show_act_contract.Text = "Перейти к акту";
+                else if (Convert.ToBoolean(dataGridView.SelectedRows[0].Cells[10].Value) == true)
+                        this.button_show_act_contract.Text = "Перейти к договору";
+                else
+                    this.button_show_act_contract.Visible = false;
+   
+            }
+        }
+
+        private void button_show_act_contract_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int PK_Equipment = Convert.ToInt32(this.dataGridView.SelectedRows[0].Cells[0].Value);
+                Equipment equipment = null;
+                using (OGMContext db = new OGMContext()) { equipment = db.Equipments.Find(PK_Equipment); }
+
+                if (equipment == null)
+                    throw new Exception();
+
+
+                if (this.button_show_act_contract.Text == "Перейти к акту")
+                {
+                    ActDebit actDebit = null;
+                    using (OGMContext db = new OGMContext()) { actDebit = db.ActDebits.Find(equipment.PK_Debit); }
+
+                    if (actDebit == null)
+                        throw new Exception();
+
+                    new DebitViewForm(actDebit).ShowDialog();
+                }
+                else if (this.button_show_act_contract.Text == "Перейти к договору")
+                {
+                    LeasingContract leasingContract = null;
+                    using (OGMContext db = new OGMContext()) { leasingContract = db.LeasingContracts.Find(equipment.PK_Leasing); }
+
+                    if (leasingContract == null)
+                        throw new Exception();
+
+                    new LeasingViewForm(leasingContract).ShowDialog();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Не удалось перейти к документу", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
