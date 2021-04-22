@@ -150,8 +150,8 @@ namespace OGM
 
             foreach (var item in request)
             {
-                if (this.dateTimePicker_DateContract.Checked)
-                    if (item.date != this.dateTimePicker_DateContract.Value.Date)
+                if (this.dateTimePicker_DateContract_Start.Checked)
+                    if (item.date != this.dateTimePicker_DateContract_Start.Value.Date)
                         continue;
 
                 if (item.contract_number.ToLower().Contains(this.textBox_ContractNumber.Text.ToLower()) == false)
@@ -177,7 +177,7 @@ namespace OGM
             this.comboBox_Leaser.SelectedIndex = -1;
             this.comboBox_Leaser.Text = "";
             this.textBox_ContractNumber.Text = "";
-            this.dateTimePicker_DateContract.Checked = false;
+            this.dateTimePicker_DateContract_Start.Checked = false;
 
             //updateTable(Program.db.LeasingContracts.ToList());
             updateTable();
