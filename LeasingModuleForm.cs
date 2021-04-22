@@ -37,7 +37,8 @@ namespace OGM
             dataGridView_DataSearch.Columns[0].DataPropertyName = "PK_Leasing_Contract";
             dataGridView_DataSearch.Columns[1].DataPropertyName = "contract_Number";
             dataGridView_DataSearch.Columns[2].DataPropertyName = "Date";
-            dataGridView_DataSearch.Columns[3].DataPropertyName = "name";
+            dataGridView_DataSearch.Columns[3].DataPropertyName = "date_end";
+            dataGridView_DataSearch.Columns[4].DataPropertyName = "name";
             //dataGridView_DataSearch.Columns[3].DataPropertyName = "leaser";
             //dataGridView_DataSearch.Columns[4].DataPropertyName = "view";
 
@@ -47,7 +48,7 @@ namespace OGM
         private void SetTextLastColumn()
         {
             foreach (DataGridViewRow row in dataGridView_DataSearch.Rows)
-                row.Cells[4].Value = "Просмотреть";
+                row.Cells[5].Value = "Просмотреть";
         }
 
 
@@ -56,7 +57,7 @@ namespace OGM
             using (OGMContext db = new OGMContext())
             {
                 var relationships = db.relationships_organization_leasing_contract
-                    .Select(r => new { r.PK_Leasing_Contract, r.Leasing_Contract.contract_number, r.Leasing_Contract.date, r.PK_Role, r.Organization.name})
+                    .Select(r => new { r.PK_Leasing_Contract, r.Leasing_Contract.contract_number, r.Leasing_Contract.date, r.Leasing_Contract.date_end, r.PK_Role, r.Organization.name})
                     .Where(r => r.PK_Role == 2);
 
                 dataGridView_DataSearch.DataSource = relationships.ToList();
@@ -137,6 +138,7 @@ namespace OGM
             data.Columns.Add("PK_Leasing_Contract", typeof(int));
             data.Columns.Add("contract_Number", typeof(string));
             data.Columns.Add("Date", typeof(DateTime));
+            data.Columns.Add("date_end", typeof(DateTime));
             data.Columns.Add("name", typeof(string));
 
             var request = Program.db.relationships_organization_leasing_contract
@@ -147,6 +149,9 @@ namespace OGM
             int PK_Leaser = -1;
             if (this.comboBox_Leaser.SelectedIndex != -1 && this.comboBox_Leaser.SelectedItem != null)
                 PK_Leaser = ((Organization)this.comboBox_Leaser.SelectedItem).PK_Organization;
+
+
+
 
             foreach (var item in request)
             {
@@ -165,7 +170,7 @@ namespace OGM
                     if (item.PK_Organization != PK_Leaser)
                         continue;
 
-                data.Rows.Add(item.PK_Leasing_Contract, item.contract_number, item.date, item.name);
+                data.Rows.Add(item.PK_Leasing_Contract, item.contract_number, item.date, item.date_end, item.name);
             }
 
 
