@@ -29,7 +29,7 @@ namespace OGM {
 			dataGridView_DataSearch.Columns[2].DataPropertyName = "act_number";
 			dataGridView_DataSearch.Columns[3].DataPropertyName = "date";
 			
-			dateTimePicker_DateDebit.Checked = false;
+			dateTimePicker_DateDebit_From.Checked = false;
 
 			UpdateTable();
 			//SetIndexNums();
@@ -97,8 +97,12 @@ namespace OGM {
 					if (!item.act_number.ToLower().Contains(textBox_ActNumber.Text.ToLower()))
 						continue;
 
-					if (dateTimePicker_DateDebit.Checked)
-						if (item.date.Date != dateTimePicker_DateDebit.Value.Date)
+					if (dateTimePicker_DateDebit_From.Checked)
+						if (item.date.Date < dateTimePicker_DateDebit_From.Value.Date)
+							continue;
+
+					if (dateTimePicker_DateDebit_To.Checked)
+						if (item.date.Date > dateTimePicker_DateDebit_To.Value.Date)
 							continue;
 
 					actDebitsResult.Add(item);
@@ -113,8 +117,8 @@ namespace OGM {
 		private void button_ResetSearch_Click(object sender, EventArgs e) {
 			textBox_ActNumber.Text = "";
 			
-			dateTimePicker_DateDebit.Value = DateTime.Now;
-			dateTimePicker_DateDebit.Checked = false;
+			dateTimePicker_DateDebit_From.Value = DateTime.Now;
+			dateTimePicker_DateDebit_From.Checked = false;
 
 			UpdateTable();
 			dataGridView_DataSearch.ClearSelection();
