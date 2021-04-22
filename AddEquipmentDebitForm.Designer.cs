@@ -173,13 +173,13 @@ namespace OGM {
 			// 
 			this.ToolStripMenuItem_Add_EquipmentDebit.Enabled = false;
 			this.ToolStripMenuItem_Add_EquipmentDebit.Name = "ToolStripMenuItem_Add_EquipmentDebit";
-			this.ToolStripMenuItem_Add_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Add_EquipmentDebit.Size = new System.Drawing.Size(126, 22);
 			this.ToolStripMenuItem_Add_EquipmentDebit.Text = "Добавить";
 			// 
 			// ToolStripMenuItem_Find_EquipmentDebit
 			// 
 			this.ToolStripMenuItem_Find_EquipmentDebit.Name = "ToolStripMenuItem_Find_EquipmentDebit";
-			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(180, 22);
+			this.ToolStripMenuItem_Find_EquipmentDebit.Size = new System.Drawing.Size(126, 22);
 			this.ToolStripMenuItem_Find_EquipmentDebit.Text = "Найти";
 			this.ToolStripMenuItem_Find_EquipmentDebit.Click += new System.EventHandler(this.ToolStripMenuItem_Find_EquipmentDebit_Click);
 			// 
