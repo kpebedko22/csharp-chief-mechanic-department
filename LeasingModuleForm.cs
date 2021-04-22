@@ -260,7 +260,7 @@ namespace OGM
         {
 
             //updateTable(Program.db.LeasingContracts.ToList());
-            updateTable();
+            // updateTable();
 
             this.comboBox_Leaser.DataSource = Program.db.Organizations.Where(org => org.PK_Role == 2).ToList();
             this.comboBox_Leaser.SelectedItem = null;
