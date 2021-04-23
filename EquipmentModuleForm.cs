@@ -118,7 +118,9 @@ namespace OGM {
 			textBox_ActNumber.Text = "";
 			
 			dateTimePicker_DateDebit_From.Value = DateTime.Now;
+			dateTimePicker_DateDebit_To.Value = DateTime.Now;
 			dateTimePicker_DateDebit_From.Checked = false;
+			dateTimePicker_DateDebit_To.Checked = false;
 
 			UpdateTable();
 			dataGridView_DataSearch.ClearSelection();

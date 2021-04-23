@@ -30,8 +30,8 @@ namespace OGM
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_File_ExitModule = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +46,8 @@ namespace OGM
             this.организацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.причинаСписанияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox_Search = new System.Windows.Forms.GroupBox();
+            this.button_ResetSearch = new System.Windows.Forms.Button();
+            this.button_Search = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox_before_end = new System.Windows.Forms.ComboBox();
             this.radioButton_after_end = new System.Windows.Forms.RadioButton();
@@ -59,19 +61,17 @@ namespace OGM
             this.label_Leaser = new System.Windows.Forms.Label();
             this.label_DateCreateContract = new System.Windows.Forms.Label();
             this.pictureBox_Info = new System.Windows.Forms.PictureBox();
-            this.button_Search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_DataSearch = new System.Windows.Forms.DataGridView();
-            this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Column_PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_ContractNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Leaser = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column_View = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.button_ResetSearch = new System.Windows.Forms.Button();
+            this.toolTip_Info = new System.Windows.Forms.ToolTip(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip.SuspendLayout();
             this.groupBox_Search.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -207,6 +207,28 @@ namespace OGM
             this.groupBox_Search.TabIndex = 1;
             this.groupBox_Search.TabStop = false;
             this.groupBox_Search.Text = "Параметры поиска договора (-ов)";
+            // 
+            // button_ResetSearch
+            // 
+            this.button_ResetSearch.Location = new System.Drawing.Point(500, 92);
+            this.button_ResetSearch.Margin = new System.Windows.Forms.Padding(6);
+            this.button_ResetSearch.Name = "button_ResetSearch";
+            this.button_ResetSearch.Size = new System.Drawing.Size(300, 29);
+            this.button_ResetSearch.TabIndex = 10;
+            this.button_ResetSearch.Text = "Сбросить параметры поиска";
+            this.button_ResetSearch.UseVisualStyleBackColor = true;
+            this.button_ResetSearch.Click += new System.EventHandler(this.button_ResetSearch_Click);
+            // 
+            // button_Search
+            // 
+            this.button_Search.Location = new System.Drawing.Point(500, 44);
+            this.button_Search.Margin = new System.Windows.Forms.Padding(6);
+            this.button_Search.Name = "button_Search";
+            this.button_Search.Size = new System.Drawing.Size(300, 29);
+            this.button_Search.TabIndex = 3;
+            this.button_Search.Text = "Найти";
+            this.button_Search.UseVisualStyleBackColor = true;
+            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
             // 
             // groupBox1
             // 
@@ -351,17 +373,6 @@ namespace OGM
             this.toolTip_Info.SetToolTip(this.pictureBox_Info, "Поля необязательны к заполнению.\r\nВы можете выбрать только интересующие Вас парам" +
         "етры.");
             // 
-            // button_Search
-            // 
-            this.button_Search.Location = new System.Drawing.Point(500, 44);
-            this.button_Search.Margin = new System.Windows.Forms.Padding(6);
-            this.button_Search.Name = "button_Search";
-            this.button_Search.Size = new System.Drawing.Size(300, 29);
-            this.button_Search.TabIndex = 3;
-            this.button_Search.Text = "Найти";
-            this.button_Search.UseVisualStyleBackColor = true;
-            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -390,28 +401,13 @@ namespace OGM
             this.dataGridView_DataSearch.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView_DataSearch.Name = "dataGridView_DataSearch";
             this.dataGridView_DataSearch.ReadOnly = true;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
-            this.dataGridView_DataSearch.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3);
+            this.dataGridView_DataSearch.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView_DataSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_DataSearch.Size = new System.Drawing.Size(872, 355);
             this.dataGridView_DataSearch.TabIndex = 5;
             this.dataGridView_DataSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DataSearch_CellClick);
             this.dataGridView_DataSearch.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_DataSearch_RowPostPaint);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox_Search, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView_DataSearch, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 637);
-            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // Column_PK
             // 
@@ -448,11 +444,11 @@ namespace OGM
             // Column_Leaser
             // 
             this.Column_Leaser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.Column_Leaser.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.Column_Leaser.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column_Leaser.FillWeight = 3.826431F;
             this.Column_Leaser.HeaderText = "Лизингодатель";
             this.Column_Leaser.Name = "Column_Leaser";
@@ -471,15 +467,20 @@ namespace OGM
             this.Column_View.Text = "Просмотреть";
             this.Column_View.VisitedLinkColor = System.Drawing.Color.Blue;
             // 
-            // button_ResetSearch
+            // tableLayoutPanel1
             // 
-            this.button_ResetSearch.Location = new System.Drawing.Point(500, 92);
-            this.button_ResetSearch.Margin = new System.Windows.Forms.Padding(6);
-            this.button_ResetSearch.Name = "button_ResetSearch";
-            this.button_ResetSearch.Size = new System.Drawing.Size(300, 29);
-            this.button_ResetSearch.TabIndex = 10;
-            this.button_ResetSearch.Text = "Сбросить параметры поиска";
-            this.button_ResetSearch.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_Search, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView_DataSearch, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 270F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 637);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // LeasingModuleForm
             // 
